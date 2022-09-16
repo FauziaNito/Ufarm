@@ -1,0 +1,15 @@
+Hello Monica, I will be posting my Issues in this file (Those i have really tried to solve but failed)
+please help and provide solution if you can.Thank You.
+
+*****Issue Day 1****
+
+1. I failed to align the logo on the login page, i have tried various images but they seem to 
+push the other elements off the card
+
+2.The text input border color failed to change and after its clicked too on the login page.
+
+3.The "forgot password?" on the login form failed to align at the immediate bottom of enter password 
+textinput on Login page
+
+
+****Solutions to Day 1**** 
