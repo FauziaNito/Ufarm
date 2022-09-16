@@ -12,7 +12,7 @@
 }
 .login-form-container{
     margin:auto;
-    padding-top: 45px;
+    padding-top: 0px;
     /* text-align: center; */
     
     
@@ -36,4 +36,11 @@
     text-align: right !important;
     font-size: 12px;
     color: #83B735;
+}
+.img-logo{
+    height: auto;
+    width: 50%;
+}
+.logo-div{
+    padding-top: 0%;
 }
