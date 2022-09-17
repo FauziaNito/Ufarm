@@ -53,9 +53,19 @@
     width: 180px;
     padding: 0% !important;
 }
-.list-divider{
-    border-style: solid;
-    border-bottom:1px ;
-    border-color:#6C7C99 ;
+div.sidebar-list-container{
+    text-align: center;
+}
+ul.sidebar-list li{
+    justify-content: center;
+    padding-bottom: 25px;
+    display: inline-block;
+    text-align: left;
 
+}
+.sidebar-header{
+    font-size: 15px;
+    color:#999999;
+    margin-bottom: 0%;
+    
 }
