@@ -2,7 +2,7 @@
     margin:auto;
     width: 30%;
     text-align: center;
-    position  : absolute;
+    position  : fixed;
     transform : translate(110%, 30%);
  
 }
@@ -43,4 +43,19 @@
 }
 .logo-div{
     padding-top: 0%;
+}
+.sidebar-design{
+    background-color:#0B472E;
+    height: 648px;
+}
+.sidebar-logo{
+    height: auto;
+    width: 180px;
+    padding: 0% !important;
+}
+.list-divider{
+    border-style: solid;
+    border-bottom:1px ;
+    border-color:#6C7C99 ;
+
 }
