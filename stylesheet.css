@@ -1,3 +1,25 @@
+html{
+    height: 100%;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    /* font-family: "Verdana"; */
+    /* font-size: 16px; */
+}
+.sidebar{
+    background-color:#0B472E;
+    /* height: 648px; */
+    display: flex;
+}
+/* .intext{
+    margin: auto;
+} */
+.content{
+    flex-grow: 1;
+
+}
+/* Login Page Style */
 .login-container{
     margin:auto;
     width: 30%;
@@ -13,9 +35,7 @@
 .login-form-container{
     margin:auto;
     padding-top: 0px;
-    /* text-align: center; */
-    
-    
+    /* text-align: center; */   
 }
 .form-txt-input{
     width: 250px;
@@ -37,16 +57,16 @@
     font-size: 12px;
     color: #83B735;
 }
+/* End Login Page Style */
+
+/* AO BashBoard Page Style */
+/* sidabar */
 .img-logo{
     height: auto;
     width: 50%;
 }
 .logo-div{
     padding-top: 0%;
-}
-.sidebar-design{
-    background-color:#0B472E;
-    height: 648px;
 }
 .sidebar-logo{
     height: auto;
@@ -67,5 +87,52 @@ ul.sidebar-list li{
     font-size: 15px;
     color:#999999;
     margin-bottom: 0%;
+    
+}
+/*End sidabar */
+/* Header style */
+.bottom-shadow{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+.border-color{
+    border-color: #83B735;
+}
+#stat-container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.stat-card{
+    flex-wrap: wrap;
+    width: 10rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:500px){
+    .sidebar{
+        display: none;
+    }
+    #stat-container.container{
+        flex-direction: column;
+    }
+    .stat-card{
+        margin-bottom:20px;
+    }
     
 }
