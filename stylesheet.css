@@ -52,6 +52,14 @@ body{
     background-color:#18A15C !important ;
     border:none;
 }
+.action-btn{
+    width: 75px;
+    background-color:#FE9800 !important;
+    border: #FE9800;
+    display: inline-block;
+    border-radius: 20px !important;
+    margin: 0%;
+}
 #forgot-ps-txt{
     text-align: right !important;
     font-size: 12px;
