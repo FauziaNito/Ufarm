@@ -52,6 +52,16 @@ body{
     background-color:#18A15C !important ;
     border:none;
 }
+.form-add-btn{
+    width:120px ;
+    background-color:#18A15C !important;
+    border: #18A15C;
+}
+.form-clear-btn{
+    width:120px ;
+    background-color:#FE9800 !important;
+    border: #FE9800;
+}
 .action-btn{
     width: 75px;
     background-color:#FE9800 !important;
@@ -121,7 +131,9 @@ ul.sidebar-list li{
     background-color:#f1f1f1;
 }
 
-
+.fo-form-card{
+    margin: auto;
+}
 
 
 
