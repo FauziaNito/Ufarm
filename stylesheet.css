@@ -134,6 +134,13 @@ ul.sidebar-list li{
 .fo-form-card{
     margin: auto;
 }
+.ward-container{
+    display: flex;
+    justify-content: center;
+}
+.ward-list{
+    flex-grow: 2;
+}
 
 
 
