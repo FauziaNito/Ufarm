@@ -81,15 +81,15 @@ body{
 /* sidabar */
 .img-logo{
     height: auto;
-    width: 50%;
+    width: 40%;
 }
 .logo-div{
     padding-top: 0%;
 }
 .sidebar-logo{
     height: auto;
-    width: 180px;
-    padding: 0% !important;
+    max-width: 140px;
+    margin: 30px ;
 }
 div.sidebar-list-container{
     text-align: center;
