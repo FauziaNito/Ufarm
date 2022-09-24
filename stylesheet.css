@@ -11,6 +11,7 @@ body{
     background-color:#0B472E;
     /* height: 648px; */
     display: flex;
+   
 }
 /* .intext{
     margin: auto;
@@ -141,7 +142,41 @@ ul.sidebar-list li{
 .ward-list{
     flex-grow: 2;
 }
+/* FarmerOne Dashboard */
+.stast-grid{
+    display: grid;
+    grid-template-columns:  330px 325px 300px;
+    grid-template-rows: auto auto;
+ 
+}
 
+.stast-grid div:nth-child(3){
+    grid-row: auto /span 2;
+}
+.chart{
+    margin: auto;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    background-color: #0A682B;
+    background-image: conic-gradient(#dc143b 60deg,#77cc6d 60deg 120deg, 
+    #3fe0d0 120deg 200deg, #fda500 200deg 360deg);
+    }
+.chart2{
+        margin: auto;
+        width: 25vh;
+        height: 25vh;
+        border-radius: 50%;
+        background-color: #0A682B;
+        background-image: conic-gradient(#dc143b 70deg,#77cc6d 70deg 150deg, 
+        #3fe0d0 150deg 250deg, #fda500 45deg 40deg);
+        }
+.box{
+        width: 9px;
+        height: 9px; 
+        margin-right: 2px;
+        margin-top: 4px;
+    }
 
 
 
