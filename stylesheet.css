@@ -12,6 +12,7 @@ body{
     /* height: 648px; */
     display: flex;
    
+ 
 }
 /* .intext{
     margin: auto;
@@ -94,6 +95,7 @@ body{
 }
 div.sidebar-list-container{
     text-align: center;
+    width: 240px;
 }
 ul.sidebar-list li{
     justify-content: center;
