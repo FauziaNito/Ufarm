@@ -71,6 +71,7 @@ body{
     display: inline-block;
     border-radius: 20px !important;
     margin: 0%;
+
 }
 #forgot-ps-txt{
     text-align: right !important;
@@ -202,7 +203,14 @@ ul.sidebar-list li{
     grid-row: auto /span 2;
 } */
 
-
+.action-btn2{
+    width: 90px;
+    background-color:#18A15C !important;
+    border: #18A15C;
+    display: inline-block;
+    border-radius: 20px !important;
+    margin: 0%; 
+}
 
 
 
