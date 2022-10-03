@@ -4,8 +4,8 @@ html{
 body{
     min-height: 100vh;
     display: flex;
-    /* font-family: "Verdana"; */
-    /* font-size: 16px; */
+    /* font-family: "Verdana";
+    font-size: 16px; */
 }
 .sidebar{
     background-color:#0B472E;
@@ -121,11 +121,14 @@ ul.sidebar-list li{
 }
 #stat-container{
     display: flex;
-    flex-direction: row-reverse;
-}
-.stat-card{
+    flex-direction: row;
+    justify-content: end;
     flex-wrap: wrap;
-    width: 10rem;
+}
+.dashboard-card{
+    flex-wrap: wrap;
+    margin-bottom: 7%;
+    /* width: 10rem; */
 
 }
 .footer{
@@ -202,6 +205,18 @@ ul.sidebar-list li{
 .produce-gird div:nth-child(2){
     grid-row: auto /span 2;
 } */
+
+aside a{
+    color: white;
+}
+aside a:active{
+    color: #fda500;
+    background-color: #FE9800;
+}
+aside a:hover{
+    text-decoration: none;
+    color: #fda500 ;
+}
 
 .action-btn2{
     width: 90px;
