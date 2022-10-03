@@ -211,7 +211,7 @@ aside a{
 }
 aside a:active{
     color: #fda500;
-    background-color: #FE9800;
+    /* background-color: #FE9800; */
 }
 aside a:hover{
     text-decoration: none;
