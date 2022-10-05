@@ -130,3 +130,20 @@ color:#FE9800 ;
     margin: auto;
     height: 50%;
 }
+.load-more{
+    margin: auto !important;
+    margin-top: 10%;
+}
+.load-more button{
+    width: 10%;
+    height: 5% !important;
+    padding: 2% 10%;
+    border-radius: 30px !important;
+    background-color: #FE9800;
+    color: white;
+    border: none;
+    font-size: 17px;
+}
+.top-product-style{
+    height: 130px;
+}
