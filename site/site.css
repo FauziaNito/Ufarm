@@ -35,9 +35,6 @@
     font-size: larger;
     text-align: center; 
 }
-.item-container{
-    margin: auto;
-}
 .menu-item{
     margin-left: 50px;
     font-size: 20px;
@@ -46,19 +43,90 @@
 .slider-img{
     height: 40%;
 }
-.cat-container{
+.category-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
+    /* position: absolute; */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    /* align-items: center; */
+
 }
-.cat-card{
+.category-card{
+    margin-top: 5%;
+    margin-bottom: 5%;
     border-radius: 0%;
-    width: 350px !important;
+    width: 100% !important;
     height: 180px !important;
-    border-color: #83B735;
-    text-align: center;
+    border-left-color: #83B735;
+    border-top-color: #83B735;
+    border-bottom-color: #83B735;   
+}
+
+.category-card h5{
+    /* margin: auto !important; */
 }
 .img-resize{
     height: 700px;
     width: 100%;
+}
+.daily-header h1{
+    text-align: center;
+}
+.groceries-items{
+    display: flex;
+    justify-content: space-around;
+}
+.produce-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-right: 3%;
+   
+}
+.produce-card{
+    height: 450px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.price-container{
+display: flex;
+justify-content: space-around;
+margin-top: 20px;
+}
+
+.shop-btn{
+    padding: 1%;
+    margin-top: 5%;
+    text-align: center;  
+}
+.shop-btn button{
+    width: 70%;
+    height: 15% !important;
+    padding: 5% 10%;
+    border-radius: 30px !important;
+    background-color:#18A15C;
+    color: white;
+    border: none;
+    font-size: 17px;
+
+    
+}
+.item-name h6{
+margin-top: 10px;
+font-size: 20px;
+margin-left: 12px;
+}
+.icon-style{
+margin-top: 0px;
+font-size: 20px;
+color:#FE9800 ;
+}
+.item-img{
+    padding-top: 0px;
+    margin: auto;
+    height: 50%;
 }
