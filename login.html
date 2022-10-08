@@ -5,65 +5,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Ufarm</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../site/site.css">
+    <!-- <title>Document</title> -->
 </head>
 
 <body>
-    <!-- Login Form -->
-    <div class="container login-container">
-        <div class="row">
-            <div class="col col-md-12">
-                <div class="card login-card">
-                    <div class="login-form-container">
-                        <div class="logo-div">
-                            <img class="img-logo mb-5" src="images/b-blogo4.png" alt="Ufarm logo">
-                        </div>
-                        <form action="">
-                            <div class="form-txt-input mb-3 ">
-                                <input type="email" class="form-control border-color" id="exampleFormControlInput1"
-                                    placeholder="Enter User Name">
-                            </div>
-                            <div class=" form-txt-input pt-3 mb-0">
-                                <input type="email" class="form-control border-color" id="exampleFormControlInput1"
-                                    placeholder="Password">
-                            </div>
-                            <label id="forgot-ps-txt" for="exampleFormControlInput1" class="form-label mb-5">Forgot
-                                Password?</label>
 
-                            <div class="col-auto">
-                                <button type="submit"
-                                    class="btn btn-primary mb-3  login-btn big-btn-color">Login</button>
-                            </div>
+  <!-- Menu Bar  -->
+  <nav class="navbar navbar-expand-lg navbar-dark text-white menu-bar">
+    <div class="container-fluid">
+        <div class="">
+            <img class="menu-logo" src="../images/b-wlogo3.png" alt="">
+        </div>
+        <div>
+            <!-- Search By Type -->
+            <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2 mt-0 menu-search text-white" type="search" style="width:350px;"
+                    placeholder="Search by type" aria-label="Search">
+                <!-- Dropdown -->
 
-                        </form>
-                    </div>
-                </div>
+                <!-- Dropdown -->
+            </form>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active ml-5 menu-item" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active menu-item" href="#">Special Deals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active menu-item" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active menu-item" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <div class="app-entry">
+            <div class="btn login-btn">
+                <button type="submit" class="btn rounded-pill">Back</button>
             </div>
         </div>
     </div>
-    <!-- End Login Form -->
+</nav>
+<!--End Menu Bar  -->
 
-    <!-- Bootstrap Form -->
-    <!-- <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
- <!-- Bootstrap Form -->
-    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- Form2 -->
+    <div class="container-fluid form-style-login">
+        <div class="form-container">
+            <div class="logo-div">
+                <img class="user-logo mb-4" src="../images/logo.png" alt="Ufarm logo">
+            </div>
+            <form id="signup" class="form" action="#" name="registration" method="post">
+                <h5>Login to your account</h5>
+                <hr>
+                <div class="form-field">
+                    <label for="firstname">User Name:<small> *</small></label>
+                    <input type="text" name="firstname" id="firstname" autocomplete="off">
+                </div>
+                <div class="form-field">
+                    <label for="firstname">Password:<small> *</small></label>
+                    <input type="text" name="firstname" id="firstname" autocomplete="off">
+                </div>
+                <div class="user-btn-container">
+                    <button type="submit" class="btn rounded-pill user-btn">Login</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+    <!-- End Form -->
+    
 </body>
-
+<script src="../bootstrap/js/bootstrap.bundle.js"></script>
 </html>
