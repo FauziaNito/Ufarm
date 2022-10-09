@@ -86,7 +86,7 @@
             <div class="logo-div">
                 <img class="user-logo mb-2" src="../images/logo.png" alt="Ufarm logo">
             </div>
-            <form id="signup" class="form" action="#" name="registration" method="post">
+            <form id="registerFO" class="form" action="/" name="registration" method="post">
                 <h5 class="text-muted text-center">Add FarmerOne Details</h5>
                 <hr>
                 <!-- First Row -->
@@ -95,18 +95,21 @@
                         <div class="form-field">
                             <label for="names">Names:<small class="asterisk"> *</small></label>
                             <input type="text" name="names" id="names" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-field">
                             <label for="ninnumber">NIN Number:<small class="asterisk"> *</small></label>
                             <input type="text" name="ninnumber" id="ninnumber" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-field">
                             <label for="phonenumber">Phone Number:<small class="asterisk"> *</small></label>
                             <input type="text" name="phonenumber" id="phonenumber" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                 </div>
@@ -122,6 +125,7 @@
                                 <option value="tz">Ward 3</option>
                                 <option value="tz">Ward 4</option>
                             </select>
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
@@ -131,6 +135,7 @@
                                 <option value="ug">Permanent</option>
                                 <option value="ke">Temporary</option>
                             </select>
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
@@ -141,6 +146,7 @@
                                 <option value="ke">11</option>
                                 <option value="tz">12</option>
                             </select>
+                            <div class="error"></div>
                         </div>
                     </div>
                 </div>
@@ -151,12 +157,14 @@
                         <div class="form-field">
                             <label for="regdate">Date of Registration:<small class="asterisk"> *</small></label>
                             <input type="date" name="regdate" id="regdate" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-field">
                             <label for="birthdate">Date of Bith<small class="asterisk"> *</small></label>
                             <input type="date" name="birthdate" id="birthdate" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
@@ -168,6 +176,7 @@
                                 <input type="radio" name="gender" id="gender2" autocomplete="off"> <span>Male</span>
                                 <input type="radio" name="gender" id="gender3" autocomplete="off"> <span>Others</span>
                             </div>
+                            <div class="error"></div>
                         </div>
                     </div>
                 </div>
@@ -179,12 +188,14 @@
                         <div class="form-field">
                             <label for="lat">latitude:<small class="asterisk"> *</small></label>
                             <input type="text" name="lat" id="lat" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-field">
                             <label for="longt">longitude:<small class="asterisk"> *</small></label>
                             <input type="text" name="longt" id="longt" autocomplete="off">
+                            <div class="error"></div>
                         </div>
                     </div>
                     <!-- Activities -->
@@ -192,12 +203,12 @@
                         <div class="form-field">
                             <label for="gender">Activities:</label>
                             <div class="activity">
-                                <input type="checkbox" name="register" id="gender1" autocomplete="off" value="eng"
+                                <input type="checkbox" name="register" id="register" autocomplete="off" value="eng"
                                     checked>
                                 <span>Registers</span>
-                                <input type="checkbox" name="approve" id="gender2" autocomplete="off" value="lug">
+                                <input type="checkbox" name="approve" id="inspect" autocomplete="off" value="lug">
                                 <span>Inspects</span>
-                                <input type="checkbox" name="upload" id="gender2" autocomplete="off" value="kiswa">
+                                <input type="checkbox" name="upload" id="approve" autocomplete="off" value="kiswa">
                                 <span>Approve</span>
                             </div>
                         </div>
@@ -207,7 +218,7 @@
 
                 <div class="container FO-form-btn">
                     <div class="coordinate-container">
-                        <button type="submit" class="btn coordinate-btn">
+                        <button type="" class="btn coordinate-btn">
                             Find Area Coordinates</button>
                     </div>
                     <div class="button1">
@@ -215,7 +226,7 @@
                             New</button>
                     </div>
                     <div class="button1">
-                        <button type="submit" class="btn btn-primary mt-1 ml-4 form-clear-btn mr-auto"
+                        <button type="" class="btn btn-primary mt-1 ml-4 form-clear-btn mr-auto"
                             style="width:120px ;">
                             Clear</button>
                     </div>
@@ -232,6 +243,7 @@
         </div>
 
         <!--End Footer -->
-    </main>
+     <script src="../javascript/AO-validation.js"></script>
     <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    </main>
 </body>

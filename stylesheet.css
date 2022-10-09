@@ -268,6 +268,22 @@ aside a:hover{
     margin-left: 0;
     
 }
+/* Input border color for success validation */
+.form-field.success input{
+    border-color: #18A15C;
+    
+    
+}
+/* Input border color for error validation */
+.form-field.error input{
+    border-color: red;
+}
+/* Div in html for displaying the error message */
+.form-field .error{
+    color: red;
+    font-size: 14px;
+    height: 10px;
+}
 .logo-div{
     display: flex;
     justify-content: center;
