@@ -271,6 +271,7 @@ aside a:hover{
 /* Input border color for success validation */
 .form-field.success input{
     border-color: #18A15C;
+    /* border: solid 3px #f0f0f0; */
     
     
 }

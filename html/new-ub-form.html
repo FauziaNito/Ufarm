@@ -85,7 +85,7 @@
     <div class="logo-div">
         <img class="user-logo mb-2" src="../images/logo.png" alt="Ufarm logo">
     </div>
-    <form id="signup" class="form" action="#" name="registration" method="post">
+    <form id="registerUF" class="form" action="/" name="registration" method="post">
         <h5 class="text-muted text-center">Add Urban Farmer Details</h5>
         <hr>
         <!-- First Row -->
@@ -94,18 +94,21 @@
                 <div class="form-field">
                     <label for="firstname">First Name:<small class="asterisk"> *</small></label>
                     <input type="text" name="firstname" id="firstname" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-field">
                     <label for="lastname">Last Name:<small class="asterisk"> *</small></label>
                     <input type="text" name="lastname" id="lastname" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-field">
                     <label for="phonenumber">Phone Number:<small class="asterisk"> *</small></label>
                     <input type="text" name="phonenumber" id="phonenumber" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
         </div>
@@ -115,18 +118,20 @@
                 <div class="form-field">
                     <label for="ninnumber">NIN Number:<small class="asterisk"> *</small></label>
                     <input type="text" name="ninnumber" id="ninnumber" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-field">
-                    <label for="phonenumber">Ward:<small class="asterisk"> *</small></label>
-                    <input type="text" name="phonenumber" id="phonenumber" value="Ward 1" autocomplete="off">
+                    <label for="ward">Ward:<small class="asterisk"> *</small></label>
+                    <input type="text" name="ward" id="ward" value="Ward 1" autocomplete="off" disabled>
                 </div>
             </div>
             <div class="col">
                 <div class="form-field">
                     <label for="regdate">Date of Registration:<small class="asterisk"> *</small></label>
                     <input type="date" name="regdate" id="regdate" autocomplete="off">
+                    <!-- <div class="error"></div> -->
                 </div>
             </div>
         </div>
@@ -138,6 +143,7 @@
                 <div class="form-field">
                     <label for="birthdate">Date of Bith<small class="asterisk"> *</small></label>
                     <input type="date" name="birthdate" id="birthdate" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <div class="col">
@@ -167,12 +173,14 @@
                 <div class="form-field">
                     <label for="lat">latitude:<small class="asterisk"> *</small></label>
                     <input type="text" name="lat" id="lat" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-field">
                     <label for="longt">longitude:<small class="asterisk"> *</small></label>
                     <input type="text" name="longt" id="longt" autocomplete="off">
+                    <div class="error"></div>
                 </div>
             </div>
             <!-- Activities -->
@@ -219,5 +227,5 @@
     </div>
   </main>
 </body>
-
+<script src="../javascript/FO-ub-FormValidation.js"></script>
 </html>
