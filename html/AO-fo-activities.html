@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../stylesheet.css">
+  <!-- <title>Document</title> -->
+</head>
+<body>
+   <!-- Sidebar -->
+   <aside class="sidebar">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
+        <div>
+          <img  src="../images/s-wlogo2.png" alt="Ufarm Logo" class="sidebar-logo">
+        </div>
+        <hr class="mb-3 mt-4" width="225px" color="#2F6A3F">
+        <div class="sidebar-list-container">
+          <ul id="" class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start sidebar-list">
+            <li class="nav-item intext mb-4"><a href="AO-dashboard.html">Dashboard</a></li>
+            <li class="nav-item sidebar-header p-0 intext"><strong>FARMERONE MANAGEMENT</strong></li>  
+            <hr class="m-0" width="225px" color="#2F6A3F">
+            <li class="nav-item pt-4 intext"> <a href="ward.html">Wards</a></li>
+            <li class="nav-item intext"> <a href="AO-fo-accounts.html">Accounts</a></li>
+            <li class="nav-item intext mb-4"><a href="AO-fo-activities.html">Activities</a> </li>
+            <li class="nav-item sidebar-header p-0 intext"><strong>ACCOUNTS</strong></li> 
+            <hr class="m-0" width="225px" color="#2F6A3F">
+            <li class="nav-item pt-4 intext">My account</li>
+            <li class="nav-item intext">Users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- End Sidebar --> 
+
+  <!-- Main Content -->
+
+ <main class="content">
+    <!-- Header -->
+  <nav class="navbar navbar-expand-lg shadow p-2 mb-3 bg-white bottom-shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand text-dark" href="#">FarmerOne Activities</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li> -->
+          <li class="nav-item dropdown" style="margin-left:auto ;">
+            <a class="nav-link dropdown-toggle text-secondary" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Agricultural Officer
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#"></a></li>
+              <li><a class="dropdown-item" href="#">Signout</a></li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li> -->
+        </ul>
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>
+  <!-- End Header -->
+
+  <!-- Recent FO Activity Table -->
+ <div class="container">
+    <div class="card mt-5" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">Recent FO Activities</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Ward</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone No</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>
+                    <button type="submit"
+                      class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@mdo</td>
+                <td>
+                    <button type="submit"
+                      class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@mdo</td>
+                <td>
+                    <button type="submit"
+                      class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+ </div>
+ <!-- End Recent FO Activity Table -->
+
+ <!-- Footer -->
+ <div class="footer">
+    
+</div>
+
+<!--End Footer -->
+ </main>
+  <!-- End Main Content -->
+
+
+
+<script src="../bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

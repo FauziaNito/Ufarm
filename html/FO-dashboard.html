@@ -16,20 +16,20 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
       <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
         <div>
-          <img  src="../images/s-wlogo2.png" alt="Ufarm Logo" class="sidebar-logo">
+          <img src="../../images/s-wlogo2.png" alt="Ufarm Logo" class="sidebar-logo">
         </div>
         <hr class="mb-3 mt-4" width="225px" color="#2F6A3F">
         <div class="sidebar-list-container">
           <ul id="" class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start sidebar-list">
-            <li class="nav-item intext mb-4 active"><a href="AO-dashboard.html">Dashboard</a></li>
-            <li class="nav-item sidebar-header p-0 intext"><strong>FARMERONE MANAGEMENT</strong></li>  
+            <li class="nav-item intext mb-4"><a href="FO-dashboard.html">Dashboard</a></li>
+            <li class="nav-item sidebar-header p-0 intext"> <strong>URBAN FARMER MANAGEMENT</strong></li>
             <hr class="m-0" width="225px" color="#2F6A3F">
-            <li class="nav-item pt-4 intext"> <a href="ward.html">Wards</a></li>
-            <li class="nav-item intext"> <a href="AO-fo-accounts.html">Accounts</a></li>
-            <li class="nav-item intext mb-4"><a href="AO-fo-activities.html">Activities</a> </li>
-            <li class="nav-item sidebar-header p-0 intext"><strong>ACCOUNTS</strong></li> 
+            <li class="nav-item pt-4 intext"><a href="../FO-ub-accounts.html">Accounts</a></li>
+            <li class="nav-item intext"><a href="FO-produce-approval.html">Produce</a></li>
+            <li class="nav-item intext mb-4"><a href="FO-orders.html">Orders</a></li>
+            <li class="nav-item sidebar-header p-0 intext"><strong>ACCOUNTS</strong></li>
             <hr class="m-0" width="225px" color="#2F6A3F">
-            <li class="nav-item pt-4 intext">My account</li>
+            <li class="nav-item pt-4 intext"><a href="FO-dashboard.html">My account</a></li>
             <li class="nav-item intext">Users</li>
           </ul>
         </div>
@@ -60,7 +60,7 @@
             <li class="nav-item dropdown" style="margin-left:auto ;">
               <a class="nav-link dropdown-toggle text-secondary" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Agricultural Officer
+                FarmerOne
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -82,14 +82,13 @@
     <!-- End Header -->
 
     <!--Stat Cards -->
-    
-    <div id="stat-container" class="container-fluid">
+    <div id="stat-container" class=" row container-fluid">
 
       <!-- Card One -->
-      <div class="card bottom-shadow border-color ml-4 dashboard-card">
+      <div class="card bottom-shadow border-color mr-3 ml-4 dashboard-card">
         <div class="card-body m-1 p-2 pt-1 text-center ">
-          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Confirmed Orders</p>
           <h5 class="card-title text-muted text-center mt-0 pt-0" style="font-weight: bold;">9,000</h5>
+          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Produce to Approve</p>
           <!-- <a href="#" class="card-link mt-0 pb-0">Card link</a> -->
 
         </div>
@@ -97,8 +96,9 @@
       <!-- Card Two -->
       <div class="card bottom-shadow border-color  ml-4 dashboard-card">
         <div class="card-body m-1 p-2 pt-1 text-center ">
-          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Successfull Orders</p>
-          <h5 class="card-title text-muted text-center mt-0 pt-0" style="font-weight: bold;">10,000</h5>
+          <h5 class="card-title text-muted text-center mt-0 pt-0" style="font-weight: bold;">8,000</h5>
+          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">New Orders</p>
+
           <!-- <a href="#" class="card-link mt-0 pb-0">Card link</a> -->
 
         </div>
@@ -106,8 +106,8 @@
       <!-- Card Three -->
       <div class="card bottom-shadow border-color ml-4 dashboard-card">
         <div class="card-body m-1 p-2 pt-1 text-center ">
-          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Uploaded Produce</p>
           <h5 class="card-title text-muted text-center mt-0 pt-0" style="font-weight: bold;">11,000</h5>
+          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Produce uploaded</p>
           <!-- <a href="#" class="card-link mt-0 pb-0">Card link</a> -->
 
         </div>
@@ -115,8 +115,8 @@
       <!-- Card Four -->
       <div class="card bottom-shadow border-color ml-4 dashboard-card">
         <div class="card-body m-1 p-2 pt-1 text-center ">
-          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Registered Farmers</p>
           <h5 class="card-title text-muted text-center mt-0 pt-0" style="font-weight: bold;">600</h5>
+          <p class="card-text p-0 m-0 text-muted" style="font-size:15px">Farmers Rating</p>
           <!-- <a href="#" class="card-link mt-0 pb-0">Card link</a> -->
 
         </div>
@@ -124,9 +124,7 @@
     </div>
     <!--End Stat Cards -->
 
-    <!-- Recent FO Activity Table -->
-      <!-- ****** -->
-      <!-- Stats and Recent Activities -->
+    <!-- Stats and Recent Activities -->
     <div class="container-fluid stast-grid mt-5 ">
 
       <div class="card" style="width: 300px; height: 300px;">.
@@ -309,11 +307,12 @@
 
     </div>
     <!--End Stats and Recent Activities -->
-    <!-- ******* -->
-    <div class="container">
-      <div class="card mt-5" style="width: 100%;">
+
+    <!-- Recent Uploaded Produce -->
+    <div class="container-fluid pl-4 pr-5">
+      <div class="card mt-5" style="width:100%;">
         <div class="card-body">
-          <h5 class="card-title">Recent FO Activities</h5>
+          <h5 class="card-title">Recent Uploaded Produce</h5>
           <table class="table table-hover">
             <thead>
               <tr>
@@ -322,7 +321,7 @@
                 <th scope="col">Ward</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone No</th>
-                <!-- <th scope="col">Action</th> -->
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -332,9 +331,10 @@
                 <td>Otto</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
-                <!-- <td>
-                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
-                </td> -->
+                <td>
+                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill"
+                    style="width: 100px ;">Approve</button>
+                </td>
               </tr>
               <tr>
                 <th scope="row">2</th>
@@ -342,18 +342,20 @@
                 <td>Thornton</td>
                 <td>@fat</td>
                 <td>@mdo</td>
-                <!-- <td>
-                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
-                </td> -->
+                <td>
+                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill"
+                    style="width: 100px ;">Approve</button>
+                </td>
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td colspan="2">Larry the Bird</td>
                 <td>@twitter</td>
                 <td>@mdo</td>
-                <!-- <td>
-                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill">Edit</button>
-                </td> -->
+                <td>
+                  <button type="submit" class="btn btn-primary mb-3 action-btn rounded-pill"
+                    style="width: 100px ;">Approve</button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -362,20 +364,12 @@
       </div>
 
     </div>
-    <!-- End Recent FO Activity Table -->
-
-    <!-- Footer -->
+    <!-- End Recent Uploaded Produce -->
     <div class="footer">
       <small class="mt-4 ml-5">&copy; Refactory Cohort 12</small>
       <small class="mt-4 mr-5">&copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576</small>
     </div>
-
-    <!--End Footer -->
   </main>
-  <!-- End Main Content -->
-
-
-
-  <script src="../bootstrap/js/bootstrap.bundle.js"></script>
 </body>
+
 </html>
