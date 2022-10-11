@@ -1,0 +1,174 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+  link(rel='stylesheet' href='css/stylesheet.css')
+  title Register FarmerOne
+aside.sidebar
+  .col-auto.col-md-3.col-xl-2.px-sm-2.px-0
+    .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white.min-vh-100
+      div
+        img.sidebar-logo(src='../images/s-wlogo2.png' alt='Ufarm Logo')
+      hr.mb-3.mt-4(width='225px' color='#2F6A3F')
+      .sidebar-list-container
+        ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
+          li.nav-item.intext.mb-4
+            a(href='AO-dashboard.html') Dashboard
+          li.nav-item.sidebar-header.p-0.intext
+            strong FARMERONE MANAGEMENT
+          hr.m-0(width='225px' color='#2F6A3F')
+          li.nav-item.pt-4.intext
+            a(href='ward.html') Wards
+          li.nav-item.intext
+            a(href='AO-fo-accounts.html') Accounts
+          li.nav-item.intext.mb-4
+            a(href='AO-fo-activities.html') Activities
+          li.nav-item.sidebar-header.p-0.intext
+            strong ACCOUNTS
+          hr.m-0(width='225px' color='#2F6A3F')
+          li.nav-item.pt-4.intext My account
+          li.nav-item.intext Users
+main.content
+  nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+    .container-fluid
+      a.navbar-brand.text-dark(href='#') Register New FarmerOne
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+          li.nav-item.dropdown(style='margin-left: auto')
+            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Agricultural Officer
+            ul.dropdown-menu
+              li
+                a.dropdown-item(href='#') Profile
+              li
+                a.dropdown-item(href='#')
+              li
+                a.dropdown-item(href='#') Signout
+  .container-fluid.form-style
+    .logo-div
+      img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
+    form#registerFO.form(action='/' name='registration' method='post')
+      h5.text-muted.text-center Add FarmerOne Details
+      hr
+      .row
+        .col
+          .form-field
+            label(for='names')
+              | Names:
+              small.asterisk  *
+            input#names(type='text' name='names' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='ninnumber')
+              | NIN Number:
+              small.asterisk  *
+            input#ninnumber(type='text' name='ninnumber' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='phonenumber')
+              | Phone Number:
+              small.asterisk  *
+            input#phonenumber(type='text' name='phonenumber' autocomplete='off')
+            .error
+      .row
+        .col
+          .form-field
+            label(for='ward') Ward:
+            select(name='ward' id='')
+              option(value='ug') Appoint a ward to this farmerOne
+              option(value='ug') Ward 1
+              option(value='ke') Ward 2
+              option(value='tz') Ward 3
+              option(value='tz') Ward 4
+            .error
+        .col
+          .form-field
+            label(for='residenttype') Resident Type:
+            select(name='residenttype' id='')
+              option(value='ug') Select Resident Type
+              option(value='ug') Permanent
+              option(value='ke') Temporary
+            .error
+        .col
+          .form-field
+            label(for='periodofstay') Period of Stay:
+            select(name='periodofstay' id='')
+              option(value='ug') Select Period of Stay
+              option(value='ug') 9
+              option(value='ke') 10
+              option(value='tz') 11
+            .error
+      .row
+        .col
+          .form-field
+            label(for='regdate')
+              | Date of Registration:
+              small.asterisk  *
+            input#regdate(type='date' name='regdate' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='birthdate')
+              | Date of Bith
+              small.asterisk  *
+            input#birthdate(type='date' name='birthdate' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='gender') Gender:
+            .radio
+              input#gender1(type='radio' name='gender' autocomplete='off' checked='')
+              span Female
+              input#gender2(type='radio' name='gender' autocomplete='off')
+              span Male
+              input#gender3(type='radio' name='gender' autocomplete='off')
+              span Others
+            .error
+      hr.mt-1
+      p.text-muted Add FarmerOne&apos;s Direction Coordinates
+      .row
+        .col
+          .form-field
+            label(for='lat')
+              | latitude:
+              small.asterisk  *
+            input#lat(type='text' name='lat' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='longt')
+              | longitude:
+              small.asterisk  *
+            input#longt(type='text' name='longt' autocomplete='off')
+            .error
+        .col
+          .form-field
+            label(for='gender') Activities:
+            .activity
+              input#register(type='checkbox' name='register' autocomplete='off' value='eng' checked='')
+              span Registers
+              input#inspect(type='checkbox' name='approve' autocomplete='off' value='lug')
+              span Inspects
+              input#approve(type='checkbox' name='upload' autocomplete='off' value='kiswa')
+              span Approve
+      .container.FO-form-btn
+        .coordinate-container
+          button.btn.coordinate-btn(type='')
+            | Find Area Coordinates
+        .button1
+          button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
+            | Add New
+        .button1
+          button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='' style='width: 120px')
+            | Clear
+  .footer
+    small.mt-4.ml-5 &copy; Refactory Cohort 12
+    small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+script(src='bootstrap-js/js/bootstrap.bundle.min.js')
+script(src='js/AO-validation.js')
