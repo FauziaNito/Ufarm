@@ -15,6 +15,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
 // ROUTES
+app.get("/registerFO", (req, res) => {
+	res.render("AO/new-fo-form");
+});
+app.post("/registerFO", (req, res) => {
+	console.log(req.body);
+	res.redirect("/FOlist");
+});
 app.get('/AOdashboard', (req, res) =>{
     res.render('AO/AO-dashboard');
 });
@@ -26,9 +33,6 @@ app.get("/FOactivities", (req, res) => {
 });
 app.get("/addward", (req, res) => {
 	res.render("AO/ward");
-});
-app.get("/registerFO", (req, res) => {
-	res.render("AO/new-fo-form");
 });
 
 
