@@ -22,6 +22,13 @@ app.post("/registerFO", (req, res) => {
 	console.log(req.body);
 	res.redirect("/FOlist");
 });
+app.get("/login", (req, res) => {
+	res.render("login");
+});
+app.post("/login", (req, res) => {
+	console.log(req.body);
+	res.redirect("AO/AO-dashboard");
+});
 app.get('/AOdashboard', (req, res) =>{
     res.render('AO/AO-dashboard');
 });
