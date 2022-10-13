@@ -75,7 +75,7 @@ const checkName = () => {
     }
 
     if (!(nameValue.match(alphaRegex))) {
-        setError(farmerOneName, 'FarmerOne names should have letters and numbers');
+        setError(farmerOneName, 'FarmerOne names should not have Sysmbols');
         farmerOneName.style.border = '2px solid red';
         // farmerOneName.focus();
 
