@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+  link(rel='stylesheet' href='bootstrap-js/css/bootstrap.css')
   link(rel='stylesheet' href='css/site.css')
   title Login
 nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
@@ -12,7 +12,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
       img.menu-logo(src='../images/b-wlogo3.png' alt='')
     div
       form.form-inline.my-2.my-lg-0
-        input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
+        input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width: 350px' placeholder='Search by type' aria-label='Search')
     button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
@@ -32,19 +32,19 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
   .form-container
     .logo-div
       img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-    form#signup.form(action='/login' name='registration' method='POST)
+    form#signup.form(action='#' name='registration' method='post')
       h5 Login to your account
       hr
       .form-field
-        label(for='username')
+        label(for='firstname')
           | User Name:
           small  *
-        input#username(type='text' name='username' autocomplete='off')
+        input#firstname(type='text' name='firstname' autocomplete='off')
       .form-field
-        label(for='Password')
+        label(for='firstname')
           | Password:
           small  *
-        input#Password(type='text' name='Password' autocomplete='off')
+        input#firstname(type='text' name='firstname' autocomplete='off')
       .user-btn-container
         button.btn.rounded-pill.user-btn(type='submit') Login
 script(src='bootstrap-js/js/bootstrap.bundle.js')

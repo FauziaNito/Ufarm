@@ -262,6 +262,17 @@ select {
 select:focus {
 	outline: none;
 }
+
+.checkbox-size{
+	transform: scale(0.40);
+	padding-right: 0px;
+	margin-right: 0px;
+	
+}
+.check-box-tex{
+	margin-top: 17px;
+	margin-left: 0px !important;
+}
 .radio {
 	margin-top: 15px;
 	display: flex;

@@ -57,11 +57,33 @@ main.content
       .row
         .col
           .form-field
-            label(for='names')
-              | Names:
+            label(for='firstname')
+              | First Name:
               small.asterisk  *
-            input#names(type='text' name='names' autocomplete='off')
+            input#firstname(type='text' name='firstname' autocomplete='off')
             .error
+        .col
+          .form-field
+            label(for='lastname')
+              | Last Name:
+              small.asterisk  *
+            input#lastname(type='text' name='lastname' autocomplete='off')
+            .error    
+        .col
+          .form-field
+            label(for='uniquenumber')
+              | Unique Number:
+              small.asterisk  *
+            input.text-muted(type='text' name='uniquenumber' id='' autocomplete='off' value='forexample MW1-001')
+            .error
+        .col
+          .form-field
+            label(for='role') Role
+            select(name='role' id='')
+              option(value='ug') Assign a role to this farmerOne
+              option(value='ug') farmerOne
+            .error
+      .row
         .col
           .form-field
             label(for='ninnumber')
@@ -76,7 +98,6 @@ main.content
               small.asterisk  *
             input#phonenumber(type='text' name='phonenumber' autocomplete='off')
             .error
-      .row
         .col
           .form-field
             label(for='ward') Ward:
@@ -95,6 +116,7 @@ main.content
               option(value='ug') Permanent
               option(value='ke') Temporary
             .error
+      .row
         .col
           .form-field
             label(for='periodofstay') Period of Stay:
@@ -104,7 +126,6 @@ main.content
               option(value='ke') 10
               option(value='tz') 11
             .error
-      .row
         .col
           .form-field
             label(for='regdate')
@@ -133,39 +154,37 @@ main.content
       hr.mt-1
       p.text-muted Add FarmerOne&apos;s Direction Coordinates
       .row
-        .col
+        .col.column-stretch-left
           .form-field
-            label(for='lat')
-              | latitude:
+            label(for='streetname')
+              | Street Name:
               small.asterisk  *
-            input#lat(type='text' name='lat' autocomplete='off')
+            input#streetname(type='text' name='streetname' autocomplete='off')
             .error
         .col
           .form-field
-            label(for='longt')
-              | longitude:
+            label(for='housenumber')
+              | House Number:
               small.asterisk  *
-            input#longt(type='text' name='longt' autocomplete='off')
+            input#housenumber(type='text' name='housenumber' autocomplete='off')
             .error
-        .col
+        .col-6
           .form-field
             label(for='gender') Activities:
             .activity
-              input#register(type='checkbox' name='register' autocomplete='off' value='eng' checked='')
-              span Registers
-              input#inspect(type='checkbox' name='approve' autocomplete='off' value='lug')
-              span Inspects
-              input#approve(type='checkbox' name='upload' autocomplete='off' value='kiswa')
-              span Approve
+              input#register.checkbox-size(type='checkbox' name='horticulture' autocomplete='off' value='eng' checked='')
+              span.check-box-tex Horticulture
+              input#inspect.checkbox-size(type='checkbox' name='produce' autocomplete='off' value='lug')
+              span.check-box-tex Produce
+              input#approve.checkbox-size(type='checkbox' name='poultry' autocomplete='off' value='kiswa')
+              span.check-box-tex  Poultry
+              input#approve.checkbox-size(type='checkbox' name='dairyproducts' autocomplete='off' value='kiswa')
+              span.check-box-tex Dairy Products 
       .container.FO-form-btn
-        .coordinate-container
-          button.btn.coordinate-btn(type='' ) Find Area Coordinates
-             
         .button1
           button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
-            
         .button1
-          button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-5( style='width: 120px') Clear
+          button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='' style='width: 120px') Clear
            
   .footer
     small.mt-4.ml-5 &copy; Refactory Cohort 12
