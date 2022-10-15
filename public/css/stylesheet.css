@@ -1,9 +1,10 @@
-html {
+/* html {
 	height: 100%;
-}
+} */
 body {
-	min-height: 100vh;
+	min-height: 100%;
 	display: flex;
+	box-sizing: border-box;
 	/* font-family: "Verdana";
     font-size: 16px; */
 }
@@ -131,6 +132,7 @@ ul.sidebar-list li {
 .dashboard-card {
 	flex-wrap: wrap;
 	margin-bottom: 7%;
+	margin-left: 15px;
 	/* width: 10rem; */
 }
 .footer {
