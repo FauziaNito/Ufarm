@@ -78,12 +78,19 @@ main.content
             .error
         .col
           .form-field
-            label(for='role') Role
-            select(name='role' id='')
-              option(value='ug') Assign a role to this farmerOne
-              option(value='ug') farmerOne
+            label(for='password')
+              | Password:
+              small.asterisk  *
+            input.text-muted(type='password' name='password' id='' autocomplete='off')
             .error
       .row
+        .col
+          .form-field
+            label(for='role') Role
+            select(name='role' id='')
+              option() Assign a role to this farmerOne
+              option() farmerOne
+            .error
         .col
           .form-field
             label(for='ninnumber')
@@ -100,31 +107,19 @@ main.content
             .error
         .col
           .form-field
-            label(for='ward') Ward:
-            select(name='ward' id='')
-              option(value='ug') Appoint a ward to this farmerOne
-              option(value='ug') Ward 1
-              option(value='ke') Ward 2
-              option(value='tz') Ward 3
-              option(value='tz') Ward 4
-            .error
-        .col
-          .form-field
             label(for='residenttype') Resident Type:
             select(name='residenttype' id='')
-              option(value='ug') Select Resident Type
-              option(value='ug') Permanent
-              option(value='ke') Temporary
+              option() Select Resident Type
+              option() Permanent
+              option() Temporary
             .error
       .row
         .col
           .form-field
-            label(for='periodofstay') Period of Stay:
-            select(name='periodofstay' id='')
-              option(value='ug') Select Period of Stay
-              option(value='ug') 9
-              option(value='ke') 10
-              option(value='tz') 11
+            label(for='periodofstay')
+              | Period of Stay:
+              small.asterisk  *
+            input#phonenumber(type='number' name='periodofstay' autocomplete='off')
             .error
         .col
           .form-field
@@ -154,6 +149,16 @@ main.content
       hr.mt-1
       p.text-muted Add FarmerOne&apos;s Direction Coordinates
       .row
+        .col
+          .form-field
+            label(for='ward') Ward:
+            select(name='ward' id='')
+              option() Appoint a ward to this farmerOne
+              option() Ward 1
+              option() Ward 2
+              option() Ward 3
+              option() Ward 4
+            .error
         .col.column-stretch-left
           .form-field
             label(for='streetname')
@@ -167,27 +172,25 @@ main.content
               | House Number:
               small.asterisk  *
             input#housenumber(type='text' name='housenumber' autocomplete='off')
-            .error
-        .col-6
+            .error    
+        .col
           .form-field
             label(for='gender') Activities:
-            .activity
-              input#register.checkbox-size(type='checkbox' name='horticulture' autocomplete='off' value='eng' checked='')
-              span.check-box-tex Horticulture
-              input#inspect.checkbox-size(type='checkbox' name='produce' autocomplete='off' value='lug')
-              span.check-box-tex Produce
-              input#approve.checkbox-size(type='checkbox' name='poultry' autocomplete='off' value='kiswa')
-              span.check-box-tex  Poultry
-              input#approve.checkbox-size(type='checkbox' name='dairyproducts' autocomplete='off' value='kiswa')
-              span.check-box-tex Dairy Products 
+            .activity()
+              input#register.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='inspects' checked='')
+              span.check-box-tex Inspect
+              input#inspect.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='approves')
+              span.check-box-tex Approve
+              input#approve.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='register')
+              span.check-box-tex  Register
       .container.FO-form-btn
         .button1
           button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
         .button1
           button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='' style='width: 120px') Clear
-           
+
   .footer
     small.mt-4.ml-5 &copy; Refactory Cohort 12
     small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
 script(src='bootstrap-js/js/bootstrap.bundle.min.js')
-script(src='js/AO-validation.js')
+//- script(src='js/AO-validation.js')

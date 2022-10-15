@@ -1,12 +1,39 @@
 // DEPENDENCIES
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const config = require('./config/db');
+const passport = require("passport");
+//express session
+const expressSession = require("express-session")({
+	secret: "secret",
+	resave: false,
+	saveUninitialized: false,
+});
+
+// Import the user Model
+const Registration = require('./models/user');
 
 // Importing Registration Routes
 const registerRoutes = require('./routes/registrationRoutes');
 
+
+
 // INSTANTIATIONS
 const app = express();
+
+// DATABASE CONNECTIONS
+mongoose.connect(config.database, { useNewUrlParser: true });
+const db = mongoose.connection;
+
+// Check connection
+db.once("open", function () {
+	console.log("Connected to MongoDB");
+});
+// Check for db errors
+db.on("error", function (err) {
+	console.error(err);
+});
 
 // CONFIGURATIONs
 app.set('view engine', 'pug');
@@ -16,6 +43,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+app.use(expressSession);
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(Registration.createStrategy()); 
+passport.serializeUser(Registration.serializeUser());
+passport.deserializeUser(Registration.deserializeUser());
+
 
 // ROUTES
 app.use("/", registerRoutes);
