@@ -1,0 +1,190 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+        link(rel='stylesheet' href='css/stylesheet.css')
+        title Urban Farmer
+    body
+        aside.sidebar
+            .col-auto.col-md-3.col-xl-2.px-sm-2.px-0
+                .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white.min-vh-100
+                    div
+                        img.sidebar-logo(src='../../images/s-wlogo2.png' alt='Ufarm Logo')
+                    hr.mb-3.mt-4(width='225px' color='#2F6A3F')
+                    .sidebar-list-container
+                        ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
+                            li.nav-item.intext.mb-4
+                                a(href='UF-dashboard.html') Dashboard
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong PRODUCE MANAGEMENT
+                            hr.m-0(width='225px' color='#2F6A3F')
+                            li.nav-item.pt-4.intext
+                                a(href='UF-produce-upload.html') Upload Produce
+                            li.nav-item.intext.mb-4
+                                a(href='') Rejected Produce
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong SALES MANAGEMENT
+                            hr.m-0(width='225px' color='#2F6A3F')
+                            li.nav-item.pt-4.intext Confirmed Orders
+                            li.nav-item.intext Order Returns
+                            li.nav-item.intext My Shop
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong ACCOUNTS
+                            hr.m-0(width='225px' color='#2F6A3F')
+                            li.nav-item.pt-4.intext
+                                a(href='UF-dashboard.html') My account
+        main.content
+            nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+                .container-fluid
+                    a.navbar-brand.text-dark(href='#') Welcome Back
+                    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    #navbarSupportedContent.collapse.navbar-collapse
+                        ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                            li.nav-item.dropdown(style='margin-left: auto')
+                                a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                                    | Urban Farmer
+                                ul.dropdown-menu
+                                    li
+                                        a.dropdown-item(href='#') Profile
+                                    li
+                                        a.dropdown-item(href='#')
+                                    li
+                                        a.dropdown-item(href='#') Signout
+            #stat-container.row.container-fluid
+                .card.bottom-shadow.border-color.mr-3.ml-4.dashboard-card
+                    .card-body.m-1.p-2.pt-1.text-center
+                        h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 2000
+                        p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce Uploaded
+                .card.bottom-shadow.border-color.ml-4.dashboard-card
+                    .card-body.m-1.p-2.pt-1.text-center
+                        h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 1400
+                        p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce Approved
+                .card.bottom-shadow.border-color.ml-4.dashboard-card
+                    .card-body.m-1.p-2.pt-1.text-center
+                        h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 980
+                        p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce sold
+                .card.bottom-shadow.border-color.ml-4.dashboard-card
+                    .card-body.m-1.p-2.pt-1.text-center
+                        h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 60
+                        p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce Rejected
+            .container-fluid.stast-grid.mt-5
+                .card(style='width: 300px; height: 300px')
+                    | .
+                    h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Your Sold Produce in %
+                    .card-body
+                        .d-flex.mb-4.ml-4.justify-content-center(style='margin-left: 12px')
+                            .d-flex.mr-4
+                                .box(style='background-color: #fda500; font-size: 5px')
+                                strong(style='font-size: 12px') Aug
+                            .d-flex.mr-4
+                                .box(style='background-color: #dc143b')
+                                strong(style='font-size: 12px') Sept
+                            .d-flex.mr-4
+                                .box(style='background-color: #77cc6d')
+                                strong(style='font-size: 12px') Oct
+                            .d-flex.mr-4
+                                .box(style='background-color: #3fe0d0')
+                                strong(style='font-size: 12px') Nov
+                        .chart
+                .card(style='width: 300px; height: 300px')
+                    | .
+                    h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Produce You Uploaded in %
+                    .card-body
+                        .d-flex.mb-4.ml-4.justify-content-center(style='margin-left: 12px')
+                            .d-flex.mr-4
+                                .box(style='background-color: #fda500; font-size: 5px')
+                                strong(style='font-size: 12px') Aug
+                            .d-flex.mr-4
+                                .box(style='background-color: #dc143b')
+                                strong(style='font-size: 12px') Sept
+                            .d-flex.mr-4
+                                .box(style='background-color: #77cc6d')
+                                strong(style='font-size: 12px') Oct
+                            .d-flex.mr-4
+                                .box(style='background-color: #3fe0d0')
+                                strong(style='font-size: 12px') Nov
+                        .chart2
+                .container
+                    .card.mt-0.ml-0(style='width: 500px; height: 680px')
+                        .card-body
+                            h5.card-title A list of Your Recently Uploaded Produce
+                            | 									.
+                            table.table.table-hover
+                                thead
+                                    tr
+                                        th(scope='col') No
+                                        th(scope='col') Name
+                                        th(scope='col') Ward
+                                        th(scope='col') Phone Number
+                                tbody
+                                    tr
+                                        th(scope='row') 1
+                                        td Mark
+                                        td Otto
+                                        td @mdo
+                                    tr
+                                        th(scope='row') 2
+                                        td Jacob
+                                        td Thornton
+                                        td @fat
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+                .container
+                    .card.mt-5.ml-0(style='width: 620px; height: 330px')
+                        .card-body
+                            h5.card-title New Incoming Orders
+                            table.table.table-hover
+                                thead
+                                    tr
+                                        th(scope='col') No
+                                        th(scope='col') Mame
+                                        th(scope='col') Ward
+                                        th(scope='col') Phone Number
+                                tbody
+                                    tr
+                                        th(scope='row') 1
+                                        td Mark
+                                        td Otto
+                                        td @mdo
+                                    tr
+                                        th(scope='row') 2
+                                        td Jacob
+                                        td Thornton
+                                        td @fat
+                                    tr
+                                        th(scope='row') 3
+                                        td(colspan='2') Larry the Bird
+                                        td @twitter
+            .footer
+                small.mt-4.ml-5 © Refactory Cohort 12
+                small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576

@@ -11,17 +11,19 @@ const expressSession = require("express-session")({
 	saveUninitialized: false,
 });
 
+// MODEL IMPORTING
 // Import the user Model
 const Registration = require('./models/user');
 
+// ROUTES IMPORTING
 // Importing Registration Routes
 const registerRoutes = require('./routes/registrationRoutes');
-
 // Importing Agricultural Officer Routes
 const agriculturalOfficer = require('./routes/agriculturalOfficerRoutes');
-
 // Importing Farmer One Routes
 const farmerOne = require('./routes/farmerOneRoutes');
+// Importing Urban Farmer  Routes
+const urbanFarmer = require('./routes/urbanFarmerRoutes');
 
 // INSTANTIATIONS
 const app = express();
@@ -61,6 +63,7 @@ passport.deserializeUser(Registration.deserializeUser());
 app.use("/", registerRoutes);
 app.use('/', agriculturalOfficer);
 app.use("/", farmerOne);
+app.use('/', urbanFarmer);
 
 app.get("/login", (req, res) => {
 	res.render("login");
@@ -69,15 +72,8 @@ app.post("/login", (req, res) => {
 	console.log(req.body);
 	res.redirect("login");
 });
-app.get('/FOlist', (req, res) => {
-    res.render('AO/AO-fo-accounts');
-});
-app.get("/FOactivities", (req, res) => {
-	res.render("AO/AO-fo-activities");
-});
-app.get("/addward", (req, res) => {
-	res.render("AO/ward");
-});
+
+
 app.get("/registerUF", (req, res) => {
 	res.render("FO/new-ub-form");
 });
