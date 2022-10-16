@@ -17,7 +17,11 @@ const Registration = require('./models/user');
 // Importing Registration Routes
 const registerRoutes = require('./routes/registrationRoutes');
 
+// Importing Agricultural Officer Routes
+const agriculturalOfficer = require('./routes/agriculturalOfficerRoutes');
 
+// Importing Farmer One Routes
+const farmerOne = require('./routes/farmerOneRoutes');
 
 // INSTANTIATIONS
 const app = express();
@@ -55,6 +59,8 @@ passport.deserializeUser(Registration.deserializeUser());
 
 // ROUTES
 app.use("/", registerRoutes);
+app.use('/', agriculturalOfficer);
+app.use("/", farmerOne);
 
 app.get("/login", (req, res) => {
 	res.render("login");
@@ -62,9 +68,6 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
 	console.log(req.body);
 	res.redirect("login");
-});
-app.get('/AOdashboard', (req, res) =>{
-    res.render('AO/AO-dashboard');
 });
 app.get('/FOlist', (req, res) => {
     res.render('AO/AO-fo-accounts');
@@ -78,9 +81,7 @@ app.get("/addward", (req, res) => {
 app.get("/registerUF", (req, res) => {
 	res.render("FO/new-ub-form");
 });
-app.get("/FOdashboard", (req, res) => {
-	res.render("FO/FO-dashboard");
-});
+
 
 /*For all Invalid Routes */
 app.get('*', (req, res) => {
