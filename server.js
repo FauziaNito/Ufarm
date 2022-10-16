@@ -75,7 +75,9 @@ app.get("/FOactivities", (req, res) => {
 app.get("/addward", (req, res) => {
 	res.render("AO/ward");
 });
-
+app.get("/registerUF", (req, res) => {
+	res.render("FO/new-ub-form");
+});
 
 /*For all Invalid Routes */
 app.get('*', (req, res) => {
