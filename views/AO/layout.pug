@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet' href='bootstrap-js/css/bootstrap.css')
+        link(rel='stylesheet' href='css/stylesheet.css')
+    body
+        aside.sidebar
+            .col-auto.col-md-3.col-xl-2.px-sm-2.px-0
+                .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white.min-vh-100
+                    div
+                        img.sidebar-logo(src='../images/s-wlogo2.png' alt='Ufarm Logo')
+                    hr.mb-3.mt-4(width='225px' color='#2F6A3F')
+                    .sidebar-list-container
+                        ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
+                            li.nav-item.intext.mb-4.active
+                                a(href='AO-dashboard.html') Dashboard
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong FARMERONE MANAGEMENT
+                            hr.m-0(width='225px' color='#2F6A3F')
+                            li.nav-item.pt-4.intext
+                                a(href='ward.html') Wards
+                            li.nav-item.intext
+                                a(href='AO-fo-accounts.html') Accounts
+                            li.nav-item.intext.mb-4
+                                a(href='AO-fo-activities.html') Activities
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong ACCOUNTS
+                            |  
+                            hr.m-0(width='225px' color='#2F6A3F')
+                            li.nav-item.pt-4.intext My account
+                            li.nav-item.intext Users
+        block content
+            .footer
+                small.mt-4.ml-5 © Refactory Cohort 12
+                small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+        block scripts

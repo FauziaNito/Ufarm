@@ -9,8 +9,19 @@ body {
 }
 .sidebar {
 	background-color: #0b472e;
-	height: 100%;
+	/* height: 100%; */
 	display: flex;
+}
+aside a {
+	color: white;
+}
+aside a:active {
+	color: #fda500;
+	/* background-color: #FE9800; */
+}
+aside a:hover {
+	text-decoration: none;
+	color: #fda500;
 }
 /* .intext{
     margin: auto;
@@ -206,17 +217,7 @@ ul.sidebar-list li {
     grid-row: auto /span 2;
 } */
 
-aside a {
-	color: white;
-}
-aside a:active {
-	color: #fda500;
-	/* background-color: #FE9800; */
-}
-aside a:hover {
-	text-decoration: none;
-	color: #fda500;
-}
+
 
 .action-btn2 {
 	width: 90px;
@@ -260,6 +261,17 @@ select {
 .form-field input:focus,
 select:focus {
 	outline: none;
+}
+
+.checkbox-size{
+	transform: scale(0.40);
+	padding-right: 0px;
+	margin-right: 0px;
+	
+}
+.check-box-tex{
+	margin-top: 17px;
+	margin-left: 0px !important;
 }
 .radio {
 	margin-top: 15px;

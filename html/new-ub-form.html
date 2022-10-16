@@ -6,29 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="../stylesheet.css" />
-		<title>Farmer's Accounts</title>
+		<title>UF |Registration</title>
 	</head>
 
 	<body>
 		<!-- Sidebar -->
 		<aside class="sidebar">
 			<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-				<div
-					class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
-				>
+				<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
 					<div>
-						<img
-							src="../../images/s-wlogo2.png"
-							alt="Ufarm Logo"
-							class="sidebar-logo"
-						/>
+						<img src="../../images/s-wlogo2.png" alt="Ufarm Logo" class="sidebar-logo" />
 					</div>
 					<hr class="mb-3 mt-4" width="225px" color="#2F6A3F" />
 					<div class="sidebar-list-container">
-						<ul
-							id=""
-							class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start sidebar-list"
-						>
+						<ul id="" class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start sidebar-list">
 							<li class="nav-item intext mb-4">
 								<a href="FO-dashboard.html">Dashboard</a>
 							</li>
@@ -80,12 +71,6 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
-							<!-- <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
 							<li class="nav-item dropdown" style="margin-left: auto">
 								<a
 									class="nav-link dropdown-toggle text-secondary"
@@ -102,14 +87,7 @@
 									<li><a class="dropdown-item" href="#">Signout</a></li>
 								</ul>
 							</li>
-							<!-- <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li> -->
 						</ul>
-						<!-- <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
 					</div>
 				</div>
 			</nav>
@@ -126,43 +104,29 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-field">
-								<label for="firstname"
-									>First Name:<small class="asterisk"> *</small></label
-								>
-								<input
-									type="text"
-									name="firstname"
-									id="firstname"
-									autocomplete="off"
-								/>
+								<label for="firstname">First Name:<small class="asterisk"> *</small></label>
+								<input type="text" name="firstname" id="firstname" autocomplete="off" />
 								<div class="error"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-field">
-								<label for="lastname"
-									>Last Name:<small class="asterisk"> *</small></label
-								>
-								<input
-									type="text"
-									name="lastname"
-									id="lastname"
-									autocomplete="off"
-								/>
+								<label for="lastname">Last Name:<small class="asterisk"> *</small></label>
+								<input type="text" name="lastname" id="lastname" autocomplete="off" />
 								<div class="error"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-field">
-								<label for="phonenumber"
-									>Phone Number:<small class="asterisk"> *</small></label
-								>
-								<input
-									type="text"
-									name="phonenumber"
-									id="phonenumber"
-									autocomplete="off"
-								/>
+								<label for="uniquenumber">Unique Number:<small class="asterisk"> *</small></label>
+								<input class="text-muted" type="text" name="uniquenumber" id="" autocomplete="off" value="forexample MW1-001" />
+								<div class="error"></div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-field">
+								<label for="password">Password:<small class="asterisk"> *</small></label>
+								<input class="text-muted" type="password" name="password" id="" autocomplete="off" />
 								<div class="error"></div>
 							</div>
 						</div>
@@ -171,36 +135,31 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-field">
-								<label for="ninnumber"
-									>NIN Number:<small class="asterisk"> *</small></label
-								>
-								<input
-									type="text"
-									name="ninnumber"
-									id="ninnumber"
-									autocomplete="off"
-								/>
+								<label for="role">Role</label>
+								<select name="role" id="">
+									<option>Assign a role to this farmerOne</option>
+									<option>farmerOne</option>
+								</select>
 								<div class="error"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-field">
-								<label for="ward">Ward:<small class="asterisk"> *</small></label>
-								<input
-									type="text"
-									name="ward"
-									id="ward"
-									value="Ward 1"
-									autocomplete="off"
-									disabled
-								/>
+								<label for="ninnumber">NIN Number:<small class="asterisk"> *</small></label>
+								<input type="text" name="ninnumber" id="ninnumber" autocomplete="off" />
+								<div class="error"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-field">
-								<label for="regdate"
-									>Date of Registration:<small class="asterisk"> *</small></label
-								>
+								<label for="phonenumber">Phone Number:<small class="asterisk"> *</small></label>
+								<input type="text" name="phonenumber" id="phonenumber" autocomplete="off" />
+								<div class="error"></div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-field">
+								<label for="regdate">Date of Registration:<small class="asterisk"> *</small></label>
 								<input type="date" name="regdate" id="regdate" autocomplete="off" />
 								<!-- <div class="error"></div> -->
 							</div>
@@ -211,15 +170,8 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-field">
-								<label for="birthdate"
-									>Date of Bith<small class="asterisk"> *</small></label
-								>
-								<input
-									type="date"
-									name="birthdate"
-									id="birthdate"
-									autocomplete="off"
-								/>
+								<label for="birthdate">Date of Bith<small class="asterisk"> *</small></label>
+								<input type="date" name="birthdate" id="birthdate" autocomplete="off" />
 								<div class="error"></div>
 							</div>
 						</div>
@@ -227,37 +179,29 @@
 							<div class="form-field">
 								<label for="gender">Gender:</label>
 								<div class="radio">
-									<input
-										type="radio"
-										name="gender"
-										id="gender1"
-										autocomplete="off"
-										checked
-									/>
+									<input type="radio" name="gender" id="gender1" autocomplete="off" checked />
 									<span>Female</span>
-									<input
-										type="radio"
-										name="gender"
-										id="gender2"
-										autocomplete="off"
-									/>
+									<input type="radio" name="gender" id="gender2" autocomplete="off" />
 									<span>Male</span>
-									<input
-										type="radio"
-										name="gender"
-										id="gender3"
-										autocomplete="off"
-									/>
+									<input type="radio" name="gender" id="gender3" autocomplete="off" />
 									<span>Others</span>
 								</div>
 							</div>
 						</div>
-						<div class="col">
+						<!-- Activities -->
+						<div class="col-6">
 							<div class="form-field">
-								<p class="text-muted mt-4 pt-3" for="phonenumber">
-									You Must fill in all felids with
-									<strong class="asterisk">*</strong>
-								</p>
+								<label for="gender">Activities:</label>
+								<div class="activity">
+									<input class="checkbox-size" type="checkbox" name="activity" id="gender1" autocomplete="off" value="Horticulture" checked />
+									<span>Horticulture</span>
+									<input class="checkbox-size" type="checkbox" name="activity" id="gender2" autocomplete="off" value="Produce" />
+									<span>Produce</span>
+									<input class="checkbox-size" type="checkbox" name="activity" id="gender2" autocomplete="off" value="Poultry" />
+									<span>Poultry</span>
+									<input class="checkbox-size" type="checkbox" name="activity" id="gender2" autocomplete="off" value="Dairy products" />
+									<span>Dairy products</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -267,75 +211,32 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-field">
-								<label for="lat">latitude:<small class="asterisk"> *</small></label>
-								<input type="text" name="lat" id="lat" autocomplete="off" />
+								<label for="ward">Ward:<small class="asterisk"> *</small></label>
+								<input type="text" name="ward" id="ward" value="Ward 1" autocomplete="off" disabled />
+							</div>
+						</div>
+						<div class="col column-stretch-left">
+							<div class="form-field">
+								<label for="streetname">Street Name:<small class="asterisk"> *</small></label>
+								<input id="streetname" type="text" name="streetname" autocomplete="off" />
 								<div class="error"></div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="form-field">
-								<label for="longt"
-									>longitude:<small class="asterisk"> *</small></label
-								>
-								<input type="text" name="longt" id="longt" autocomplete="off" />
+								<label for="housenumber">House Number:<small class="asterisk"> *</small></label>
+								<input id="housenumber" type="text" name="housenumber" autocomplete="off" />
 								<div class="error"></div>
-							</div>
-						</div>
-						<!-- Activities -->
-						<div class="col">
-							<div class="form-field">
-								<label for="gender">Activities:</label>
-								<div class="activity">
-									<input
-										type="checkbox"
-										name="register"
-										id="gender1"
-										autocomplete="off"
-										value="eng"
-										checked
-									/>
-									<span>Registers</span>
-									<input
-										type="checkbox"
-										name="approve"
-										id="gender2"
-										autocomplete="off"
-										value="lug"
-									/>
-									<span>Approve</span>
-									<input
-										type="checkbox"
-										name="upload"
-										id="gender2"
-										autocomplete="off"
-										value="kiswa"
-									/>
-									<span>Upload</span>
-								</div>
 							</div>
 						</div>
 					</div>
 					<!-- Button -->
-
 					<div class="container FO-form-btn">
-						<div class="coordinate-container">
-							<button type="submit" class="btn coordinate-btn">
-								Find Area Coordinates
-							</button>
+						<div class="button1">
+							<button type="submit" class="btn btn-primary mt-1 form-add-btn mr-auto">Add New</button>
 						</div>
 						<div class="button1">
-							<button type="submit" class="btn btn-primary mt-1 form-add-btn mr-auto">
-								Add New
-							</button>
-						</div>
-						<div class="button1">
-							<button
-								type="submit"
-								class="btn btn-primary mt-1 ml-4 form-clear-btn mr-auto"
-								style="width: 120px"
-							>
-								Clear
-							</button>
+							<button type="submit" class="btn btn-primary mt-1 ml-4 form-clear-btn mr-auto" style="width: 120px">Clear</button>
 						</div>
 					</div>
 				</form>
@@ -345,9 +246,7 @@
 			<!-- Footer -->
 			<div class="footer">
 				<small class="mt-4 ml-5">&copy; Refactory Cohort 12</small>
-				<small class="mt-4 mr-5"
-					>&copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576</small
-				>
+				<small class="mt-4 mr-5">&copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576</small>
 			</div>
 		</main>
 	</body>
