@@ -1,6 +1,5 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-
 
 // Agricultural Officer Dashboard Routes
 router.get("/AOdashboard", (req, res) => {
@@ -18,4 +17,9 @@ router.get("/FOactivities", (req, res) => {
 router.get("/addward", (req, res) => {
 	res.render("AO/ward");
 });
+// Testing layout Page
+router.get("/layout", (req, res) => {
+	res.render("AO/layout");
+});
+
 module.exports = router;
