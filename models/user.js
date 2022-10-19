@@ -5,23 +5,23 @@ const userSchema = new mongoose.Schema({
 	firstname: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	lastname: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	uniquenumber: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
         unique: true
 	},
 	password: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	role: {
 		type: String,

@@ -22,7 +22,7 @@ form.addEventListener("submit", (e) => {
 // Function combining all the input validations on FarmerOne Registration
 const urbanFarmer = () => {
 	checkFirstName();
-	checkFirstName();
+	checkLastName();
 	checkNinNumber();
 	checkPhoneNumber();
 	// checkWard();

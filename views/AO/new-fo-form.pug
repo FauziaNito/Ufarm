@@ -21,128 +21,127 @@ block content
     .container-fluid.form-style
       .logo-div
         img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-      form#registerFO.form(action='/registerFO' name='registration' method='POST')
+      form#registerFO.form(action='/registerFO' name='registration' method='POST' onsubmit="return FarmerOneForm();")
         h5.text-muted.text-center Add FarmerOne Details
         hr
         .row
           .col
             .form-field
-              label(for='firstname')
-                | First Name:
+              label(for='firstname') First Name:
                 small.asterisk  *
               input#firstname(type='text' name='firstname' autocomplete='off')
-              .error
+              small#firstnameerr
           .col
             .form-field
               label(for='lastname')
                 | Last Name:
                 small.asterisk  *
               input#lastname(type='text' name='lastname' autocomplete='off')
-              .error    
+              small#lastnameerr    
           .col
             .form-field
               label(for='uniquenumber')
                 | Unique Number:
                 small.asterisk  *
-              input.text-muted(type='text' name='uniquenumber' id='' autocomplete='off' value='forexample MW1-001')
-              .error
+              input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample FOW1-001')
+              small#uniquenumbererr
           .col
             .form-field
               label(for='password')
                 | Password:
                 small.asterisk  *
-              input.text-muted(type='password' name='password' id='' autocomplete='off')
-              .error
+              input#password.text-muted(type='password' name='password' autocomplete='off')
+              small#passworderr
         .row
           .col
             .form-field
               label(for='role') Role
-              select(name='role' id='')
-                option() Assign a role to this farmerOne
-                option() farmerOne
-              .error
+              select#role(name='role')
+                option(value = "selectrole") Select Role
+                option(value = "farmerOne") Farmer One
+              small#roleerr
           .col
             .form-field
               label(for='ninnumber')
                 | NIN Number:
                 small.asterisk  *
               input#ninnumber(type='text' name='ninnumber' autocomplete='off')
-              .error
+              small#ninNumberError 
           .col
             .form-field
               label(for='phonenumber')
                 | Phone Number:
                 small.asterisk  *
-              input#phonenumber(type='text' name='phonenumber' autocomplete='off')
-              .error
+              input#phonenumber(type='text' name='phonenumber')
+              small#phonenumbererr 
           .col
             .form-field
               label(for='residenttype') Resident Type:
-              select(name='residenttype' id='')
-                option() Select Resident Type
-                option() Permanent
-                option() Temporary
-              .error
+              select#residenttype(name='residenttype')
+                option(value='selectresident') Select Resident Type
+                option(value='Permanent') Permanent
+                option(value='Temporary') Temporary
+              small#residenttypeerr 
         .row
           .col
             .form-field
               label(for='periodofstay')
                 | Period of Stay:
                 small.asterisk  *
-              input#phonenumber(type='number' name='periodofstay' autocomplete='off')
-              .error
+              input#periodofstay(type='number' name='periodofstay' autocomplete='off')
+              small#periodofstayerr 
           .col
             .form-field
               label(for='regdate')
                 | Date of Registration:
                 small.asterisk  *
               input#regdate(type='date' name='regdate' autocomplete='off')
-              .error
+
           .col
             .form-field
               label(for='birthdate')
                 | Date of Bith
                 small.asterisk  *
               input#birthdate(type='date' name='birthdate' autocomplete='off')
-              .error
+              small#birthdateerr 
           .col
             .form-field
               label(for='gender') Gender:
               .radio
-                input#gender1(type='radio' name='gender' autocomplete='off' checked='')
+                input#gender1(type='radio' name='gender' autocomplete='off')
                 span Female
                 input#gender2(type='radio' name='gender' autocomplete='off')
                 span Male
                 input#gender3(type='radio' name='gender' autocomplete='off')
                 span Others
-              .error
+              small#genderradioerr 
         hr.mt-1
         p.text-muted Add FarmerOne&apos;s Direction Coordinates
         .row
           .col
             .form-field
               label(for='ward') Ward:
-              select(name='ward' id='')
-                option() Appoint a ward to this farmerOne
-                option() Ward 1
-                option() Ward 2
-                option() Ward 3
-                option() Ward 4
-              .error
+              select#ward(name='ward')
+                option(value='selectward') Select ward for farmerOne
+                option(value='Ward 1') Ward 1
+                option(value='Ward 2') Ward 2
+                option(value='Ward 3') Ward 3
+                option(value='Ward 4') Ward 4
+              small#warderr 
           .col.column-stretch-left
             .form-field
               label(for='streetname')
                 | Street Name:
                 small.asterisk  *
               input#streetname(type='text' name='streetname' autocomplete='off')
-              .error
+              small#streetnameerr 
           .col
             .form-field
               label(for='housenumber')
                 | House Number:
                 small.asterisk  *
               input#housenumber(type='text' name='housenumber' autocomplete='off')
-              .error    
+              small#housenumbererr     
           .col
             .form-field
               label(for='gender') Activities:
@@ -157,10 +156,10 @@ block content
           .button1
             button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
           .button1
-            button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='' style='width: 120px') Clear
+            button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='clear' style='width: 120px') Clear
 
     .footer
       small.mt-4.ml-5 &copy; Refactory Cohort 12
       small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
   script(src='bootstrap-js/js/bootstrap.bundle.min.js')
-  //- script(src='js/AO-validation.js')
+  script(src='js/FO_form_validation.js')

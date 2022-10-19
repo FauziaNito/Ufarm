@@ -254,12 +254,12 @@ select:focus {
 }
 
 .checkbox-size {
-	transform: scale(0.4);
+	transform: scale(1);
 	padding-right: 0px;
 	margin-right: 0px;
 }
 .check-box-tex {
-	margin-top: 17px;
+	margin-top: 5px;
 	margin-left: 0px !important;
 }
 .radio {
