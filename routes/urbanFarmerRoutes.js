@@ -6,4 +6,10 @@ router.get("/UFdashboard", (req, res) => {
 	res.render("UF/UF-dashboard");
 });
 
+// Urban Farmer Produce Upload Route
+// produce upload form get route
+router.get("/uploadproduce", (req, res) => {
+	res.render("UF/produce-upload-form");
+});
+
 module.exports = router;

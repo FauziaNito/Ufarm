@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 		// required: true,
-        unique: true
+		unique: true,
 	},
 	password: {
 		type: String,
@@ -61,10 +61,6 @@ const userSchema = new mongoose.Schema({
 		trim: true,
 	},
 	streetname: {
-		type: String,
-		trim: true,
-	},
-	housenumber: {
 		type: String,
 		trim: true,
 	},
