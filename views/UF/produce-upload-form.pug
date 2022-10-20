@@ -27,7 +27,7 @@ block content
                 .row
                     .col
                         .form-field
-                            label(for='lastname')
+                            label(for='producecode')
                                 | Produce Code:
                                 small.asterisk  *
                             input#producecode(type='text' name='producecode' autocomplete='off' placeholder='Enter Produce Code')
@@ -127,8 +127,14 @@ block content
                                 span NoneOrganic
                             small#producttypeerr
                 hr.mt-1
-                p.text-muted Your Home Direction
+                p.text-muted Farmer's Details and Home Direction
                 .row
+                    .col
+                        .form-field
+                            label(for='ward') Farmer's Name:
+                            select#farmername(name='farmername') 
+                                option(value='Fauzia Naava') Fauzia Naava
+                            
                     .col
                         .form-field
                             label(for='ward') Ward:

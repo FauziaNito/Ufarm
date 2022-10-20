@@ -1,5 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const connectEnsureLogin = require("connect-ensure-login");
+
+
+// Importing Models
+const Produce = require('../models/ProduceUpload');
 
 // Urban Farmer Dashboard Routes
 router.get("/UFdashboard", (req, res) => {
