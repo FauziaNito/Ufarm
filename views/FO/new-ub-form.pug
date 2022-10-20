@@ -1,177 +1,149 @@
-doctype html
-head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
-    link(rel='stylesheet' href='css/stylesheet.css')
-    title UF |Registration
-aside.sidebar
-    .col-auto.col-md-3.col-xl-2.px-sm-2.px-0
-        .d-flex.flex-column.align-items-center.align-items-sm-start.px-3.pt-2.text-white.min-vh-100
-            div
-                img.sidebar-logo(src='../../images/s-wlogo2.png' alt='Ufarm Logo')
-            hr.mb-3.mt-4(width='225px' color='#2F6A3F')
-            .sidebar-list-container
-                ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
-                    li.nav-item.intext.mb-4
-                        a(href='FO-dashboard.html') Dashboard
-                    li.nav-item.sidebar-header.p-0.intext
-                        strong URBAN FARMER MANAGEMENT
-                    hr.m-0(width='225px' color='#2F6A3F')
-                    li.nav-item.pt-4.intext
-                        a(href='../FO-ub-accounts.html') Accounts
-                    li.nav-item.intext
-                        a(href='FO-produce-approval.html') Produce
-                    li.nav-item.intext.mb-4
-                        a(href='FO-orders.html') Orders
-                    li.nav-item.sidebar-header.p-0.intext
-                        strong ACCOUNTS
-                    hr.m-0(width='225px' color='#2F6A3F')
-                    li.nav-item.pt-4.intext
-                        a(href='FO-dashboard.html') My account
-                    li.nav-item.intext Users
-main.content
-    nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
-        .container-fluid
-            a.navbar-brand.text-dark(href='#') Register New Urban Farmer
-            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-            #navbarSupportedContent.collapse.navbar-collapse
-                ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
-                    li.nav-item.dropdown(style='margin-left: auto')
-                        a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                            | FarmerOne
-                        ul.dropdown-menu
-                            li
-                                a.dropdown-item(href='#') Profile
-                            li
-                                a.dropdown-item(href='#')
-                            li
-                                a.dropdown-item(href='#') Signout
-    .container-fluid.form-style
-        .logo-div
-            img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-        form#registerUF.form(action='/' name='registration' method='post')
-            h5.text-muted.text-center Add Urban Farmer Details
-            hr
-            .row
-                .col
-                    .form-field
-                        label(for='firstname')
-                            | First Name:
-                            small.asterisk  *
-                        input#firstname(type='text' name='firstname' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='lastname')
-                            | Last Name:
-                            small.asterisk  *
-                        input#lastname(type='text' name='lastname' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='uniquenumber')
-                            | Unique Number:
-                            small.asterisk  *
-                        input.text-muted(type='text' name='uniquenumber' id='' autocomplete='off' value='forexample MW1-001')
-                        .error
-                .col
-                    .form-field
-                        label(for='password')
-                            | Password:
-                            small.asterisk  *
-                        input.text-muted(type='password' name='password' id='' autocomplete='off')
-                        .error
-            .row
-                .col
-                    .form-field
-                        label(for='role') Role
-                        select(name='role' id='')
-                            option Assign a role to this farmerOne
-                            option farmerOne
-                        .error
-                .col
-                    .form-field
-                        label(for='ninnumber')
-                            | NIN Number:
-                            small.asterisk  *
-                        input#ninnumber(type='text' name='ninnumber' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='phonenumber')
-                            | Phone Number:
-                            small.asterisk  *
-                        input#phonenumber(type='text' name='phonenumber' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='regdate')
-                            | Date of Registration:
-                            small.asterisk  *
-                        input#regdate(type='date' name='regdate' autocomplete='off')
-            .row
-                .col
-                    .form-field
-                        label(for='birthdate')
-                            | Date of Bith
-                            small.asterisk  *
-                        input#birthdate(type='date' name='birthdate' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='gender') Gender:
-                        .radio
-                            input#gender1(type='radio' name='gender' autocomplete='off' checked='')
-                            span Female
-                            input#gender2(type='radio' name='gender' autocomplete='off')
-                            span Male
-                            input#gender3(type='radio' name='gender' autocomplete='off')
-                            span Others
-                .col-6
-                    .form-field
-                        label(for='gender') Activities:
-                        .activity
-                            input#gender1.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Horticulture' checked='')
-                            span Horticulture
-                            input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Produce')
-                            span Produce
-                            input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Poultry')
-                            span Poultry
-                            input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Dairy products')
-                            span Dairy products
-            hr.mt-1
-            p.text-muted Add FarmerOne&apos;s Direction Coordinates
-            .row
-                .col
-                    .form-field
-                        label(for='ward')
-                            | Ward:
-                            small.asterisk  *
-                        input#ward(type='text' name='ward' value='Ward 1' autocomplete='off' disabled='')
-                .col.column-stretch-left
-                    .form-field
-                        label(for='streetname')
-                            | Street Name:
-                            small.asterisk  *
-                        input#streetname(type='text' name='streetname' autocomplete='off')
-                        .error
-                .col
-                    .form-field
-                        label(for='housenumber')
-                            | House Number:
-                            small.asterisk  *
-                        input#housenumber(type='text' name='housenumber' autocomplete='off')
-                        .error
-            .container.FO-form-btn
-                .button1
-                    button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
-                .button1
-                    button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='submit' style='width: 120px') Clear
-    .footer
-        small.mt-4.ml-5 &copy; Refactory Cohort 12
-        small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
-script(src='bootstrap-js/js/bootstrap.bundle.min.js')
-script(src='../javascript/FO-ub-FormValidation.js')
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#') Register New Urban Farmer
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left: auto')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                                | FarmerOne
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    a.dropdown-item(href='#') Signout
+        .container-fluid.form-style
+            .logo-div
+                img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
+            form#registerUF.form(action='/registerUF' name='registration' method='post' onsubmit="return FarmerOneForm();")
+                h5.text-muted.text-center Add Urban Farmer Details
+                hr
+                .row
+                    .col
+                        .form-field
+                            label(for='firstname')
+                                | First Name:
+                                small.asterisk  *
+                            input#firstname(type='text' name='firstname' autocomplete='off')
+                            small#firstnameerr
+                    .col
+                        .form-field
+                            label(for='lastname')
+                                | Last Name:
+                                small.asterisk  *
+                            input#lastname(type='text' name='lastname' autocomplete='off')
+                            small#lastnameerr
+                    .col
+                        .form-field
+                            label(for='uniquenumber')
+                                | Unique Number:
+                                small.asterisk  *
+                            input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample UFW1-001')
+                            small#uniquenumbererr
+                    .col
+                        .form-field
+                            label(for='password') 
+                                | Password: 
+                                small.asterisk  *
+                            input#password.text-muted(type='password' name='password' autocomplete='off')
+                            small#passworderr
+                .row
+                    .col
+                        .form-field
+                            label(for='role') Role
+                            select#role(name='role')
+                                option(value = "selectrole") Select Role
+                                option(value = "urbanfarmer") Urban Farmer
+                            small#roleerr
+                    .col
+                        .form-field
+                            label(for='ninnumber')
+                                | NIN Number:
+                                small.asterisk  *
+                            input#ninnumber(type='text' name='ninnumber' autocomplete='off')
+                            small#ninNumberError 
+                    .col
+                        .form-field
+                            label(for='phonenumber')
+                                | Phone Number:
+                                small.asterisk  *
+                            input#phonenumber(type='text' name='phonenumber')
+                            small#phonenumbererr
+                    .col
+                        .form-field
+                            label(for='regdate')
+                                | Date of Registration:
+                                small.asterisk  *
+                            input#regdate(type='date' name='regdate')
+
+                .row
+                    .col
+                        .form-field
+                            label(for='birthdate')
+                                | Date of Bith
+                                small.asterisk  *
+                            input#birthdate(type='date' name='birthdate' autocomplete='off')
+                            small#birthdateerr
+                    .col
+                        .form-field
+                            label(for='gender') Gender:
+                            .radio#gender
+                                input#gender1(type='radio' name='gender' autocomplete='off')
+                                span Female
+                                input#gender2(type='radio' name='gender' autocomplete='off')
+                                span Male
+                                input#gender3(type='radio' name='gender' autocomplete='off')
+                                span Others
+                            small#genderradioerr
+                    .col-6
+                        .form-field
+                            label Activities:
+                            .activity
+                                input#gender1.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Horticulture' checked='')
+                                span Horticulture
+                                input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Produce')
+                                span Produce
+                                input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Poultry')
+                                span Poultry
+                                input#gender2.checkbox-size(type='checkbox' name='activity' autocomplete='off' value='Dairy products')
+                                span Dairy products
+                hr.mt-1
+                p.text-muted Add FarmerOne&apos;s Direction Coordinates
+                .row
+                    .col
+                        .form-field
+                            label(for='ward') Ward:
+                            select#ward(name='ward')
+                                option(value='selectward') Select ward
+                                option(value='Ward 1') Ward 1
+                            small#warderr
+                    .col.column-stretch-left
+                        .form-field
+                            label(for='streetname')
+                                | Street Name:
+                                small.asterisk  *
+                            input#streetname(type='text' name='streetname' autocomplete='off')
+                            small#streetnameerr
+                    .col
+                        .form-field
+                            label(for='housenumber')
+                                | House Number:
+                                small.asterisk  *
+                            input#housenumber(type='text' name='housenumber' autocomplete='off')
+                            small#housenumbererr
+                .container.FO-form-btn
+                    .button1
+                        button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
+                    .button1
+                        button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='rest' style='width: 120px') Clear
+        .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+    script(src='bootstrap-js/js/bootstrap.bundle.min.js')
+    script(src='js/UF_form_validation.js')
