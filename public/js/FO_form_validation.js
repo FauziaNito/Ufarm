@@ -36,6 +36,10 @@ const FarmerOneForm = () => {
 	var residentTypeError = document.getElementById("residenttypeerr");
 	var periodOfStayError = document.getElementById("periodofstayerr");
 	var dateOfBirthError = document.getElementById("birthdateerr");
+	var wardError = document.getElementById("warderr");
+	var streetNameError = document.getElementById("streetnameerr");
+	var houseNumberError = document.getElementById("housenumbererr");
+	var radioError = document.getElementById("genderradioerr");
 
 	//FarmerOne First Name input value validation
 	let alphaRegex = /^[A-Za-z]+$/;
@@ -110,7 +114,7 @@ const FarmerOneForm = () => {
 	//FarmerOne Password input value validation
 	if (password.value == "") {
 		password.style.border = "1px solid red";
-		passwordError.textContent = "Please Enter Role";
+		passwordError.textContent = "Please Enter Password";
 		passwordError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		return false;
 	} else if (password.value.length < 5) {
@@ -143,21 +147,21 @@ const FarmerOneForm = () => {
 		farmerRoleError.textContent = "";
 	}
 	//FarmerOne NIN Number input validation
-	let ninRegex = /^[a-zA-Z]+[0-9]+[a-zA-Z]+$/;
+	let ninRegex = /^[a-zA-Z][a-zA-Z][0-9]+[a-zA-Z][a-zA-Z][a-zA-Z]$/; ///^[a-zA-Z]+[0-9]+[a-zA-Z]+$/;
 	const max = 14;
 	if (ninNumber.value == "") {
 		ninNumber.style.border = "1px solid red";
 		ninNumberError.textContent = "Please Enter NIN Number";
 		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		return false;
+	} else if (ninNumber.value.length < max || ninNumber.value.length > max) {
+		ninNumber.style.border = "1px solid red";
+		ninNumberError.textContent = "NIN Number should be 14 Characters";
+		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
 	} else if (!ninNumber.value.match(ninRegex)) {
 		ninNumber.style.border = "1px solid red";
 		ninNumberError.textContent = "Enter a correct NIN Number";
-		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		return false;
-	} else if (!ninNumber.value.length < max || ninNumber.value.length > max) {
-		ninNumber.style.border = "1px solid red";
-		ninNumberError.textContent = "NIN Number should be 14 Characters";
 		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		return false;
 	} else {
@@ -168,12 +172,12 @@ const FarmerOneForm = () => {
 	let phoneDigits = /^\d{10}$/;
 	if (phoneNumber.value == "") {
 		phoneNumber.style.border = "1px solid red";
-		phoneNumberError.textContent = "Please Enter NIN Number";
+		phoneNumberError.textContent = "Please Enter Phone Number";
 		phoneNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		return false;
 	} else if (!phoneNumber.value.match(phoneDigits)) {
 		phoneNumber.style.border = "1px solid red";
-		phoneNumberError.textContent = "Enter a correct NIN Number";
+		phoneNumberError.textContent = "Enter a correct Phone Number";
 		phoneNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		return false;
 	} else {
@@ -234,6 +238,57 @@ const FarmerOneForm = () => {
 	} else {
 		birthDate.style.border = "1px solid green";
 		dateOfBirthError.textContent = "";
+	}
+	//FarmerOne Gender input validation
+	if (gender[0].checked == false && gender[1].checked == false && gender[2].checked == false) {
+		// gender.style.border = "1px solid red";
+		radioError.textContent = "Please Check Gender";
+		radioError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else {
+		gender.style.border = "1px solid green";
+		radioError.textContent = "";
+	}
+	//FarmerOne Ward input validation
+	if (ward.value == "selectward") {
+		ward.style.border = "1px solid red";
+		wardError.textContent = "Please Select Farmer One Role";
+		wardError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else {
+		ward.style.border = "1px solid green";
+		wardError.textContent = "";
+	}
+	//FarmerOne Street Name input validation
+	let alphaNumRegex = /^[0-9a-zA-Z]+$/;
+	if (streetName.value == "") {
+		streetName.style.border = "1px solid red";
+		streetNameError.textContent = "Please Enter Street Name";
+		streetNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else if (!streetName.value.match(alphaNumRegex)) {
+		streetName.style.border = "1px solid red";
+		streetNameError.textContent = "Enter a correct Street Name without Symbols";
+		streetNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else {
+		streetName.style.border = "1px solid green";
+		streetNameError.textContent = "";
+	}
+	//FarmerOne House Number input validation
+	if (houseNumber.value == "") {
+		houseNumber.style.border = "1px solid red";
+		houseNumberError.textContent = "Please Enter House Number";
+		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else if (!houseNumber.value.match(alphaNumRegex)) {
+		houseNumber.style.border = "1px solid red";
+		houseNumberError.textContent = "Enter a correct House Number without Symbols";
+		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		return false;
+	} else {
+		houseNumber.style.border = "1px solid green";
+		houseNumberError.textContent = "";
 	}
 };
 
