@@ -259,16 +259,13 @@ select:focus {
 	margin-right: 0px;
 }
 .checkbox-size1 {
-	transform: scale(0.5);
+	transform: scale(0.65);
 	padding-right: 0px;
 	margin-right: 0px;
 }
-.checkbox-text{
-	margin-top:10px;
-}
-.check-box-tex {
-	margin-top: 5px;
-	margin-left: 0px !important;
+.checkbox-text {
+	/* margin-top: 5px; */
+	margin-bottom: 5px;
 }
 .radio {
 	margin-top: 15px;
@@ -334,4 +331,7 @@ select:focus {
 	.stat-card {
 		margin-bottom: 20px;
 	}
+}
+.logout-style {
+	margin-right: 55%;
 }

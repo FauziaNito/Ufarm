@@ -3,7 +3,7 @@ block content
     main.content
         nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
             .container-fluid
-                a.navbar-brand.text-dark(href='#') Register New Urban Farmer
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:50%') Register New Urban Farmer
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
@@ -17,7 +17,8 @@ block content
                                 li
                                     a.dropdown-item(href='#')
                                 li
-                                    a.dropdown-item(href='#') Signout
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
@@ -108,11 +109,11 @@ block content
                                 input#gender1.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Horticulture' checked='')
                                 span.checkbox-text Horticulture
                                 input#gender2.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Produce')
-                                span Produce
+                                span.checkbox-text Produce
                                 input#gender2.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Poultry')
-                                span Poultry
+                                span.checkbox-text Poultry
                                 input#gender2.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Dairy products')
-                                span Dairy products
+                                span.checkbox-text Dairy
                 hr.mt-1
                 p.text-muted Add FarmerOne&apos;s Direction Coordinates
                 .row

@@ -3,12 +3,12 @@ block content
     main.content
         nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
             .container-fluid
-                a.navbar-brand.text-dark(href='#') Produce Registration
+                a.navbar-brand.text-dark.logout-style(href='#') Produce Registration
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
-                        li.nav-item.dropdown.offset-12(style='margin-left:auto ;')
+                        li.nav-item.dropdown()
                             a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
 
                             ul.dropdown-menu
@@ -17,7 +17,8 @@ block content
                                 li
                                     a.dropdown-item(href='#')
                                 li
-                                    a.dropdown-item(href='#') Signout
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')

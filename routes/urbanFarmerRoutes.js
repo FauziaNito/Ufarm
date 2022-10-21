@@ -3,9 +3,8 @@ const router = express.Router();
 const multer = require("multer");
 const connectEnsureLogin = require("connect-ensure-login");
 
-
 // Importing Models
-const Produce = require('../models/ProduceUpload');
+const Produce = require("../models/ProduceUpload");
 
 // image upload
 var storage = multer.diskStorage({
@@ -20,8 +19,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 // Urban Farmer Produce Upload Route
-// produce upload form get route if only a user is logged in
-router.get("/uploadproduce", /*connectEnsureLogin.ensureLoggedIn(),*/ (req, res) => {
+// produce upload form get route if only a user is
+router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	console.log("This is the Current User ", req.session.user);
 	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
 });
