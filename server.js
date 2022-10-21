@@ -16,14 +16,12 @@ const expressSession = require("express-session")({
 const Registration = require('./models/user');
 
 // ROUTES IMPORTING
-// Importing Registration Routes
+// Importing Routes from other routes files
 const registerRoutes = require('./routes/registrationRoutes');
-// Importing Agricultural Officer Routes
 const agriculturalOfficer = require('./routes/agriculturalOfficerRoutes');
-// Importing Farmer One Routes
 const farmerOne = require('./routes/farmerOneRoutes');
-// Importing Urban Farmer  Routes
 const urbanFarmer = require('./routes/urbanFarmerRoutes');
+const authenticationRoute = require('./routes/authenticationRoutes');
 
 // INSTANTIATIONS
 const app = express();
@@ -64,19 +62,10 @@ app.use("/", registerRoutes);
 app.use('/', agriculturalOfficer);
 app.use("/", farmerOne);
 app.use('/', urbanFarmer);
-
-app.get("/login", (req, res) => {
-	res.render("login");
-});
-app.post("/login", (req, res) => {
-	console.log(req.body);
-	res.redirect("login");
-});
+app.use('/', authenticationRoute);
 
 
-app.get("/registerUF", (req, res) => {
-	res.render("FO/new-ub-form");
-});
+
 
 
 /*For all Invalid Routes */

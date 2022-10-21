@@ -23,7 +23,6 @@ const produceSchema = new mongoose.Schema({
 	},
 	currency: {
 		type: String,
-		required: true,
 	},
 	unitprice: {
 		type: Number,
@@ -42,7 +41,7 @@ const produceSchema = new mongoose.Schema({
 		type: String,
 	},
 	modeofpayment: {
-		type: Number,
+		type: String,
 	},
 	imageupload: {
 		type: String,
@@ -68,6 +67,12 @@ const produceSchema = new mongoose.Schema({
 		type: String,
 		default: "Pending",
 		enum: ["Pending", "Approved"],
+	},
+	availability: {
+		//
+		type: String,
+		default: "available",
+		enum: ["available", "booked", "N/A"],
 	},
 });
 

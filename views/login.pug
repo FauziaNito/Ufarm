@@ -35,19 +35,21 @@ html(lang='en')
       .form-container
         .logo-div
           img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-        form#signup.form(action='#' name='registration' method='post')
+        form#signup.form(action='/login' name='login' method='POST')
           h5 Login to your account
           hr
           .form-field
-            label(for='firstname')
-              | User Name:
+            label(for='uniquenumber')
+              | Unique Number:
               small  *
-            input#firstname(type='text' name='firstname' autocomplete='off')
+            input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
+            small#uniquenumbererr
           .form-field
-            label(for='firstname')
+            label(for='password')
               | Password:
               small  *
-            input#firstname(type='text' name='firstname' autocomplete='off')
+            input#password(type='password' name='password' autocomplete='off')
+            small#passworderr
           .user-btn-container
             button.btn.rounded-pill.user-btn(type='submit') Login
     |  

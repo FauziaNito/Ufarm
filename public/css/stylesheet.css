@@ -258,6 +258,14 @@ select:focus {
 	padding-right: 0px;
 	margin-right: 0px;
 }
+.checkbox-size1 {
+	transform: scale(0.5);
+	padding-right: 0px;
+	margin-right: 0px;
+}
+.checkbox-text{
+	margin-top:10px;
+}
 .check-box-tex {
 	margin-top: 5px;
 	margin-left: 0px !important;

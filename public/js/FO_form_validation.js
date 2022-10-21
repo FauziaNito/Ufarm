@@ -41,6 +41,7 @@ const FarmerOneForm = () => {
 	var houseNumberError = document.getElementById("housenumbererr");
 	var radioError = document.getElementById("genderradioerr");
 
+	
 	//FarmerOne First Name input value validation
 	let alphaRegex = /^[A-Za-z]+$/;
 	const nameMin = 3;
@@ -275,21 +276,7 @@ const FarmerOneForm = () => {
 		streetName.style.border = "1px solid green";
 		streetNameError.textContent = "";
 	}
-	//FarmerOne House Number input validation
-	if (houseNumber.value == "") {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Please Enter House Number";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		return false;
-	} else if (!houseNumber.value.match(alphaNumRegex)) {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Enter a correct House Number without Symbols";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		return false;
-	} else {
-		houseNumber.style.border = "1px solid green";
-		houseNumberError.textContent = "";
-	}
+	
 };
 
 // Alphanumeric == /^[0-9a-zA-Z]+$/
