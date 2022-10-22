@@ -12,10 +12,11 @@ block content
                             a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
                             ul.dropdown-menu
                                 li
-                                    a.dropdown-item(href='#') Profile
+                                    a.dropdown-item(href='/Ubaccounts') Profile
                                 li
                                     a.dropdown-item(href='#')
                                 li
+                                    //- a.dropdown-item(href='/logout') Signout
                                     form(method="POST" action='/logout')
                                         button.btn(type= 'submit' width='100px') Signout
         .container-fluid.form-style
@@ -94,11 +95,11 @@ block content
                         .form-field
                             label(for='gender') Gender:
                             .radio#gender
-                                input#gender1(type='radio' name='gender' autocomplete='off')
+                                input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female')
                                 span Female
-                                input#gender2(type='radio' name='gender' autocomplete='off')
+                                input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male')
                                 span Male
-                                input#gender3(type='radio' name='gender' autocomplete='off')
+                                input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others')
                                 span Others
                             small#genderradioerr
                     .col-6

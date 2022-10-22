@@ -3,7 +3,7 @@ block content
     .container-fluid.form-style
         .logo-div
             img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-        form#signup.form(action='#' name='registration' method='post')
+        form#signup.form(action='/signup' name='registration' method='post' onsubmit="return FarmerOneForm(event);")
             h5 Register Now!
             hr
             .row
@@ -28,7 +28,15 @@ block content
                             small  *
                         input#phonenumber(type='text' name='phonenumber' autocomplete='off')
                         small#phonenumbererr
-            .row        
+            .row   
+                .col
+                    .form-field
+                        label(for='role') Register As:
+                        select#role(name='role')
+                            option(value = "selectrole") Select Role
+                            option(value = "agriculturalofficer") Agricutural Officer
+                            option(value = "generalpublic") Buyer
+                        small#roleerr     
                 .col
                     .form-field
                         label(for='uniquenumber')
@@ -36,14 +44,6 @@ block content
                             small  *
                         input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
                         small#uniquenumbererr
-                .col
-                    .form-field
-                        label(for='role') Register As:
-                        select#role(name='role')
-                            option(value = "selectrole") Select Role
-                            option(value = "agricuturalofficer") Agricutural Officer
-                            option(value = "generalpublic") Buyer
-                        small#roleerr
                 .col
                     .form-field
                         label(for='email')
@@ -57,25 +57,27 @@ block content
                         label(for='password')
                             | Password:
                             small  *
-                        input#password(type='text' name='password' autocomplete='off')
+                        input#password(type='password' name='password' autocomplete='off')
                         small#passworderr
                 .col
                     .form-field
-                        label(for='regdate')
-                            | Date of Registration:
+                        label(for='birthdate')
+                            | Date of Bith
                             small.asterisk  *
-                        input#regdate(type='date' name='regdate')
+                        input#birthdate(type='date' name='birthdate' autocomplete='off')
+                        small#birthdateerr
                 .col
                     .form-field
                         label(for='gender') Gender:
                         .radio#gender
-                            input#gender1(type='radio' name='gender' autocomplete='off')
+                            input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female')
                             span Female
-                            input#gender2(type='radio' name='gender' autocomplete='off')
+                            input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male')
                             span Male
-                            input#gender3(type='radio' name='gender' autocomplete='off')
+                            input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others')
                             span Others
                         small#genderradioerr
             .user-btn-container
                 button.btn.rounded-pill.user-btn(type='submit') Signup
     script(src='bootstrap-js/js/bootstrap.bundle.js')
+    script(src='js/signup_form_validation.js')

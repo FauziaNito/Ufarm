@@ -1,11 +1,9 @@
-//Setting Urban Farmer Date of Registration
+//Setting system of Registration
 let today = new Date();
 let currentMonth = today.getMonth() + 1;
 let currentYear = today.getFullYear();
 let currentDate = today.getDate();
 var current_date = `${currentYear}-${currentMonth}-${currentDate}`;
-console.log(current_date);
-document.getElementById("regdate").value = current_date;
 
 const FarmerOneForm = (event) => {
 	var firstName = document.getElementById("firstname");
@@ -13,15 +11,9 @@ const FarmerOneForm = (event) => {
 	var uniqueNumber = document.getElementById("uniquenumber");
 	var password = document.getElementById("password");
 	var farmerRole = document.getElementById("role");
-	var ninNumber = document.getElementById("ninnumber");
+	var userEmail = document.getElementById("email");
 	var phoneNumber = document.getElementById("phonenumber");
 	var birthDate = document.getElementById("birthdate");
-	var ward = document.getElementById("ward");
-	var streetName = document.getElementById("streetname");
-	var houseNumber = document.getElementById("housenumber");
-	var activityRegister = document.registration.register;
-	var activityInspect = document.registration.inspect;
-	var activityApprove = document.registration.approve;
 	var gender = document.registration.gender;
 
 	var firstNameError = document.getElementById("firstnameerr");
@@ -29,12 +21,9 @@ const FarmerOneForm = (event) => {
 	var uniqueNumberError = document.getElementById("uniquenumbererr");
 	var passwordError = document.getElementById("passworderr");
 	var farmerRoleError = document.getElementById("roleerr");
-	var ninNumberError = document.getElementById("ninNumberError");
+	var userEmailError = document.getElementById("emailerr");
 	var phoneNumberError = document.getElementById("phonenumbererr");
 	var dateOfBirthError = document.getElementById("birthdateerr");
-	var wardError = document.getElementById("warderr");
-	var streetNameError = document.getElementById("streetnameerr");
-	var houseNumberError = document.getElementById("housenumbererr");
 	var radioError = document.getElementById("genderradioerr");
 	let error = 0;
 
@@ -45,13 +34,13 @@ const FarmerOneForm = (event) => {
 	let firstNameValue = firstName.value.trim();
 	if (firstNameValue == "") {
 		firstName.style.border = "1px solid red";
-		firstNameError.textContent = "Please Enter Farmer's First Name";
+		firstNameError.textContent = "Please Enter User's First Name";
 		firstNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	} else if (firstNameValue.length < nameMin || firstNameValue.length > nameMax) {
 		firstName.style.border = "1px solid red";
-		firstNameError.textContent = "Farmer's name must be between 3 and 15 letters";
+		firstNameError.textContent = "User's name must be between 3 and 15 letters";
 		firstNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -70,7 +59,7 @@ const FarmerOneForm = (event) => {
 	let lastNameValue = lastName.value.trim();
 	if (lastNameValue == "") {
 		lastName.style.border = "1px solid red";
-		lastNameError.textContent = "Please Enter Farmer's First Name";
+		lastNameError.textContent = "Please Enter User's Last Name";
 		lastNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -90,31 +79,40 @@ const FarmerOneForm = (event) => {
 		lastName.style.border = "1px solid green";
 		lastNameError.textContent = "";
 	}
-	//FarmerOne Unique Number input validation
-	const uniqueRegex = /^UFW[1-4]+-[0-9]+$/; /*/^UF-([0-9]{3})+$/;*/
-	const invalidUnique = /^UFW5-[0-9]+$/;
-
+	//Agricutural Officer & General Public Unique Number input validation
 	if (uniqueNumber.value == "") {
 		uniqueNumber.style.border = "1px solid red";
-		uniqueNumberError.textContent = "Please Enter Farmer's Unique Number";
+		uniqueNumberError.textContent = "Please Enter User's Unique Number";
 		uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	} else if (uniqueNumber.value.match(invalidUnique)) {
-		uniqueNumber.style.border = "1px solid red";
-		uniqueNumberError.textContent = "Sorry Masajja doesn't have Ward 5";
-		uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else if (!uniqueNumber.value.match(uniqueRegex)) {
-		uniqueNumber.style.border = "1px solid red";
-		uniqueNumberError.textContent = "Number format UFW1-001, W1 for ward Number";
-		uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
+	} else if (farmerRole.value == "agriculturalofficer") {
+		let uniqueRegex = /^AO-[0-9]+$/;
+		if (!uniqueNumber.value.match(uniqueRegex)) {
+			uniqueNumber.style.border = "1px solid red";
+			uniqueNumberError.textContent = "Unique Number format for your role is AO-001";
+			uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+			error++;
+		} else {
+			uniqueNumber.style.border = "1px solid green";
+			uniqueNumberError.textContent = "";
+		}
+	} else if (farmerRole.value == "generalpublic") {
+		let alphaNumRegex = /^[0-9a-zA-Z]+$/;
+		if (!uniqueNumber.value.match(alphaNumRegex)) {
+			uniqueNumber.style.border = "1px solid red";
+			uniqueNumberError.textContent = "User Name for Buyer should not have symbols";
+			uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+			error++;
+		} else {
+			uniqueNumber.style.border = "1px solid green";
+			uniqueNumberError.textContent = "";
+		}
 	} else {
-		uniqueNumber.style.border = "1px solid green";
-		uniqueNumberError.textContent = "";
+		uniqueNumber.style.border = "1px solid red";
+		uniqueNumberError.textContent = "Please enter Unique Number according to the role selected";
+		uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		error++;
 	}
 
 	//FarmerOne Password input value validation
@@ -143,13 +141,13 @@ const FarmerOneForm = (event) => {
 	//FarmerOne Role input validation
 	if (farmerRole.value == "") {
 		farmerRole.style.border = "1px solid red";
-		farmerRoleError.textContent = "Please Enter Farmer's Role";
+		farmerRoleError.textContent = "Please Enter User's Role";
 		farmerRoleError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	} else if (farmerRole.value == "selectrole") {
 		farmerRole.style.border = "1px solid red";
-		farmerRoleError.textContent = "Please Select Farmer's'Role";
+		farmerRoleError.textContent = "Please Select User's'Role";
 		farmerRoleError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -157,31 +155,25 @@ const FarmerOneForm = (event) => {
 		farmerRole.style.border = "1px solid green";
 		farmerRoleError.textContent = "";
 	}
-	//FarmerOne NIN Number input validation
-	let ninRegex = /^[a-zA-Z][a-zA-Z][0-9]+[a-zA-Z][a-zA-Z][a-zA-Z]$/; ///^[a-zA-Z]+[0-9]+[a-zA-Z]+$/;
-	const max = 14;
-	if (ninNumber.value == "") {
-		ninNumber.style.border = "1px solid red";
-		ninNumberError.textContent = "Please Enter NIN Number";
-		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+	// Email Address input validation
+	let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if (userEmail.value == "") {
+		userEmail.style.border = "1px solid red";
+		userEmailError.textContent = "Please Enter User's Email";
+		userEmailError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	} else if (ninNumber.value.length < max || ninNumber.value.length > max) {
-		ninNumber.style.border = "1px solid red";
-		ninNumberError.textContent = "NIN Number should be 14 Characters";
-		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else if (!ninNumber.value.match(ninRegex)) {
-		ninNumber.style.border = "1px solid red";
-		ninNumberError.textContent = "Enter a correct NIN Number";
-		ninNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+	} else if (!userEmail.value.match(emailRegex)) {
+		userEmail.style.border = "1px solid red";
+		userEmailError.textContent = "Email format should be names@gmail.com";
+		userEmailError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	} else {
-		ninNumber.style.border = "1px solid green";
-		ninNumberError.textContent = "";
+		userEmail.style.border = "1px solid green";
+		userEmailError.textContent = "";
 	}
+
 	//FarmerOne Phone Number input validation
 	let phoneDigits = /^\d{10}$/;
 	if (phoneNumber.value == "") {
@@ -192,7 +184,7 @@ const FarmerOneForm = (event) => {
 		error++;
 	} else if (!phoneNumber.value.match(phoneDigits)) {
 		phoneNumber.style.border = "1px solid red";
-		phoneNumberError.textContent = "Enter a correct Phone Number";
+		phoneNumberError.textContent = "Enter a correct Phone Number with 10 digits";
 		phoneNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -201,7 +193,7 @@ const FarmerOneForm = (event) => {
 		phoneNumberError.textContent = "";
 	}
 
-	//FarmerOne Date of Birth input value validation
+	//Agricutural Officer & General Public Date of Birth input value validation
 	let dateRegex = /^(0?[1-9]|[12][0-9]|3[01]).*(0?[1-9]|[1][0-2]).*[0-9]+$/;
 	let dateOfBirthValue = birthDate.value;
 	let farmerBirth = new Date(dateOfBirthValue);
@@ -211,19 +203,32 @@ const FarmerOneForm = (event) => {
 
 	if (!birthDate.value.match(dateRegex)) {
 		birthDate.style.border = "1px solid red";
-		dateOfBirthError.textContent = "Please Select Farmer's Birth Date";
+		dateOfBirthError.textContent = "Please Select User's Birth Date";
 		dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	} else if (yearDiff <= 15) {
-		birthDate.style.border = "1px solid red";
-		dateOfBirthError.textContent = "Sorry Farmers can not be this young";
-		dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else {
-		birthDate.style.border = "1px solid green";
-		dateOfBirthError.textContent = "";
+	} else if (farmerRole.value == "agriculturalofficer") {
+		if (yearDiff <= 24) {
+			birthDate.style.border = "1px solid red";
+			dateOfBirthError.textContent = "Agricultural officer should be 25 years +";
+			dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+			// return false;
+			error++;
+		} else {
+			birthDate.style.border = "1px solid green";
+			dateOfBirthError.textContent = "";
+		}
+	} else if (farmerRole.value == "generalpublic") {
+		if (yearDiff <= 15) {
+			birthDate.style.border = "1px solid red";
+			dateOfBirthError.textContent = "Buyer should be 16 years +";
+			dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+			// return false;
+			error++;
+		} else {
+			birthDate.style.border = "1px solid green";
+			dateOfBirthError.textContent = "";
+		}
 	}
 	//FarmerOne Gender input validation
 	if (gender[0].checked == false && gender[1].checked == false && gender[2].checked == false) {
@@ -236,60 +241,7 @@ const FarmerOneForm = (event) => {
 		// gender.style.border = "1px solid green";
 		radioError.textContent = "";
 	}
-	//FarmerOne Ward input validation
-	if (ward.value === "selectward") {
-		ward.style.border = "1px solid red";
-		wardError.textContent = "Please Select Farmer's' Ward";
-		wardError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else {
-		ward.style.border = "1px solid green";
-		wardError.textContent = "";
-	}
-
-	//FarmerOne Street Name input validation
-	let alphaNumRegex = /^[0-9a-zA-Z]+$/;
-	if (streetName.value == "") {
-		streetName.style.border = "1px solid red";
-		streetNameError.textContent = "Please Enter Street Name";
-		streetNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else if (!streetName.value.match(alphaNumRegex)) {
-		streetName.style.border = "1px solid red";
-		streetNameError.textContent = "Enter a correct Street Name without Symbols";
-		streetNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else {
-		streetName.style.border = "1px solid green";
-		streetNameError.textContent = "";
-	}
-
-	//FarmerOne House Number input validation
-	if (houseNumber.value == "") {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Please Enter House Number";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else if (!houseNumber.value.match(alphaNumRegex)) {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Enter a correct House Number without Symbols";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else {
-		houseNumber.style.border = "1px solid green";
-		houseNumberError.textContent = "";
-	}
 	if (error > 0) {
 		event.preventDefault();
 	}
 };
-
-// Alphanumeric == /^[0-9a-zA-Z]+$/
-// Alphabets == /^[A-Za-z]+$/
-// Numbers == /^[0-9]+$/
-// Emails == /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/

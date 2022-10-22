@@ -69,4 +69,27 @@ router.get("/signup", (req, res) => {
 	res.render("site/signup");
 });
 
+// Urban Farmer Post Route
+router.post("/signup", async (req, res) => {
+	console.log(req.body);
+	try {
+		const user = new Registration(req.body);
+		let uniqueExist = await Registration.findOne({ uniquenumber: req.body.uniquenumber });
+		// let ninNumberExist = await Registration.findOne({ ninnumber: req.body.ninnumber });
+		if (uniqueExist) {
+			return res.status(400).send("Sorry this Unique Number already exists");
+		} else {
+			await Registration.register(user, req.body.password, (error) => {
+				if (error) {
+					throw error;
+				}
+				res.redirect("/login");
+			});
+		}
+	} catch (error) {
+		res.status(400).send("Sorry, it seems there is trouble accessing this page");
+		console.log(error);
+	}
+});
+
 module.exports = router;
