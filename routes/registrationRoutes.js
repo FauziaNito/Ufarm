@@ -63,4 +63,10 @@ router.post("/registerUF", async (req, res) => {
 	}
 });
 
+// ******Agricultural Officer & General Public Registration Routes******
+// get Route
+router.get("/signup", (req, res) => {
+	res.render("site/signup");
+});
+
 module.exports = router;

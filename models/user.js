@@ -68,6 +68,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 	},
+	email: {
+		type: String,
+		trim: true,
+	},
 	activity: [
 		{
 			type: String,
