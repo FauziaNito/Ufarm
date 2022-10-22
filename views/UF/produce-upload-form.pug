@@ -22,7 +22,7 @@ block content
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/uploadproduce' name='registration' method='post' enctype="multipart/form-data")
+            form#signup.form(action='/uploadproduce' name='registerproduce' method='post' enctype="multipart/form-data" onsubmit="return ProduceForm(event);")
                 h5.text-muted.text-center Add Your Produce Details Here
                 hr
                 .row
@@ -37,7 +37,7 @@ block content
                         .form-field
                             label Procude Name:
                             select#producename(name='producename')
-                                option(value='ug') Select Produce
+                                option(value='selectproduce') Select Produce
                                 option(value="Brocoli") Brocoli
                                 option(value="Apples") Apples
                                 option(value="Lemons") Lemons
@@ -56,9 +56,9 @@ block content
                             label(for='ward') Units of Measurement:
                             select#units(name='units')
                                 option(value='selectunits') Select Units
-                                option(value='kg') Kgs
-                                option(value='gm') gms
-                                option(value='ltrs') ltrs
+                                option(value='Kgs') Kgs
+                                option(value='gms') gms
+                                option(value='liters') liters
                                 option(value='Bunch') Bunch
                                 option(value='Sack') Sack
                             small#unitserr
@@ -91,7 +91,7 @@ block content
                             small#unitpriceerr
                     .col 
                         .form-field
-                            label(for='price')
+                            label(for='totalprice')
                                 | Total Price:
                                 small.asterisk  *
                             input#totalprice.ml-2.flex-fill(type='text' name='totalprice' placeholder='Enter Price' autocomplete='off')
@@ -101,6 +101,7 @@ block content
                         .form-field
                             label(for='mod') Mode of Delivery:
                             select#modeofdelivery(name='modeofdelivery')
+                                option(value='modeofdelivery') Mode of Delivery
                                 option(value='Pick Up') Pick Up
                                 option(value='Home Delivery') Home Delivery
                             small#modeofdelivererr
@@ -108,6 +109,7 @@ block content
                         .form-field
                             label(for='mod') Mode of Payment:
                             select#modeofpayment(name='modeofpayment')
+                                option(value='modeofpayment') Mode of Payment
                                 option(value='Cash') Cash
                                 option(value='Mobile Money') Mobile Money
                             small#modeofpaymenterr
@@ -120,11 +122,11 @@ block content
                             small#imageuploaderr
                     .col
                         .form-field
-                            label(for='producttype') Product Type:
-                            .radio
-                                input#producttype1(type='radio' name='producttype' autocomplete='off')
+                            label(for='producttype') Produce Type:
+                            .radio#producetype
+                                input#producetype1(type='radio' name='producetype' autocomplete='off' value= 'Organic')
                                 span Organic
-                                input#producttype2(type='radio' name='producttype' autocomplete='off')
+                                input#producetype2(type='radio' name='producetype' autocomplete='off' value= 'NoneOrganic')
                                 span NoneOrganic
                             small#producttypeerr
                 hr.mt-1
@@ -170,3 +172,4 @@ block content
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
     script(src='bootstrap-js/js/bootstrap.bundle.min.js')
+    script(src='js/produce_validation.js')
