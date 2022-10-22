@@ -32,7 +32,7 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 		produce.imageupload = req.file.path;
 		console.log("This is my produce", produce);
 		await produce.save();
-		res.redirect("/uploadproduce");
+		res.redirect("/producelist");
 	} catch (error) {
 		res.status(400).send("Can't save this image");
 		console.log(error);
@@ -41,7 +41,19 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 
 // Urban Farmer Dashboard Routes
 router.get("/UFdashboard", (req, res) => {
-	res.render("UF/UF-dashboard");
+	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
+	// res.render("UF/UF-dashboard");
+});
+
+// Getting Produce List from Database
+router.get("/producelist", async (req, res) => {
+	// res.render("UF/produce-list", { loggedUser: req.session.user });
+	try {
+		let products = await Produce.find().sort({ $natural: -1 });
+		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
+	} catch (error) {
+		res.status(400).send("Unable to get Produce list");
+	}
 });
 
 module.exports = router;

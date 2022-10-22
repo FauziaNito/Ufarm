@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Farmer One Dashboard Routes
 router.get("/FOdashboard", (req, res) => {
-	res.render("FO/FO-dashboard");
+	res.render("FO/FO-dashboard", { loggedUser: req.session.user });
 });
 
 // Farmer One Dashboard Routes

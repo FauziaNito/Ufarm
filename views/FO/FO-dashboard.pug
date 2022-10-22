@@ -3,20 +3,21 @@ block content
     main.content
         nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
             .container-fluid
-                a.navbar-brand.text-dark(href='#') Welcome Back
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Welcome Back
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
                         li.nav-item.dropdown(style='margin-left: auto')
-                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') FarmerOne
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
                             ul.dropdown-menu
                                 li
                                     a.dropdown-item(href='#') Profile
                                 li
                                     a.dropdown-item(href='#')
                                 li
-                                    a.dropdown-item(href='#') Signout
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
         #stat-container.container-fluid
             .card.bottom-shadow.border-color.mr-3.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
