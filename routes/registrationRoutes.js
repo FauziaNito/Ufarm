@@ -15,11 +15,11 @@ router.post("/registerFO", async (req, res) => {
 	console.log(req.body);
 	try {
 		const user = new Registration(req.body);
-		let uniqueExist = await Registration.findOne({ uniquenumber: req.body.uniquenumber});
+		let uniqueExist = await Registration.findOne({ uniquenumber: req.body.uniquenumber });
 		// let ninNumberExist = await Registration.findOne({ ninnumber: req.body.ninnumber });
 		if (uniqueExist) {
 			return res.status(400).send("Sorry this Unique Number already exists");
-		} else{
+		} else {
 			await Registration.register(user, req.body.password, (error) => {
 				if (error) {
 					throw error;
@@ -36,7 +36,8 @@ router.post("/registerFO", async (req, res) => {
 // ******Urban Farmer Registration Routes*****
 // Urban Farmer get Route
 router.get("/registerUF", (req, res) => {
-	res.render("FO/new-ub-form");
+	res.render("FO/new-ub-form", { loggedUser: req.session.user });
+	// res.render("FO/new-ub-form");
 });
 
 // Urban Farmer Post Route
@@ -61,6 +62,5 @@ router.post("/registerUF", async (req, res) => {
 		console.log(error);
 	}
 });
-
 
 module.exports = router;

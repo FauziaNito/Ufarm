@@ -38,23 +38,6 @@ const FarmerOneForm = (event) => {
 	var radioError = document.getElementById("genderradioerr");
 	let error = 0;
 
-	//FarmerOne House Number input validation
-	if (houseNumber.value == "") {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Please Enter House Number";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else if (!houseNumber.value.match(alphaNumRegex)) {
-		houseNumber.style.border = "1px solid red";
-		houseNumberError.textContent = "Enter a correct House Number without Symbols";
-		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-		// return false;
-		error++;
-	} else {
-		houseNumber.style.border = "1px solid green";
-		houseNumberError.textContent = "";
-	}
 	//FarmerOne First Name input value validation
 	let alphaRegex = /^[A-Za-z]+$/;
 	const nameMin = 3;
@@ -282,6 +265,24 @@ const FarmerOneForm = (event) => {
 	} else {
 		streetName.style.border = "1px solid green";
 		streetNameError.textContent = "";
+	}
+
+	//FarmerOne House Number input validation
+	if (houseNumber.value == "") {
+		houseNumber.style.border = "1px solid red";
+		houseNumberError.textContent = "Please Enter House Number";
+		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	} else if (!houseNumber.value.match(alphaNumRegex)) {
+		houseNumber.style.border = "1px solid red";
+		houseNumberError.textContent = "Enter a correct House Number without Symbols";
+		houseNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	} else {
+		houseNumber.style.border = "1px solid green";
+		houseNumberError.textContent = "";
 	}
 	if (error > 0) {
 		event.preventDefault();

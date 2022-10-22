@@ -9,8 +9,7 @@ block content
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
                         li.nav-item.dropdown(style='margin-left:auto ;')
-                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                                | FarmerOne
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
                             ul.dropdown-menu
                                 li
                                     a.dropdown-item(href='#') Profile

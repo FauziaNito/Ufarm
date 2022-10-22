@@ -1,0 +1,77 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../bootstrap/css/bootstrap.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
+    link(rel='stylesheet' href='site.css')
+nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
+    .container-fluid
+        div
+            img.menu-logo(src='../images/b-wlogo3.png' alt='')
+        div
+            form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Special Deals
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Blog
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Contact Us
+        .app-entry
+            .btn.login-btn
+                button.btn.rounded-pill(type='submit') Back
+.container-fluid.form-style
+    .logo-div
+        img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
+    form#signup.form(action='#' name='registration' method='post')
+        h5 Register Now!
+        hr
+        .row
+            .col
+                .form-field
+                    label(for='firstname')
+                        | First Name:
+                        small  *
+                    input#firstname(type='text' name='firstname' autocomplete='off')
+            .col
+                .form-field
+                    label(for='lastname')
+                        | Last Name:
+                        small  *
+                    input#lastname(type='text' name='lastname' autocomplete='off')
+        .row
+            .col
+                .form-field
+                    label(for='lastname')
+                        | Phone Number:
+                        small  *
+                    input#lastname(type='text' name='lastname' autocomplete='off')
+            .col
+                .form-field
+                    label(for='lastname')
+                        | Email:
+                        small  *
+                    input#lastname(type='text' name='lastname' autocomplete='off')
+        .row
+            .col
+                .form-field
+                    label(for='lastname')
+                        | Password:
+                        small  *
+                    input#lastname(type='text' name='lastname' autocomplete='off')
+                .form-field
+                    label(for='lastname')
+                        | Confirm Password:
+                        small  *
+                    input#lastname(type='text' name='lastname' autocomplete='off')
+        .user-btn-container
+            button.btn.rounded-pill.user-btn(type='submit') Signup
+script(src='../bootstrap/js/bootstrap.bundle.js')

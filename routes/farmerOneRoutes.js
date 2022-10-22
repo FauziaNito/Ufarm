@@ -8,7 +8,8 @@ router.get("/FOdashboard", (req, res) => {
 
 // Farmer One Dashboard Routes
 router.get("/Ubaccounts", (req, res) => {
-	res.render("FO/FO-ub-accounts");
+	res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
+	// res.render("FO/FO-ub-accounts");
 });
 
 module.exports = router;
