@@ -1,9 +1,11 @@
 body {
 	padding: 0;
 	margin: 0;
+	font-size: 15px;
+	/* font-family: "sans-serif"; */
 }
 .bottom-shadow {
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+	box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.16);
 }
 .vline {
 	border-left: 3px solid green;
@@ -152,9 +154,9 @@ body {
 	height: 130px;
 }
 .footer {
-	margin-top: 10%;
+	margin-top: 20%;
 	background-color: #0b472e;
-	color: #6b6a6a;
+	color: whitesmoke;
 	height: 400px;
 }
 .footer h5 {
@@ -340,4 +342,7 @@ select:focus {
 }
 .text-align-right {
 	margin-left: 65%;
+}
+.top-spacings{
+	padding-top: 5%;
 }

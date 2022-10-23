@@ -1,0 +1,143 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
+    link(rel='stylesheet' href='css/site.css')
+    title Cart
+nav.navbar.navbar-expand-lg.shadow.p-0.mb-3.bg-white.bottom-shadow
+    .container-fluid
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto.text-align-right
+                .mt-2.mr-5
+                    p
+                        | Need Help? Call Us: 
+                        strong(style='color: #83b735; margin-right:20px') +256 704535543
+                .vline.mt-2.mr-5
+                li.nav-item.dropdown(style='margin-left: auto')
+                    a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                        | Language
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='#') English
+                        li
+                            a.dropdown-item(href='#')
+                        li
+                            a.dropdown-item(href='#') Luganda
+.container-fluid.mb-5
+    .row
+        .col.pl-5
+            img.img-logo(src='../images/b-blogo4.png' alt='')
+        .col
+            form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width: 350px' placeholder='Search Here' aria-label='Search')
+        .col
+            div
+                img(src='' alt='')
+                p My Account
+        .col
+            .d-flex.mt-4
+                i.bi.bi-basket2.mr-2.icon-style
+                p.mt-1 My Chart
+nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
+    .container-fluid
+        .cart-header
+            a.active.menu-item(href='#') Home 
+            span.cart-header-span  / Produce
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Special Deals
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Blog
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Contact Us
+        .app-entry
+            .btn.login-btn
+                button.btn.rounded-pill(type='submit') Login
+            .btn.login-btn
+                button.btn.rounded-pill(type='submit') Signup
+.container-fluid.d-flex.justify-content-around
+    div.mt-4
+        .card.mt-5.farmer-details(style='width: 23rem; height: 20rem')
+                .card-body
+                    img(src="images/broc.jpg" alt="")
+    div
+        .container-fluid.checkout-style
+            .form-container
+                .logo-div
+                    img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
+                form#signup.form(action='#' name='registration' method='post')
+                    h5 Confirm your Order
+                    hr
+                    .row
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                    .row
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                    .row
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                        .col
+                            .form-field
+                                label(for='firstname')
+                                    | User Name:
+                                    small  *
+                                input#firstname(type='text' name='firstname' autocomplete='off')
+                    .user-btn-container
+                        button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
+.container-fluid.footer
+    .container.top-spacings
+        .row
+            .col
+                h5 About Us
+                p
+                    | A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic
+                    | country, in which roasted parts of sentences fly into your mouth.
+            .col(style='padding-left: 100px')
+                h5(style='margin-left: 30px; padding-bottom: 25px') Navigation
+                ul
+                    li About
+                    li Team
+                    li Products
+                    li Contact Us
+            .col
+                h5 Subscribe Newsletter
+                .mb-3.mt-4
+                    input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
+                a.btn.btn-primary(href='#') Go somewhere
+
+        script(src='bootstrap-js/js/bootstrap.bundle.js')
