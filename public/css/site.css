@@ -1,3 +1,7 @@
+body {
+	padding: 0;
+	margin: 0;
+}
 .bottom-shadow {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
 }
@@ -240,4 +244,100 @@ select:focus {
 	margin-top: 15px;
 	display: flex;
 	margin-left: 0;
+}
+.cart-header a {
+	text-decoration: none !important;
+	color: white;
+	font-size: 17px;
+}
+.cart-header-span {
+	color: #fe9800;
+}
+.action-btn {
+	width: 75px;
+	background-color: #fe9800 !important;
+	border: #fe9800;
+	display: inline-block;
+	border-radius: 20px !important;
+	margin: 0%;
+}
+.borderless-cell {
+	border: 1px solid Transparent !important;
+}
+.borderless-sides {
+	border-left: 1px solid Transparent !important;
+	border-right: 1px solid Transparent !important;
+	border-bottom: 1px solid Transparent !important;
+}
+.checkout-header {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+.order-text {
+	text-align: center;
+	padding-bottom: 50px;
+	color: #83b735;
+}
+.farmer-details {
+	align-self: center !important;
+	align-content: center !important;
+	text-align: center;
+	margin-right: 50px;
+	/* height: 280px; */
+}
+.checkout-style {
+	margin-top: 2%;
+
+	background-color: #fff;
+	padding: 1em;
+	border-radius: 5px;
+	box-shadow: 0.2px 2px 2px rgba(0, 0, 0, 0.3);
+	width: 600px;
+}
+.checkout-area {
+	background-color: #fffafa;
+	padding-bottom: 10%;
+}
+.align-details {
+	display: flex;
+	justify-content: center;
+}
+.farmer-text {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	margin-top: 20px;
+}
+.farmer-detail-icon {
+	margin-right: 25px;
+	font-size: 40px;
+	color: #fe9800;
+}
+.send-order-btn {
+	width: 35%;
+	height: 45px;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	border-radius: 10px !important;
+	background-color: #18a15c;
+	color: white;
+	border: none;
+	font-size: 17px;
+	font-size: 18px;
+}
+.checkout-order-btn {
+	width: 35%;
+	height: 45px;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	border-radius: 10px !important;
+	background-color: #fe9800;
+	color: white;
+	border: none;
+	font-size: 17px;
+	font-size: 18px;
+}
+.text-align-right {
+	margin-left: 65%;
 }

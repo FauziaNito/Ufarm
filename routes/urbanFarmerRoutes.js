@@ -42,12 +42,10 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 // Urban Farmer Dashboard Routes
 router.get("/UFdashboard", (req, res) => {
 	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
-	// res.render("UF/UF-dashboard");
 });
 
 // Getting Produce List from Database
 router.get("/producelist", async (req, res) => {
-	// res.render("UF/produce-list", { loggedUser: req.session.user });
 	try {
 		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });

@@ -22,6 +22,7 @@ const agriculturalOfficer = require('./routes/agriculturalOfficerRoutes');
 const farmerOne = require('./routes/farmerOneRoutes');
 const urbanFarmer = require('./routes/urbanFarmerRoutes');
 const authenticationRoute = require('./routes/authenticationRoutes');
+const generalPubliceRoutes = require('./routes/generalPublicRoutes');
 
 // INSTANTIATIONS
 const app = express();
@@ -63,6 +64,7 @@ app.use('/', agriculturalOfficer);
 app.use("/", farmerOne);
 app.use('/', urbanFarmer);
 app.use('/', authenticationRoute);
+app.use("/", generalPubliceRoutes);
 
 
 
