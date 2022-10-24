@@ -87,7 +87,7 @@ block content
                             label(for='price')
                                 | Unit Price:
                                 small.asterisk  *
-                            input#unitprice.ml-2.flex-fill(type='text' name='unitprice' placeholder='Enter Unit Price' autocomplete='off')
+                            input#unitprice.ml-2.flex-fill(type='text' name='unitprice' placeholder='Enter Unit Price' autocomplete='off' onchange='totalPriceValue()')
                             small#unitpriceerr
                     .col 
                         .form-field
@@ -109,7 +109,7 @@ block content
                         .form-field
                             label(for='mod') Mode of Payment:
                             select#modeofpayment(name='modeofpayment')
-                                option(value='modeofpayment') Mode of Payment
+                                option(value='modeofpayments') Mode of Payment
                                 option(value='Cash') Cash
                                 option(value='Mobile Money') Mobile Money
                             small#modeofpaymenterr

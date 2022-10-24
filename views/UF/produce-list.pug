@@ -34,28 +34,33 @@ block content
                     table.table.table-hover
                         thead
                             tr
-                                th(scope='col') Produce Name
-                                th(scope='col') Units
-                                th(scope='col') Quantity
-                                th(scope='col') Unity Price
-                                th(scope='col') Mode of Payment
-                                th(scope='col') Mode of Delivery
-                                th(scope='col') Image
+                                th Image
+                                th Produce Name
+                                th Quantity
+                                th Unity Price
+                                th Mode of Payment
+                                th Mode of Delivery
+                                th Availability
+                                th Status
+                                th Update
+                                th Delete
+
                         tbody
                             if products.length
                                 each product in products
                                     tr
                                         td 
-                                            img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
+                                            img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
                                         td #{product.producename}
-                                        td #{product.units}
-                                        td #{product.quantity}
+                                        td #{product.quantity+""+product.units}
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
+                                        td #{product.modeofdelivery}
+                                        td #{product.modeofdelivery}
                                         td
-                                            a
-                                                button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit') Edit
+                                            a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

@@ -54,4 +54,24 @@ router.get("/producelist", async (req, res) => {
 	}
 });
 
+// Update get route for a particular id
+router.get("/produce/update/:id", async (req, res) => {
+	try {
+		const updateProduct = await Produce.findOne({ _id: req.params.id });
+		res.render("UF/produce-update", { loggedUser: req.session.user, product: updateProduct });
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+
+// Update post route
+router.post("/produce/update", async (req, res) => {
+	try {
+		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/producelist");
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+
 module.exports = router;

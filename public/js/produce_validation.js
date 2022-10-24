@@ -6,8 +6,12 @@ let currentDate = today.getDate();
 var current_date = `${currentYear}-${currentMonth}-${currentDate}`;
 console.log(current_date);
 document.getElementById("regdate").value = current_date;
+// Toatal Price
 
-const ProduceForm = (event) => {
+
+
+
+// const ProduceForm = (event) => {
 	var produceCode = document.getElementById("producecode");
 	var produceName = document.getElementById("producename");
 	var produceUnits = document.getElementById("units");
@@ -31,6 +35,15 @@ const ProduceForm = (event) => {
 	var produceTypeError = document.getElementById("producttypeerr");
 	let error = 0;
 
+		let totalPriceValue = () => {
+			totalPrice.value = produceQuantity.value * unitPrice.value;
+			totalPrice.style.border = "1px solid green";
+			totalPrice.textContent = "";
+		};
+		unitPrice.addEventListener("change", totalPriceValue);
+	
+	
+const ProduceForm = (event) => {
 	//Produce Code input validation
 	if (produceCode.value == "") {
 		produceCode.style.border = "1px solid red";
@@ -106,7 +119,7 @@ const ProduceForm = (event) => {
 	//Produce Unit Price input validation
 	if (unitPrice.value == "" && produceUnits.value != "selectunits" && produceName.value != "selectproduce" && !(produceQuantity.value < 1)) {
 		unitPrice.style.border = "1px solid red";
-		unitPriceError.textContent = `Whats the cost 1 ${produceUnits.value} of ${produceName.value}`;
+		unitPriceError.textContent = `Whats the cost of 1 ${produceUnits.value} of ${produceName.value}`;
 		unitPriceError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -127,14 +140,7 @@ const ProduceForm = (event) => {
 		totalPriceError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	} else {
-		let totalPriceValue = () => {
-			totalPrice.value = produceQuantity.value * unitPrice.value;
-			totalPrice.style.border = "1px solid green";
-			totalPrice.textContent = "";
-		};
-		totalPrice.addEventListener("click", totalPriceValue);
-	}
+	} 
 	//Mode of Delivery input validation
 	if (modeOfDelivery.value == "modeofdelivery") {
 		modeOfDelivery.style.border = "1px solid red";
@@ -148,7 +154,7 @@ const ProduceForm = (event) => {
 	}
 
 	//Mode of Payment input validation
-	if (modeOfPayment.value == "modeofpayment") {
+	if (modeOfPayment.value === "modeofpayments") {
 		modeOfPayment.style.border = "1px solid red";
 		modeOfPaymentError.textContent = "Please Select Mode of payment";
 		modeOfPaymentError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
@@ -161,7 +167,6 @@ const ProduceForm = (event) => {
 
 	//produce Type input validation
 	if (produceType[0].checked == false && productType[1].checked == false) {
-
 		produceTypeError.textContent = "Please Check Produce Type";
 		produceTypeError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;

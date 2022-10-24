@@ -243,6 +243,12 @@ const FarmerOneForm = (event) => {
 		wardError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
+	} else if (ward.value == "undefined") {
+		ward.style.border = "1px solid red";
+		wardError.textContent = "Please Select Farmer One Role";
+		wardError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
 	} else {
 		ward.style.border = "1px solid green";
 		wardError.textContent = "";

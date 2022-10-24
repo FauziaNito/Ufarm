@@ -102,7 +102,7 @@ aside a:hover {
 }
 div.sidebar-list-container {
 	text-align: center;
-	width: 240px;
+	width: 140px;
 }
 ul.sidebar-list li {
 	justify-content: center;
@@ -334,4 +334,20 @@ select:focus {
 }
 .logout-style {
 	margin-right: 55%;
+}
+.produce-list-img {
+	height: 50px;
+	width: 50px;
+}
+.center {
+	text-align: center;
+}
+/* Icone Size */
+.icon-style {
+	margin-top: 0px;
+	font-size: 17px;
+	color: #fe9800;
+}
+a :hover {
+	color: #bac34e !important;
 }

@@ -65,60 +65,14 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                 button.btn.rounded-pill(type='submit') Login
             .btn.login-btn
                 button.btn.rounded-pill(type='submit') Signup
-.container-fluid.d-flex.justify-content-around
+.container.d-flex
     div.mt-4
-        .card.mt-5.farmer-details(style='width: 23rem; height: 20rem')
-                .card-body
-                    img(src="images/broc.jpg" alt="")
-    div
-        .container-fluid.checkout-style
-            .form-container
-                .logo-div
-                    img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-                form#signup.form(action='#' name='registration' method='post')
-                    h5 Confirm your Order
-                    hr
-                    .row
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                    .row
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                    .row
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                        .col
-                            .form-field
-                                label(for='firstname')
-                                    | User Name:
-                                    small  *
-                                input#firstname(type='text' name='firstname' autocomplete='off')
-                    .user-btn-container
-                        button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
+        .card.mt-5(style='width: 23rem; height: 25rem')
+            .card-body
+                img(src="images/broc.jpg" alt="")
+                
+    .div.produce-header
+        h3 Organic Fresh Broccoli 
 .container-fluid.footer
     .container.top-spacings
         .row

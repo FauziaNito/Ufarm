@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
 
 // Importing Model
 const Registration = require("../models/user");
 
 // ******FarmerOne Registration Routes******
 // Farmer One get Route
-router.get("/registerFO", (req, res) => {
+router.get("/registerFO", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	res.render("AO/new-fo-form");
 });
 
@@ -35,8 +36,13 @@ router.post("/registerFO", async (req, res) => {
 
 // ******Urban Farmer Registration Routes*****
 // Urban Farmer get Route
-router.get("/registerUF", (req, res) => {
-	res.render("FO/new-ub-form", { loggedUser: req.session.user });
+router.get("/registerUF", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+	if (req.user.role == "farmerOne") {
+		res.render("FO/new-ub-form", { loggedUser: req.session.user });
+	} else {
+		res.send("Only Farmer Ones can register Urban Farmers");
+	}
+
 	// res.render("FO/new-ub-form");
 });
 
