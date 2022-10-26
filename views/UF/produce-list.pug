@@ -56,10 +56,19 @@ block content
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
-                                        td #{product.modeofdelivery}
-                                        td #{product.modeofdelivery}
+                                        td #{product.availability}
+                                        //- if status = 'Approved'
+                                        td.approved #{product.status}
+                                        //- else
+                                        //- td.pending #{product.status}
                                         td
                                             a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+                                        td
+                                            form.btn-delete-style(method="post" action='/produce/delete')
+                                                input(type="hidden" placeholder="" name="id", value=product._id)
+                                                button.ml-4.bi.bi-trash3-fill.icon-style(type='submit')
+                                        //- td
+                                        //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
 
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12

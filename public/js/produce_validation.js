@@ -12,7 +12,7 @@ document.getElementById("regdate").value = current_date;
 
 
 // const ProduceForm = (event) => {
-	var produceCode = document.getElementById("producecode");
+	var produceCategory = document.getElementById("producecategory");
 	var produceName = document.getElementById("producename");
 	var produceUnits = document.getElementById("units");
 	var produceQuantity = document.getElementById("quantity");
@@ -23,7 +23,7 @@ document.getElementById("regdate").value = current_date;
 	var imageUplaod = document.getElementById("imageupload");
 	var produceType = document.registerproduce.producetype;
 
-	var produceCodeError = document.getElementById("producecodeerr");
+	var produceCategoryError = document.getElementById("producecategoryerr");
 	var produceNameError = document.getElementById("producenameerr");
 	var produceUnitsError = document.getElementById("unitserr");
 	var produceQuantityError = document.getElementById("quantityerr");
@@ -45,23 +45,23 @@ document.getElementById("regdate").value = current_date;
 	
 const ProduceForm = (event) => {
 	//Produce Code input validation
-	if (produceCode.value == "") {
-		produceCode.style.border = "1px solid red";
-		produceCodeError.textContent = "Please Enter Produce Code";
-		produceCodeError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
+	if (produceCategory.value == "selectcategory") {
+		produceCategory.style.border = "1px solid red";
+		produceCategoryError.textContent = "Please Select Produce Category";
+		produceCategoryError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	}
-	// else if (produceCode.value == "selectrole") {
-	// 	produceCode.style.border = "1px solid red";
-	// 	produceCodeError.textContent = "Please Select Farmer's'Role";
-	// 	produceCodeError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
+	// else if (produceCategory.value == "selectrole") {
+	// 	produceCategory.style.border = "1px solid red";
+	// 	produceCategoryError.textContent = "Please Select Farmer's'Role";
+	// 	produceCategoryError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 	// 	// return false;
 	// 	error++;
 	// }
 	else {
-		produceCode.style.border = "1px solid green";
-		produceCodeError.textContent = "";
+		produceCategory.style.border = "1px solid green";
+		produceCategoryError.textContent = "";
 	}
 
 	if (error > 0) {

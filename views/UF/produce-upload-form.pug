@@ -28,11 +28,14 @@ block content
                 .row
                     .col
                         .form-field
-                            label(for='producecode')
-                                | Produce Code:
-                                small.asterisk  *
-                            input#producecode(type='text' name='producecode' autocomplete='off' placeholder='Enter Produce Code')
-                            small#producecodeerr
+                            label(for='producecategory') Produce Category:
+                            select#producecategory(name='producecategory')
+                                option(value='selectcategory') Select Produce
+                                option(value= loggedUser._id) #{loggedUser.activity[0]}
+                                option(value= loggedUser._id) #{loggedUser.activity[1]}
+                                option(value= loggedUser._id) #{loggedUser.activity[3]}
+                                option(value= loggedUser._id) #{loggedUser.activity[4]}
+                            small#producecategoryerr
                     .col
                         .form-field
                             label Procude Name:
@@ -134,14 +137,14 @@ block content
                 .row
                     .col
                         .form-field
-                            label(for='streetname')
+                            label(for='farmername')
                                 | Farmer's Name:
                                 small.asterisk  *
                             input#farmername(type='text' name='farmername' autocomplete='off' value =`${loggedUser.firstname +" "+loggedUser.lastname}` readonly='true' )  
 
                     .col
                         .form-field
-                            label(for='streetname')
+                            label(for='ward')
                                 | Farmer's Ward:
                                 small.asterisk  *
                             input#ward(type='text' name='ward' autocomplete='off' value =`${loggedUser.ward}` readonly='true' )

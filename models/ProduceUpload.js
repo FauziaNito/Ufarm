@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const produceSchema = new mongoose.Schema({
-	producecode: {
+	producecategory: {
 		type: String,
 		trim: true,
 		required: true,
@@ -50,8 +50,9 @@ const produceSchema = new mongoose.Schema({
 		type: String,
 	},
 	farmername: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Registration", //Creating a relationship btn farmers in Registration collection & produce
+		type: String,
+		// type: mongoose.Schema.Types.ObjectId,
+		// ref: "Registration", //Creating a relationship btn farmers in Registration collection & produce
 	},
 	ward: {
 		type: String,

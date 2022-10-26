@@ -351,3 +351,19 @@ select:focus {
 a :hover {
 	color: #bac34e !important;
 }
+
+.approve-btn {
+	width: 85px;
+	background-color: #fe9800 !important;
+	border: #fe9800;
+	display: inline-block;
+	border-radius: 20px !important;
+	margin: 0%;
+}
+.approved {
+	color: #18a15c;
+	font-weight: 500;
+}
+.pending {
+	color: #fe9800;
+}

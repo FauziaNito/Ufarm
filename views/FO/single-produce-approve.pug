@@ -4,9 +4,9 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        link(rel='stylesheet' href='./bootstrap-css/css/bootstrap.css')
+        link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
         link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
-        link(rel='stylesheet' href='./css/stylesheet.css')
+        link(rel='stylesheet' href='css/stylesheets.css')
         title Urban Farmer
     body
         aside.sidebar
@@ -61,44 +61,15 @@ html(lang='en')
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/produce/update?id='+product._id name='registerproduce' method='post')
+            form#signup.form(action='/produce/approve?id='+product._id name='registerproduce' method='post')
                 h5.text-muted.text-center Add Your Produce Details Here
                 .row
                     .col
                         .form-field
-                            label(for='producename') Produce Name:
-                            select(name='producename')
-                                option(value="Brocoli" selected = product.producename === "Brocoli") Brocoli
-                                option(value="Apples" selected = product.producename === 'Apples') Apples
-                                option(value="Lemons" selected = product.producename === 'Lemons') Lemons
-                                option(value="Banana" selected = product.producename === 'Banana') Banana
-                                option(value="Lemons" selected = product.producename === 'Lemons') Lemons
-                                option(value="Cabbage" selected = product.producename === 'Cabbage') Cabbage
-                                option(value="GreenPaper" selected = product.producename === 'GreenPaper') Green Paper
-                .row
-                    .col
-                        .form-field
-                            label(for='')
-                                | Unit Price:
-                                small  *
-                            input#price(type='number' name='price' autocomplete='off' value=product.unitprice)
-                    .col
-                        .form-field
-                            label(for='')
-                                | Quantity:
-                                small  *
-                            input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
-                    .col
-                        .form-field
-                            label(for='') Mode of Delivery:
-                            select(name='modeofdelivery')
-                                option(value="Pick Up" selected = product.modeofdelivery === 'Pick Up') Pick Up
-                                option(value="Home Delivery" selected = product.modeofdelivery === 'Home Delivery') Home Delivery
-                    .col
-                        .form-field
-                            label Mode of Payment:
-                            select(name='modeofpayment')
-                                option(value="Cash" selected = product.modeofpayment === 'cash') Cash
-                                option(value="Mobile Money" selected = product.modeofpayment === 'mobilemoney') Mobile Money   
+                            label(for='status') Change Status:
+                            select(name='status')
+                                option(value="Pending" selected = product.status === "Pending") Pending
+                                option(value="Approved" selected = product.status === 'Approved') Approved
                     .form-field
                         input.btn.register-btn(type='submit' value='Update')
+//- script(src='bootstrap-js/js/bootstrap.bundle.js')

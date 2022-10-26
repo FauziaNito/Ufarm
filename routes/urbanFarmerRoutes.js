@@ -19,11 +19,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 // Urban Farmer Produce Upload Route
-// produce upload form get route if only a user is
 router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	console.log("This is the Current User ", req.session.user);
 	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
 });
+
 // produce upload form post route
 router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => {
 	console.log(req.body);
@@ -71,6 +71,16 @@ router.post("/produce/update", async (req, res) => {
 		res.redirect("/producelist");
 	} catch (error) {
 		res.status(400).send("Unable to update produce");
+	}
+});
+
+//delete Route
+router.post("/produce/delete", async (req, res) => {
+	try {
+		await Produce.deleteOne({ _id: req.body.id }); 
+		res.redirect("/producelist");
+	} catch (error) {
+		res.status(400).send("back");
 	}
 });
 
