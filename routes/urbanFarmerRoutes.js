@@ -18,6 +18,12 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+// Urban Farmer Dashboard Routes
+router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
+	req.session.user = req.user;
+	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
+});
+
 // Urban Farmer Produce Upload Route
 router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	console.log("This is the Current User ", req.session.user);
@@ -39,20 +45,29 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 	}
 });
 
-// Urban Farmer Dashboard Routes
-router.get("/UFdashboard", (req, res) => {
-	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
-});
-
-// Getting Produce List from Database
-router.get("/producelist", async (req, res) => {
+// Getting Produce List from Database**************
+router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
 	try {
 		let products = await Produce.find().sort({ $natural: -1 });
+		console.log("This is your user", req.session.user);
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
 });
+
+// Can't bring individual farmer product list
+// router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+// 	req.session.user = req.user;
+// 	try {
+// 		let products = await Produce.find({ farmername: req.user }).sort({ $natural: -1 });
+// 		console.log("This is your user", req.session.user);
+// 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
+// 	} catch (error) {
+// 		res.status(400).send("Unable to get Produce list");
+// 	}
+// });
 
 // Update get route for a particular id
 router.get("/produce/update/:id", async (req, res) => {
@@ -77,7 +92,7 @@ router.post("/produce/update", async (req, res) => {
 //delete Route
 router.post("/produce/delete", async (req, res) => {
 	try {
-		await Produce.deleteOne({ _id: req.body.id }); 
+		await Produce.deleteOne({ _id: req.body.id });
 		res.redirect("/producelist");
 	} catch (error) {
 		res.status(400).send("back");

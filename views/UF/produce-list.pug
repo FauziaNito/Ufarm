@@ -56,7 +56,10 @@ block content
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
-                                        td #{product.availability}
+                                        if product.quantity.length = 0
+                                            td #{product.availability.value= "N/A"}
+                                        else 
+                                            td #{product.availability}
                                         //- if status = 'Approved'
                                         td.approved #{product.status}
                                         //- else
