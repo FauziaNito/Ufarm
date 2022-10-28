@@ -26,8 +26,13 @@ router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 
 // Urban Farmer Produce Upload Route
 router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-	console.log("This is the Current User ", req.session.user);
-	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
+	req.session.user = req.user;
+	if (req.user.role == "urbanfarmer") {
+		console.log("This is the Current User ", req.session.user);
+		res.render("UF/produce-upload-form", { loggedUser: req.session.user });
+	} else {
+		res.render("Sorry!! You are not allowed to access this Page");
+	}
 });
 
 // produce upload form post route
@@ -45,29 +50,30 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 	}
 });
 
-// Getting Produce List from Database**************
-router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-	req.session.user = req.user;
-	try {
-		let products = await Produce.find().sort({ $natural: -1 });
-		console.log("This is your user", req.session.user);
-		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
-	} catch (error) {
-		res.status(400).send("Unable to get Produce list");
-	}
-});
-
-// Can't bring individual farmer product list
+// // Getting Produce List from Database**************
 // router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 // 	req.session.user = req.user;
 // 	try {
-// 		let products = await Produce.find({ farmername: req.user }).sort({ $natural: -1 });
+// 		let products = await Produce.find().sort({ $natural: -1 });
 // 		console.log("This is your user", req.session.user);
 // 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
 // 	} catch (error) {
 // 		res.status(400).send("Unable to get Produce list");
 // 	}
 // });
+
+// Getting Produce List from Database by farmer
+router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		let products = await Produce.find({farmerid:req.user}).sort({ $natural: -1 });
+		console.log("This is your user", req.session.user);
+		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
+		console.log("Your Produce is ", products);
+	} catch (error) {
+		res.status(400).send("Unable to get Produce list");
+	}
+});
 
 // Update get route for a particular id
 router.get("/produce/update/:id", async (req, res) => {
@@ -99,4 +105,16 @@ router.post("/produce/delete", async (req, res) => {
 	}
 });
 
+// Getting a List approved Produce from Database by farmer
+router.get("/approvedlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		let products = await Produce.find({farmerid:req.user}).sort({ $natural: -1 });
+		// console.log("This is your user", req.session.user);
+		res.render("UF/approved-produce-list", { loggedUser: req.session.user, products: products });
+		// console.log("Your Produce is ", products);
+	} catch (error) {
+		res.status(400).send("Unable to get Produce list");
+	}
+});
 module.exports = router;

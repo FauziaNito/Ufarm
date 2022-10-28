@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const produceSchema = new mongoose.Schema({
+	farmerid:{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Registration",
+	},
 	producecategory: {
 		type: String,
 		trim: true,

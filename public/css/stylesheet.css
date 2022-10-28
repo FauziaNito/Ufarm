@@ -259,13 +259,14 @@ select:focus {
 	margin-right: 0px;
 }
 .checkbox-size1 {
-	transform: scale(0.65);
+	transform: scale(0.35);
 	padding-right: 0px;
 	margin-right: 0px;
+	margin-bottom: 5px;
 }
 .checkbox-text {
-	/* margin-top: 5px; */
-	margin-bottom: 5px;
+	margin-top: 10px;
+	margin-bottom: 0px;
 }
 .radio {
 	margin-top: 15px;
@@ -307,6 +308,15 @@ select:focus {
 	justify-content: flex-end;
 }
 .coordinate-container {
+	flex-grow: 1 !important;
+}
+.produce-farmer-details {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+.farmerid-container {
 	flex-grow: 1 !important;
 }
 .coordinate-btn {

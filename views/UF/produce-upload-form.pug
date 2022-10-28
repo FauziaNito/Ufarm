@@ -57,7 +57,7 @@ block content
                             small#producenameerr
                     .col
                         .form-field
-                            label(for='ward') Units of Measurement:
+                            label(for='units') Units of Measurement:
                             select#units(name='units')
                                 option(value='selectunits') Select Units
                                 option(value='Kgs') Kgs
@@ -141,37 +141,54 @@ block content
                             label(for='farmername')
                                 | Farmer's Name:
                                 small.asterisk  *
-                            input#farmername(type='text' name='farmername' autocomplete='off' value =`${loggedUser.firstname +" "+loggedUser.lastname}` readonly='true' )  
-
+                            select#farmername(name='farmername')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser.firstname +" "+loggedUser.lastname} 
                     .col
                         .form-field
                             label(for='ward')
                                 | Farmer's Ward:
                                 small.asterisk  *
-                            input#ward(type='text' name='ward' autocomplete='off' value =`${loggedUser.ward}` readonly='true' )
+                            select(name='ward')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser.ward}
                     .col.column-stretch-left
                         .form-field
                             label(for='streetname')
                                 | Street Name:
                                 small.asterisk  *
-                            input#streetname(type='text' name='streetname' autocomplete='off' value =`${loggedUser.streetname}` readonly='true' )  
+                            select#streetname(name='streetname')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser.streetname} 
                             small#streetnameerr 
                     .col
                         .form-field
                             label(for='housenumber')
                                 | House Number:
-                                small.asterisk  *
-                            input#housenumber(type='text' name='housenumber' autocomplete='off' value = `${loggedUser.housenumber}` readonly='true' )  
+                                small.asterisk  * 
+                            select#housenumber(name='housenumber')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser.housenumber} 
                             small#housenumbererr
-                .container.FO-form-btn
-                    .coordinate-container
-                    .button1
-                        button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
-                            | Add
-                            |
-                    .button1
-                        button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='submit' style='width:120px ;')
-                            | Clear
+                .row
+                    .col 
+                        .container.produce-farmer-details
+                            .produce-farmer-details.me-auto
+                                .form-field
+                                    //- label(for='housenumber' style= 'width:150px; font-size:10px')
+                                    //-     | House Number:
+                                    //- small.asterisk  * 
+                                    select#farmerid(name='farmerid' style= 'height:36px; width:')
+                                        if loggedUser
+                                            option(value = loggedUser._id) #{loggedUser._id} 
+                                    small#farmeridrerr
+                            .button1
+                                button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
+                                    | Add
+                                    |
+                            .button1
+                                button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='submit' style='width:120px ;')
+                                    | Clear
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
