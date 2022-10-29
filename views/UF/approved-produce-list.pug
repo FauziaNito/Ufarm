@@ -34,26 +34,33 @@ block content
                                 th Unity Price
                                 th Mode of Payment
                                 th Mode of Delivery
+                                th Availability
                                 th Edit
-                                th Availability Status
+                                th Change Status
                         tbody
                             if products.length
                                 each product in products
                                     if product.status == "Approved"
-                                    tr
-                                        td 
-                                            img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
-                                        td #{product.producename}
-                                        td #{product.quantity+""+product.units}
-                                        td #{product.unitprice}
-                                        td #{product.modeofpayment}
-                                        td #{product.modeofdelivery}
-                                        td
-                                            a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
-                                        td
-                                            a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/produce/available/'+product._id style='width:100px') Available
-                                        //- td
-                                        //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
+                                        tr
+                                            td 
+                                                img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
+                                            td #{product.producename}
+                                            td #{product.quantity+""+product.units}
+                                            td #{product.unitprice}
+                                            td #{product.modeofpayment}
+                                            td #{product.modeofdelivery}
+                                            if product.availability == "available"
+                                                td.approved #{product.availability}
+                                            else if product.availability == "booked"
+                                                td.pending #{product.availability}
+                                            else
+                                                td.text-danger #{product.availability}
+                                            td
+                                                a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+                                            td
+                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/produce/available/'+product._id style='width:100px') Available
+                                            //- td
+                                            //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

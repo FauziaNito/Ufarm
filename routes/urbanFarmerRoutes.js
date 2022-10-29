@@ -18,21 +18,10 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-// Urban Farmer Dashboard Routes
-router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-	req.session.user = req.user;
-	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
-});
-
 // Urban Farmer Produce Upload Route
 router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-	req.session.user = req.user;
-	if (req.user.role == "urbanfarmer") {
-		console.log("This is the Current User ", req.session.user);
-		res.render("UF/produce-upload-form", { loggedUser: req.session.user });
-	} else {
-		res.render("Sorry!! You are not allowed to access this Page");
-	}
+	console.log("This is the Current User ", req.session.user);
+	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
 });
 
 // produce upload form post route
@@ -50,26 +39,47 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 	}
 });
 
-// // Getting Produce List from Database**************
-// router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+// Urban Farmer Dashboard Routes
+router.get("/UFdashboard", (req, res) => {
+	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
+});
+
+// Urbanfarmer Aggregation by single id
+// router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 // 	req.session.user = req.user;
-// 	try {
-// 		let products = await Produce.find().sort({ $natural: -1 });
-// 		console.log("This is your user", req.session.user);
-// 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
-// 	} catch (error) {
-// 		res.status(400).send("Unable to get Produce list");
+// 	if (req.user.role == "urbanfarmer") {
+// 		try {
+// 			let currentTotalProduce = await Produce.aggregate([
+// 				{ $match: { status: "Approved" } },
+// 				{
+// 					$group: {
+// 						_id: req.user._id,
+// 						totalQuantity: { $sum: "$quantity" },
+// 						totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } },
+// 					},
+// 				},
+// 			]);
+
+// 			console.log("Produce Approved", totalHort);
+
+// 			res.render("UF/UF-dashboard", {
+// 				loggedUser: req.session.user,
+// 				currentP: currentTotalProduce[0],
+// 			});
+// 		} catch (error) {
+// 			res.status(400).send("unable to find items in the database");
+// 		}
+// 	} else {
+// 		res.send("This page is only accessed by Urban Farmers");
 // 	}
+// 	// res.render("UF/UF-dashboard", { loggedUser: req.session.user });
 // });
 
-// Getting Produce List from Database by farmer
+// Getting Produce uploaded List from Database
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-	req.session.user = req.user;
 	try {
-		let products = await Produce.find({farmerid:req.user}).sort({ $natural: -1 });
-		console.log("This is your user", req.session.user);
+		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
-		console.log("Your Produce is ", products);
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
@@ -105,16 +115,35 @@ router.post("/produce/delete", async (req, res) => {
 	}
 });
 
-// Getting a List approved Produce from Database by farmer
+// Getting Approved Produce List from Database
 router.get("/approvedlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-	req.session.user = req.user;
 	try {
-		let products = await Produce.find({farmerid:req.user}).sort({ $natural: -1 });
-		// console.log("This is your user", req.session.user);
+		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("UF/approved-produce-list", { loggedUser: req.session.user, products: products });
-		// console.log("Your Produce is ", products);
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
 	}
 });
+
+// Getting Produce availability form
+router.get("/produce/available/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		const availProduct = await Produce.findOne({ _id: req.params.id });
+		res.render("UF/produce-availability", { loggedUser: req.session.user, availableItem: availProduct });
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+
+// Availability Post Route
+// Approve post route
+router.post("/produce/available", async (req, res) => {
+	try {
+		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/approvedlist");
+	} catch (error) {
+		res.status(400).send("Unable to Make this produce available");
+	}
+});
+
 module.exports = router;

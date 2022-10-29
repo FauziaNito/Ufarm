@@ -1,21 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
 
 const Produce = require("../models/ProduceUpload");
 
 // Farmer One Dashboard Routes
-router.get("/FOdashboard", (req, res) => {
+router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	res.render("FO/FO-dashboard", { loggedUser: req.session.user });
 });
 
 // List of Urban Farmer Route
-router.get("/Ubaccounts", (req, res) => {
+router.get("/Ubaccounts", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
 	// res.render("FO/FO-ub-accounts");
 });
 
 // list of produce awaiting Approval
-router.get("/approveproduce", async (req, res) => {
+router.get("/approveproduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("FO/approve-produce", { loggedUser: req.session.user, products: products });
@@ -24,7 +25,7 @@ router.get("/approveproduce", async (req, res) => {
 	}
 });
 // Single Produce Approve get route
-router.get("/produce/approve/:id", async (req, res) => {
+router.get("/produce/approve/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		const approveProduct = await Produce.findOne({ _id: req.params.id });
 		res.render("FO/single-produce-approve", { loggedUser: req.session.user, product: approveProduct });

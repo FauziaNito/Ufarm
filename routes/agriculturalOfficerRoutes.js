@@ -1,18 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
 
 // Importing Models
 const Produce = require("../models/ProduceUpload");
 
 // Agricultural Officer Dashboard Routes with Aggregations
-router.get("/AOdashboard", async (req, res) => {
-		req.session.user = req.user;
+router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
 	if (req.user.role == "agriculturalofficer") {
 		try {
 			let totalHort = await Produce.aggregate([
 				{ $match: { producecategory: "Horticulture" } },
-				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" },
-				totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
 			// let totalDairy = await Produce.aggregate([
 			// 	{ $match: { producecategory: "Dairy products" } },
@@ -29,7 +29,9 @@ router.get("/AOdashboard", async (req, res) => {
 			// console.log("Dairy collections", totalDairy);
 			// console.log("Produce collections", totalProduce);
 
-			res.render("AO/AO-dashboard", { loggedUser: req.session.user },{
+			res.render("AO/AO-dashboard", {
+				loggedUser: req.session.user,
+
 				// title: "Reports",
 				// totalP: totalPoultry[0],
 				totalH: totalHort[0],

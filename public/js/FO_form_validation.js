@@ -106,7 +106,7 @@ const FarmerOneForm = (event) => {
 		error++;
 	} else if (uniqueNumber.value.match(invalidUnique)) {
 		uniqueNumber.style.border = "1px solid red";
-		uniqueNumberError.textContent = "Sorry Masajja doesn't have Ward 5";
+		uniqueNumberError.textContent = "Sorry Masajja doesn't have Ward 5 try 1-4";
 		uniqueNumberError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -162,6 +162,7 @@ const FarmerOneForm = (event) => {
 		farmerRoleError.textContent = "";
 	}
 	//FarmerOne NIN Number input validation
+	// let regex = /^[a-zA-Z][a-zA-Z]-[a-zA-Z][0-9]+-[0-9]+[a-zA-Z][0-9]+$/
 	let ninRegex = /^[a-zA-Z][a-zA-Z][0-9]+[a-zA-Z][a-zA-Z][a-zA-Z]$/; ///^[a-zA-Z]+[0-9]+[a-zA-Z]+$/;
 	const max = 14;
 	if (ninNumber.value == "") {

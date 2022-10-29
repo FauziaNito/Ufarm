@@ -3,7 +3,7 @@ block content
     main.content
         nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
             .container-fluid
-                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Approve Produce
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Produce Availability
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
@@ -20,19 +20,20 @@ block content
                                         button.btn(type= 'submit' width='100px') Signout
         .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
             .ml-4
-                h5 Approve this produce Produce
+                h5 Update this produce Availability
         .container-fluid.form-style
             .logo-div
-                img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/produce/approve?id='+product._id name='registerproduce' method='post')
+                img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
+            form#signup.form(action='/produce/available?id='+availableItem._id name='registerproduce' method='post')
                 h5.text-muted.text-center Add Your Produce Details Here
                 .row
                     .col
                         .form-field
-                            label(for='status') Change Status:
-                            select(name='status')
-                                option(value="Pending" selected = product.status === "Pending") Pending
-                                option(value="Approved" selected = product.status === 'Approved') Approved
+                            label(for='availability') Produce Availablility:
+                            select(name='availability')
+                                option(value="available" selected = availableItem.availability === "available") Available
+                                option(value="booked" selected = availableItem.availability === 'booked') Booked
+                                option(value="N/A" selected = availableItem.availability === 'N/A') N/A
                     .form-field
                         input.btn.register-btn(type='submit' value='Update')
-    script(src='/bootstrap-js/js/bootstrap.bundle.js')
+    script(src='bootstrap-js/js/bootstrap.bundle.js')

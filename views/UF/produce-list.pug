@@ -56,14 +56,14 @@ block content
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
-                                        if product.quantity.length = 0
-                                            td #{product.availability.value= "N/A"}
+                                        if product.quantity.length == 0
+                                            td #{product.availability}
                                         else 
                                             td #{product.availability}
-                                        //- if status = 'Approved'
-                                        td.approved #{product.status}
-                                        //- else
-                                        //- td.pending #{product.status}
+                                        if product.status == 'Approved'
+                                            td.approved #{product.status}
+                                        else
+                                            td.pending #{product.status}
                                         td
                                             a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
                                         td
