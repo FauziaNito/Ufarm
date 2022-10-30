@@ -21,16 +21,46 @@ block content
     #stat-container.container-fluid
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
-          p.card-text.p-0.m-0.text-muted(style='font-size:15px') Horticulture Report
-          h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold;') #{totalH.totalQuantity}
+          p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total Produce Count
+          img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Hortculture:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalH.totalQuantity}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Dairy Products:
+            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
-          p.card-text.p-0.m-0.text-muted(style='font-size:15px') Successfull Orders
-          h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold;') 4000
+          p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total Revenue Count
+          img.card-logo.mb-2(src='../images/money-bagg.png' alt='Ufarm logo')
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Hortculture:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalH.totalCost)} UGX
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Dairy Products:
+            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalP.totalCost)} UGX
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
-          p.card-text.p-0.m-0.text-muted(style='font-size:15px') Uploaded Produce
-          h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold;') 11,000
+          p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total User Count
+          img.card-logo.mb-2(src='../images/sales.png' alt='Ufarm logo')
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 1: 
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalFarmerOnes}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 2:
+            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 3:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 4:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
           p.card-text.p-0.m-0.text-muted(style='font-size:15px') Registered Farmers

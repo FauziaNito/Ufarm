@@ -3,6 +3,7 @@ const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login");
 
 const Produce = require("../models/ProduceUpload");
+const Registration = require("../models/user");
 
 // Farmer One Dashboard Routes
 router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
@@ -17,7 +18,12 @@ router.get("/Ubaccounts", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 
 // list of produce awaiting Approval
 router.get("/approveproduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	console.log("Logged In this FarmerOne", req.user);
+
 	try {
+		// let matchWard = await Registration.aggregate({ $match: $and[{role: "urbanfarmer"},
+		// { ward: req.user.ward }] });
 		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("FO/approve-produce", { loggedUser: req.session.user, products: products });
 	} catch (error) {

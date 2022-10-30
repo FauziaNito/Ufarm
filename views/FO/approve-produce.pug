@@ -36,7 +36,8 @@ block content
                         tbody
                             if products.length
                                 each product in products
-                                    if product.status == 'Pending'
+                                    if product.status == 'Pending' 
+                                        //- && product.ward === loggedUser.ward
                                         tr
                                             td 
                                                 img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")

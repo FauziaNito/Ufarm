@@ -28,43 +28,35 @@ block content
     .container
       .card.mt-5(style='width: 100%')
         .card-body
-          h5.card-title Current FarmerOne
+          h5.card-title Current FarmerOnes
           table.table.table-hover
             thead
               tr
-                th(scope='col') Number
+                //- th(scope='col') #
                 th(scope='col') Name
+                th(scope='col') Unique Number
                 th(scope='col') Ward
-                th(scope='col') Email
-                th(scope='col') Phone No
-                th(scope='col') Action
+                th(scope='col') Phone Number
+                th(scope='col') Gender
+                th(scope='col') Status
+                th(scope='col') Edit 
+                th(scope='col') Change Status 
             tbody
-              tr
-                th(scope='row') 1
-                td Mark
-                td Otto
-                td @mdo
-                td @mdo
-                td
-                  button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit')
-                    | Edit
-              tr
-                th(scope='row') 2
-                td Jacob
-                td Thornton
-                td @fat
-                td @mdo
-                td
-                  button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit')
-                    | Edit
-              tr
-                th(scope='row') 3
-                td(colspan='2') Larry the Bird
-                td @twitter
-                td @mdo
-                td
-                  button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit')
-                    | Edit
+              if farmerOnes.length 
+                each user in farmerOnes
+                  tr
+                    //- td #{user.unitprice}
+                    td #{user.lastname+ " "+user.firstname}
+                    td #{user.uniquenumber}
+                    td #{user.ward}
+                    td #{user.phonenumber}
+                    td #{user.gender}
+                    td Not appointed
+                    //- td #{user.status}
+                    td
+                      a.ml-4.bi.bi-pencil-fill.icon-style(href='/farmerone/update/'+user._id)
+                    td
+                      a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/farmerone/approve/') Change
     .footer
       small.mt-4.ml-5 &copy; Refactory Cohort 12
       small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

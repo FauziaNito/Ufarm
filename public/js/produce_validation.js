@@ -8,41 +8,37 @@ console.log(current_date);
 document.getElementById("regdate").value = current_date;
 // Toatal Price
 
-
-
-
 // const ProduceForm = (event) => {
-	var produceCategory = document.getElementById("producecategory");
-	var produceName = document.getElementById("producename");
-	var produceUnits = document.getElementById("units");
-	var produceQuantity = document.getElementById("quantity");
-	var unitPrice = document.getElementById("unitprice");
-	var totalPrice = document.getElementById("totalprice");
-	var modeOfDelivery = document.getElementById("modeofdelivery");
-	var modeOfPayment = document.getElementById("modeofpayment");
-	var imageUplaod = document.getElementById("imageupload");
-	var produceType = document.registerproduce.producetype;
+var produceCategory = document.getElementById("producecategory");
+var produceName = document.getElementById("producename");
+var produceUnits = document.getElementById("units");
+var produceQuantity = document.getElementById("quantity");
+var unitPrice = document.getElementById("unitprice");
+var totalPrice = document.getElementById("totalprice");
+var modeOfDelivery = document.getElementById("modeofdelivery");
+var modeOfPayment = document.getElementById("modeofpayment");
+var imageUplaod = document.getElementById("imageupload");
+var produceType = document.registerproduce.producetype;
 
-	var produceCategoryError = document.getElementById("producecategoryerr");
-	var produceNameError = document.getElementById("producenameerr");
-	var produceUnitsError = document.getElementById("unitserr");
-	var produceQuantityError = document.getElementById("quantityerr");
-	var unitPriceError = document.getElementById("unitpriceerr");
-	var totalPriceError = document.getElementById("totalpriceerr");
-	var modeOfDeliveryError = document.getElementById("modeofdeliverer");
-	var modeOfPaymentError = document.getElementById("modeofpaymenterr");
-	var imageUplaodError = document.getElementById("imageuploaderr");
-	var produceTypeError = document.getElementById("producttypeerr");
-	let error = 0;
+var produceCategoryError = document.getElementById("producecategoryerr");
+var produceNameError = document.getElementById("producenameerr");
+var produceUnitsError = document.getElementById("unitserr");
+var produceQuantityError = document.getElementById("quantityerr");
+var unitPriceError = document.getElementById("unitpriceerr");
+var totalPriceError = document.getElementById("totalpriceerr");
+var modeOfDeliveryError = document.getElementById("modeofdeliverer");
+var modeOfPaymentError = document.getElementById("modeofpaymenterr");
+var imageUplaodError = document.getElementById("imageuploaderr");
+var produceTypeError = document.getElementById("producttypeerr");
+let error = 0;
 
-		let totalPriceValue = () => {
-			totalPrice.value = produceQuantity.value * unitPrice.value;
-			totalPrice.style.border = "1px solid green";
-			totalPrice.textContent = "";
-		};
-		unitPrice.addEventListener("change", totalPriceValue);
-	
-	
+let totalPriceValue = () => {
+	totalPrice.value = produceQuantity.value * unitPrice.value;
+	// totalPrice.style.border = "1px solid green";
+	totalPrice.textContent = "";
+};
+unitPrice.addEventListener("change", totalPriceValue);
+
 const ProduceForm = (event) => {
 	//Produce Code input validation
 	if (produceCategory.value == "selectcategory") {
@@ -140,7 +136,7 @@ const ProduceForm = (event) => {
 		totalPriceError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	} 
+	}
 	//Mode of Delivery input validation
 	if (modeOfDelivery.value == "modeofdelivery") {
 		modeOfDelivery.style.border = "1px solid red";

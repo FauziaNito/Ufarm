@@ -296,6 +296,10 @@ select:focus {
 	height: auto;
 	width: 45px;
 }
+.card-logo {
+	height: auto;
+	width: 70px;
+}
 .activity {
 	display: flex;
 	justify-content: start;

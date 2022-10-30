@@ -77,8 +77,9 @@ router.get("/UFdashboard", (req, res) => {
 
 // Getting Produce uploaded List from Database
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
 	try {
-		let products = await Produce.find().sort({ $natural: -1 });
+		let products = await Produce.find({ farmerid: req.user }).sort({ $natural: -1 });
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");
@@ -117,8 +118,9 @@ router.post("/produce/delete", async (req, res) => {
 
 // Getting Approved Produce List from Database
 router.get("/approvedlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
 	try {
-		let products = await Produce.find().sort({ $natural: -1 });
+		let products = await Produce.find({ farmerid: req.user }).sort({ $natural: -1 });
 		res.render("UF/approved-produce-list", { loggedUser: req.session.user, products: products });
 	} catch (error) {
 		res.status(400).send("Unable to get Produce list");

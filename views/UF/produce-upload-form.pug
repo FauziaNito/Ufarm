@@ -43,17 +43,20 @@ block content
                             select#producename(name='producename')
                                 option(value='selectproduce') Select Produce
                                 option(value="Brocoli") Brocoli
-                                option(value="Apples") Apples
-                                option(value="Lemons") Lemons
                                 option(value="Banana") Banana
                                 option(value="Cabbage") Cabbage
                                 option(value="GreenPaper") Green Paper
-                                option(value="Carrots") Carrots
                                 option(value="Garlic") Garlic
                                 option(value="Tomatoes") Tomatoes
                                 option(value="RedOnions") Red Onions
-                                option(value="Ginger") Ginger
-                                option(value="RedOnions") Red Onions
+                                option(value="Milk") Milk
+                                option(value="Yogurt") Yogurt
+                                option(value="Cheese") Cheese
+                                option(value="Butter") Butter
+                                option(value="Chicken") Chicken
+                                option(value="Eggs") Eggs
+                                option(value="Turkey") Turkey
+                                option(value="Beef") Beef
                             small#producenameerr
                     .col
                         .form-field
@@ -65,6 +68,7 @@ block content
                                 option(value='liters') liters
                                 option(value='Bunch') Bunch
                                 option(value='Sack') Sack
+                                option(value='Sack') Tray
                             small#unitserr
                     .col
                         .form-field
@@ -91,14 +95,14 @@ block content
                             label(for='price')
                                 | Unit Price:
                                 small.asterisk  *
-                            input#unitprice.ml-2.flex-fill(type='text' name='unitprice' placeholder='Enter Unit Price' autocomplete='off' onchange='totalPriceValue()')
+                            input#unitprice.ml-2.flex-fill(type='number' name='unitprice' placeholder='Enter Unit Price' autocomplete='off' onchange='totalPriceValue()')
                             small#unitpriceerr
                     .col 
                         .form-field
                             label(for='totalprice')
                                 | Total Price:
                                 small.asterisk  *
-                            input#totalprice.ml-2.flex-fill(type='text' name='totalprice' placeholder='Enter Price' autocomplete='off')
+                            input#totalprice.ml-2.flex-fill(type='number' name='totalprice' placeholder='Enter Price' autocomplete='off')
                             small#totalpriceerr
                 .row
                     .col
