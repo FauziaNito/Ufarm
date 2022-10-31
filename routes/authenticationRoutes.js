@@ -13,7 +13,14 @@ router.post("/login", passport.authenticate("local", { failureRedirect: "/login"
 	if (req.user.role == "agriculturalofficer") {
 		res.redirect("/AOdashboard");
 	} else if (req.user.role == "farmerOne") {
-		res.redirect("/FOdashboard");
+		if(req.user.status == 'Active'){
+			res.redirect("/FOdashboard");
+		}else if (req.user.status == "Not appointed") {
+			res.send("Sorry, Wait until your activated to login");
+		} else{
+			res.send("You are nolonger an employee of this Organization");
+		}
+		
 	} else if (req.user.role == "urbanfarmer") {
 		res.redirect("/UFdashboard");
 	} else {

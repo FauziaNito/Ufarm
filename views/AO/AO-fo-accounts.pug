@@ -51,12 +51,16 @@ block content
                     td #{user.ward}
                     td #{user.phonenumber}
                     td #{user.gender}
-                    td Not appointed
-                    //- td #{user.status}
+                    if user.status == "Active"
+                      td.approved #{user.status}
+                    else if user.status == "Not appointed"
+                      td.pending #{user.status}
+                    else 
+                      td.text-danger #{user.status}
                     td
                       a.ml-4.bi.bi-pencil-fill.icon-style(href='/farmerone/update/'+user._id)
                     td
-                      a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/farmerone/approve/') Change
+                      a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/farmerone/status/'+user._id) Change 
     .footer
       small.mt-4.ml-5 &copy; Refactory Cohort 12
       small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

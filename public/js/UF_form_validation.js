@@ -256,6 +256,7 @@ const FarmerOneForm = (event) => {
 
 	//FarmerOne Street Name input validation
 	let alphaNumRegex = /^[0-9a-zA-Z]+$/;
+	// let alphaNumRegex = /^([A-Za-z0-9]+( [A-Za-z0-9]+)+)$/;
 	if (streetName.value == "") {
 		streetName.style.border = "1px solid red";
 		streetNameError.textContent = "Please Enter Street Name";

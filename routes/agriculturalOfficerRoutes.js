@@ -86,13 +86,32 @@ router.get("/farmerone/update/:id", async (req, res) => {
 // Farmer One Update post route
 router.post("/farmerone/update", async (req, res) => {
 	try {
-		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
 		res.redirect("/FOlist");
 	} catch (error) {
 		res.status(400).send("Unable to update FarmerOne");
 	}
 });
 
+// FarmerOne status update get route
+router.get("/farmerone/status/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		const appointFarmerOne = await Registration.findOne({ _id: req.params.id });
+		res.render("AO/FO-status", { loggedUser: req.session.user, farmerOneStatus: appointFarmerOne });
+	} catch (error) {
+		res.status(400).send("Unable to Change User Status");
+	}
+});
+
+// FarmerOne status update post route
+router.post("/farmerone/status", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/FOlist");
+	} catch (error) {
+		res.status(400).send("Unable to approve produce");
+	}
+});
 // Farmer One Activities
 router.get("/FOactivities", (req, res) => {
 	res.render("AO/AO-fo-activities", { loggedUser: req.session.user });

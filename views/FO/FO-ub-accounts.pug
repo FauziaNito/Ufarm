@@ -33,35 +33,34 @@ block content
                     table.table.table-hover
                         thead
                             tr
-                                th(scope='col') Number
+                                //- th(scope='col') #
                                 th(scope='col') Name
+                                th(scope='col') Unique Number
                                 th(scope='col') Ward
-                                th(scope='col') Email
-                                th(scope='col') Phone No
-                                th(scope='col') Action
-                        tbody
-                            tr
-                                th(scope='row') 1
-                                td Mark
-                                td Otto
-                                td @mdo
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit') Edit
-                            tr
-                                th(scope='row') 2
-                                td Jacob
-                                td Thornton
-                                td @fat
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit') Edit
-                            tr
-                                th(scope='row') 3
-                                td(colspan='2') Larry the Bird
-                                td @twitter
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit') Edit
+                                th(scope='col') Phone Number
+                                th(scope='col') Gender
+                                th(scope='col') Status
+                                th(scope='col') Edit 
+                                th(scope='col') Change Status
+                            tbody
+                                if urbanFarmers.length 
+                                    each user in urbanFarmers
+                                        tr
+                                            //- td #{user.unitprice}
+                                            td #{user.lastname+ " "+user.firstname}
+                                            td #{user.uniquenumber}
+                                            td #{user.ward}
+                                            td #{user.phonenumber}
+                                            td #{user.gender}
+                                            if user.status == "Active"
+                                                td.approved #{user.status}
+                                            else if user.status == "Not appointed"
+                                                td.pending #{user.status}
+                                            else 
+                                                td.text-danger #{user.status}
+                                            td
+                                                a.ml-4.bi.bi-pencil-fill.icon-style(href='/farmerone/update/'+user._id)
+                                            td
+                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/farmerone/status/'+user._id) Change
         .footer
         script(src='bootstrap-js/js/bootstrap.bundle.js')

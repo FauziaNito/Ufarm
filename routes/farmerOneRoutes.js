@@ -11,10 +11,18 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 });
 
 // List of Urban Farmer Route
-router.get("/Ubaccounts", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-	res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
-	// res.render("FO/FO-ub-accounts");
+router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		// find([{ role: "urbanfarmer" }, { ward: req.user.ward }]);
+		let registeredUrbanFarmers = await Registration.find({ role: "urbanfarmer" }).sort({ $natural: -1 });
+		console.log("These are the existing Urban Farmers", registeredUrbanFarmers);
+		res.render("FO/FO-ub-accounts", { loggedUser: req.session.user, urbanFarmers: registeredUrbanFarmers });
+	} catch (error) {
+		res.status(400).send("Unable to get Urban Farmers list");
+	}
+	// res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
 });
+
 
 // list of produce awaiting Approval
 router.get("/approveproduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {

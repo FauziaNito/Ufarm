@@ -72,6 +72,11 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 	},
+	status: {
+		type: String,
+		default: "Not appointed",
+		enum: ["Not appointed","Active", "Inactive"],
+	},
 	activity: [
 		{
 			type: String,
