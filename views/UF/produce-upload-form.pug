@@ -147,7 +147,7 @@ block content
                                 small.asterisk  *
                             select#farmername(name='farmername')
                                 if loggedUser
-                                    option(value = loggedUser._id) #{loggedUser.firstname +" "+loggedUser.lastname} 
+                                    option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
                     .col
                         .form-field
                             label(for='ward')
@@ -155,7 +155,7 @@ block content
                                 small.asterisk  *
                             select(name='ward')
                                 if loggedUser
-                                    option(value = loggedUser._id) #{loggedUser.ward}
+                                    option(value = loggedUser.ward) #{loggedUser.ward}
                     .col.column-stretch-left
                         .form-field
                             label(for='streetname')
@@ -163,7 +163,7 @@ block content
                                 small.asterisk  *
                             select#streetname(name='streetname')
                                 if loggedUser
-                                    option(value = loggedUser._id) #{loggedUser.streetname} 
+                                    option(value = loggedUser.streetname) #{loggedUser.streetname} 
                             small#streetnameerr 
                     .col
                         .form-field
@@ -172,7 +172,7 @@ block content
                                 small.asterisk  * 
                             select#housenumber(name='housenumber')
                                 if loggedUser
-                                    option(value = loggedUser._id) #{loggedUser.housenumber} 
+                                    option(value = loggedUser.housenumber) #{loggedUser.housenumber} 
                             small#housenumbererr
                 .row
                     .col 

@@ -34,7 +34,7 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 		await produce.save();
 		res.redirect("/producelist");
 	} catch (error) {
-		res.status(400).send("Can't save this image");
+		res.status(400).send("Can't save this this Produce");
 		console.log(error);
 	}
 });

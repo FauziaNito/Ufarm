@@ -78,20 +78,20 @@ block content
                             //- small#periodofstayerr 
                     .col
                         .form-field
-                            label(for='birthdate')
-                                | Date of Bith
+                            label(for='birthdate') 
+                                | Date of Bith #{moment(farmerOne.birthdate,"YYYY-MM-DD").format("DD-MM-YYYY")}
                                 small.asterisk  *
-                            input#birthdate(type='date' name='birthdate' autocomplete='off' value=farmerOne.birthdate.toDateString())
+                            input#birthdate(type='date' name='birthdate' autocomplete='off' value=farmerOne.birthdate)
                             //- small#birthdateerr 
                     .col
                         .form-field
                             label(for='gender') Gender:
                             .radio#gender
-                                input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female' selected = farmerOne.gender === 'Female')
+                                input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female' checked = farmerOne.gender === 'Female')
                                 span Female
-                                input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male' selected = farmerOne.gender === 'Male')
+                                input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male' checked = farmerOne.gender === 'Male')
                                 span Male
-                                input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others' selected = farmerOne.gender === 'Others')
+                                input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others' checked = farmerOne.gender === 'Others')
                                 span Others
                             //- small#genderradioerr 
                 hr.mt-1

@@ -3,7 +3,7 @@ block content
     main.content
         nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
             .container-fluid
-                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Approve Produce
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Appoint FarmerOne
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
@@ -20,19 +20,20 @@ block content
                                         button.btn(type= 'submit' width='100px') Signout
         .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
             .ml-4
-                h5 Approve this produce Produce
+                h5 Activate This User
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/produce/approve?id='+product._id name='registerproduce' method='post')
-                h5.text-muted.text-center Add Your Produce Details Here
+            form#signup.form(action='/urbanfarmer/status?id='+UrbanFarmerStatus._id name='registerproduce' method='post')
+                h5.text-muted.text-center Select Option To appoint Urban Farmer
                 .row
                     .col
                         .form-field
                             label(for='status') Change Status:
                             select(name='status')
-                                option(value="Pending" selected = product.status === "Pending") Pending
-                                option(value="Approved" selected = product.status === 'Approved') Approved
+                                option(value="Not appointed" selected = UrbanFarmerStatus.status === "Not appointed") Not appointed
+                                option(value="Active" selected = UrbanFarmerStatus.status === 'Active') Active
+                                option(value="Inactive" selected = UrbanFarmerStatus.status === 'Inactive') Inactive
                     .container.FO-form-btn
                         .button1
                         input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')

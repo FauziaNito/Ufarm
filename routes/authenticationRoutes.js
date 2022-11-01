@@ -22,7 +22,16 @@ router.post("/login", passport.authenticate("local", { failureRedirect: "/login"
 		}
 		
 	} else if (req.user.role == "urbanfarmer") {
-		res.redirect("/UFdashboard");
+		if (req.user.status == "Active") {
+			res.redirect("/UFdashboard");
+		} else if (req.user.status == "Not appointed") {
+			res.send("Sorry, Wait until your activated to login");
+		} else {
+			res.send("You are nolonger an employee of this Organization");
+		}
+		
+	} else if (req.user.role == "generalpublic") {
+		res.redirect("/");
 	} else {
 		res.send("Your not a registered user in the system");
 	}

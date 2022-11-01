@@ -31,13 +31,13 @@ block content
                                 th Unity Price
                                 th Mode of Payment
                                 th Mode of Delivery
+                                th Farmer
                                 th Status
                                 th Change Status
                         tbody
                             if products.length
                                 each product in products
-                                    if product.status == 'Pending' 
-                                        //- && product.ward === loggedUser.ward
+                                    if product.status == 'Pending'  && product.ward === loggedUser.ward
                                         tr
                                             td 
                                                 img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
@@ -46,6 +46,8 @@ block content
                                             td #{product.unitprice}
                                             td #{product.modeofpayment}
                                             td #{product.modeofdelivery}
+                                            td #{product.farmername} 
+                                            //- #{loggedUser.firstname +" "+loggedUser.lastname} 
                                             td #{product.status}
                                             td
                                                 a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/produce/approve/'+product._id) Approve

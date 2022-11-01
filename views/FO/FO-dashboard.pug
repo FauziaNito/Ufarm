@@ -21,8 +21,20 @@ block content
         #stat-container.container-fluid
             .card.bottom-shadow.border-color.mr-3.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
-                    h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 9,000
-                    p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce to Approve
+                    p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Registered Farmers
+                    img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Active:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{activeFarmers}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Not Activated:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{NotAppointedFarmers}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Suspended:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{inactiveFarmers}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Farmers: 
+                        //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 8,000

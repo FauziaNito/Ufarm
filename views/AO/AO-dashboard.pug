@@ -32,6 +32,9 @@ block content
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
             h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total: 
+            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
           p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total Revenue Count
@@ -48,23 +51,35 @@ block content
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
           p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total User Count
-          img.card-logo.mb-2(src='../images/sales.png' alt='Ufarm logo')
+          img.card-logo.mb-2(src='../images/users.png' alt='Ufarm logo')
           div.d-flex
-            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 1: 
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Farmer Ones:
             h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalFarmerOnes}
           div.d-flex
-            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 2:
-            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Urban Farmers:
+            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalUbarnFarmers}
           div.d-flex
-            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 3:
-            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
-          div.d-flex
-            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 4:
-            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') General Public:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalGeneralPublic}
+          //- div.d-flex
+          //-   p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 4:
+          //-   h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
-          p.card-text.p-0.m-0.text-muted(style='font-size:15px') Registered Farmers
-          h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold;') 600
+          p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total Sales Count
+          img.card-logo.mb-2(src='../images/groupsales.png' alt='Ufarm logo')
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 1:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales1.totalCost)} UGX 
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 2:
+            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales1.totalCost)} UGX
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 3:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales4.totalCost)} UGX
+          div.d-flex
+            p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 4:
+            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales4.totalCost)} UGX
     .container-fluid.stast-grid.mt-5
       .card(style='width: 300px; height: 300px;')
         | .

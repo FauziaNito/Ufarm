@@ -23,27 +23,41 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				{ $match: { producecategory: "Poultry" } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
-			// let totalFarmerOnes = await Registration.countDocuments({
-			// 	"role": "farmerOne",
-			// });
 
-			// let ward1Sales = await Produce.aggregate([
-			// 	{
-			// 		$lookup: {
-			// 			from: "Registration",
-			// 			localFeild: "Ward",
-			// 			foreignField: "Ward",
-			// 			as: "wardMatch",
-			// 		},
-			// 	},
-			// 	// { $match: { farmerWard: "Ward 1", availability: "N/A" } },
-			// 	// { $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
-			// ]);
+			let ward1Sales = await Produce.aggregate([
+				{ $match: { $and: [{ ward: "Ward 1" }, { availability: "N/A" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			let ward2Sales = await Produce.aggregate([
+				{ $match: { $and: [{ ward: "Ward 2" }, { availability: "N/A" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			let ward3Sales = await Produce.aggregate([
+				{ $match: { $and: [{ ward: "Ward 3" }, { availability: "N/A" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			let ward4Sales = await Produce.aggregate([
+				{ $match: { $and: [{ ward: "Ward 4" }, { availability: "N/A" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+
+			// let totalProduce = totalHort[0] + totalDairy[0] + totalPoultry[0];
+
+			let totalFarmerOnes = await Registration.countDocuments({
+				role: "farmerOne",
+			});
+			let totalUbarnFarmers = await Registration.countDocuments({
+				role: "urbanfarmer",
+			});
+			let totalGeneralPublic = await Registration.countDocuments({
+				role: "generalpublic",
+			});
 
 			console.log("Poultry collections", totalPoultry);
 			console.log("Hort collections", totalHort);
 			console.log("Dairy collections", totalDairy);
-			// console.log("FarmerOnes", totalFarmerOnes);
+			console.log("FarmerOnes======================", totalFarmerOnes);
+			console.log("Ward 1 Total Sales", ward1Sales);
 
 			res.render("AO/AO-dashboard", {
 				loggedUser: req.session.user,
@@ -52,7 +66,14 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				totalP: totalPoultry[0],
 				totalH: totalHort[0],
 				totalD: totalDairy[0],
-				// userG1: totalFarmerOnes[0],
+				Sales1: ward1Sales[0],
+				// Sales2: ward2Sales[0],
+				// Sales3: ward3Sales[0],
+				Sales4: ward4Sales[0],
+				totalFarmerOnes,
+				totalUbarnFarmers,
+				totalGeneralPublic,
+				// totalProduce,
 			});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");
@@ -62,7 +83,7 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	}
 });
 // Farmer One list
-router.get("/FOlist",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+router.get("/FOlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let registeredFarmerOnes = await Registration.find({ role: "farmerOne" }).sort({ $natural: -1 });
 		console.log("These are the existing FarmerOnes", registeredFarmerOnes);
@@ -99,7 +120,7 @@ router.get("/farmerone/status/:id", connectEnsureLogin.ensureLoggedIn(), async (
 		const appointFarmerOne = await Registration.findOne({ _id: req.params.id });
 		res.render("AO/FO-status", { loggedUser: req.session.user, farmerOneStatus: appointFarmerOne });
 	} catch (error) {
-		res.status(400).send("Unable to Change User Status");
+		res.status(400).send("Unable to Find User Status");
 	}
 });
 
@@ -109,7 +130,7 @@ router.post("/farmerone/status", async (req, res) => {
 		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
 		res.redirect("/FOlist");
 	} catch (error) {
-		res.status(400).send("Unable to approve produce");
+		res.status(400).send("Unable to Change User Status");
 	}
 });
 // Farmer One Activities

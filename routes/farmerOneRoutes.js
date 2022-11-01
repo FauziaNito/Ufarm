@@ -6,8 +6,21 @@ const Produce = require("../models/ProduceUpload");
 const Registration = require("../models/user");
 
 // Farmer One Dashboard Routes
-router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-	res.render("FO/FO-dashboard", { loggedUser: req.session.user });
+router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	let farmerWard = req.user["ward"];
+	console.log("This is your FarmerOne Ward", farmerWard);
+	if (req.user.role == "farmerOne") {
+		try {
+			let activeFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Active" });
+			let inactiveFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Inactive" });
+			let NotAppointedFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Not appointed" });
+
+			res.render("FO/FO-dashboard", { loggedUser: req.user, activeFarmers, inactiveFarmers, NotAppointedFarmers });
+		} catch (error) {
+			res.status(400).send("unable to find items in the database");
+		}
+	}
 });
 
 // List of Urban Farmer Route
@@ -22,7 +35,25 @@ router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	}
 	// res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
 });
+// Urban Farmer status Change get route
+router.get("/urbanfarmer/status/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		const appointUrbanFarmer = await Registration.findOne({ _id: req.params.id });
+		res.render("FO/UF-status", { loggedUser: req.session.user, UrbanFarmerStatus: appointUrbanFarmer });
+	} catch (error) {
+		res.status(400).send("Unable to find User Status");
+	}
+});
 
+// Urban Farmer status update post route
+router.post("/urbanfarmer/status", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/UFlist");
+	} catch (error) {
+		res.status(400).send("Unable to Change User Status");
+	}
+});
 
 // list of produce awaiting Approval
 router.get("/approveproduce", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
@@ -30,8 +61,6 @@ router.get("/approveproduce", connectEnsureLogin.ensureLoggedIn(), async (req, r
 	console.log("Logged In this FarmerOne", req.user);
 
 	try {
-		// let matchWard = await Registration.aggregate({ $match: $and[{role: "urbanfarmer"},
-		// { ward: req.user.ward }] });
 		let products = await Produce.find().sort({ $natural: -1 });
 		res.render("FO/approve-produce", { loggedUser: req.session.user, products: products });
 	} catch (error) {
@@ -58,4 +87,5 @@ router.post("/produce/approve", async (req, res) => {
 		res.status(400).send("Unable to approve produce");
 	}
 });
+
 module.exports = router;

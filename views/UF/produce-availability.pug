@@ -34,6 +34,7 @@ block content
                                 option(value="available" selected = availableItem.availability === "available") Available
                                 option(value="booked" selected = availableItem.availability === 'booked') Booked
                                 option(value="N/A" selected = availableItem.availability === 'N/A') N/A
-                    .form-field
-                        input.btn.register-btn(type='submit' value='Update')
+                    .container.FO-form-btn
+                        .button1
+                        input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')
     script(src='bootstrap-js/js/bootstrap.bundle.js')

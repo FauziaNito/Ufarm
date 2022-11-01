@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const config = require("./config/db");
 const passport = require("passport");
+const moment = require("moment");
 //express session
 const expressSession = require("express-session")({
 	secret: "secret",
@@ -43,6 +44,7 @@ db.on("error", function (err) {
 // CONFIGURATIONs
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
+app.locals.moment = moment;
 // app.set("views", [
 // 	path.join(__dirname, "views"),
 // 	path.join(__dirname, "views/AO"),
