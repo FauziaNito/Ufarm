@@ -6,388 +6,420 @@ head
     link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
     link(rel='stylesheet' href='css/site.css')
-nav.navbar.navbar-expand-lg.shadow.p-0.mb-3.bg-white.bottom-shadow
-    .container-fluid
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
-                .mt-2.mr-5
-                    p
-                        | Need Help? Call Us: 
-                        strong(style='color:#83B735 ;') +256 704535543
-                .vline.mt-2.mr-5
-                li.nav-item.dropdown(style='margin-left:auto ;')
-                    a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
-                        | Language
-                    ul.dropdown-menu
-                        li
-                            a.dropdown-item(href='#') Profile
-                        li
-                            a.dropdown-item(href='#')
-                        li
-                            a.dropdown-item(href='#') Signout
-.container-fluid.mb-5
-    .row
-        .col.pl-5
-            img.img-logo(src='../images/b-blogo4.png' alt='')
-        .col
-            form.form-inline.my-2.my-lg-0
-                input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width:350px ;' placeholder='Search Here' aria-label='Search')
-        .col
-            div
-                img(src='' alt='')
-                p My Account
-        .col
-            .d-flex.mt-4
-                i.bi.bi-basket2.mr-2.icon-style
-                p.mt-1 My Chart
-nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
-    .container-fluid
-        div
-            form.form-inline.my-2.my-lg-0
-                input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
-        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarNav.collapse.navbar-collapse
-            ul.navbar-nav
-                li.nav-item
-                    a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
-                li.nav-item
-                    a.nav-link.active.menu-item(href='#') Special Deals
-                li.nav-item
-                    a.nav-link.active.menu-item(href='#') Blog
-                li.nav-item
-                    a.nav-link.active.menu-item(href='#') Contact Us
-        .app-entry
-            .btn.login-btn
-                button.btn.rounded-pill(type='submit') Login
-            .btn.login-btn
-                button.btn.rounded-pill(type='submit') Signup
-#carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
-    .carousel-inner
-        .carousel-item.active
-            img.d-block.w-100.img-resize(src='images/img1.jpg' alt='...')
-        .carousel-item
-            img.d-block.w-100.img-resize(src='images/img2.jpg' alt='...')
-        .carousel-item
-            img.d-block.w-100.img-resize(src='images/img3.jpg' alt='...')
-        .carousel-item
-            img.d-block.w-100.img-resize(src='images/img5.jpg' alt='...')
-.container-fluid.category-container
-    .card.category-card
-        .card-body
-            h5.card-title.text-muted Card title
-    .card.category-card
-        .card-body
-            h5.card-title.text-muted Card title
-    .card.category-card
-        .card-body
-            h5.card-title.text-muted Card title
-    .card.category-card
-        .card-body
-            h5.card-title.text-muted Card title
-.container
-    .daily-header
-        h1 Daily Groceries
-    .groceries-items
-        div
-            h4 Top Selling
-        div
-            h4 Dairy Products
-        div
-            h4 New Arrivals
-.container-fluid.produce-container
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/ova.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/t.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/broc.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/toma.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-.container-fluid.produce-container
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/ova.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/t.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/broc.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/toma.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-.container.top-product-style
-    .daily-header
-        h1 Top Products
-.container-fluid.produce-container
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/p.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/g.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/broc.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-    .card.produce-card
-        .card-body
-            .item-img
-                img(src='../images/toma.jpg' alt='')
-            .product-rating
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-fill.icon-style
-                i.bi.bi-star-half.icon-style
-                i.bi.bi-star.icon-style
-            .item-name
-                h6 Katende Avocado
-            .price-container
-                .current-price
-                    h6 Shs 1000
-                .original-price
-                    h6.text-muted
-                        s Shs 1500 
-                .discount
-                    h6 45%
-            .shop-btn
-                button.btn.rounded-pill(type='submit') Shop Now
-.container.load-more
-    button.btn(type='submit') Load More
-.container-fluid.footer
-    .container.top-spacings
+body
+    nav.navbar.navbar-expand-lg.shadow.p-0.mb-3.bg-white.bottom-shadow
+        .container-fluid
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                    .mt-2.mr-5
+                        p
+                            | Need Help? Call Us: 
+                            strong(style='color:#83B735 ;') +256 704535543
+                    .vline.mt-2.mr-5
+                    li.nav-item.dropdown(style='margin-left:auto ;')
+                        a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                            | Language
+                        ul.dropdown-menu
+                            li
+                                a.dropdown-item(href='#') Profile
+                            li
+                                a.dropdown-item(href='#')
+                            li
+                                a.dropdown-item(href='#') Signout
+    .container-fluid.mb-5
         .row
+            .col.pl-5
+                img.img-logo(src='../images/b-blogo4.png' alt='')
             .col
-                h5 About Us
-                p
-                    | A small river named Duden flows by their place and supplies
-                    | it with the necessary regelialia. It is a paradisematic country,
-                    | in which roasted parts of sentences fly into your mouth.
-            .col(style='padding-left: 100px;')
-                h5(style='margin-left:30px ; padding-bottom:25px ;') Navigation
-                ul
-                    li About
-                    li Team
-                    li Products
-                    li Contact Us
+                form.form-inline.my-2.my-lg-0
+                    input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width:350px ;' placeholder='Search Here' aria-label='Search')
             .col
-                h5 Subscribe Newsletter
-                .mb-3.mt-4
-                    input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
-                a.btn.btn-primary(href='#') Go somewhere
+                div
+                    img(src='' alt='')
+                    p My Account
+            .col
+                .d-flex.mt-4
+                    i.bi.bi-basket2.mr-2.icon-style
+                    p.mt-1 My Chart
+    nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
+        .container-fluid
+            div
+                form.form-inline.my-2.my-lg-0
+                    input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarNav.collapse.navbar-collapse
+                ul.navbar-nav
+                    li.nav-item
+                        a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                    li.nav-item
+                        a.nav-link.active.menu-item(href='#') Special Deals
+                    li.nav-item
+                        a.nav-link.active.menu-item(href='#') Blog
+                    li.nav-item
+                        a.nav-link.active.menu-item(href='#') Contact Us
+            .app-entry
+                .btn.login-btn
+                    button.btn.rounded-pill(type='submit') Login
+                .btn.login-btn
+                    button.btn.rounded-pill(type='submit') Signup
+    #carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.w-100.img-resize(src='images/img1.jpg' alt='...')
+            .carousel-item
+                img.d-block.w-100.img-resize(src='images/img2.jpg' alt='...')
+            .carousel-item
+                img.d-block.w-100.img-resize(src='images/img3.jpg' alt='...')
+            .carousel-item
+                img.d-block.w-100.img-resize(src='images/img5.jpg' alt='...')
+    .container-fluid.category-container
+        .card.category-card
+            .card-body
+                h5.card-title.text-muted Card title
+        .card.category-card
+            .card-body
+                h5.card-title.text-muted Card title
+        .card.category-card
+            .card-body
+                h5.card-title.text-muted Card title
+        .card.category-card
+            .card-body
+                h5.card-title.text-muted Card title
+    .container
+        .daily-header
+            h1 Daily Groceries
+        .groceries-items
+            div
+                h4 Top Selling
+            div
+                h4 Dairy Products
+            div
+                h4 New Arrivals
+    .container-fluid(style="margin: auto;")
+        .produce-container
+            if products.length
+                each product in products
+                    if product.availability == "N/A"
+                        .card.produce-card
+                            .card-body
+                                //- .not-available
+                                p.text-danger.availablility-text N/A
+                                .item-img
+                                    img.produce-list-img(src="/"+product.imageupload, alt="Image" width='270px' height="266")
+                                .product-rating
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-half.icon-style
+                                    i.bi.bi-star.icon-style
+                                .item-name
+                                    h6 #{product.producename}
+                                    p 1#{product.units}
+                                .price-container
+                                    .current-price
+                                        h6 Shs  #{product.unitprice} 
+                                    .original-price
+                                        h6.text-muted
+                                            s Shs 1500 
+                                    .discount
+                                        h6 45%
+                                .shop-btn
+                                    button.btn.rounded-pill(type='submit') Shop Now
+                    else 
+                        .card.produce-card
+                            .card-body
+                                .item-img
+                                    img.produce-list-img(src="/"+product.imageupload, alt="Image" width='270px' height="266")
+                                .product-rating
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-fill.icon-style
+                                    i.bi.bi-star-half.icon-style
+                                    i.bi.bi-star.icon-style
+                                .item-name
+                                    h6 #{product.producename}
+                                    p 1#{product.units}
+                                .price-container
+                                    .current-price
+                                        h6 Shs  #{product.unitprice} 
+                                    .original-price
+                                        h6.text-muted
+                                            s Shs 1500 
+                                    .discount
+                                        h6 45%
+                                .shop-btn
+                                    button.btn.rounded-pill(type='submit') Shop Now
+            .card.produce-card
+                .card-body
+                    .item-img
+                        img(src='../images/t.jpg' alt='')
+                    .product-rating
+                        i.bi.bi-star-fill.icon-style
+                        i.bi.bi-star-fill.icon-style
+                        i.bi.bi-star-fill.icon-style
+                        i.bi.bi-star-half.icon-style
+                        i.bi.bi-star.icon-style
+                    .item-name
+                        h6 Katende Avocado
+                    .price-container
+                        .current-price
+                            h6 Shs 1000
+                        .original-price
+                            h6.text-muted
+                                s Shs 1500 
+                        .discount
+                            h6 45%
+                    .shop-btn
+                        button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/broc.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/toma.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //- .container-fluid.produce-container
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/ova.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/t.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/broc.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/toma.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //- .container.top-product-style
+    //-     .daily-header
+    //-         h1 Top Products
+    //- .container-fluid.produce-container
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/p.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/g.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/broc.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    //-     .card.produce-card
+    //-         .card-body
+    //-             .item-img
+    //-                 img(src='../images/toma.jpg' alt='')
+    //-             .product-rating
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-fill.icon-style
+    //-                 i.bi.bi-star-half.icon-style
+    //-                 i.bi.bi-star.icon-style
+    //-             .item-name
+    //-                 h6 Katende Avocado
+    //-             .price-container
+    //-                 .current-price
+    //-                     h6 Shs 1000
+    //-                 .original-price
+    //-                     h6.text-muted
+    //-                         s Shs 1500 
+    //-                 .discount
+    //-                     h6 45%
+    //-             .shop-btn
+    //-                 button.btn.rounded-pill(type='submit') Shop Now
+    .container.load-more
+        button.btn(type='submit') Load More
+    .container-fluid.footer
+        .container.top-spacings
+            .row
+                .col
+                    h5 About Us
+                    p
+                        | A small river named Duden flows by their place and supplies
+                        | it with the necessary regelialia. It is a paradisematic country,
+                        | in which roasted parts of sentences fly into your mouth.
+                .col(style='padding-left: 100px;')
+                    h5(style='margin-left:30px ; padding-bottom:25px ;') Navigation
+                    ul
+                        li About
+                        li Team
+                        li Products
+                        li Contact Us
+                .col
+                    h5 Subscribe Newsletter
+                    .mb-3.mt-4
+                        input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
+                    a.btn.btn-primary(href='#') Go somewhere
     script(src='bootstrap-js/js/bootstrap.bundle.js')

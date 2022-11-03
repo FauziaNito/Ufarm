@@ -93,11 +93,16 @@ body {
 }
 .produce-container {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	/* justify-content: space-between; */
+	flex-wrap: wrap;
 	margin-top: 3%;
-	margin-right: 3%;
+	align-content: flex-start;
+	/* margin-right: 3%; */
 }
 .produce-card {
+	margin-right: 25px;
+	margin-bottom: 25px;
 	height: 450px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -105,12 +110,12 @@ body {
 .price-container {
 	display: flex;
 	justify-content: space-around;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .shop-btn {
 	padding: 1%;
-	margin-top: 5%;
+	margin-top: 4%;
 	text-align: center;
 }
 .shop-btn button {
@@ -123,10 +128,18 @@ body {
 	border: none;
 	font-size: 17px;
 }
+.item-name {
+	display: flex;
+	justify-content: space-between;
+}
 .item-name h6 {
 	margin-top: 10px;
 	font-size: 20px;
 	margin-left: 12px;
+}
+.item-name p {
+	margin-top: 10px;
+	margin-right: 10px;
 }
 .icon-style {
 	margin-top: 0px;
@@ -349,7 +362,15 @@ select:focus {
 .produce-header {
 	margin-top: 6%;
 }
-.produce-details-area{
+.produce-details-area {
 	margin-left: 20px;
-
+}
+.not-available {
+	position: relative;
+}
+.availablility-text {
+	font-weight: bold;
+	position: absolute;
+	top: 15px;
+	right: 16px;
 }

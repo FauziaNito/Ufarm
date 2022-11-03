@@ -37,12 +37,36 @@ block content
                         //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
-                    h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 8,000
-                    p.card-text.p-0.m-0.text-muted(style='font-size: 15px') New Orders
+                    p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Produce Count
+                    img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{approved.totalQuantity}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{pending.totalQuantity}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{sold.totalQuantity}
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Produce: 
+                        //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
-                    h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 11,000
-                    p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce uploaded
+                    p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Projected Sales Count
+                    img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(approved.totalCost)} UGX
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(pending.totalCost)} UGX
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
+                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sold.totalCost)} UGX
+                    div.d-flex
+                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Produce: 
+                        //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}#{new Intl.NumberFormat().format(totalP.totalCost)} UGX
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 600

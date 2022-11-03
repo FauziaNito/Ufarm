@@ -15,8 +15,36 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 			let activeFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Active" });
 			let inactiveFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Inactive" });
 			let NotAppointedFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Not appointed" });
+			
+			// let approvedProduce = await Produce.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Approved" });
 
-			res.render("FO/FO-dashboard", { loggedUser: req.user, activeFarmers, inactiveFarmers, NotAppointedFarmers });
+			let approvedProduce = await Produce.aggregate([
+				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, 
+				totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+
+			let pendingProduce = await Produce.aggregate([
+				{ $match: { $and: [{ ward: farmerWard }, { status: "Pending" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+
+			]);
+			let soldProduce = await Produce.aggregate([
+				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }, { status: "Approved" }, { availability : "N/A"}] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			console.log("This is your Total approved produce", approvedProduce);
+
+			
+			res.render("FO/FO-dashboard", {
+				loggedUser: req.user,
+				activeFarmers,
+				inactiveFarmers,
+				NotAppointedFarmers,
+				approved: approvedProduce[0],
+				pending: pendingProduce[0],
+				sold: soldProduce[0],
+			});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");
 		}
