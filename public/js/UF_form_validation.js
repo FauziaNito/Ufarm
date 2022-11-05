@@ -5,7 +5,9 @@ let currentYear = today.getFullYear();
 let currentDate = today.getDate();
 var current_date = `${currentYear}-${currentMonth}-${currentDate}`;
 console.log(current_date);
-document.getElementById("regdate").value = current_date;
+// document.getElementById("regdate").value = current_date;
+
+document.getElementById("regdate").valueAsDate = new Date();
 
 const FarmerOneForm = (event) => {
 	var firstName = document.getElementById("firstname");
@@ -19,6 +21,7 @@ const FarmerOneForm = (event) => {
 	var ward = document.getElementById("ward");
 	var streetName = document.getElementById("streetname");
 	var houseNumber = document.getElementById("housenumber");
+	var userEmail = document.getElementById("email");
 	var activityRegister = document.registration.register;
 	var activityInspect = document.registration.inspect;
 	var activityApprove = document.registration.approve;
@@ -35,6 +38,7 @@ const FarmerOneForm = (event) => {
 	var wardError = document.getElementById("warderr");
 	var streetNameError = document.getElementById("streetnameerr");
 	var houseNumberError = document.getElementById("housenumbererr");
+	var userEmailError = document.getElementById("emailerr");
 	var radioError = document.getElementById("genderradioerr");
 	let error = 0;
 
@@ -293,6 +297,24 @@ const FarmerOneForm = (event) => {
 	}
 	if (error > 0) {
 		event.preventDefault();
+	}
+	// Email Address input validation
+	let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if (userEmail.value == "") {
+		userEmail.style.border = "1px solid red";
+		userEmailError.textContent = "Please Enter User's Email";
+		userEmailError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	} else if (!userEmail.value.match(emailRegex)) {
+		userEmail.style.border = "1px solid red";
+		userEmailError.textContent = "Email format should be names@gmail.com";
+		userEmailError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	} else {
+		userEmail.style.border = "1px solid green";
+		userEmailError.textContent = "";
 	}
 };
 

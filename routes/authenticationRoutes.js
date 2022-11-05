@@ -33,7 +33,7 @@ router.post("/login", passport.authenticate("local", { failureRedirect: "/login"
 	} else if (req.user.role == "generalpublic") {
 		res.redirect("/");
 	} else {
-		res.send("Your not a registered user in the system");
+		res.send("Sorry!! Your not a registered user in the system");
 	}
 });
 

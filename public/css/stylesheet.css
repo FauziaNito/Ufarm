@@ -65,6 +65,7 @@ aside a:hover {
 	width: 120px;
 	background-color: #18a15c !important;
 	border: #18a15c;
+	border: none !important;
 }
 .form-clear-btn {
 	width: 120px;
@@ -102,7 +103,7 @@ aside a:hover {
 }
 div.sidebar-list-container {
 	text-align: center;
-	width: 140px;
+	width: 210px;
 }
 ul.sidebar-list li {
 	justify-content: center;
@@ -252,7 +253,19 @@ select {
 select:focus {
 	outline: none;
 }
-
+.form-field textarea
+{
+	border: solid 3px #f0f0f0;
+	border-radius: 3px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 14px;
+	display: block;
+	width: 100%;
+}
+.form-field textarea:focus{
+	outline: none;
+}
 .checkbox-size {
 	transform: scale(1);
 	padding-right: 0px;

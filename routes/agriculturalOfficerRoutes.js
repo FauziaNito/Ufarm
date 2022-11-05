@@ -75,6 +75,8 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				totalGeneralPublic,
 				// totalProduce,
 			});
+			// res.render("AO/AO-dashboard", {
+			// 	loggedUser: req.session.user});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");
 		}

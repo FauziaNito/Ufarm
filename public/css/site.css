@@ -11,7 +11,13 @@ body {
 	border-left: 3px solid green;
 	height: 25px;
 }
-
+.divider {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	border-left: 1px solid #b4b2b2;
+	height: 20px;
+}
 .img-logo {
 	height: auto;
 	width: 45%;
@@ -118,15 +124,46 @@ body {
 	margin-top: 4%;
 	text-align: center;
 }
-.shop-btn button {
-	width: 70%;
-	height: 15% !important;
-	padding: 5% 10%;
+.shop-btn a {
+	width: 60%;
+	padding: 4% 5%;
 	border-radius: 30px !important;
 	background-color: #18a15c;
 	color: white;
 	border: none;
-	font-size: 17px;
+	font-size: 16px;
+}
+.shop-btn a:hover {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
+}
+.shop-btn a:active,
+:focus {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
+}
+.order-btn a{
+	width: 25%;
+	margin-top: 15px;
+	padding: 15px;
+	border-radius: 30px !important;
+	background-color: #18a15c;
+	color: white;
+	border: none;
+	font-size: 16px;
+}
+.order-btn a:hover {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
+}
+.order-btn a:active,
+:focus {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
 }
 .item-name {
 	display: flex;
@@ -141,9 +178,11 @@ body {
 	margin-top: 10px;
 	margin-right: 10px;
 }
+.product-rating {
+	margin-top: 15px;
+}
 .icon-style {
-	margin-top: 0px;
-	font-size: 20px;
+	font-size: 15px;
 	color: #fe9800;
 }
 .item-img {
@@ -179,10 +218,25 @@ body {
 	display: flex;
 }
 
-.app-entry button {
+.app-entry a {
 	background-color: #18a15c;
 	color: white;
 	border: none;
+	width: 100px;
+	margin-right: 20px;
+	border-radius: 30px !important;
+	padding: 9px;
+}
+.app-entry a:hover {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
+}
+.app-entry a:active,
+:focus {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
 }
 /* Signup form */
 .form-style {
@@ -239,13 +293,11 @@ select {
 select:focus {
 	outline: none;
 }
-.user-btn-container {
-	display: flex;
-	justify-content: center;
+.site-signup-btn {
+	text-align: center;
 }
-.user-btn {
+.site-signup-btn button {
 	width: 35%;
-	height: 45px;
 	margin-top: 25px;
 	margin-bottom: 10px;
 	border-radius: 10px !important;
@@ -253,7 +305,43 @@ select:focus {
 	color: white;
 	border: none;
 	font-size: 17px;
+}
+.site-signup-btn button:hover {
+	/* background-color: #18a15c !important; */
+  	text-decoration: none;
+	/* color: white !important; */
+}
+.site-signup-btn button:active,:focus {
+	/* background-color: #18a15c !important; */
+  	text-decoration: none;
+	/* color: white !important; */
+}
+.site-login-btn {
+	text-align: center;
+}
+.button-color{
+	background-color: #18a15c;
+}
+.site-login-btn button {
+	width: 60%;
+	margin-top: 25px;
+	padding: 2%;
+	margin-bottom: 10px;
+	border-radius: 10px !important;
+	color: white;
+	border: none;
 	font-size: 18px;
+}
+.site-login-btn button:hover {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
+}
+.site-login-btn button:active,
+:focus {
+	/* background-color: #18a15c !important; */
+	text-decoration: none;
+	/* color: white !important; */
 }
 .radio {
 	margin-top: 15px;
@@ -310,13 +398,20 @@ select:focus {
 	box-shadow: 0.2px 2px 2px rgba(0, 0, 0, 0.3);
 	width: 600px;
 }
+.single-produce {
+	display: flex;
+	margin-bottom: 10%;
+	/* margin-left: 40px;
+	margin-right: 40px; */
+}
 .checkout-area {
 	background-color: #fffafa;
 	padding-bottom: 10%;
 }
 .align-details {
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
+	margin-left:25px;
 }
 .farmer-text {
 	font-style: normal;
@@ -341,17 +436,21 @@ select:focus {
 	font-size: 17px;
 	font-size: 18px;
 }
+.user-btn-container{
+text-align: center;
+}
 .checkout-order-btn {
 	width: 35%;
 	height: 45px;
 	margin-top: 25px;
 	margin-bottom: 10px;
 	border-radius: 10px !important;
-	background-color: #fe9800;
+	background-color: #18a15c;
 	color: white;
 	border: none;
 	font-size: 17px;
 	font-size: 18px;
+	
 }
 .text-align-right {
 	margin-left: 65%;
@@ -359,8 +458,9 @@ select:focus {
 .top-spacings {
 	padding-top: 5%;
 }
-.produce-header {
+.produce-details {
 	margin-top: 6%;
+	margin-left: 45px;
 }
 .produce-details-area {
 	margin-left: 20px;
@@ -373,4 +473,12 @@ select:focus {
 	position: absolute;
 	top: 15px;
 	right: 16px;
+}
+.reviews {
+	margin-top: 14px;
+	margin-left: 10px;
+}
+.single-img {
+	text-align: center;
+	margin-top: 30px;
 }

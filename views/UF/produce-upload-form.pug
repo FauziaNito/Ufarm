@@ -42,8 +42,9 @@ block content
                             label Procude Name:
                             select#producename(name='producename')
                                 option(value='selectproduce') Select Produce
-                                option(value="Brocoli") Brocoli
+                                option(value="Broccoli") Broccoli
                                 option(value="Banana") Banana
+                                option(value="Avocado") Avocado
                                 option(value="Cabbage") Cabbage
                                 option(value="GreenPaper") Green Paper
                                 option(value="Garlic") Garlic
@@ -67,6 +68,7 @@ block content
                                 option(value='gms') gms
                                 option(value='liters') liters
                                 option(value='Bunch') Bunch
+                                option(value='Piece') Piece
                                 option(value='Sack') Sack
                                 option(value='Sack') Tray
                             small#unitserr
@@ -130,16 +132,14 @@ block content
                             small#imageuploaderr
                     .col
                         .form-field
-                            label(for='producttype') Produce Type:
-                            .radio#producetype
-                                input#producetype1(type='radio' name='producetype' autocomplete='off' value= 'Organic')
+                            label Produce Type:
+                            .radio#producttype
+                                input#gender1(type='radio' name='producttype' autocomplete='off' value= 'Organic')
                                 span Organic
-                                input#producetype2(type='radio' name='producetype' autocomplete='off' value= 'NoneOrganic')
+                                input#gender2(type='radio' name='producttype' autocomplete='off' value= 'NoneOrganic')
                                 span NoneOrganic
-                            small#producttypeerr
-                hr.mt-1
-                p.text-muted Farmer's Details and Home Direction
-                .row
+                            small#producetyperadioerr
+                .row 
                     .col
                         .form-field
                             label(for='farmername')
@@ -148,6 +148,42 @@ block content
                             select#farmername(name='farmername')
                                 if loggedUser
                                     option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
+                    .col
+                        .form-field
+                            label(for='email')
+                                | Email:
+                                small  *
+                            select#email(name='email')
+                                if loggedUser
+                                    option(value = loggedUser.email) #{loggedUser.email}
+                    .col
+                        .form-field
+                            label(for='phonenumber')
+                                | Phone Number:
+                                small.asterisk  * 
+                            select#phonenumber(name='phonenumber')
+                                if loggedUser
+                                    option(value = loggedUser.phonenumber) #{loggedUser.phonenumber} 
+                            small#phonenumbererr
+                    .col
+                        .form-field
+                            label(for='desc')
+                                | Produce Description:
+                                small.asterisk  *
+                            textarea#prodesc(type='text' name='producedescription' autocomplete='off')
+                            small#prodescerr 
+                hr.mt-1
+                p.text-muted Farmer's Details and Home Direction
+                .row
+                    .col
+                        .form-field
+                            label(for='farmerid')
+                                | Farmer's Id:
+                                small.asterisk  * 
+                            select#farmerid(name='farmerid')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser._id} 
+                            small#farmeridrerr
                     .col
                         .form-field
                             label(for='ward')
@@ -174,24 +210,17 @@ block content
                                 if loggedUser
                                     option(value = loggedUser.housenumber) #{loggedUser.housenumber} 
                             small#housenumbererr
+
                 .row
                     .col 
                         .container.produce-farmer-details
                             .produce-farmer-details.me-auto
-                                .form-field
-                                    //- label(for='housenumber' style= 'width:150px; font-size:10px')
-                                    //-     | House Number:
-                                    //- small.asterisk  * 
-                                    select#farmerid(name='farmerid' style= 'height:36px; width:')
-                                        if loggedUser
-                                            option(value = loggedUser._id) #{loggedUser._id} 
-                                    small#farmeridrerr
                             .button1
                                 button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
                                     | Add
                                     |
                             .button1
-                                button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='submit' style='width:120px ;')
+                                button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='reset' style='width:120px ;')
                                     | Clear
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12

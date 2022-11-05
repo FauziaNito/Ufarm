@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const produceSchema = new mongoose.Schema({
-	farmerid:{
+	farmerid: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Registration",
 	},
@@ -32,10 +32,6 @@ const produceSchema = new mongoose.Schema({
 		type: Number,
 		trim: true,
 	},
-	unitprice: {
-		type: Number,
-		trim: true,
-	},
 	totalprice: {
 		type: Number,
 		trim: true,
@@ -58,6 +54,9 @@ const produceSchema = new mongoose.Schema({
 		// type: mongoose.Schema.Types.ObjectId,
 		// ref: "Registration", //Creating a relationship btn farmers in Registration collection & produce
 	},
+	phonenumber: {
+		type: Number,
+	},
 	ward: {
 		type: String,
 		required: true,
@@ -68,10 +67,17 @@ const produceSchema = new mongoose.Schema({
 	housenumber: {
 		type: String,
 	},
+	email: {
+		type: String,
+		trim: true,
+	},
+	producedescription: {
+		type: String,
+	},
 	status: {
 		type: String,
 		default: "Pending",
-		enum: ["Pending", "Approved"],
+		enum: ["Pending", "Approved", "Rejected"],
 	},
 	availability: {
 		//

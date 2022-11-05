@@ -5,7 +5,9 @@ let currentYear = today.getFullYear();
 let currentDate = today.getDate();
 var current_date = `${currentYear}-${currentMonth}-${currentDate}`;
 console.log(current_date);
-document.getElementById("regdate").value = current_date;
+// document.getElementById("regdate").value = current_date;
+
+document.getElementById("regdate").valueAsDate = new Date();
 // Toatal Price
 
 // const ProduceForm = (event) => {
@@ -18,7 +20,9 @@ var totalPrice = document.getElementById("totalprice");
 var modeOfDelivery = document.getElementById("modeofdelivery");
 var modeOfPayment = document.getElementById("modeofpayment");
 var imageUplaod = document.getElementById("imageupload");
-var produceType = document.registerproduce.producetype;
+var produceDetails = document.getElementById("prodesc");
+// var produceType = document.registerproduce.producetype;
+var producttype = document.registerproduce.producttype;
 
 var produceCategoryError = document.getElementById("producecategoryerr");
 var produceNameError = document.getElementById("producenameerr");
@@ -26,10 +30,12 @@ var produceUnitsError = document.getElementById("unitserr");
 var produceQuantityError = document.getElementById("quantityerr");
 var unitPriceError = document.getElementById("unitpriceerr");
 var totalPriceError = document.getElementById("totalpriceerr");
-var modeOfDeliveryError = document.getElementById("modeofdeliverer");
+var modeOfDeliveryError = document.getElementById("modeofdelivererr");
 var modeOfPaymentError = document.getElementById("modeofpaymenterr");
 var imageUplaodError = document.getElementById("imageuploaderr");
-var produceTypeError = document.getElementById("producttypeerr");
+var produceDetailsError = document.getElementById("prodescerr");
+// var produceTypeError = document.getElementById("producttypeerr");
+var radioError = document.getElementById("producetyperadioerr");
 let error = 0;
 
 let totalPriceValue = () => {
@@ -47,21 +53,9 @@ const ProduceForm = (event) => {
 		produceCategoryError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
-	}
-	// else if (produceCategory.value == "selectrole") {
-	// 	produceCategory.style.border = "1px solid red";
-	// 	produceCategoryError.textContent = "Please Select Farmer's'Role";
-	// 	produceCategoryError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
-	// 	// return false;
-	// 	error++;
-	// }
-	else {
+	} else {
 		produceCategory.style.border = "1px solid green";
 		produceCategoryError.textContent = "";
-	}
-
-	if (error > 0) {
-		event.preventDefault();
 	}
 
 	//Produce Name input validation
@@ -129,6 +123,7 @@ const ProduceForm = (event) => {
 		unitPrice.style.border = "1px solid green";
 		unitPriceError.textContent = "";
 	}
+
 	//Produce Total Price input validation
 	if (unitPrice.value == "") {
 		totalPrice.style.border = "1px solid red";
@@ -136,7 +131,11 @@ const ProduceForm = (event) => {
 		totalPriceError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
+	} else {
+		totalPrice.style.border = "1px solid green";
+		totalPriceError.textContent = "";
 	}
+
 	//Mode of Delivery input validation
 	if (modeOfDelivery.value == "modeofdelivery") {
 		modeOfDelivery.style.border = "1px solid red";
@@ -161,14 +160,37 @@ const ProduceForm = (event) => {
 		modeOfPaymentError.textContent = "";
 	}
 
-	//produce Type input validation
-	if (produceType[0].checked == false && productType[1].checked == false) {
-		produceTypeError.textContent = "Please Check Produce Type";
-		produceTypeError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+	//Produce Description input validation
+	let alphaNumRegex = /^[0-9a-zA-Z]+$/;
+	if (produceDetails.value == "") {
+		produceDetails.style.border = "1px solid red";
+		produceDetailsError.textContent = "Please Enter Product Description";
+		produceDetailsError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	}
+	// else if (!produceDetails.value.match(alphaNumRegex)) {
+	// 	produceDetails.style.border = "1px solid red";
+	// 	produceDetailsError.textContent = "Please Enter a valid description";
+	// 	produceDetailsError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+	// 	// return false;
+	// 	error++;
+	// }
+	else {
+		produceDetails.style.border = "1px solid green";
+		produceDetailsError.textContent = "";
+	}
+	
+	//Produce Type input validation
+	if (producttype[0].checked == false && producttype[1].checked == false) {
+		// gender.style.border = "1px solid red";
+		radioError.textContent = "Please Check Produce Type";
+		radioError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	} else {
-		produceTypeError.textContent = "";
+		producttype.style.border = "1px solid green";
+		radioError.textContent = "";
 	}
 
 	if (error > 0) {

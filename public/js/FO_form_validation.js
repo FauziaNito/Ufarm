@@ -3,9 +3,11 @@ let today = new Date();
 let currentMonth = today.getMonth() + 1;
 let currentYear = today.getFullYear();
 let currentDate = today.getDate();
-var current_date = `${currentYear}-${currentMonth}-${currentDate}`;
+var current_date = `${currentYear}/${currentMonth}/${currentDate}`;
 console.log(current_date);
-document.getElementById("regdate").value = current_date;
+// document.getElementById("regdate").value = current_date;
+
+document.getElementById("regdate").valueAsDate = new Date();
 
 const FarmerOneForm = (event) => {
 	var firstName = document.getElementById("firstname");

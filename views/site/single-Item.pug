@@ -1,0 +1,245 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='/bootstrap-css/css/bootstrap.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
+    link(rel='stylesheet' href='/css/site.css')
+    title Cart
+nav.navbar.navbar-expand-lg.shadow.p-0.mb-3.bg-white.bottom-shadow
+    .container-fluid
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto.text-align-right
+                .mt-2.mr-5
+                    p
+                        | Need Help? Call Us: 
+                        strong(style='color: #83b735; margin-right:20px') +256 704535543
+                .vline.mt-2.mr-5
+                li.nav-item.dropdown(style='margin-left: auto')
+                    a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                        | Language
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='#') English
+                        li
+                            a.dropdown-item(href='#')
+                        li
+                            a.dropdown-item(href='#') Luganda
+.container-fluid.mb-5
+    .row
+        .col.pl-5
+            img.img-logo(src='../images/b-blogo4.png' alt='')
+        .col
+            form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width: 350px' placeholder='Search Here' aria-label='Search')
+        .col
+            div
+                img(src='' alt='')
+                p My Account
+        .col
+            .d-flex.mt-4
+                i.bi.bi-basket2.mr-2.icon-style
+                p.mt-1 My Chart
+nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
+    .container-fluid
+        .cart-header
+            a.active.menu-item(href='#') Home 
+            span.cart-header-span  / Produce
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Special Deals
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Blog
+                li.nav-item
+                    a.nav-link.active.menu-item(href='#') Contact Us
+        .app-entry
+            .btn.login-btn
+                button.btn.rounded-pill(type='submit') Login
+            .btn.login-btn
+                button.btn.rounded-pill(type='submit') Signup
+.container-fluid.single-produce
+    div.mt-4(style='margin-left:50px')
+        .card.mt-5(style='width: 23rem; height: 25rem')
+            .card-body
+                .item-img.single-img
+                    img.produce-list-img(src="/"+singleItem.imageupload, alt="Image" width='270px' height="266")
+                //- img(src="images/broc.jpg" alt="")
+
+    div.produce-details
+        h3 #{singleItem.producename}
+        .review-container.d-flex 
+            .product-rating
+                i.bi.bi-star-fill.icon-style
+                i.bi.bi-star-fill.icon-style
+                i.bi.bi-star-fill.icon-style
+                i.bi.bi-star-half.icon-style
+                i.bi.bi-star.icon-style
+            .reviews
+                p 4.5 reiews
+            .divider
+            i.bi.bi-pen.mt-3
+            .reviews
+                p Write a review
+        .produce-price.d-flex 
+            h5.text-danger(style="margin-right:30px") shs #{singleItem.unitprice}
+            h6(style="margin-top:1px") 1 #{singleItem.units}
+        .product-description.mt-4 
+            p  #{singleItem.producedescription}
+            hr(style="margin-top:30px")
+        .detail-container.d-flex 
+            if singleItem.availability == "available"
+                h6 Availability: 
+                h6.text-success(style="margin-left:80px") inStock
+            else
+                h6 Availability: 
+                h6.text-danger(style="margin-left:80px") Out of Stock
+        .detail-container.d-flex 
+            h6(style="margin-right:30px") Mode of Payment:
+            h6 #{singleItem.modeofpayment}
+        .detail-container.d-flex 
+            h6(style="margin-right:33px") Mode of Delivery:
+            h6 #{singleItem.modeofdelivery}
+        hr(style="margin-top:25px")
+        .order-btn
+            a.btn.rounded-pill(href="#order-area") Order Now
+
+    .additional-details.mt-4(style='margin-right:30px;margin-left:15px')
+        .card.mt-5(style='width: 15rem; height: 30rem')
+            .card-body
+                .detailed-card.d-flex 
+                    .detail-icon
+                        i.bi.bi-star.icon-style
+                    .detailed-header
+                        h5 Free Fast Delivery
+                .detailed-content 
+                    p Online Only Exclusions Apply
+.container-fluid.checkout-area#order-area
+    h3.checkout-header Checkout
+    h5.order-text Complete your order Please !!!!
+    .container.d-flex.justify-content-around
+        div
+            h5 Contact the Farmer to book #{singleItem.producename}
+            .checkout-style.mt-5.farmer-details(style='width: 30rem')
+                h5 Farmer&apos;s Details
+                .align-details
+                    i.bi.bi-person.farmer-detail-icon
+                    .farmer-text #{singleItem.farmername}
+                .align-details
+                    i.bi.bi-telephone.farmer-detail-icon(style='font-size: 32px')
+                    .farmer-text 0#{singleItem.phonenumber}
+                .align-details
+                    i.bi.bi-envelope.farmer-detail-icon(style='font-size: 32px')
+                    .farmer-text #{singleItem.email}
+                .align-details
+                    i.bi.bi-geo-alt.farmer-detail-icon.mb-5(style='font-size: 32px')
+                    .farmer-text Masajja #{singleItem.ward} #{singleItem.streetname} #{singleItem.housenumber}
+                //- .user-btn-container
+                //-     button.btn.rounded-pill.send-order-btn(type='submit') Send Order
+        div(style='margin-right: 60px')
+            h6 OR
+        div
+            h5 Enter Your details For delivery
+            .container-fluid.checkout-style
+                .form-container
+                    .logo-div
+                        img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
+                    form#signup.form(action='/order' name='registration' method='post')
+                        h5 Confirm your Order for #{singleItem.producename}
+                        hr
+                        .row
+                            .col
+                                .form-field
+                                    label(for='customername')
+                                        | Customer Name:
+                                        small  *
+                                    select#customername(name='customername')
+                                        if loggedUser
+                                            option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
+                            .col
+                                .form-field
+                                    label(for='phonenumber')
+                                        | Phone Number:
+                                        small  *
+                                    select#phonenumber(name='phonenumber')
+                                        if loggedUser
+                                            option(value = loggedUser.phonenumber) 0#{loggedUser.phonenumber}
+                        .row
+                            .col
+                                .form-field
+                                    label(for='email')
+                                        | Email:
+                                        small  *
+                                    select#email(name='email')
+                                        if loggedUser
+                                            option(value = loggedUser.email) #{loggedUser.email}
+                            .col
+                                .form-field
+                                    label(for='city')
+                                        | City:
+                                        small  *
+                                    input#city(type='text' name='city' autocomplete='off')
+                        .row
+                            .col
+                                .form-field
+                                    label(for='residentarea')
+                                        | Resident Area:
+                                        small  *
+                                    input#residentarea(type='text' name='residentarea' autocomplete='off')
+                            .col
+                                .form-field
+                                    label(for='orderquantity')
+                                        | Quantity:
+                                        small  *
+                                    input#orderquantity(type='number' name='orderquantity' autocomplete='off')
+                        .row
+                            .col
+                                .form-field
+                                    label(for='produceid')
+                                    input#produceid(type='hidden' name='produceid' autocomplete='off' value= singleItem._id)
+                            .col
+                                .form-field
+                                    label(for='farmerid')
+                                    input#farmerid(type='hidden' name='farmerid' autocomplete='off' value= singleItem.farmerid)
+                        .row
+                            .col
+                                .form-field
+                                    label(for='customerid')
+                                    input#customerid(type='hidden' name='customerid' autocomplete='off' value= loggedUser._id)
+                            .col
+                                .form-field
+                                    label(for='producename')
+                                    input#customerid(type='hidden' name='producename' autocomplete='off' value= singleItem.producename)
+                        .user-btn-container
+                            button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
+                            p
+                                a(href='' style='font-size:17px; color: #fe9800') Login
+                                |  to submit your order
+.container-fluid.footer
+    .container.top-spacings
+        .row
+            .col
+                h5 About Us
+                p
+                    | A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic
+                    | country, in which roasted parts of sentences fly into your mouth.
+            .col(style='padding-left: 100px')
+                h5(style='margin-left: 30px; padding-bottom: 25px') Navigation
+                ul
+                    li About
+                    li Team
+                    li Products
+                    li Contact Us
+            .col
+                h5 Subscribe Newsletter
+                .mb-3.mt-4
+                    input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
+                a.btn.btn-primary(href='#') Go somewhere
+        script(src='bootstrap-js/js/bootstrap.bundle.js')
