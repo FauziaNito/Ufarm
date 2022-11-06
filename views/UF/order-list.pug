@@ -1,0 +1,70 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:55%') Change the Status of your Orders
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left: auto')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+ loggedUser.lastname}
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
+            .ml-4
+                h4 Orders
+        .container
+            .card.mt-5(style='width: 100%')
+                .card-body
+                    h5.card-title  List of Your Confirmed Orders
+                    table.table.table-hover
+                        thead
+                            tr
+                                //- th Image
+                                th Produce
+                                th Quantity
+                                th Available Quantity
+                                th Amount
+                                th Customer
+                                th Phone No.
+                                th Email
+                                th City
+                                th Area
+                                th Confirm
+                        tbody
+                            if orders.length
+                                each order in orders
+                                        tr
+                                            //- td 
+                                            //-     img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
+                                            td #{order.producename}
+                                            td #{order.orderquantity+""+order.units}
+                                            if order.status == "Completed"
+                                                td  #{order.availablequantity - order.orderquantity+""+order.units}
+                                            else 
+                                                td #{order.availablequantity+""+order.units}
+                                            td shs #{order.unitprice * order.orderquantity}
+                                            td #{order.customername}
+                                            td #{order.phonenumber}
+                                            td #{order.email}
+                                            td #{order.city}
+                                            td #{order.residentarea}
+                                            
+                                            
+                                            //- td
+                                            //-     a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+                                            td
+                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='') Change
+                                            //- td
+                                            //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
+        .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

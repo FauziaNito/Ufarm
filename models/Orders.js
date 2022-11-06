@@ -37,9 +37,29 @@ const orderSchema = new mongoose.Schema({
 		required: true,
 	},
 	orderquantity: {
+		type: Number,
+		required: true,
+	},
+	units: {
 		type: String,
 		required: true,
-	}
+	},
+	unitprice: {
+		type: String,
+		required: true,
+	},
+	availablequantity: {
+		type: Number,
+		required: true,
+	},
+	// imageupload: {
+	// 	type: String,
+	// },
+	status: {
+		type: String,
+		default: "Pending",
+		enum: ["Pending", "Completed"],
+	},
 });
 
 module.exports = mongoose.model("Order", orderSchema);

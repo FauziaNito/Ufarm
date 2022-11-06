@@ -216,7 +216,21 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                             .col
                                 .form-field
                                     label(for='producename')
-                                    input#customerid(type='hidden' name='producename' autocomplete='off' value= singleItem.producename)
+                                    input#producename(type='hidden' name='producename' autocomplete='off' value= singleItem.producename)
+                        .row
+                            .col
+                                .form-field
+                                    label(for='units')
+                                    input#units(type='hidden' name='units' autocomplete='off' value= singleItem.units)
+                            .col
+                                .form-field
+                                    label(for='unitprice')
+                                    input#unitprice(type='hidden' name='unitprice' autocomplete='off' value= singleItem.unitprice)
+                            .col
+                                .form-field
+                                    label(for='availablequantity')
+                                    input#availablequantity(type='hidden' name='availablequantity' autocomplete='off' value= singleItem.quantity)
+                                    
                         .user-btn-container
                             button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
                             p

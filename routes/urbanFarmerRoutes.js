@@ -5,6 +5,7 @@ const connectEnsureLogin = require("connect-ensure-login");
 
 // Importing Models
 const Produce = require("../models/ProduceUpload");
+const Order = require("../models/Orders");
 
 // image upload
 var storage = multer.diskStorage({
@@ -24,7 +25,7 @@ router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(),(req, res) => {
 	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
 });
 
-// produce upload form post route%%%%%%%
+// produce upload form post route
 router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => {
 	console.log(req.body);
 	try {
@@ -138,13 +139,23 @@ router.get("/produce/available/:id", connectEnsureLogin.ensureLoggedIn(), async 
 });
 
 // Availability Post Route
-// Approve post route
+
 router.post("/produce/available", async (req, res) => {
 	try {
 		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
 		res.redirect("/approvedlist");
 	} catch (error) {
 		res.status(400).send("Unable to Make this produce available");
+	}
+});
+// Getting Order List from Database
+router.get("/orderlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		let orders = await Order.find({ farmerid: req.user }).sort({ $natural: -1 });
+		res.render("UF/order-list", { loggedUser: req.session.user, orders: orders });
+	} catch (error) {
+		res.status(400).send("Unable to get order list");
 	}
 });
 
