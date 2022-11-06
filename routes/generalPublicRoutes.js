@@ -26,8 +26,12 @@ router.get("/singleitem/:id",connectEnsureLogin.ensureLoggedIn(), async (req, re
 	const Customer = req.user["firstname"];
 	console.log("Our Buyer is ",Customer);
 	try {
-		const singleProduct = await Produce.findOne({ _id: req.params.id });
-		res.render("site/single-item", { loggedUser: req.session.user, singleItem: singleProduct });
+		if ((req.user.role = "generalpublic")) {
+			const singleProduct = await Produce.findOne({ _id: req.params.id });
+			res.render("site/single-item", { loggedUser: req.session.user, singleItem: singleProduct });
+		} else {
+			res.send("You have to be Logged in as a Buyer to complete your Order");
+		}
 	} catch (error) {
 		res.status(400).send("Unable to get this Item produce");
 	}
@@ -42,7 +46,7 @@ router.post("/order", async (req, res) => {
 		if ((req.user.role = "generalpublic")) {
 			const order = new Order(req.body);
 			await order.save();
-			res.redirect("back");
+			res.redirect("/");
 		}else{
 			res.send("You have to be Logged in as a Buyer to complete your Order");
 		}

@@ -226,10 +226,19 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                                 .form-field
                                     label(for='unitprice')
                                     input#unitprice(type='hidden' name='unitprice' autocomplete='off' value= singleItem.unitprice)
+                        .row
                             .col
                                 .form-field
                                     label(for='availablequantity')
                                     input#availablequantity(type='hidden' name='availablequantity' autocomplete='off' value= singleItem.quantity)
+                            .col
+                                .form-field
+                                    label(for='orderward')
+                                    input#orderward(type='hidden' name='orderward' autocomplete='off' value= singleItem.ward)
+                            .col
+                                .form-field
+                                    label(for='farmername')
+                                    input#farmername(type='hidden' name='farmername' autocomplete='off' value= singleItem.farmername)
                                     
                         .user-btn-container
                             button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout

@@ -4,6 +4,7 @@ const connectEnsureLogin = require("connect-ensure-login");
 
 const Produce = require("../models/ProduceUpload");
 const Registration = require("../models/user");
+const Order = require("../models/Orders");
 
 // Farmer One Dashboard Routes
 router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
@@ -113,6 +114,17 @@ router.post("/produce/approve", async (req, res) => {
 		res.redirect("/approveproduce");
 	} catch (error) {
 		res.status(400).send("Unable to approve produce");
+	}
+});
+
+// Urban Farmer Order List from Database
+router.get("/farmerorderlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	try {
+		let orders = await Order.find({ orderward: req.user.ward }).sort({ $natural: -1 });
+		res.render("FO/UF-order-list", { loggedUser: req.session.user, orders: orders });
+	} catch (error) {
+		res.status(400).send("Unable to get order list");
 	}
 });
 

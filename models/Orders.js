@@ -52,6 +52,14 @@ const orderSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	orderward: {
+		type: String,
+		required: true,
+	},
+	farmername:{
+		type: String,
+		required: true,
+	},
 	// imageupload: {
 	// 	type: String,
 	// },
