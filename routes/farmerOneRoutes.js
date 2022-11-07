@@ -16,7 +16,8 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 			let activeFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Active" });
 			let inactiveFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Inactive" });
 			let NotAppointedFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Not appointed" });
-			
+			 let totalUsers = activeFarmers + inactiveFarmers + NotAppointedFarmers;
+			 console.log("These are the registered users", totalUsers);
 			// let approvedProduce = await Produce.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Approved" });
 
 			let approvedProduce = await Produce.aggregate([
@@ -34,7 +35,11 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }, { status: "Approved" }, { availability : "N/A"}] } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
-			console.log("This is your Total approved produce", approvedProduce);
+			let approved = approvedProduce[0];
+			let pending = pendingProduce[0];
+			let sold = soldProduce[0]; 
+			let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
+			let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
 
 			
 			res.render("FO/FO-dashboard", {
@@ -42,9 +47,12 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				activeFarmers,
 				inactiveFarmers,
 				NotAppointedFarmers,
-				approved: approvedProduce[0],
-				pending: pendingProduce[0],
-				sold: soldProduce[0],
+				totalUsers,
+				approved,
+				pending,
+				sold,
+				totalProduce,
+				totalSales,
 			});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");
@@ -54,9 +62,11 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 
 // List of Urban Farmer Route
 router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	req.session.user = req.user;
+	farmerWard = req.user["ward"];
 	try {
 		// find([{ role: "urbanfarmer" }, { ward: req.user.ward }]);
-		let registeredUrbanFarmers = await Registration.find({ role: "urbanfarmer" }).sort({ $natural: -1 });
+		let registeredUrbanFarmers = await Registration.find({ role: "urbanfarmer", ward: farmerWard }).sort({ $natural: -1 });
 		console.log("These are the existing Urban Farmers", registeredUrbanFarmers);
 		res.render("FO/FO-ub-accounts", { loggedUser: req.session.user, urbanFarmers: registeredUrbanFarmers });
 	} catch (error) {

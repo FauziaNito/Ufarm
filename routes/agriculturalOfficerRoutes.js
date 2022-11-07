@@ -137,7 +137,7 @@ router.post("/farmerone/status", async (req, res) => {
 });
 // Farmer One Activities
 router.get("/FOactivities", (req, res) => {
-	res.render("AO/AO-fo-activities", { loggedUser: req.session.user });
+	res.render("AO/reports", { loggedUser: req.session.user });
 	// res.render("AO/AO-fo-activities");
 });
 // Ward Routes
@@ -149,5 +149,91 @@ router.get("/addward", (req, res) => {
 router.get("/layout", (req, res) => {
 	res.render("AO/layout");
 });
+//Activity Reports
+router.get("/reports", async (req, res) => {
+	// req.session.user = req.user;
+	// console.log("This is my searched Ward======", req.query.searchward);
+	// res.render("AO/reports", { loggedUser: req.session.user });
+	
+	if (req.session.user.role == "agriculturalofficer") {
+		try {
+			console.log("This is the ward you're searching for========",req.query.searchward);
+			// New
+			// instantiate a crop variable you will use to select a crop.
+			let selectedWard;
+			if (req.query.searchward) selectedWard = req.query.searchward;
+			console.log("This is the ward you're searching for========",selectedWard);
+			// Query for returning all tonnage and revenue of a produce
+			let returnedward = await Produce.find({ ward: selectedWard });
 
+			// console.log("products from the db", goods)
+			console.log("Ward from the db after search", returnedward);
+
+			// New
+
+			let totalProduce = await Produce.aggregate([
+				{ $match: { ward: selectedWard } },
+				{
+					$group: {
+						_id: "$ward",
+						totalQuantity: { $sum: "$quantity" },
+						totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } },
+					},
+				},
+			]);
+			console.log("Total Produce in a selected Ward", totalProduce);
+			res.render("AO/reports", {
+				title: "Reports",
+				wards: returnedward,
+				totalC: totalProduce[0],
+				loggedUser: req.session.user
+			});
+		} catch (error) {
+			res.status(400).send("unable to find items in the database");
+			console.log(error);
+		}
+	} else {
+		res.send("This page is only accessed by Agric Officers");
+	}
+});
+// // Activity Reports
+// router.get("/reports", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+// 	req.session.user = req.user;
+// 	if (req.user.role == "agriculturalofficer") {
+// 		try {
+// 			// New
+// 			// instantiate a crop variable you will use to select a crop.
+// 			let selectedProduce;
+// 			if (req.query.searchProduce) selectedProduce = req.query.searchProduce;
+// 			// Query for returning all tonnage and revenue of a produce
+// 			let items = await Produce.find({ producename: selectedProduce });
+
+// 			// console.log("products from the db", goods)
+// 			console.log("products from the db after search", items);
+
+// 			// New
+// 			let totalCrop = await Produce.aggregate([
+// 				{ $match: { producename: selectedProduce } },
+// 				{
+// 					$group: {
+// 						_id: "$prodname",
+// 						totalQuantity: { $sum: "$quantity" },
+// 						totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } },
+// 					},
+// 				},
+// 			]);
+// 			console.log("Crop collections", totalCrop);
+// 			res.render("AO/reports", {
+// 				title: "Reports",
+// 				products: items,
+// 				totalC: totalCrop[0],
+// 			});
+// 		} catch (error) {
+// 			res.status(400).send("unable to find items in the database");
+// 			console.log(error);
+// 		}
+// 	} else {
+// 		res.send("This page is only accessed by Agric Officers");
+// 	}
+// });
 module.exports = router;

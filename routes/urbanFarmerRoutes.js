@@ -41,8 +41,28 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 });
 
 // Urban Farmer Dashboard Routes
-router.get("/UFdashboard", (req, res) => {
-	res.render("UF/UF-dashboard", { loggedUser: req.session.user });
+router.get("/UFdashboard", async (req, res) => {
+	req.session.user = req.user;
+	let farmer = req.user["_id"];
+	//console.log("This is the logged user Id", farmer);
+	if (req.user.role == "urbanfarmer") { 
+		try {
+			let approvedProduce = await Produce.aggregate([
+				{ $match: { $and: [{farmerid: req.user._id }, { status: "Approved" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			console.log("This is the Total for approved Produce ", approvedProduce.totalQuantity);
+			res.render("UF/UF-dashboard", { 
+				loggedUser: req.session.user, 
+				approved: approvedProduce[0],
+			});
+		} catch (error) {
+			res.status(400).send("unable to find items in the database");
+		}
+	} else {
+		res.send("This page is only accessed by Urban Farmers");
+	}
+	// res.render("UF/UF-dashboard", { loggedUser: req.session.user });
 });
 
 // Urbanfarmer Aggregation by single id
@@ -149,13 +169,33 @@ router.post("/produce/available", async (req, res) => {
 	}
 });
 // Getting Order List from Database
-router.get("/orderlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+router.get("/order", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
 		let orders = await Order.find({ farmerid: req.user }).sort({ $natural: -1 });
 		res.render("UF/order-list", { loggedUser: req.session.user, orders: orders });
 	} catch (error) {
 		res.status(400).send("Unable to get order list");
+	}
+});
+
+// Change order status form get route
+
+router.get("/order/status/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		const orderStatus = await Order.findOne({ _id: req.params.id });
+		res.render("UF/order-status", { loggedUser: req.session.user, orderItem: orderStatus });
+	} catch (error) {
+		res.status(400).send("Unable to update produce");
+	}
+});
+// Change order status post route
+router.post("/order/status", async (req, res) => {
+	try {
+		await Order.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/order");
+	} catch (error) {
+		res.status(400).send("Unable to Change Order Status");
 	}
 });
 

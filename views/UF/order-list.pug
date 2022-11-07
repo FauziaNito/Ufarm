@@ -38,6 +38,7 @@ block content
                                 th Email
                                 th City
                                 th Area
+                                th Status
                                 th Confirm
                         tbody
                             if orders.length
@@ -57,12 +58,17 @@ block content
                                             td #{order.email}
                                             td #{order.city}
                                             td #{order.residentarea}
+                                            if order.status == "Completed"
+                                                td.approved #{order.status}
+                                            else
+                                                td.pending #{order.status}
                                             
                                             
                                             //- td
                                             //-     a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
                                             td
-                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='') Change
+                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/order/status/'+order._id) Change
+                                                
                                             //- td
                                             //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
         .footer

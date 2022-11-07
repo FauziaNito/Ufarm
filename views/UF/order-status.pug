@@ -1,0 +1,39 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Order status
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left: auto')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+ loggedUser.lastname}
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
+            .ml-4
+                h5 Update this Order Status
+        .container-fluid.form-style
+            .logo-div
+                img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
+            form#signup.form(action='/order/status?id='+orderItem._id name='updateorder' method='post')
+                h5.text-muted.text-center Change Status for this Order
+                .row
+                    .col
+                        .form-field
+                            label(for='status') Order Status:
+                            select(name='status')
+                                option(value="Pending" selected = orderItem.status === "Pending") Pending
+                                option(value="Completed" selected = orderItem.status === 'Completed') Completed
+                    .container.FO-form-btn
+                        .button1
+                        input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')
+    script(src='bootstrap-js/js/bootstrap.bundle.js')
