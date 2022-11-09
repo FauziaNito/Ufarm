@@ -29,13 +29,12 @@ html(lang='en')
             li.nav-item
               a.nav-link.active.menu-item(href='#') Contact Us
         .app-entry
-          .btn.login-btn
-            button.btn.rounded-pill(type='submit') Back
+          a.btn(href="/signup") Signup
     .container-fluid.form-style-login
       .form-container
         .logo-div
           img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-        form#signup.form(action='/login' name='login' method='POST')
+        form#signup.form(action='/login' name='login' method='POST' onsubmit="return loginForm(event);")
           h5 Login to your account
           hr
           .form-field
@@ -54,3 +53,4 @@ html(lang='en')
             button.btn.rounded-pill.button-color(type='submit') Login
     |  
     script(src='bootstrap-js/js/bootstrap.bundle.js')
+    script(src='js/login_form_validation.js')
