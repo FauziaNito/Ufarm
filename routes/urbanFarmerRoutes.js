@@ -41,22 +41,43 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 });
 
 // Urban Farmer Dashboard Routes
-router.get("/UFdashboard", async (req, res) => {
+router.get("/UFdashboard",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
-	let farmer = req.user["_id"];
+	let farmer = req.session.user["_id"];
 	//console.log("This is the logged user Id", farmer);
 	if (req.user.role == "urbanfarmer") { 
 		try {
 			let approvedProduce = await Produce.aggregate([
-				{ $match: { $and: [{farmerid: req.user._id }, { status: "Approved" }] } },
+				{ $match: { $and: [{ farmerid: farmer }, { status: "Approved" }] } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
-			console.log("This is the Total for approved Produce ", approvedProduce.totalQuantity);
-			res.render("UF/UF-dashboard", { 
-				loggedUser: req.session.user, 
-				approved: approvedProduce[0],
+			let pendingProduce = await Produce.aggregate([
+				{ $match: { $and: [{ farmerid: farmer }, { status: "Pending" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+			let soldProduce = await Produce.aggregate([
+				{ $match: { $and: [{ farmerid: farmer }, { availability: "N/A" }] } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+			]);
+
+			let approved = approvedProduce[0];
+			let pending = pendingProduce[0];
+			let sold = soldProduce[0];
+			console.log("This is the product", approved + pending);
+			// let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
+			// console.log("This is the product", totalProduce);
+			// let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
+
+			res.render("UF/UF-dashboard", {
+				loggedUser: req.session.user,
+				approved,
+				pending,
+				sold,
+				// totalProduce,
+				// totalSales,
 			});
 		} catch (error) {
+
 			res.status(400).send("unable to find items in the database");
 		}
 	} else {
@@ -65,41 +86,16 @@ router.get("/UFdashboard", async (req, res) => {
 	// res.render("UF/UF-dashboard", { loggedUser: req.session.user });
 });
 
-// Urbanfarmer Aggregation by single id
-// router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-// 	req.session.user = req.user;
-// 	if (req.user.role == "urbanfarmer") {
-// 		try {
-// 			let currentTotalProduce = await Produce.aggregate([
-// 				{ $match: { status: "Approved" } },
-// 				{
-// 					$group: {
-// 						_id: req.user._id,
-// 						totalQuantity: { $sum: "$quantity" },
-// 						totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } },
-// 					},
-// 				},
-// 			]);
-
-// 			console.log("Produce Approved", totalHort);
-
-// 			res.render("UF/UF-dashboard", {
-// 				loggedUser: req.session.user,
-// 				currentP: currentTotalProduce[0],
-// 			});
-// 		} catch (error) {
-// 			res.status(400).send("unable to find items in the database");
-// 		}
-// 	} else {
-// 		res.send("This page is only accessed by Urban Farmers");
-// 	}
-// 	// res.render("UF/UF-dashboard", { loggedUser: req.session.user });
-// });
-
 // Getting Produce uploaded List from Database
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
+		// let totalorder = await Produce.aggregate([
+		// 	{ $match: { producecategory: "Horticulture" } },
+		// 	{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+		// ]);
+		let orderedItems = Order.find({ farmerid: req.user._id}); 
+		console.log("This is the quantity of ordered items", orderedItems);
 		let products = await Produce.find({ farmerid: req.user }).sort({ $natural: -1 });
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
 	} catch (error) {

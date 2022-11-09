@@ -52,14 +52,13 @@ block content
                                         td 
                                             img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
                                         td #{product.producename}
-                                        td #{product.quantity+""+product.units}
+                                        td #{product.quantity+""+product.units} 
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
-                                        if product.quantity.length == 0
-                                            td #{product.availability}
-                                        else 
-                                            td #{product.availability}
+                                        td #{product.availability}
+                                        //- else 
+                                        //-     td #{product.availability}
                                         if product.status == 'Approved'
                                             td.approved #{product.status}
                                         else
