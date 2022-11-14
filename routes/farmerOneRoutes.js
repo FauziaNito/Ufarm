@@ -15,38 +15,44 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 		try {
 			let activeFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Active" });
 			let inactiveFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Inactive" });
-			let NotAppointedFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Not appointed" });
-			 let totalUsers = activeFarmers + inactiveFarmers + NotAppointedFarmers;
-			 console.log("These are the registered users", totalUsers);
+			let notAppointedFarmers = await Registration.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Not appointed" });
+			let totalUsers = activeFarmers + inactiveFarmers + notAppointedFarmers;
 			// let approvedProduce = await Produce.countDocuments({ role: "urbanfarmer", ward: farmerWard, status: "Approved" });
+
+			console.log("These are the registered users", totalUsers);
+
+			// Dashboard lists
+			let newUrbanFarmers = await Registration.find({ role: "urbanfarmer", ward: farmerWard }).sort({ $natural: -1 }).limit(15);
+			let newProducts = await Produce.find({ status: "Pending", ward: farmerWard }).sort({ $natural: -1 }).limit(15);
+			let newOrders = await Order.find({ orderward: farmerWard }).sort({ $natural: -1 }).limit(5);
 
 			let approvedProduce = await Produce.aggregate([
 				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }] } },
-				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, 
-				totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
+				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
 
 			let pendingProduce = await Produce.aggregate([
 				{ $match: { $and: [{ ward: farmerWard }, { status: "Pending" }] } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
-
 			]);
 			let soldProduce = await Produce.aggregate([
-				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }, { status: "Approved" }, { availability : "N/A"}] } },
+				{ $match: { $and: [{ ward: farmerWard }, { status: "Approved" }, { status: "Approved" }, { availability: "N/A" }] } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
 			]);
 			let approved = approvedProduce[0];
 			let pending = pendingProduce[0];
-			let sold = soldProduce[0]; 
+			let sold = soldProduce[0];
 			let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
 			let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
 
-			
 			res.render("FO/FO-dashboard", {
 				loggedUser: req.user,
+				newFarmers: newUrbanFarmers,
+				pendingProduce: newProducts,
+				orders: newOrders,
 				activeFarmers,
 				inactiveFarmers,
-				NotAppointedFarmers,
+				notAppointedFarmers,
 				totalUsers,
 				approved,
 				pending,
@@ -74,6 +80,7 @@ router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	}
 	// res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
 });
+
 // Urban Farmer status Change get route
 router.get("/urbanfarmer/status/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {

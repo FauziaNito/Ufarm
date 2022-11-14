@@ -46,7 +46,7 @@ let totalPriceValue = () => {
 unitPrice.addEventListener("change", totalPriceValue);
 
 const ProduceForm = (event) => {
-	//Produce Code input validation
+	//Produce Category input validation
 	if (produceCategory.value == "selectcategory") {
 		produceCategory.style.border = "1px solid red";
 		produceCategoryError.textContent = "Please Select Produce Category";

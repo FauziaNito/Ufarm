@@ -17,23 +17,36 @@ html(lang='en')
                     hr.mb-3.mt-4(width='225px' color='#2F6A3F')
                     .sidebar-list-container
                         ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
-                            li.nav-item.intext.mb-4
-                                a(href='/FOdashboard') Dashboard
+                            div.d-flex
+                                i.bi.bi-pie-chart-fill
+                                li.nav-item.intext.mb-4.active.dashboard-icon
+                                    a(href='/FOdashboard') Dashboard
                             li.nav-item.sidebar-header.p-0.intext
                                 strong(style="font-size:13px") URBAN FARMER MANAGEMENT
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext
-                                a(href='/UFlist') Accounts
-                            li.nav-item.intext
-                                a(href='/approveproduce') Produce
-                            li.nav-item.intext.mb-4
-                                a(href='/farmerorderlist') Orders
+                            div.d-flex
+                                i.bi.bi-people-fill.pt-4
+                                li.nav-item.pt-4.intext.active.dashboard-icon
+                                    a(href='/UFlist') Farmer Accounts
+                            div.d-flex
+                                img(src="../../images/carrots.png" height="18px")
+                                li.nav-item.intext.active.dashboard-icon
+                                    a(href='/approveproduce') Produce
+                            div.d-flex
+                                img(src="../../images/shopping-cart.png" height="18px")
+                                li.nav-item.intext.mb-4.active.dashboard-icon
+                                    a(href='/farmerorderlist') Orders
                             li.nav-item.sidebar-header.p-0.intext
                                 strong(style="font-size:13px") ACCOUNTS
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext
-                                a(href='FO-dashboard.html') My account
-                            li.nav-item.intext Users
+                            div.d-flex
+                                i.bi.bi-person-circle.pt-4
+                                li.nav-item.pt-4.intext.active.dashboard-icon My account
+                            div.d-flex
+                                i.bi.bi-people
+                                li.nav-item.intext.active.dashboard-icon Users
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong SETTINGS
         block content
             .footer
                 small.mt-4.ml-5 © Refactory Cohort 12

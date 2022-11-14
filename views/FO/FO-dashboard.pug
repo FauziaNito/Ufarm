@@ -28,7 +28,7 @@ block content
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{activeFarmers}
                     div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Not Activated:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{NotAppointedFarmers}
+                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{notAppointedFarmers}
                     div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Suspended:
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{inactiveFarmers}
@@ -67,49 +67,49 @@ block content
                     div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Sale: 
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalSales)} UGX
-            .card.bottom-shadow.border-color.ml-4.dashboard-card
-                .card-body.m-1.p-2.pt-1.text-center
-                    h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 600
-                    p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Farmers Rating
+            //- .card.bottom-shadow.border-color.ml-4.dashboard-card
+            //-     .card-body.m-1.p-2.pt-1.text-center
+            //-         h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 600
+            //-         p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Farmers Rating
         .container-fluid.stast-grid.mt-5
-            .card(style='width: 300px; height: 300px')
+            .card(style='width: 260px; height: 300px;')
                 | .
-                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Farmers Per Ward in %
+                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Sales For Last 4 Months %
                 .card-body
-                    .d-flex.mb-4(style='margin-left: 12px')
+                    .month-container.mb-4(style='margin-left: 12px;')
                         .d-flex.mr-2
-                            .box(style='background-color: #fda500; font-size: 5px')
-                            strong(style='font-size: 12px') Ward 1
+                            .box(style='background-color: #fda500; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') July
                         .d-flex.mr-2
-                            .box(style='background-color: #dc143b')
-                            strong(style='font-size: 12px') Ward 2
+                            .box(style='background-color: #dc143b;margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Aug
                         .d-flex.mr-2
-                            .box(style='background-color: #77cc6d')
-                            strong(style='font-size: 12px') Ward 3
+                            .box(style='background-color: #77cc6d; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Sept
                         .d-flex.mr-2
-                            .box(style='background-color: #3fe0d0')
-                            strong(style='font-size: 12px') Ward 4
+                            .box(style='background-color: #3fe0d0; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Oct
                     .chart
-            .card(style='width: 300px; height: 300px')
+            .card(style='width: 260px; height: 300px')
                 | .
-                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Orders Per Ward in %
+                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Produce For Last 4 Months %
                 .card-body
-                    .d-flex.mb-4(style='margin-left: 12px')
+                    .month-container.mb-4(style='margin-left: 12px;')
                         .d-flex.mr-2
-                            .box(style='background-color: #fda500; font-size: 5px')
-                            strong(style='font-size: 12px') Ward 1
+                            .box(style='background-color: #fda500; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') July
                         .d-flex.mr-2
-                            .box(style='background-color: #dc143b')
-                            strong(style='font-size: 12px') Ward 2
+                            .box(style='background-color: #dc143b;margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Aug
                         .d-flex.mr-2
-                            .box(style='background-color: #77cc6d')
-                            strong(style='font-size: 12px') Ward 3
+                            .box(style='background-color: #77cc6d; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Sept
                         .d-flex.mr-2
-                            .box(style='background-color: #3fe0d0')
-                            strong(style='font-size: 12px') Ward 4
+                            .box(style='background-color: #3fe0d0; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Oct
                     .chart2
             .container
-                .card.mt-0.ml-0(style='width: 500px; height: 680px')
+                .card.mt-0.ml-0(style='width: 480px; height: 680px')
                     .card-body
                         h5.card-title Recent Registered farmers
                         |  .
@@ -118,110 +118,74 @@ block content
                                 tr
                                     th(scope='col') No
                                     th(scope='col') Name
-                                    th(scope='col') Ward
+                                    th(scope='col') Status
                                     th(scope='col') Phone Number
                             tbody
-                                tr
-                                    th(scope='row') 1
-                                    td Mark
-                                    td Otto
-                                    td @mdo
-                                tr
-                                    th(scope='row') 2
-                                    td Jacob
-                                    td Thornton
-                                    td @fat
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
+                                if newFarmers.length 
+                                    each farmer in newFarmers
+                                        tr
+                                            th(scope='row') 1
+                                            td #{farmer.lastname+ " "+farmer.firstname}
+                                            if farmer.status == "Active"
+                                                td.approved #{farmer.status}
+                                            else if farmer.status == "Not appointed"
+                                                td.pending #{farmer.status}
+                                            else 
+                                                td.text-danger #{farmer.status}
+                                            td 0#{farmer.phonenumber}
             .container
-                .card.mt-5.ml-0(style='width: 620px; height: 330px')
+                .card.mt-5.ml-0(style='width: 530px; height: 330px')
                     .card-body
-                        h5.card-title New Orders Awaiting Confirmation
+                        h5.card-title Recent New Orders
                         table.table.table-hover
                             thead
                                 tr
-                                    th(scope='col') No
-                                    th(scope='col') Mame
-                                    th(scope='col') Ward
-                                    th(scope='col') Phone Number
+                                    th(scope='col') No.
+                                    th(scope='col') Produce
+                                    th(scope='col') Quantity
+                                    th(scope='col') Amount
+                                    th(scope='col') Farmer
+                                    th(scope='col') Status
                             tbody
-                                tr
-                                    th(scope='row') 1
-                                    td Mark
-                                    td Otto
-                                    td @mdo
-                                tr
-                                    th(scope='row') 2
-                                    td Jacob
-                                    td Thornton
-                                    td @fat
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
+                                if orders.length
+                                    each order in orders
+                                            tr
+                                                th(scope='row') 1
+                                                td #{order.producename}
+                                                td #{order.orderquantity+""+order.units}
+                                                td shs #{order.unitprice * order.orderquantity}
+                                                td #{order.farmername}
+                                                if order.status == "Completed"
+                                                    td.approved #{order.status}
+                                                else
+                                                    td.pending #{order.status}
         .container-fluid.pl-4.pr-5
             .card.mt-5(style='width: 100%')
                 .card-body
-                    h5.card-title Recent Uploaded Produce
+                    h5.card-title New Produce Awaiting Approval
                     table.table.table-hover
                         thead
                             tr
-                                th(scope='col') Number
-                                th(scope='col') Name
-                                th(scope='col') Ward
-                                th(scope='col') Email
-                                th(scope='col') Phone No
-                                th(scope='col') Action
+                                th(scope='row') No
+                                th(scope='col') Product Name
+                                th(scope='col') Quantity
+                                th(scope='col') Unity Price
+                                th(scope='col') Farmer
+                                th(scope='col') Status
+                                th(scope='col') Change Status
                         tbody
-                            tr
-                                th(scope='row') 1
-                                td Mark
-                                td Otto
-                                td @mdo
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit' style='width: 100px') Approve
-                            tr
-                                th(scope='row') 2
-                                td Jacob
-                                td Thornton
-                                td @fat
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit' style='width: 100px') Approve
-                            tr
-                                th(scope='row') 3
-                                td(colspan='2') Larry the Bird
-                                td @twitter
-                                td @mdo
-                                td
-                                    button.btn.btn-primary.mb-3.action-btn.rounded-pill(type='submit' style='width: 100px') Approve
+                        if pendingProduce.length 
+                            each awaitingProduce in pendingProduce
+                                tr
+                                    th(scope='row') 1
+                                    td #{awaitingProduce.producename}
+                                    td #{awaitingProduce.quantity+""+awaitingProduce.units}
+                                    td #{awaitingProduce.unitprice}
+                                    td #{awaitingProduce.farmername}
+                                    td.pending #{awaitingProduce.status}
+                                    td
+                                        a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/approveproduce') Approve                                    
         .footer
             small.mt-4.ml-5 © Refactory Cohort 12
             small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+    script(src='bootstrap-js/js/bootstrap.bundle.min.js')

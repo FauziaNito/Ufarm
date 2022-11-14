@@ -9,7 +9,7 @@ block content
         #navbarSupportedContent.collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
             li.nav-item.dropdown(style="margin-left:auto ;")
-              //- a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
+              a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
               ul.dropdown-menu
                 li
                   a.dropdown-item(href='#') Profile
@@ -25,13 +25,22 @@ block content
           img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Hortculture:
-            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalH.totalQuantity}
+            if (totalH == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalH.totalQuantity}
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Dairy Products:
-            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
+            if (totalD == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
+            if (totalD == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total: 
             h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
@@ -70,55 +79,67 @@ block content
           img.card-logo.mb-2(src='../images/groupsales.png' alt='Ufarm logo')
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 1:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales1.totalCost)} UGX 
+            if (sales1 == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sales1.totalCost)} UGX 
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 2:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales1.totalCost)} UGX
+            if (sales2 == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sales2.totalCost)} UGX
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 3:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales4.totalCost)} UGX
+            if (sales3 == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sales3.totalCost)} UGX
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Ward 4:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(Sales4.totalCost)} UGX
+            if (sales4 == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sales4.totalCost)} UGX
     .container-fluid.stast-grid.mt-5
-      .card(style='width: 300px; height: 300px;')
+      .card(style='width: 260px; height: 300px;')
         | .
         h6.card-subtitle.mb-0.text-muted.text-center(style='font-size:large;') Farmers Per Ward in %
         .card-body
-          .d-flex.mb-4(style='margin-left: 12px;')
-            .d-flex.mr-2
-              .box(style='background-color: #fda500; font-size:5px;')
-              strong(style='font-size:12px;') Ward 1
-            .d-flex.mr-2
-              .box(style='background-color: #dc143b;')
-              strong(style='font-size:12px;') Ward 2
-            .d-flex.mr-2
-              .box(style='background-color: #77cc6d;')
-              strong(style='font-size:12px;') Ward 3
-            .d-flex.mr-2
-              .box(style='background-color: #3fe0d0;')
-              strong(style='font-size:12px;') Ward 4
+          .month-container.mb-4(style='margin-left: 0px;')
+            .d-flex
+              .box.mt-1(style='background-color: #fda500; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 1
+            .d-flex
+              .box.mt-1(style='background-color: #dc143b; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 2
+            .d-flex
+              .box.mt-1(style='background-color: #77cc6d; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 3
+            .d-flex
+              .box.mt-1(style='background-color: #3fe0d0; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 4
           .chart
-      .card(style='width: 300px; height: 300px;')
+      .card(style='width: 260px; height: 300px;')
         | .
         h6.card-subtitle.mb-0.text-muted.text-center(style='font-size:large;') Orders Per Ward in %
         .card-body
-          .d-flex.mb-4(style='margin-left: 12px;')
-            .d-flex.mr-2
-              .box(style='background-color: #fda500; font-size:5px;')
-              strong(style='font-size:12px;') Ward 1
-            .d-flex.mr-2
-              .box(style='background-color: #dc143b;')
-              strong(style='font-size:12px;') Ward 2
-            .d-flex.mr-2
-              .box(style='background-color: #77cc6d;')
-              strong(style='font-size:12px;') Ward 3
-            .d-flex.mr-2
-              .box(style='background-color: #3fe0d0;')
-              strong(style='font-size:12px;') Ward 4
+          .month-container.mb-4(style='margin-left: 0px;')
+            .d-flex
+              .box.mt-1(style='background-color: #fda500; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 1
+            .d-flex
+              .box.mt-1(style='background-color: #dc143b; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 2
+            .d-flex
+              .box.mt-1(style='background-color: #77cc6d; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 3
+            .d-flex
+              .box.mt-1(style='background-color: #3fe0d0; margin-right: 4px')
+              strong(style='font-size:12px;margin-right: 3px') Ward 4
           .chart2
       .container
-        .card.mt-0.ml-0(style='width:500px; height: 680px;')
+        .card.mt-0.ml-0(style='width:480px; height: 680px;')
           .card-body
             h5.card-title Recent Registered farmers 
             |             .
@@ -130,70 +151,34 @@ block content
                   th(scope='col') Ward
                   th(scope='col') Phone Number
               tbody
-                tr
-                  th(scope='row') 1
-                  td Mark
-                  td Otto
-                  td @mdo
-                tr
-                  th(scope='row') 2
-                  td Jacob
-                  td Thornton
-                  td @fat
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
+                if newFarmers.length 
+                  each farmer in newFarmers
+                    tr
+                      th(scope='row') 1
+                      td #{farmer.lastname+ " "+farmer.firstname}
+                      td #{farmer.ward}
+                      td 0#{farmer.phonenumber}
       .container
-        .card.mt-5.ml-0(style='width:620px; height: 330px;')
+        .card.mt-5.ml-0(style='width:530px; height: 330px;')
           .card-body
-            h5.card-title New Orders Awaiting Confirmation
+            h5.card-title Recent Suspended Users
             table.table.table-hover
               thead
                 tr
                   th(scope='col') No
                   th(scope='col') Mame
                   th(scope='col') Ward
+                  th(scope='col') Role
                   th(scope='col') Phone Number
               tbody
-                tr
-                  th(scope='row') 1
-                  td Mark
-                  td Otto
-                  td @mdo
-                tr
-                  th(scope='row') 2
-                  td Jacob
-                  td Thornton
-                  td @fat
-                tr
-                  th(scope='row') 3
-                  td(colspan='2') Larry the Bird
-                  td @twitter
+                if inactiveFarmers.length 
+                  each suspendedFarmer in inactiveFarmers
+                    tr
+                      th(scope='row') 1
+                      td #{suspendedFarmer.lastname+ " "+suspendedFarmer.firstname}
+                      td #{suspendedFarmer.ward}
+                      td #{suspendedFarmer.role}
+                      td 0#{suspendedFarmer.phonenumber}
     .container
       .card.mt-5(style='width: 100%;')
         .card-body

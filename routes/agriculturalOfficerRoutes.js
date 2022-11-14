@@ -11,6 +11,11 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	req.session.user = req.user;
 	if (req.user.role == "agriculturalofficer") {
 		try {
+			// Dashboard table lists
+			let newUrbanFarmers = await Registration.find({ role: "urbanfarmer" }).sort({ $natural: -1 }).limit(15);
+			let suspendedFarmers = await Registration.find({ status: "Inactive" }).sort({ $natural: -1 }).limit(6);
+
+			console.log("These are the existing FarmerOnes", newUrbanFarmers);
 			let totalHort = await Produce.aggregate([
 				{ $match: { producecategory: "Horticulture" } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
@@ -61,15 +66,16 @@ router.get("/AOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 
 			res.render("AO/AO-dashboard", {
 				loggedUser: req.session.user,
-
+				newFarmers: newUrbanFarmers,
+				inactiveFarmers: suspendedFarmers,
 				// title: "Reports",
 				totalP: totalPoultry[0],
 				totalH: totalHort[0],
 				totalD: totalDairy[0],
-				Sales1: ward1Sales[0],
-				// Sales2: ward2Sales[0],
-				// Sales3: ward3Sales[0],
-				Sales4: ward4Sales[0],
+				sales1: ward1Sales[0],
+				sales2: ward2Sales[0],
+				sales3: ward3Sales[0],
+				sales4: ward4Sales[0],
 				totalFarmerOnes,
 				totalUbarnFarmers,
 				totalGeneralPublic,
@@ -154,15 +160,15 @@ router.get("/reports", async (req, res) => {
 	// req.session.user = req.user;
 	// console.log("This is my searched Ward======", req.query.searchward);
 	// res.render("AO/reports", { loggedUser: req.session.user });
-	
+
 	if (req.session.user.role == "agriculturalofficer") {
 		try {
-			console.log("This is the ward you're searching for========",req.query.searchward);
+			console.log("This is the ward you're searching for========", req.query.searchward);
 			// New
 			// instantiate a crop variable you will use to select a crop.
 			let selectedWard;
 			if (req.query.searchward) selectedWard = req.query.searchward;
-			console.log("This is the ward you're searching for========",selectedWard);
+			console.log("This is the ward you're searching for========", selectedWard);
 			// Query for returning all tonnage and revenue of a produce
 			let returnedward = await Produce.find({ ward: selectedWard });
 
@@ -186,7 +192,7 @@ router.get("/reports", async (req, res) => {
 				title: "Reports",
 				wards: returnedward,
 				totalC: totalProduce[0],
-				loggedUser: req.session.user
+				loggedUser: req.session.user,
 			});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");

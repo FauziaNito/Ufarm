@@ -151,7 +151,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                 .form-container
                     .logo-div
                         img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-                    form#signup.form(action='/order' name='registration' method='post')
+                    form#signup.form(action='/order' name='registration' method='post' onsubmit="return OrderForm(event);")
                         h5 Confirm your Order for #{singleItem.producename}
                         hr
                         .row
@@ -185,20 +185,35 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                                     label(for='city')
                                         | City:
                                         small  *
-                                    input#city(type='text' name='city' autocomplete='off')
+                                    select#city(type='text' name='city')
+                                        option(value='Selectcity') Select City
+                                        option(value='Kampala') Kampala
+                                        option(value='Wakiso') Wakiso
+                                    small#cityerr
                         .row
                             .col
                                 .form-field
                                     label(for='residentarea')
                                         | Resident Area:
                                         small  *
-                                    input#residentarea(type='text' name='residentarea' autocomplete='off')
+                                    select#residentarea(type='text' name='residentarea')
+                                        option(value='Selectarea') Select Area
+                                        option(value='Kampala') Kireka
+                                        option(value='Wakiso') Nakawa
+                                        option(value='Kampala') Najjera
+                                        option(value='Wakiso') Busega
+                                        option(value='Kampala') Buziga
+                                        option(value='Wakiso') Lukuli
+                                        option(value='Kampala') Nateete
+                                        option(value='Wakiso') Kibuli
+                                    small#residentareaerr
                             .col
                                 .form-field
                                     label(for='orderquantity')
                                         | Quantity:
                                         small  *
                                     input#orderquantity(type='number' name='orderquantity' autocomplete='off')
+                                    small#orderquantityerr
                         .row
                             .col
                                 .form-field
@@ -243,7 +258,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                         .user-btn-container
                             button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
                             p
-                                a(href='' style='font-size:17px; color: #fe9800') Login
+                                a(href='/login' style='font-size:17px; color: #fe9800') Login
                                 |  to submit your order
 .container-fluid.footer
     .container.top-spacings
@@ -266,3 +281,4 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                     input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
                 a.btn.btn-primary(href='#') Go somewhere
         script(src='bootstrap-js/js/bootstrap.bundle.js')
+        script(src='js/login_form_validation.js')

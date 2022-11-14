@@ -39,7 +39,7 @@ router.get("/singleitem/:id",connectEnsureLogin.ensureLoggedIn(), async (req, re
 });
 
 // Order Form Post route
-router.post("/order", async (req, res) => {
+router.post("/order", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	console.log(req.body);
 	try {
@@ -47,7 +47,7 @@ router.post("/order", async (req, res) => {
 			const order = new Order(req.body);
 			await order.save();
 			res.redirect("/");
-		}else{
+		} else {
 			res.send("You have to be Logged in as a Buyer to complete your Order");
 		}
 	} catch (error) {

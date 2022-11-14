@@ -16,23 +16,37 @@ html(lang='en')
                     hr.mb-3.mt-4(width='225px' color='#2F6A3F')
                     .sidebar-list-container
                         ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
-                            li.nav-item.intext.mb-4.active
-                                a(href='/AOdashboard') Dashboard
+                            div.d-flex
+                                i.bi.bi-pie-chart-fill
+                                li.nav-item.intext.mb-4.active.dashboard-icon
+                                    a(href='/AOdashboard') Dashboard
                             li.nav-item.sidebar-header.p-0.intext
                                 strong FARMERONE MANAGEMENT
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext
-                                a(href='/addward') Wards
-                            li.nav-item.intext
-                                a(href='/FOlist') Accounts
-                            li.nav-item.intext.mb-4
-                                a(href='/FOactivities') Reports
+                            //- li.nav-item.pt-4.intext
+                            //-     a(href='/addward') Wards
+                            div.d-flex
+                                i.bi.bi-people-fill.pt-4
+                                li.nav-item.pt-4.intext.active.dashboard-icon
+                                    a(href='/FOlist') FarmerOne Accounts
+                            div.d-flex
+                                i.bi.bi-clipboard2-data-fill
+                                li.nav-item.intext.mb-4.active.dashboard-icon
+                                    a(href='/FOactivities') Reports
                             li.nav-item.sidebar-header.p-0.intext
                                 strong ACCOUNTS
                             |  
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext My account
-                            li.nav-item.intext Users
+                            div.d-flex
+                                i.bi.bi-person-circle.pt-4
+                                li.nav-item.pt-4.intext.dashboard-icon My account
+                            div.d-flex
+                                i.bi.bi-people
+                                li.nav-item.intext.dashboard-icon Users
+                            
+                            li.nav-item.sidebar-header.p-0.intext
+                                strong SETTINGS
+                            //- hr.m-0(width='225px' color='#2F6A3F')
         block content
             .footer
                 small.mt-4.ml-5 © Refactory Cohort 12

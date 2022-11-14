@@ -13,6 +13,14 @@ body {
 	/* height: 100%; */
 	display: flex;
 }
+.dashboard-icon{
+	margin-left: 14px;
+}
+
+a{
+	text-decoration: none;
+}
+
 aside a {
 	color: white;
 }
@@ -132,7 +140,7 @@ ul.sidebar-list li {
 }
 .dashboard-card {
 	flex-wrap: wrap;
-	margin-bottom: 7%;
+	margin-bottom: 2%;
 	margin-left: 15px;
 	/* width: 10rem; */
 }
@@ -158,7 +166,7 @@ ul.sidebar-list li {
 /* FarmerOne Dashboard */
 .stast-grid {
 	display: grid;
-	grid-template-columns: 330px 325px 300px;
+	grid-template-columns: 280px 280px 300px;
 	grid-template-rows: auto auto;
 }
 
@@ -181,11 +189,18 @@ ul.sidebar-list li {
 	background-color: #0a682b;
 	background-image: conic-gradient(#dc143b 70deg, #77cc6d 70deg 150deg, #3fe0d0 150deg 250deg, #fda500 45deg 40deg);
 }
+.month-container{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+
+}
 .box {
 	width: 9px;
 	height: 9px;
 	margin-right: 2px;
 	margin-top: 4px;
+	
 }
 
 /* Urban Farmer styles */
@@ -369,7 +384,7 @@ select:focus {
 .center {
 	text-align: center;
 }
-/* Icone Size */
+/* Icon Size */
 .icon-style {
 	margin-top: 0px;
 	font-size: 17px;
