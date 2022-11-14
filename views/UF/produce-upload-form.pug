@@ -1,0 +1,229 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark.logout-style(href='#' style= 'margin-right:50%') Produce Registration
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown()
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
+
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.form-style
+            .logo-div
+                img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
+            form#signup.form(action='/uploadproduce' name='registerproduce' method='post' enctype="multipart/form-data" onsubmit="return ProduceForm(event);")
+                h5.text-muted.text-center Add Your Produce Details Here
+                hr
+                .row
+                    .col
+                        .form-field
+                            label(for='producecategory') Produce Category:
+                            select#producecategory(name='producecategory')
+                                option(value="selectcategory") Select Category
+                                option(value="Horticulture") Horticulture
+                                option(value="Poultry") Poultry
+                                option(value="Dairy Products") Dairy Products
+                                //- option(value= `${loggedUser.activity[0]}`)
+                                //- option(value= loggedUser._id) #{loggedUser.activity[2]}
+                            small#producecategoryerr
+                    .col
+                        .form-field
+                            label Procude Name:
+                            select#producename(name='producename')
+                                option(value='selectproduce') Select Produce
+                                option(value="Broccoli") Broccoli
+                                option(value="Banana") Banana
+                                option(value="Avocado") Avocado
+                                option(value="Cabbage") Cabbage
+                                option(value="GreenPaper") Green Paper
+                                option(value="Garlic") Garlic
+                                option(value="Tomatoes") Tomatoes
+                                option(value="RedOnions") Red Onions
+                                option(value="Milk") Milk
+                                option(value="Yogurt") Yogurt
+                                option(value="Cheese") Cheese
+                                option(value="Butter") Butter
+                                option(value="Chicken") Chicken
+                                option(value="Eggs") Eggs
+                                option(value="Turkey") Turkey
+                                option(value="Beef") Beef
+                            small#producenameerr
+                    .col
+                        .form-field
+                            label(for='units') Units of Measurement:
+                            select#units(name='units')
+                                option(value='selectunits') Select Units
+                                option(value='Kgs') Kgs
+                                option(value='gms') gms
+                                option(value='liters') liters
+                                option(value='Bunch') Bunch
+                                option(value='Piece') Piece
+                                option(value='Sack') Sack
+                                option(value='Sack') Tray
+                            small#unitserr
+                    .col
+                        .form-field
+                            label(for='regdate')
+                                | Date of Registration:
+                                small.asterisk  *
+                            input#regdate(type='date' name='regdate' autocomplete='off')
+                .row
+                    .col
+                        .form-field
+                            label(for='quantity')
+                                | Quantity
+                                small.asterisk  *
+                            input#quantity(type='number' name='quantity' autocomplete='off' placeholder='Enter Unit Quantity')
+                            small#quantityerr
+                    .col
+                        .form-field
+                            label(for='currency')
+                                | Currency:
+                                small.asterisk  *
+                            input#currency(name='currency' autocomplete='off' value='UGX' readonly='true')
+                    .col 
+                        .form-field
+                            label(for='price')
+                                | Unit Price:
+                                small.asterisk  *
+                            input#unitprice.ml-2.flex-fill(type='number' name='unitprice' placeholder='Enter Unit Price' autocomplete='off' onchange='totalPriceValue()')
+                            small#unitpriceerr
+                    .col 
+                        .form-field
+                            label(for='totalprice')
+                                | Total Price:
+                                small.asterisk  *
+                            input#totalprice.ml-2.flex-fill(type='number' name='totalprice' placeholder='Enter Price' autocomplete='off')
+                            small#totalpriceerr
+                .row
+                    .col
+                        .form-field
+                            label(for='mod') Mode of Delivery:
+                            select#modeofdelivery(name='modeofdelivery')
+                                option(value='modeofdelivery') Mode of Delivery
+                                option(value='Pick Up') Pick Up
+                                option(value='Home Delivery') Home Delivery
+                            small#modeofdelivererr
+                    .col
+                        .form-field
+                            label(for='mod') Mode of Payment:
+                            select#modeofpayment(name='modeofpayment')
+                                option(value='modeofpayments') Mode of Payment
+                                option(value='Cash') Cash
+                                option(value='Mobile Money') Mobile Money
+                            small#modeofpaymenterr
+                    .col 
+                        .form-field
+                            label(for='imageupload')
+                                | Upload Produce Image Here:
+                                small.asterisk  *
+                            input#imageupload.ml-2.form-control(type='file' name='imageupload' autocomplete='off')
+                            small#imageuploaderr
+                    .col
+                        .form-field
+                            label Produce Type:
+                            .radio#producttype
+                                input#gender1(type='radio' name='producttype' autocomplete='off' value= 'Organic')
+                                span Organic
+                                input#gender2(type='radio' name='producttype' autocomplete='off' value= 'NoneOrganic')
+                                span NoneOrganic
+                            small#producetyperadioerr
+                .row 
+                    .col
+                        .form-field
+                            label(for='farmername')
+                                | Farmer's Name:
+                                small.asterisk  *
+                            select#farmername(name='farmername')
+                                if loggedUser
+                                    option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
+                    .col
+                        .form-field
+                            label(for='email')
+                                | Email:
+                                small  *
+                            select#email(name='email')
+                                if loggedUser
+                                    option(value = loggedUser.email) #{loggedUser.email}
+                    .col
+                        .form-field
+                            label(for='phonenumber')
+                                | Phone Number:
+                                small.asterisk  * 
+                            select#phonenumber(name='phonenumber')
+                                if loggedUser
+                                    option(value = loggedUser.phonenumber) #{loggedUser.phonenumber} 
+                            small#phonenumbererr
+                    .col
+                        .form-field
+                            label(for='desc')
+                                | Produce Description:
+                                small.asterisk  *
+                            textarea#prodesc(type='text' name='producedescription' autocomplete='off')
+                            small#prodescerr 
+                hr.mt-1
+                p.text-muted Farmer's Details and Home Direction
+                .row
+                    .col
+                        .form-field
+                            label(for='farmerid')
+                                | Farmer's Id:
+                                small.asterisk  * 
+                            select#farmerid(name='farmerid')
+                                if loggedUser
+                                    option(value = loggedUser._id) #{loggedUser._id} 
+                            small#farmeridrerr
+                    .col
+                        .form-field
+                            label(for='ward')
+                                | Farmer's Ward:
+                                small.asterisk  *
+                            select(name='ward')
+                                if loggedUser
+                                    option(value = loggedUser.ward) #{loggedUser.ward}
+                    .col.column-stretch-left
+                        .form-field
+                            label(for='streetname')
+                                | Street Name:
+                                small.asterisk  *
+                            select#streetname(name='streetname')
+                                if loggedUser
+                                    option(value = loggedUser.streetname) #{loggedUser.streetname} 
+                            small#streetnameerr 
+                    .col
+                        .form-field
+                            label(for='housenumber')
+                                | House Number:
+                                small.asterisk  * 
+                            select#housenumber(name='housenumber')
+                                if loggedUser
+                                    option(value = loggedUser.housenumber) #{loggedUser.housenumber} 
+                            small#housenumbererr
+
+                .row
+                    .col 
+                        .container.produce-farmer-details
+                            .produce-farmer-details.me-auto
+                            .button1
+                                button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
+                                    | Add
+                                    |
+                            .button1
+                                button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='reset' style='width:120px ;')
+                                    | Clear
+        .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+    script(src='bootstrap-js/js/bootstrap.bundle.min.js')
+    script(src='js/produce_validation.js')

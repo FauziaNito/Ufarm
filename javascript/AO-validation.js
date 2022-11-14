@@ -23,13 +23,14 @@ form.addEventListener("submit", (e) => {
 	farmerOneForm();
 });
 
+// form.addEventListener("submit",farmerOneForm);
+
 // Function combining all the input validations on FarmerOne Registration
 const farmerOneForm = () => {
 	checkFirstName();
 	checkLastName();
 	checkUniqueNumber();
 	checkNinNumber();
-	checkPhoneNumber();
 	checkWard();
 	checkResidentType();
 	checkPeriodOfStay();
@@ -37,6 +38,7 @@ const farmerOneForm = () => {
 	checkStreetName();
 	checkHouseNumber();
 	checkRole();
+	checkPhoneNumber();
 };
 
 // Error message function to be called incase of any form invalidation
@@ -281,6 +283,13 @@ const checkResidentType = () => {
 const checkPeriodOfStay = () => {
 	let periodOfStayValue = periodOfStay.value;
 	let minPeriod = 10;
+
+	if (periodOfStayValue = "") {
+		setError(periodOfStay, "Set Period of stay for this farmer One");
+		periodOfStay.style.border = "2px solid red";
+		// residentType.focus();
+		return false;
+	}
 
 	if (periodOfStayValue < minPeriod) {
 		setError(periodOfStay, "FarmerOne has not Stayed in the ward for 10 years");

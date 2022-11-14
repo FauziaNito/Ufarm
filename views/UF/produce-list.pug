@@ -1,0 +1,77 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:70%') Upload Your Produce
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left: auto')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+ loggedUser.lastname}
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
+            .ml-4
+                h4 List of your Uploaded Produce
+            .mr-4
+                a(href='/uploadproduce')
+                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit') Add Produce
+            .mr-4
+                a(href='#')
+                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit') View Produce Archives
+        .container
+            .card.mt-5(style='width: 100%')
+                .card-body
+                    h5.card-title Uploaded Produce List
+                    table.table.table-hover
+                        thead
+                            tr
+                                th Image
+                                th Produce Name
+                                th Quantity
+                                th Unity Price
+                                th Mode of Payment
+                                th Mode of Delivery
+                                th Availability
+                                th Status
+                                th Update
+                                th Delete
+
+                        tbody
+                            if products.length
+                                each product in products
+                                    tr
+                                        td 
+                                            img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
+                                        td #{product.producename}
+                                        td #{product.quantity+""+product.units} 
+                                        td #{product.unitprice}
+                                        td #{product.modeofpayment}
+                                        td #{product.modeofdelivery}
+                                        td #{product.availability}
+                                        //- else 
+                                        //-     td #{product.availability}
+                                        if product.status == 'Approved'
+                                            td.approved #{product.status}
+                                        else
+                                            td.pending #{product.status}
+                                        td
+                                            a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+                                        td
+                                            form.btn-delete-style(method="post" action='/produce/delete')
+                                                input(type="hidden" placeholder="" name="id", value=product._id)
+                                                button.ml-4.bi.bi-trash3-fill.icon-style(type='submit')
+                                        //- td
+                                        //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
+
+        .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

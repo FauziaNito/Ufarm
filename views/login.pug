@@ -29,26 +29,31 @@ html(lang='en')
             li.nav-item
               a.nav-link.active.menu-item(href='#') Contact Us
         .app-entry
-          .btn.login-btn
-            button.btn.rounded-pill(type='submit') Back
+          a.btn(href="/signup") Signup
     .container-fluid.form-style-login
       .form-container
         .logo-div
           img.user-logo.mb-4(src='../images/logo.png' alt='Ufarm logo')
-        form#signup.form(action='#' name='registration' method='post')
+        form#signup.form(action='/login' name='login' method='POST' onsubmit="return loginForm(event);")
           h5 Login to your account
           hr
           .form-field
-            label(for='firstname')
-              | User Name:
+            label(for='uniquenumber')
+              | Unique Number:
               small  *
-            input#firstname(type='text' name='firstname' autocomplete='off')
+            input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
+            small#uniquenumbererr
           .form-field
-            label(for='firstname')
+            label(for='password')
               | Password:
               small  *
-            input#firstname(type='text' name='firstname' autocomplete='off')
-          .user-btn-container
-            button.btn.rounded-pill.user-btn(type='submit') Login
+            input#password(type='password' name='password' autocomplete='off')
+            small#passworderr
+          .site-login-btn
+            button.btn.rounded-pill.button-color(type='submit') Login
+          .account-signup
+            small(style='padding-right:5px') Don't have an Account
+              a(href='/signup' style='font-size:13px; color: #fe9800; margin-left:5px') SignUp
     |  
     script(src='bootstrap-js/js/bootstrap.bundle.js')
+    script(src='js/login_form_validation.js')

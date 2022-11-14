@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet' href='../bootstrap/css/bootstrap.css')
+        link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+        link(rel='stylesheet' href='css/site.css')
+    body
+        nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
+            .container-fluid
+                div
+                    img.menu-logo(src='../images/b-wlogo3.png' alt='')
+                div
+                    form.form-inline.my-2.my-lg-0
+                        input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarNav.collapse.navbar-collapse
+                    ul.navbar-nav
+                        li.nav-item
+                            a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                        li.nav-item
+                            a.nav-link.active.menu-item(href='#') Special Deals
+                        li.nav-item
+                            a.nav-link.active.menu-item(href='#') Blog
+                        li.nav-item
+                            a.nav-link.active.menu-item(href='#') Contact Us
+                .app-entry
+                    a.btn(href="/login") Login
+        block content

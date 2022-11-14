@@ -5,23 +5,23 @@ const userSchema = new mongoose.Schema({
 	firstname: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	lastname: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	uniquenumber: {
 		type: String,
 		trim: true,
-		required: true,
-        unique: true
+		// required: true,
+		unique: true,
 	},
 	password: {
 		type: String,
 		trim: true,
-		required: true,
+		// required: true,
 	},
 	role: {
 		type: String,
@@ -68,9 +68,14 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 	},
-	housenumber: {
+	email: {
 		type: String,
 		trim: true,
+	},
+	status: {
+		type: String,
+		default: "Not appointed",
+		enum: ["Not appointed","Active", "Inactive"],
 	},
 	activity: [
 		{

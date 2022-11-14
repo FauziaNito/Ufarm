@@ -1,0 +1,66 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#' style ="margin-right:50%") Edit and Add New Urban Farmer
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left:auto ;')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
+            .ml-4
+                h3 Urban Farmer
+            .mr-4
+                a(href='/registerUF')
+                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit')
+                        | Add
+                        | Urban Farmer
+        .container
+            .card.mt-5(style='width: 100%;')
+                .card-body
+                    h5.card-title Current Urban Farmers
+                    table.table.table-hover
+                        thead
+                            tr
+                                //- th(scope='col') #
+                                th(scope='col') Name
+                                th(scope='col') Unique Number
+                                th(scope='col') Ward
+                                th(scope='col') Phone Number
+                                th(scope='col') Gender
+                                th(scope='col') Status
+                                th(scope='col') Edit 
+                                th(scope='col') Change Status
+                            tbody
+                                if urbanFarmers.length 
+                                    each user in urbanFarmers
+                                        tr
+                                            //- td #{user.unitprice}
+                                            td #{user.lastname+ " "+user.firstname}
+                                            td #{user.uniquenumber}
+                                            td #{user.ward}
+                                            td #{user.phonenumber}
+                                            td #{user.gender}
+                                            if user.status == "Active"
+                                                td.approved #{user.status}
+                                            else if user.status == "Not appointed"
+                                                td.pending #{user.status}
+                                            else 
+                                                td.text-danger #{user.status}
+                                            td
+                                                a.ml-4.bi.bi-pencil-fill.icon-style(href='/farmerone/update/'+user._id)
+                                            td
+                                                a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/urbanfarmer/status/'+user._id) Change
+        .footer
+        script(src='bootstrap-js/js/bootstrap.bundle.js')

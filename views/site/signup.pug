@@ -1,0 +1,83 @@
+extends header 
+block content
+    .container-fluid.form-style
+        .logo-div
+            img.user-logo.mb-2(src='../images/logo.png' alt='Ufarm logo')
+        form#signup.form(action='/signup' name='registration' method='post' onsubmit="return FarmerOneForm(event);")
+            h5 Register Now!
+            hr
+            .row
+                .col
+                    .form-field
+                        label(for='firstname')
+                            | First Name:
+                            small  *
+                        input#firstname(type='text' name='firstname' autocomplete='off')
+                        small#firstnameerr
+                .col
+                    .form-field
+                        label(for='lastname')
+                            | Last Name:
+                            small  *
+                        input#lastname(type='text' name='lastname' autocomplete='off')
+                        small#lastnameerr
+                .col
+                    .form-field
+                        label(for='phonenumber')
+                            | Phone Number:
+                            small  *
+                        input#phonenumber(type='text' name='phonenumber' autocomplete='off')
+                        small#phonenumbererr
+            .row   
+                .col
+                    .form-field
+                        label(for='role') Register As:
+                        select#role(name='role')
+                            option(value = "selectrole") Select Role
+                            option(value = "agriculturalofficer") Agricutural Officer
+                            option(value = "generalpublic") Buyer
+                        small#roleerr     
+                .col
+                    .form-field
+                        label(for='uniquenumber')
+                            | Unique Number:
+                            small  *
+                        input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
+                        small#uniquenumbererr
+                .col
+                    .form-field
+                        label(for='email')
+                            | Email:
+                            small  *
+                        input#email(type='text' name='email' autocomplete='off')
+                        small#emailerr
+            .row
+                .col
+                    .form-field
+                        label(for='password')
+                            | Password:
+                            small  *
+                        input#password(type='password' name='password' autocomplete='off')
+                        small#passworderr
+                .col
+                    .form-field
+                        label(for='birthdate')
+                            | Date of Bith
+                            small.asterisk  *
+                        input#birthdate(type='date' name='birthdate' autocomplete='off')
+                        small#birthdateerr
+                .col
+                    .form-field
+                        label(for='gender') Gender:
+                        .radio#gender
+                            input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female')
+                            span Female
+                            input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male')
+                            span Male
+                            input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others')
+                            span Others
+                        small#genderradioerr
+            .site-signup-btn
+                button.btn.rounded-pill.user-btn(type='submit') Signup
+    script(src='bootstrap-js/js/bootstrap.bundle.js')
+    script(src='js/signup_form_validation.js')
