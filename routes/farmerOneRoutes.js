@@ -81,7 +81,27 @@ router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	// res.render("FO/FO-ub-accounts", { loggedUser: req.session.user });
 });
 
-// Urban Farmer status Change get route
+// Urban Farmer Details update get route
+router.get("/urbanfarmer/update/:id", async (req, res) => {
+	try {
+		const updateFarmer = await Registration.findOne({ _id: req.params.id });
+		res.render("FO/urbanFarmer-update", { loggedUser: req.session.user, urbanFarmer: updateFarmer });
+	} catch (error) {
+		res.status(400).send("Unable to get this Urban Farmer");
+	}
+});
+
+// Urban Farmer Update post route
+router.post("/urbanfarmer/update", async (req, res) => {
+	try {
+		await Registration.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/UFlist");
+	} catch (error) {
+		res.status(400).send("Unable to update this Urban Farmer");
+	}
+});
+
+// Urban Farmer status update get route
 router.get("/urbanfarmer/status/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		const appointUrbanFarmer = await Registration.findOne({ _id: req.params.id });

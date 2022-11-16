@@ -17,29 +17,45 @@ html(lang='en')
                     hr.mb-3.mt-4(width='225px' color='#2F6A3F')
                     .sidebar-list-container
                         ul.nav.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.sidebar-list(id='')
-                            li.nav-item.intext.mb-4
-                                a(href='/UFdashboard') Dashboard
+                            div.d-flex
+                                i.bi.bi-pie-chart-fill
+                                li.nav-item.intext.mb-4.active.dashboard-icon
+                                    a(href='/UFdashboard') Dashboard
                             li.nav-item.sidebar-header.p-0.intext
                                 strong PRODUCE MANAGEMENT
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext
-                                a(href='/producelist') Upload Produce
-                            li.nav-item.pt-1.mb-2.intext
+                            div.d-flex
+                                img.mt-4(src="../../images/apple.png" height="18px")
+                                li.nav-item.pt-4.intext.dashboard-icon
+                                    a(href='/producelist') Upload Produce
+                            div.d-flex
+                                img(src="../../images/carrots.png" height="18px")
+                                li.nav-item.pt-4.intext.dashboard-icon
                                 a(href='/approvedlist') Approved Produce
-                            li.nav-item.intext.mb-4
+                            div.d-flex
+                                img(src="../../images/cancel.png" height="18px")
+                                li.nav-item.pt-4.intext.dashboard-icon
                                 a(href='') Rejected Produce
                             li.nav-item.sidebar-header.p-0.intext
                                 strong SALES MANAGEMENT
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext 
-                                a(href='/order') Orders
-                            li.nav-item.intext Order Returns
-                            li.nav-item.intext My Shop
+                            div.d-flex
+                                img.mt-4(src="../../images/shopping-cart.png" height="18px")
+                                li.nav-item.pt-4.intext.dashboard-icon 
+                                    a(href='/order') Orders
+                            div.d-flex
+                                img(src="../../images/remove-cart.png" height="18px")
+                                li.nav-item.intext.dashboard-icon Order Returns
+                            div.d-flex
+                                img(src="../../images/wallet.png" height="18px")
+                                li.nav-item.intext.dashboard-icon My Wallet
                             li.nav-item.sidebar-header.p-0.intext
                                 strong ACCOUNTS
                             hr.m-0(width='225px' color='#2F6A3F')
-                            li.nav-item.pt-4.intext
-                                a(href='UF-dashboard.html') My account
+                            div.d-flex
+                                i.bi.bi-person-circle.pt-4
+                                li.nav-item.pt-4.intext.dashboard-icon
+                                    a(href='UF-dashboard.html') My account
         block content
             //- .footer
             //- small.mt-4.ml-5 © Refactory Cohort 12

@@ -26,57 +26,57 @@ block content
                 h5.text-muted.text-center Add Urban Farmer Details
                 hr
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='firstname')
                                 | First Name:
                                 small.asterisk  *
-                            input#firstname(type='text' name='firstname' autocomplete='off')
+                            input.form-control#firstname(type='text' name='firstname' autocomplete='off')
                             small#firstnameerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='lastname')
                                 | Last Name:
                                 small.asterisk  *
-                            input#lastname(type='text' name='lastname' autocomplete='off')
+                            input.form-control#lastname(type='text' name='lastname' autocomplete='off')
                             small#lastnameerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='uniquenumber')
                                 | Unique Number:
                                 small.asterisk  *
-                            input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample UFW1-001')
+                            input.form-control#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample UFW1-001')
                             small#uniquenumbererr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='password') 
                                 | Password: 
                                 small.asterisk  *
-                            input#password.text-muted(type='password' name='password' autocomplete='off')
+                            input.form-control#password.text-muted(type='password' name='password' autocomplete='off')
                             small#passworderr
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='role') Role
                             select#role(name='role')
                                 option(value = "selectrole") Select Role
                                 option(value = "urbanfarmer") Urban Farmer
                             small#roleerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='ninnumber')
                                 | NIN Number:
                                 small.asterisk  *
                             input#ninnumber(type='text' name='ninnumber' autocomplete='off')
                             small#ninNumberError 
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='phonenumber')
                                 | Phone Number:
                                 small.asterisk  *
                             input#phonenumber(type='text' name='phonenumber')
                             small#phonenumbererr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='regdate')
                                 | Date of Registration:
@@ -84,14 +84,14 @@ block content
                             input#regdate(type='date' name='regdate')
 
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='birthdate')
                                 | Date of Bith
                                 small.asterisk  *
                             input#birthdate(type='date' name='birthdate' autocomplete='off')
                             small#birthdateerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='gender') Gender:
                             .radio#gender
@@ -102,7 +102,7 @@ block content
                                 input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others')
                                 span Others
                             small#genderradioerr
-                    .col-6
+                    .col-lg-6.col-md-12.col-sm-12
                         .form-field
                             label Activities:
                             .activity
@@ -115,28 +115,28 @@ block content
                 hr.mt-1
                 p.text-muted Add Urban Farmer&apos;s Direction
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='streetname')
                                 | Farmer's Ward:
                                 small.asterisk  *
                             input#ward(type='text' name='ward' autocomplete='off' value =`${loggedUser.ward}` readonly='true')
                             small#warderr
-                    .col.column-stretch-left
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='streetname')
                                 | Street Name:
                                 small.asterisk  *
                             input#streetname(type='text' name='streetname' autocomplete='off')
                             small#streetnameerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='housenumber')
                                 | House Number:
                                 small.asterisk  *
                             input#housenumber(type='text' name='housenumber' autocomplete='off')
                             small#housenumbererr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='email')
                                 | Email:
@@ -147,7 +147,7 @@ block content
                     .button1
                         button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
                     .button1
-                        button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='rest' style='width: 120px') Clear
+                        button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='reset') Clear
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

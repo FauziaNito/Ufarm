@@ -65,24 +65,34 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-
-	/* position: absolute; */
+	align-items: center;
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	/* align-items: center; */
 }
 .category-card {
-	margin-top: 5%;
+	/* margin-top: 5%; */
 	margin-bottom: 5%;
 	border-radius: 0%;
 	width: 100% !important;
-	height: 180px !important;
-	border-left-color: #83b735;
-	border-top-color: #83b735;
-	border-bottom-color: #83b735;
+	height: 195px !important;
+	border: 1px solid #83b735;
+	box-shadow: 0.5px 1.5px 3px rgba(0, 0, 0, 0.3);
 }
+.card-content {
+	position: relative;
+	text-align: center;
+}
+.category-txt {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
+}
+.cat-card-text {
+	align-self: center;
+}
 .category-card h5 {
 	/* margin: auto !important; */
 }
@@ -144,7 +154,7 @@ body {
 	text-decoration: none;
 	/* color: white !important; */
 }
-.order-btn a{
+.order-btn a {
 	width: 25%;
 	margin-top: 15px;
 	padding: 15px;
@@ -308,18 +318,19 @@ select:focus {
 }
 .site-signup-btn button:hover {
 	/* background-color: #18a15c !important; */
-  	text-decoration: none;
+	text-decoration: none;
 	/* color: white !important; */
 }
-.site-signup-btn button:active,:focus {
+.site-signup-btn button:active,
+:focus {
 	/* background-color: #18a15c !important; */
-  	text-decoration: none;
+	text-decoration: none;
 	/* color: white !important; */
 }
 .site-login-btn {
 	text-align: center;
 }
-.button-color{
+.button-color {
 	background-color: #18a15c;
 }
 .site-login-btn button {
@@ -411,7 +422,7 @@ select:focus {
 .align-details {
 	display: flex;
 	/* justify-content: center; */
-	margin-left:25px;
+	margin-left: 25px;
 }
 .farmer-text {
 	font-style: normal;
@@ -436,8 +447,8 @@ select:focus {
 	font-size: 17px;
 	font-size: 18px;
 }
-.user-btn-container{
-text-align: center;
+.user-btn-container {
+	text-align: center;
 }
 .checkout-order-btn {
 	width: 35%;
@@ -450,10 +461,9 @@ text-align: center;
 	border: none;
 	font-size: 17px;
 	font-size: 18px;
-	
 }
 .text-align-right {
-	margin-left: 65%;
+	margin-left: 70%;
 }
 .top-spacings {
 	padding-top: 5%;

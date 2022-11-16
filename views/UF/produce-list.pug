@@ -56,9 +56,12 @@ block content
                                         td #{product.unitprice}
                                         td #{product.modeofpayment}
                                         td #{product.modeofdelivery}
-                                        td #{product.availability}
-                                        //- else 
-                                        //-     td #{product.availability}
+                                        if product.availability == 'available'
+                                            td.approved #{product.availability}
+                                        else if product.availability == 'booked'
+                                            td.pending #{product.availability}
+                                        else
+                                            td.text-danger #{product.availability}  
                                         if product.status == 'Approved'
                                             td.approved #{product.status}
                                         else

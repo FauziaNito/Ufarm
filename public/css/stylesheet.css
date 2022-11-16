@@ -13,11 +13,11 @@ body {
 	/* height: 100%; */
 	display: flex;
 }
-.dashboard-icon{
+.dashboard-icon {
 	margin-left: 14px;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
@@ -79,6 +79,7 @@ aside a:hover {
 	width: 120px;
 	background-color: #fe9800 !important;
 	border: #fe9800;
+	margin-left:15px;
 }
 .action-btn {
 	width: 75px;
@@ -142,7 +143,16 @@ ul.sidebar-list li {
 	flex-wrap: wrap;
 	margin-bottom: 2%;
 	margin-left: 15px;
+	/* flex-grow: 1; */
 	/* width: 10rem; */
+}
+.card-font {
+	font-size: 115.5%;
+	margin-right: 5%;
+}
+.card-total-font {
+	font-weight: bold;
+	font-size: 109%;
 }
 .footer {
 	display: flex;
@@ -189,18 +199,16 @@ ul.sidebar-list li {
 	background-color: #0a682b;
 	background-image: conic-gradient(#dc143b 70deg, #77cc6d 70deg 150deg, #3fe0d0 150deg 250deg, #fda500 45deg 40deg);
 }
-.month-container{
+.month-container {
 	display: flex;
 	text-align: center;
 	justify-content: center;
-
 }
 .box {
 	width: 9px;
 	height: 9px;
 	margin-right: 2px;
 	margin-top: 4px;
-	
 }
 
 /* Urban Farmer styles */
@@ -268,8 +276,7 @@ select {
 select:focus {
 	outline: none;
 }
-.form-field textarea
-{
+.form-field textarea {
 	border: solid 3px #f0f0f0;
 	border-radius: 3px;
 	padding: 0px;
@@ -278,7 +285,7 @@ select:focus {
 	display: block;
 	width: 100%;
 }
-.form-field textarea:focus{
+.form-field textarea:focus {
 	outline: none;
 }
 .checkbox-size {
@@ -363,7 +370,7 @@ select:focus {
 }
 
 /* MEDIA QUERIES */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
 	.sidebar {
 		display: none;
 	}

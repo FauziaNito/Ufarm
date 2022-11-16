@@ -24,10 +24,18 @@ block content
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/produce/update?id='+product._id name='registerproduce' method='post')
+            form#signup.form(action='/produce/update?id='+product._id name='registerproduce' method='post' onsubmit="return ProduceForm(event);")
                 h5.text-muted.text-center Add Your Produce Details Here
+                hr
                 .row
-                    .col
+                    .col-lg-4.col-md-6.col-sm-12
+                        .form-field
+                            label(for='producecategory') Produce Category:
+                            select#producecategory(name='producecategory')
+                                option(value="Horticulture" selected = product.producecategory === "Horticulture") Horticulture
+                                option(value="Poultry" selected = product.producecategory === "Poultry") Poultry
+                                option(value="Dairy Products" selected = product.producecategory === "Dairy Products") Dairy Products
+                    .col-lg-4.col-md-6.col-sm-12
                         .form-field
                             label(for='producename') Produce Name:
                             select(name='producename')
@@ -46,31 +54,60 @@ block content
                                 option(value="Eggs" selected = product.producename === 'Eggs') Eggs
                                 option(value="Turkey" selected = product.producename === 'Turkey') Turkey
                                 option(value="Beef" selected = product.producename === 'Beef') Beef
-                .row
-                    .col
+                    .col-lg-4.col-md-6.col-sm-12
                         .form-field
-                            label(for='')
-                                | Unit Price:
-                                small  *
-                            input#price(type='number' name='price' autocomplete='off' value=product.unitprice)
-                    .col
+                            label(for='units') Units of Measurement:
+                            select#units(name='units')
+                                option(value='Kgs' selected = product.units === "Kgs") Kgs
+                                option(value='gms' selected = product.units === "gms") gms
+                                option(value='liters' selected = product.units === "liters") liters
+                                option(value='Bunch' selected = product.units === "Bunch") Bunch
+                                option(value='Piece' selected = product.units === "Piece") Piece
+                                option(value='Sack' selected = product.units === "Sack") Sack
+                                option(value='Tray' selected = product.units === "Tray") Tray
+                .row
+                    .col-lg-4.col-md-6.col-sm-12
                         .form-field
                             label(for='')
                                 | Quantity:
                                 small  *
                             input#quantity(type='number' name='quantity' autocomplete='off' value=product.quantity)
-                    .col
+                    .col-lg-4.col-md-6.col-sm-12
+                        .form-field
+                            label(for='')
+                                | Unit Price:
+                                small  *
+                            input#unitprice(type='number' name='price' autocomplete='off' value=product.unitprice)
+                    .col-lg-4.col-md-6.col-sm-12 
+                        .form-field
+                            label(for='totalprice')
+                                | Total Price:
+                                small.asterisk  *
+                            input#totalprice.ml-2.flex-fill(type='number' name='totalprice' placeholder='Enter Price' autocomplete='off' value=product.totalprice)
+                            //- small#totalpriceerr
+                .row
+                    .col-lg-4.col-md-6.col-sm-12
                         .form-field
                             label(for='') Mode of Delivery:
                             select(name='modeofdelivery')
                                 option(value="Pick Up" selected = product.modeofdelivery === 'Pick Up') Pick Up
                                 option(value="Home Delivery" selected = product.modeofdelivery === 'Home Delivery') Home Delivery
-                    .col
+                    .col-lg-4.col-md-6.col-sm-12
                         .form-field
                             label Mode of Payment:
                             select(name='modeofpayment')
                                 option(value="Cash" selected = product.modeofpayment === 'cash') Cash
-                                option(value="Mobile Money" selected = product.modeofpayment === 'mobilemoney') Mobile Money   
-                    .form-field
-                        input.btn.register-btn(type='submit' value='Update')
+                                option(value="Mobile Money" selected = product.modeofpayment === 'mobilemoney') Mobile Money
+                    .col-lg-4.col-md-6.col-sm-12
+                        .form-field
+                            label Produce Type:
+                            .radio#producttype
+                                input#gender1(type='radio' name='producttype' autocomplete='off' value= 'Organic' checked = product.producttype === 'Organic')
+                                span Organic
+                                input#gender2(type='radio' name='producttype' autocomplete='off' value= 'NoneOrganic' checked = product.producttype === 'NoneOrganic')
+                                span NoneOrganic
+                    .container.FO-form-btn
+                        .button1
+                            input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')
     script(src='/bootstrap-js/js/bootstrap.bundle.js')
+    script(src='/js/produce_validation.js')

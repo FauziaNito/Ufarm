@@ -24,60 +24,60 @@ block content
                     p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Produce Statistics
                     img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
+                        p.card-text.text-muted.mb-0.card-font Approved:
                         if (approved == undefined)
                             p 0
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{approved.totalQuantity}
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{approved.totalQuantity}
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
+                        p.card-text.text-muted.mb-0.card-font Pending:
                         if (pending == undefined)
                             p 0
                             
                         else 
-                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{pending.totalQuantity}
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4.card-total-font #{pending.totalQuantity}
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
+                        p.card-text.text-muted.mb-0.card-font Sold:
                         if (sold == undefined)
                             p 0
                             
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{sold.totalQuantity} 
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{sold.totalQuantity} 
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Produce:
+                        p.card-text.text-muted.mb-0.card-font Total Produce:
                         if (totalProduce == NaN)
                             p 0
                             
                         else
-                            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{approved.totalQuantity * pending.totalQuantity * sold.totalQuantity}
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Projected Sales Count
                     img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
+                        p.card-text.text-muted.mb-0.card-font Approved:
                         if (approved == undefined)
                             p 0
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(approved.totalCost)} UGX
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{new Intl.NumberFormat().format(approved.totalCost)} UGX
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
+                        p.card-text.text-muted.mb-0.card-font Pending:
                         if (pending == undefined)
                             p 0
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(pending.totalCost)} UGX
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4.card-total-font #{new Intl.NumberFormat().format(pending.totalCost)} UGX
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
+                        p.card-text.text-muted.mb-0.card-font Sold:
                         if (sold == undefined)
                             p 0
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sold.totalCost)} UGX
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{new Intl.NumberFormat().format(sold.totalCost)} UGX
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Sale: 
-                        if (totalSales == undefined)
+                        p.card-text.text-muted.mb-0.card-font Total Sale: 
+                        if (totalSales == NaN)
                             p 0
                         else
-                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalSales)} UGX
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{new Intl.NumberFormat().format(totalSales)} UGX
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 980
@@ -87,119 +87,85 @@ block content
                     h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 60
                     p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Produce Rejected
         .container-fluid.stast-grid.mt-5
-            .card(style='width: 300px; height: 300px')
+            .card(style='width: 260px; height: 300px')
                 | .
-                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Your Sold Produce in %
+                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Sold Produce in %
                 .card-body
-                    .d-flex.mb-4.ml-4.justify-content-center(style='margin-left: 12px')
-                        .d-flex.mr-4
-                            .box(style='background-color: #fda500; font-size: 5px')
-                            strong(style='font-size: 12px') Aug
-                        .d-flex.mr-4
-                            .box(style='background-color: #dc143b')
-                            strong(style='font-size: 12px') Sept
-                        .d-flex.mr-4
-                            .box(style='background-color: #77cc6d')
-                            strong(style='font-size: 12px') Oct
-                        .d-flex.mr-4
-                            .box(style='background-color: #3fe0d0')
-                            strong(style='font-size: 12px') Nov
+                    .month-container.mb-4(style='margin-left: 12px;')
+                        .d-flex.mr-2
+                            .box(style='background-color: #fda500; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') July
+                        .d-flex.mr-2
+                            .box(style='background-color: #dc143b;margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Aug
+                        .d-flex.mr-2
+                            .box(style='background-color: #77cc6d; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Sept
+                        .d-flex.mr-2
+                            .box(style='background-color: #3fe0d0; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Oct
                     .chart
-            .card(style='width: 300px; height: 300px')
+            .card(style='width: 260px; height: 300px')
                 | .
-                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Produce You Uploaded in %
+                h6.card-subtitle.mb-0.text-muted.text-center(style='font-size: large') Produce Uploaded in %
                 .card-body
-                    .d-flex.mb-4.ml-4.justify-content-center(style='margin-left: 12px')
-                        .d-flex.mr-4
-                            .box(style='background-color: #fda500; font-size: 5px')
-                            strong(style='font-size: 12px') Aug
-                        .d-flex.mr-4
-                            .box(style='background-color: #dc143b')
-                            strong(style='font-size: 12px') Sept
-                        .d-flex.mr-4
-                            .box(style='background-color: #77cc6d')
-                            strong(style='font-size: 12px') Oct
-                        .d-flex.mr-4
-                            .box(style='background-color: #3fe0d0')
-                            strong(style='font-size: 12px') Nov
+                    .month-container.mb-4(style='margin-left: 12px;')
+                        .d-flex.mr-2
+                            .box(style='background-color: #fda500; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') July
+                        .d-flex.mr-2
+                            .box(style='background-color: #dc143b;margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Aug
+                        .d-flex.mr-2
+                            .box(style='background-color: #77cc6d; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Sept
+                        .d-flex.mr-2
+                            .box(style='background-color: #3fe0d0; margin-right: 5px')
+                            strong(style='font-size: 12px; margin-right: 10px') Oct
                     .chart2
             .container
-                .card.mt-0.ml-0(style='width: 500px; height: 680px')
+                .card.mt-0.ml-0(style='width: 480px; height: 680px')
                     .card-body
-                        h5.card-title A list of Your Recently Uploaded Produce
+                        h5.card-title List of Recently Approved Produce
                         | 									.
                         table.table.table-hover
                             thead
                                 tr
                                     th(scope='col') No
-                                    th(scope='col') Name
-                                    th(scope='col') Ward
-                                    th(scope='col') Phone Number
+                                    th(scope='col') Produce Name
+                                    th(scope='col') Quantity
+                                    th(scope='col') Unit Price
+                                    th(scope='col') Status
                             tbody
-                                tr
-                                    th(scope='row') 1
-                                    td Mark
-                                    td Otto
-                                    td @mdo
-                                tr
-                                    th(scope='row') 2
-                                    td Jacob
-                                    td Thornton
-                                    td @fat
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
+                                if approvedList.length
+                                    each item in approvedList
+                                        tr
+                                            th(scope='row') 1
+                                            td #{item.producename}
+                                            td #{item.quantity+" "+item.units}
+                                            td #{item.unitprice}
+                                            td.approved #{item.status}
             .container
-                .card.mt-5.ml-0(style='width: 620px; height: 330px')
+                .card.mt-5.ml-0(style='width: 530px; height: 330px')
                     .card-body
                         h5.card-title New Incoming Orders
                         table.table.table-hover
                             thead
                                 tr
-                                    th(scope='col') No
-                                    th(scope='col') Mame
-                                    th(scope='col') Ward
-                                    th(scope='col') Phone Number
+                                    th(scope='col') No.
+                                    th(scope='col') Produce
+                                    th(scope='col') Quantity
+                                    th(scope='col') Amount
+                                    th(scope='col') Status
                             tbody
-                                tr
-                                    th(scope='row') 1
-                                    td Mark
-                                    td Otto
-                                    td @mdo
-                                tr
-                                    th(scope='row') 2
-                                    td Jacob
-                                    td Thornton
-                                    td @fat
-                                tr
-                                    th(scope='row') 3
-                                    td(colspan='2') Larry the Bird
-                                    td @twitter
+                                if newOrders 
+                                    each order in newOrders
+                                        tr
+                                            th(scope='row') 1
+                                            td #{order.producename}
+                                            td #{order.orderquantity+""+order.units}
+                                            td shs #{order.unitprice * order.orderquantity}
+                                            td.pending #{order.status}
         .footer
             small.mt-4.ml-5 © Refactory Cohort 12
             small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576

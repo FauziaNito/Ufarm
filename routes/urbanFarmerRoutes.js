@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 // Urban Farmer Produce Upload Route
-router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(),(req, res) => {
+router.get("/uploadproduce", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
 	console.log("This is the Current User ", req.session.user);
 	res.render("UF/produce-upload-form", { loggedUser: req.session.user });
 });
@@ -41,12 +41,15 @@ router.post("/uploadproduce", upload.single("imageupload"), async (req, res) => 
 });
 
 // Urban Farmer Dashboard Routes
-router.get("/UFdashboard",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	let farmer = req.session.user["_id"];
 	//console.log("This is the logged user Id", farmer);
-	if (req.user.role == "urbanfarmer") { 
+	if (req.user.role == "urbanfarmer") {
 		try {
+			// Dashboard lists
+			let productsList = await Produce.find({ farmerid: farmer, status: "Approved" }).sort({ $natural: -1 }).limit(15);
+			let ordersList = await Order.find({ farmerid: farmer, status: "Pending" }).sort({ $natural: -1 }).limit(5);
 			let approvedProduce = await Produce.aggregate([
 				{ $match: { $and: [{ farmerid: farmer }, { status: "Approved" }] } },
 				{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
@@ -64,12 +67,14 @@ router.get("/UFdashboard",connectEnsureLogin.ensureLoggedIn(), async (req, res) 
 			let pending = pendingProduce[0];
 			let sold = soldProduce[0];
 			console.log("This is the product", approved + pending);
-			// let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
+			// let totalProduce = approved.totalQuantity + sold.totalQuantity;
 			// console.log("This is the product", totalProduce);
 			// let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
 
 			res.render("UF/UF-dashboard", {
 				loggedUser: req.session.user,
+				approvedList: productsList,
+				newOrders: ordersList,
 				approved,
 				pending,
 				sold,
@@ -77,7 +82,6 @@ router.get("/UFdashboard",connectEnsureLogin.ensureLoggedIn(), async (req, res) 
 				// totalSales,
 			});
 		} catch (error) {
-
 			res.status(400).send("unable to find items in the database");
 		}
 	} else {
@@ -90,12 +94,8 @@ router.get("/UFdashboard",connectEnsureLogin.ensureLoggedIn(), async (req, res) 
 router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;
 	try {
-		// let totalorder = await Produce.aggregate([
-		// 	{ $match: { producecategory: "Horticulture" } },
-		// 	{ $group: { _id: "$all", totalQuantity: { $sum: "$quantity" }, totalCost: { $sum: { $multiply: ["$unitprice", "$quantity"] } } } },
-		// ]);
-		let orderedItems = Order.find({ farmerid: req.user._id}); 
-		console.log("This is the quantity of ordered items", orderedItems);
+		// let orderedItems = Order.find({ farmerid: req.user._id });
+		// console.log("This is the quantity of ordered items", orderedItems);
 		let products = await Produce.find({ farmerid: req.user }).sort({ $natural: -1 });
 		res.render("UF/produce-list", { loggedUser: req.session.user, products: products });
 	} catch (error) {
@@ -103,7 +103,7 @@ router.get("/producelist", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 	}
 });
 
-// Update form get route for a particular id
+// Produce Update form get route for a particular id
 router.get("/produce/update/:id", async (req, res) => {
 	try {
 		const updateProduct = await Produce.findOne({ _id: req.params.id });

@@ -12,11 +12,11 @@ body
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarSupportedContent.collapse.navbar-collapse
-                ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto.text-align-right
                     .mt-2.mr-5
                         p
                             | Need Help? Call Us: 
-                            strong(style='color:#83B735 ;') +256 704535543
+                            strong(style='color: #83b735; margin-right:20px') +256 704535543
                     .vline.mt-2.mr-5
                     li.nav-item.dropdown(style='margin-left:auto ;')
                         a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
@@ -75,17 +75,22 @@ body
                 img.d-block.w-100.img-resize(src='images/img5.jpg' alt='...')
     .container-fluid.category-container
         .card.category-card
-            .card-body
-                h5.card-title.text-muted Card title
+            .card-body.card-content
+                a(href="#")
+                img(src='../images/harvest.png')
+                .category-txt
+                    h5.card-title.text-muted.cat-card-text Horticulture
+
         .card.category-card
-            .card-body
-                h5.card-title.text-muted Card title
+            .card-body.card-content
+                img(src='../images/poultry.png')
+                .category-txt
+                    h5.card-title.text-muted.cat-card-text Poultry
         .card.category-card
-            .card-body
-                h5.card-title.text-muted Card title
-        .card.category-card
-            .card-body
-                h5.card-title.text-muted Card title
+            .card-body.card-content
+                img(src='../images/milk-product.png')
+                .category-txt
+                    h5.card-title.text-muted.cat-card-text Dairy Products
     .container
         .daily-header
             h1 Daily Groceries
