@@ -24,7 +24,7 @@ block content
         .container-fluid.form-style
             .logo-div
                 img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
-            form#signup.form(action='/produce/update?id='+product._id name='registerproduce' method='post' onsubmit="return ProduceForm(event);")
+            form#signup.form(action='/produce/update?id='+product._id name='registerproduce' method='post' )
                 h5.text-muted.text-center Add Your Produce Details Here
                 hr
                 .row

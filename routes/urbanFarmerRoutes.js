@@ -66,10 +66,10 @@ router.get("/UFdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 			let approved = approvedProduce[0];
 			let pending = pendingProduce[0];
 			let sold = soldProduce[0];
-			console.log("This is the product", approved + pending);
-			// let totalProduce = approved.totalQuantity + sold.totalQuantity;
+			// console.log("This is the product", approved.totalQuantity + pending.totalQuantity + soldProduce.totalQuantity);
+			// let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;2
 			// console.log("This is the product", totalProduce);
-			// let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
+			// // let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
 
 			res.render("UF/UF-dashboard", {
 				loggedUser: req.session.user,

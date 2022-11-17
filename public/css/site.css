@@ -26,6 +26,10 @@ body {
 	height: auto;
 	width: 150px;
 }
+.footer-logo{
+	height: auto;
+	width: 50%;
+}
 .search-style {
 	width: 100px;
 	border-radius: 25px;
@@ -219,7 +223,7 @@ body {
 	margin-top: 20%;
 	background-color: #0b472e;
 	color: whitesmoke;
-	height: 400px;
+	height: 450px;
 }
 .footer h5 {
 	color: #f1f1f1;
@@ -467,6 +471,14 @@ select:focus {
 }
 .top-spacings {
 	padding-top: 5%;
+	padding-left: 3.5%;
+	padding-right: 3.5%;
+}
+.app-img{
+	padding-left: 3%;
+}
+.social-img{
+	padding-left: 10%;
 }
 .produce-details {
 	margin-top: 6%;
@@ -494,4 +506,10 @@ select:focus {
 }
 .account-signup {
 	text-align: center;
+}
+.form-clear-btn {
+	width: 120px;
+	background-color: #fe9800 !important;
+	border: #fe9800;
+	
 }

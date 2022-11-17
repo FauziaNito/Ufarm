@@ -43,12 +43,8 @@ block content
                             
                         else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{sold.totalQuantity} 
-                    div.d-flex
+                    //- div.d-flex
                         p.card-text.text-muted.mb-0.card-font Total Produce:
-                        if (totalProduce == NaN)
-                            p 0
-                            
-                        else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
@@ -72,11 +68,8 @@ block content
                             p 0
                         else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{new Intl.NumberFormat().format(sold.totalCost)} UGX
-                    div.d-flex
+                    //- div.d-flex
                         p.card-text.text-muted.mb-0.card-font Total Sale: 
-                        if (totalSales == NaN)
-                            p 0
-                        else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{new Intl.NumberFormat().format(totalSales)} UGX
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
