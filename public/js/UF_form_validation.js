@@ -74,7 +74,7 @@ const FarmerOneForm = (event) => {
 	let lastNameValue = lastName.value.trim();
 	if (lastNameValue == "") {
 		lastName.style.border = "1px solid red";
-		lastNameError.textContent = "Please Enter Farmer's First Name";
+		lastNameError.textContent = "Please Enter Farmer's Last Name";
 		lastNameError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -221,7 +221,7 @@ const FarmerOneForm = (event) => {
 		error++;
 	} else if (yearDiff <= 15) {
 		birthDate.style.border = "1px solid red";
-		dateOfBirthError.textContent = "Sorry Farmers can not be this young";
+		dateOfBirthError.textContent = "Urban Farmer must be 15 years and above";
 		dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
@@ -295,9 +295,7 @@ const FarmerOneForm = (event) => {
 		houseNumber.style.border = "1px solid green";
 		houseNumberError.textContent = "";
 	}
-	if (error > 0) {
-		event.preventDefault();
-	}
+	
 	// Email Address input validation
 	let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	if (userEmail.value == "") {
@@ -315,6 +313,9 @@ const FarmerOneForm = (event) => {
 	} else {
 		userEmail.style.border = "1px solid green";
 		userEmailError.textContent = "";
+	}
+	if (error > 0) {
+		event.preventDefault();
 	}
 };
 

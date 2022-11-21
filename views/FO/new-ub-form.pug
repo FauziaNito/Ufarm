@@ -31,28 +31,28 @@ block content
                             label(for='firstname')
                                 | First Name:
                                 small.asterisk  *
-                            input.form-control#firstname(type='text' name='firstname' autocomplete='off')
+                            input#firstname(type='text' name='firstname' autocomplete='off')
                             small#firstnameerr
                     .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='lastname')
                                 | Last Name:
                                 small.asterisk  *
-                            input.form-control#lastname(type='text' name='lastname' autocomplete='off')
+                            input#lastname(type='text' name='lastname' autocomplete='off')
                             small#lastnameerr
                     .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='uniquenumber')
                                 | Unique Number:
                                 small.asterisk  *
-                            input.form-control#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample UFW1-001')
+                            input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample UFW1-001')
                             small#uniquenumbererr
                     .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='password') 
                                 | Password: 
                                 small.asterisk  *
-                            input.form-control#password.text-muted(type='password' name='password' autocomplete='off')
+                            input#password.text-muted(type='password' name='password' autocomplete='off')
                             small#passworderr
                 .row
                     .col-lg-3.col-md-6.col-sm-12
@@ -144,10 +144,9 @@ block content
                             input#email(type='text' name='email' autocomplete='off')
                             small#emailerr
                 .container.FO-form-btn
-                    .button1
-                        button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
-                    .button1
-                        button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='reset') Clear
+                        button.mt-1.form-add-btn.mr-auto(type='submit') Add New
+                    
+                        button.mt-1.ml-4.form-clear-btn.mr-auto(type='reset') Clear
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

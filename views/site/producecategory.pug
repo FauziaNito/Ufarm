@@ -47,14 +47,14 @@ body
     nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
         .container-fluid
             .cart-header
-                a.active.menu-item(href='#') Home 
+                a.active.menu-item(href='/') Home 
                 span.cart-header-span  / #{produceCategory.producecategory} Produce
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNav.collapse.navbar-collapse
                 ul.navbar-nav
                     li.nav-item
-                        a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+                        a.nav-link.active.ml-5.menu-item(aria-current='page' href='/') Home
                     li.nav-item
                         a.nav-link.active.menu-item(href='#') Special Deals
                     li.nav-item
@@ -62,8 +62,8 @@ body
                     li.nav-item
                         a.nav-link.active.menu-item(href='#') Contact Us
             .app-entry
-                a.btn(href="/login") Login
-                a.btn(href="/signup") Signup
+                a(href="/login") Login
+                a(href="/signup") Signup
     .container-fluid(style="margin: auto;")
         .produce-container
             if produceCategory.length
@@ -93,7 +93,7 @@ body
                                     .discount
                                         h6 45%
                                 .shop-btn
-                                    a.btn.rounded-pill(href='/singleitem/'+product._id) Shop Now
+                                    a.rounded-pill(href='/singleitem/'+product._id) Shop Now
                     else 
                         .card.produce-card
                             .card-body
@@ -117,26 +117,51 @@ body
                                     .discount
                                         h6 45%
                                 .shop-btn
-                                    a.btn.rounded-pill(href='/singleitem/'+product._id) Shop Now
+                                    a.rounded-pill(href='/singleitem/'+product._id) Shop Now
     .container-fluid.footer
-        .container.top-spacings
+        .top-spacings
             .row
+                .col 
+
+                    img.footer-logo(src='../images/s-wlogo2.png' alt='Ufarm Logo')
+                    p.mt-5 Our Apps
+                    .ufarm-apps.d-flex 
+                        img(src='../images/appstore.svg' alt='Ufarm Logo')
+                        img.app-img(src='../images/google.svg' alt='Ufarm Logo')
+                    .social 
+                    .ufarm-apps.d-flex.mt-5 
+                        img(src='../images/twitter-sign.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/facebook.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/youtube.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/instagram.png' alt='Ufarm Logo')
                 .col
                     h5 About Us
                     p
-                        | A small river named Duden flows by their place and supplies
-                        | it with the necessary regelialia. It is a paradisematic country,
-                        | in which roasted parts of sentences fly into your mouth.
+                        | Ufarm Is an online platform that helps Farmers from 
+                        | Majjasa Division reach their Market
+                        | 
+                    h6 Support
+                    p
+                        | ufarm@support.com
+                        br
+                        br
+                        | +256 704535543
                 .col(style='padding-left: 100px;')
                     h5(style='margin-left:30px ; padding-bottom:25px ;') Navigation
                     ul
-                        li About
-                        li Team
-                        li Products
+                        li Home
+                        li Blog
+                        li About Us
                         li Contact Us
                 .col
-                    h5 Subscribe Newsletter
+                    h5 Subscribe News letter
                     .mb-3.mt-4
                         input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
-                    a.btn.btn-primary.m-0(href='#') Go somewhere
+                    a.btn.btn-primary.form-clear-btn(href='#') Subscribe
+            hr(style='margin-top: 85px;')
+            .row
+                .col 
+                    small.mt-4.ml-5 &copy; 2022 Ufarm. Refactory Cohort 12. All rights Reserved 
+                .col 
+                    small.mt-4.ml-5 PRIVACY POLICY &nbsp; &nbsp;&nbsp; TERMS AND CONDITIONS
     script(src='bootstrap-js/js/bootstrap.bundle.js')

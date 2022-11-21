@@ -33,14 +33,14 @@ block content
                         p.card-text.text-muted.mb-0.card-font Pending:
                         if (pending == undefined)
                             p 0
-                            
+
                         else 
                             h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4.card-total-font #{pending.totalQuantity}
                     div.d-flex
                         p.card-text.text-muted.mb-0.card-font Sold:
                         if (sold == undefined)
                             p 0
-                            
+
                         else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{sold.totalQuantity} 
                     //- div.d-flex
@@ -131,9 +131,9 @@ block content
                                     th(scope='col') Status
                             tbody
                                 if approvedList.length
-                                    each item in approvedList
+                                    each item, index in approvedList
                                         tr
-                                            th(scope='row') 1
+                                            td(scope='row')= index + 1
                                             td #{item.producename}
                                             td #{item.quantity+" "+item.units}
                                             td #{item.unitprice}
@@ -152,9 +152,9 @@ block content
                                     th(scope='col') Status
                             tbody
                                 if newOrders 
-                                    each order in newOrders
+                                    each order, index in newOrders
                                         tr
-                                            th(scope='row') 1
+                                            td(scope='row')= index + 1
                                             td #{order.producename}
                                             td #{order.orderquantity+""+order.units}
                                             td shs #{order.unitprice * order.orderquantity}
@@ -162,3 +162,4 @@ block content
         .footer
             small.mt-4.ml-5 © Refactory Cohort 12
             small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+    script(src='bootstrap-js/js/bootstrap.bundle.js')

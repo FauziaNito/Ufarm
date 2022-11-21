@@ -69,17 +69,12 @@ aside a:hover {
 	background-color: #18a15c !important ;
 	border: none;
 }
-.form-add-btn {
-	width: 120px;
-	background-color: #18a15c !important;
-	border: #18a15c;
-	border: none !important;
-}
+
 .form-clear-btn {
 	width: 120px;
 	background-color: #fe9800 !important;
 	border: #fe9800;
-	margin-left:15px;
+	margin-left: 15px;
 }
 .action-btn {
 	width: 75px;
@@ -346,6 +341,24 @@ select:focus {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 }
+.FO-form-btn button {
+	/* padding-top: 10px; */
+	width: 120px;
+	height: 36px;
+	border-radius: 5px !important;
+	background-color: #18a15c;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center !important;
+}
+/* .form-add-btn {
+	width: 120px;
+	background-color: #18a15c !important;
+	border: #18a15c;
+	border: none !important;
+} */
 .coordinate-container {
 	flex-grow: 1 !important;
 }

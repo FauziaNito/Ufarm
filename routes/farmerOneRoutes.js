@@ -82,7 +82,7 @@ router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 });
 
 // Urban Farmer Details update get route
-router.get("/urbanfarmer/update/:id", async (req, res) => {
+router.get("/urbanfarmer/update/:id",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		const updateFarmer = await Registration.findOne({ _id: req.params.id });
 		res.render("FO/urbanFarmer-update", { loggedUser: req.session.user, urbanFarmer: updateFarmer });

@@ -53,16 +53,16 @@ body
             #navbarNav.collapse.navbar-collapse
                 ul.navbar-nav
                     li.nav-item
-                        a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
-                    li.nav-item
-                        a.nav-link.active.menu-item(href='#') Special Deals
+                        a.nav-link.active.ml-5.menu-item(aria-current='page' href='/') Home
                     li.nav-item
                         a.nav-link.active.menu-item(href='#') Blog
                     li.nav-item
+                        a.nav-link.active.menu-item(href='#') About Us
+                    li.nav-item
                         a.nav-link.active.menu-item(href='#') Contact Us
             .app-entry
-                a.btn(href="/login") Login
-                a.btn(href="/signup") Signup
+                a(href="/login") Login
+                a(href="/signup") Signup
     #carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
         .carousel-inner
             .carousel-item.active
@@ -102,7 +102,7 @@ body
                 h4 Dairy Products
             div
                 h4 New Arrivals
-    .container-fluid(style="margin: auto;")
+    .container-fluid
         .produce-container
             if products.length
                 each product in products
@@ -127,11 +127,11 @@ body
                                         h6 Shs  #{product.unitprice} 
                                     .original-price
                                         h6.text-muted
-                                            s Shs 1500 
+                                            s discount 
                                     .discount
-                                        h6 45%
+                                        h6 %
                                 .shop-btn
-                                    a.btn.rounded-pill(href='/singleitem/'+product._id) Shop Now
+                                    a.rounded-pill(href='/singleitem/'+product._id) Shop Now
                     else 
                         .card.produce-card
                             .card-body
@@ -151,13 +151,13 @@ body
                                         h6 Shs  #{product.unitprice} 
                                     .original-price
                                         h6.text-muted
-                                            s Shs 1500 
+                                            s discount 
                                     .discount
-                                        h6 45%
+                                        h6 0%
                                 .shop-btn
-                                    a.btn.rounded-pill(href='/singleitem/'+product._id) Shop Now
+                                    a.rounded-pill(href='/singleitem/'+product._id) Shop Now
     .container.load-more
-        button.btn(type='submit') Load More
+        button(type='submit') Load More
     .container-fluid.footer
         .top-spacings
             .row
@@ -177,19 +177,31 @@ body
                 .col
                     h5 About Us
                     p
-                        | A small river named Duden flows by their place and supplies
-                        | it with the necessary regelialia. It is a paradisematic country,
-                        | in which roasted parts of sentences fly into your mouth.
+                        | Ufarm Is an online platform that helps Farmers from 
+                        | Majjasa Division reach their Market
+                        | 
+                    h6 Support
+                    p
+                        | ufarm@support.com
+                        br
+                        br
+                        | +256 704535543
                 .col(style='padding-left: 100px;')
                     h5(style='margin-left:30px ; padding-bottom:25px ;') Navigation
                     ul
-                        li About
-                        li Team
-                        li Products
+                        li Home
+                        li Blog
+                        li About Us
                         li Contact Us
                 .col
                     h5 Subscribe News letter
                     .mb-3.mt-4
                         input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
                     a.btn.btn-primary.form-clear-btn(href='#') Subscribe
+            hr(style='margin-top: 85px;')
+            .row
+                .col 
+                    small.mt-4.ml-5 &copy; 2022 Ufarm. Refactory Cohort 12. All rights Reserved 
+                .col 
+                    small.mt-4.ml-5 PRIVACY POLICY &nbsp; &nbsp;&nbsp; TERMS AND CONDITIONS
     script(src='bootstrap-js/js/bootstrap.bundle.js')
