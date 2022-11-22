@@ -260,7 +260,7 @@ const FarmerOneForm = (event) => {
 		error++;
 	} else if (yearDiff <= 18) {
 		birthDate.style.border = "1px solid red";
-		dateOfBirthError.textContent = "Sorry Farmer One can not be this young";
+		dateOfBirthError.textContent = "Sorry Farmer One should be 18yrs above";
 		dateOfBirthError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;

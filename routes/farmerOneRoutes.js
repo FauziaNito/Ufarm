@@ -42,8 +42,8 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 			let approved = approvedProduce[0];
 			let pending = pendingProduce[0];
 			let sold = soldProduce[0];
-			let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
-			let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
+			// let totalProduce = approved.totalQuantity + pending.totalQuantity + sold.totalQuantity;
+			// let totalSales = approved.totalCost + pending.totalCost + sold.totalCost;
 
 			res.render("FO/FO-dashboard", {
 				loggedUser: req.user,
@@ -57,8 +57,8 @@ router.get("/FOdashboard", connectEnsureLogin.ensureLoggedIn(), async (req, res)
 				approved,
 				pending,
 				sold,
-				totalProduce,
-				totalSales,
+				// totalProduce,
+				// totalSales,
 			});
 		} catch (error) {
 			res.status(400).send("unable to find items in the database");
@@ -82,7 +82,7 @@ router.get("/UFlist", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 });
 
 // Urban Farmer Details update get route
-router.get("/urbanfarmer/update/:id",connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+router.get("/urbanfarmer/update/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		const updateFarmer = await Registration.findOne({ _id: req.params.id });
 		res.render("FO/urbanFarmer-update", { loggedUser: req.session.user, urbanFarmer: updateFarmer });

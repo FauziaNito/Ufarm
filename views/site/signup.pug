@@ -7,21 +7,21 @@ block content
             h5 Register Now!
             hr
             .row
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='firstname')
                             | First Name:
                             small  *
                         input#firstname(type='text' name='firstname' autocomplete='off')
                         small#firstnameerr
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='lastname')
                             | Last Name:
                             small  *
                         input#lastname(type='text' name='lastname' autocomplete='off')
                         small#lastnameerr
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='phonenumber')
                             | Phone Number:
@@ -29,7 +29,7 @@ block content
                         input#phonenumber(type='text' name='phonenumber' autocomplete='off')
                         small#phonenumbererr
             .row   
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='role') Register As:
                         select#role(name='role')
@@ -37,14 +37,14 @@ block content
                             option(value = "agriculturalofficer") Agricutural Officer
                             option(value = "generalpublic") Buyer
                         small#roleerr     
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='uniquenumber')
                             | Unique Number:
                             small  *
                         input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
                         small#uniquenumbererr
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='email')
                             | Email:
@@ -52,21 +52,21 @@ block content
                         input#email(type='text' name='email' autocomplete='off')
                         small#emailerr
             .row
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='password')
                             | Password:
                             small  *
                         input#password(type='password' name='password' autocomplete='off')
                         small#passworderr
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='birthdate')
                             | Date of Bith
                             small.asterisk  *
                         input#birthdate(type='date' name='birthdate' autocomplete='off')
                         small#birthdateerr
-                .col
+                .col-lg-4.col-md-12.col-sm-12
                     .form-field
                         label(for='gender') Gender:
                         .radio#gender

@@ -33,14 +33,12 @@ block content
                         p.card-text.text-muted.mb-0.card-font Pending:
                         if (pending == undefined)
                             p 0
-
                         else 
                             h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4.card-total-font #{pending.totalQuantity}
                     div.d-flex
                         p.card-text.text-muted.mb-0.card-font Sold:
                         if (sold == undefined)
                             p 0
-
                         else
                             h5.card-title.text-muted.text-center.mt-0.pt-1.card-total-font #{sold.totalQuantity} 
                     //- div.d-flex
@@ -159,7 +157,7 @@ block content
                                             td #{order.orderquantity+""+order.units}
                                             td shs #{order.unitprice * order.orderquantity}
                                             td.pending #{order.status}
-        .footer
+        //- .footer
             small.mt-4.ml-5 © Refactory Cohort 12
             small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576
     script(src='bootstrap-js/js/bootstrap.bundle.js')

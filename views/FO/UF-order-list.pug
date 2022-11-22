@@ -24,11 +24,11 @@ block content
         .container
             .card.mt-5(style='width: 100%')
                 .card-body
-                    h5.card-title  List of Your Confirmed Orders
+                    h5.card-title  List of Farmers Orders
                     table.table.table-hover
                         thead
                             tr
-                                //- th Image
+                                th No.
                                 th Produce
                                 th Order Quantity
                                 //- th Available Quantity
@@ -41,9 +41,10 @@ block content
                                 //- th Confirm
                         tbody
                             if orders.length
-                                each order in orders
+                                each order, index in orders
                                         tr
-                                            //- td 
+                                            
+                                            th(scope='row')= index + 1
                                             //-     img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
                                             td #{order.producename}
                                             td #{order.orderquantity+""+order.units}
@@ -65,6 +66,6 @@ block content
                                             //-     a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='') Change
                                             //- td
                                             //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
-        .footer
+        //- .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576

@@ -25,27 +25,27 @@ block content
         h5.text-muted.text-center Add FarmerOne Details
         hr
         .row
-          .col.col-md-3.col-sm-6
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='firstname') First Name:
                 small.asterisk  *
               input#firstname(type='text' name='firstname' autocomplete='off')
               small#firstnameerr
-          .col.col-md-3.col-sm-6
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='lastname')
                 | Last Name:
                 small.asterisk  *
               input#lastname(type='text' name='lastname' autocomplete='off')
               small#lastnameerr    
-          .col.col-md-3.col-sm-6
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='uniquenumber')
                 | Unique Number:
                 small.asterisk  *
               input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample FOW1-001')
               small#uniquenumbererr
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='password')
                 | Password:
@@ -53,28 +53,28 @@ block content
               input#password.text-muted(type='password' name='password' autocomplete='off')
               small#passworderr
         .row
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='role') Role
               select#role(name='role')
                 option(value = "selectrole") Select Role
                 option(value = "farmerOne") Farmer One
               small#roleerr
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='ninnumber')
                 | NIN Number:
                 small.asterisk  *
               input#ninnumber(type='text' name='ninnumber' autocomplete='off')
               small#ninNumberError 
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='phonenumber')
                 | Phone Number:
                 small.asterisk  *
               input#phonenumber(type='text' name='phonenumber')
               small#phonenumbererr 
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='residenttype') Resident Type:
               select#residenttype(name='residenttype')
@@ -83,28 +83,28 @@ block content
                 option(value='Temporary') Temporary
               small#residenttypeerr 
         .row
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='periodofstay')
                 | Period of Stay:
                 small.asterisk  *
               input#periodofstay(type='number' name='periodofstay' autocomplete='off')
               small#periodofstayerr 
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='regdate')
                 | Date of Registration:
                 small.asterisk  *
               input#regdate(type='date' name='regdate' autocomplete='off')
 
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='birthdate')
                 | Date of Bith
                 small.asterisk  *
               input#birthdate(type='date' name='birthdate' autocomplete='off')
               small#birthdateerr 
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='gender') Gender:
               .radio#gender
@@ -118,7 +118,7 @@ block content
         hr.mt-1
         p.text-muted Add FarmerOne&apos;s Direction Coordinates
         .row
-          .col.col-md-3
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='ward') Ward:
               select#ward(name='ward')
@@ -128,21 +128,21 @@ block content
                 option(value='Ward 3') Ward 3
                 option(value='Ward 4') Ward 4
               small#warderr 
-          .col.column-stretch-left
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='streetname')
                 | Street Name:
                 small.asterisk  *
               input#streetname(type='text' name='streetname' autocomplete='off')
               small#streetnameerr 
-          .col
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='housenumber')
                 | House Number:
                 small.asterisk  *
               input#housenumber(type='text' name='housenumber' autocomplete='off')
               small#housenumbererr     
-          .col
+          .col-lg-3.col-md-6.col-sm-12
             .form-field
               label(for='gender') Activities:
               .activity()
@@ -157,7 +157,7 @@ block content
             button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit') Add New
           .button1
             button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='rest' style='width: 120px') Clear
-    .footer
+    //- .footer
       small.mt-4.ml-5 &copy; Refactory Cohort 12
       small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
   script(src='bootstrap-js/js/bootstrap.bundle.min.js')

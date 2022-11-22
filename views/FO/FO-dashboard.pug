@@ -22,7 +22,7 @@ block content
             .card.bottom-shadow.border-color.mr-3.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Registered Farmers
-                    img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+                    img.card-logo.mb-2(src='../images/users.png' alt='Ufarm logo')
                     div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Active:
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{activeFarmers}
@@ -34,43 +34,58 @@ block content
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{inactiveFarmers}
                     div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Farmers: #{totalUsers}
-                        //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
+                        
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Produce Count
                     img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{approved.totalQuantity}
+                        p.card-text.text-muted.mb-0.card-font Approved:
+                        if (approved == undefined)
+                            p 0
+                        else
+                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{approved.totalQuantity}
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{pending.totalQuantity}
+                        p.card-text.text-muted.mb-0.card-font Pending:
+                        if (pending == undefined)
+                            p 0
+                        else 
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{pending.totalQuantity}
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{sold.totalQuantity}
-                    div.d-flex
+                        p.card-text.text-muted.mb-0.card-font Sold:
+                        if (sold == undefined)
+                            p 0
+                        else
+                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{sold.totalQuantity}
+                    //- div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Produce: 
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
             .card.bottom-shadow.border-color.ml-4.dashboard-card
                 .card-body.m-1.p-2.pt-1.text-center
                     p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Projected Sales Count
-                    img.card-logo.mb-2(src='../images/farm.png' alt='Ufarm logo')
+                    img.card-logo.mb-2(src='../images/money-bagg.png' alt='Ufarm logo')
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Approved:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(approved.totalCost)} UGX
+                        p.card-text.text-muted.mb-0.card-font Approved:
+                        if (approved == undefined)
+                            p 0
+                        else
+                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(approved.totalCost)} UGX
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Pending:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(pending.totalCost)} UGX
+                        p.card-text.text-muted.mb-0.card-font Pending:
+                        if (pending == undefined)
+                            p 0
+                        else
+                            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(pending.totalCost)} UGX
                     div.d-flex
-                        p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Sold:
-                        h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sold.totalCost)} UGX
-                    div.d-flex
+                        p.card-text.text-muted.mb-0.card-font Sold:
+                        if (sold == undefined)
+                            p 0
+                        else
+                            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(sold.totalCost)} UGX
+                    //- div.d-flex
                         p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total Sale: 
                         h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalSales)} UGX
-            //- .card.bottom-shadow.border-color.ml-4.dashboard-card
-            //-     .card-body.m-1.p-2.pt-1.text-center
-            //-         h5.card-title.text-muted.text-center.mt-0.pt-0(style='font-weight: bold') 600
-            //-         p.card-text.p-0.m-0.text-muted(style='font-size: 15px') Farmers Rating
+            
         .container-fluid.stast-grid.mt-5
             .card(style='width: 260px; height: 300px;')
                 | .
@@ -122,9 +137,9 @@ block content
                                     th(scope='col') Phone Number
                             tbody
                                 if newFarmers.length 
-                                    each farmer in newFarmers
+                                    each farmer, index in newFarmers
                                         tr
-                                            th(scope='row') 1
+                                            th(scope='row')= index + 1
                                             td #{farmer.lastname+ " "+farmer.firstname}
                                             if farmer.status == "Active"
                                                 td.approved #{farmer.status}
@@ -148,9 +163,9 @@ block content
                                     th(scope='col') Status
                             tbody
                                 if orders.length
-                                    each order in orders
+                                    each order, index in orders
                                             tr
-                                                th(scope='row') 1
+                                                th(scope='row')= index + 1
                                                 td #{order.producename}
                                                 td #{order.orderquantity+""+order.units}
                                                 td shs #{order.unitprice * order.orderquantity}
@@ -175,9 +190,9 @@ block content
                                 th(scope='col') Change Status
                         tbody
                         if pendingProduce.length 
-                            each awaitingProduce in pendingProduce
+                            each awaitingProduce, index in pendingProduce
                                 tr
-                                    th(scope='row') 1
+                                    th(scope='row')= index + 1
                                     td #{awaitingProduce.producename}
                                     td #{awaitingProduce.quantity+""+awaitingProduce.units}
                                     td #{awaitingProduce.unitprice}
@@ -185,7 +200,7 @@ block content
                                     td.pending #{awaitingProduce.status}
                                     td
                                         a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/approveproduce') Approve                                    
-        .footer
+        //- .footer
             small.mt-4.ml-5 © Refactory Cohort 12
             small.mt-4.mr-5 © Designed By Fauzia | fauzianaava@gmail.com | 0704545576
     script(src='bootstrap-js/js/bootstrap.bundle.min.js')

@@ -246,7 +246,7 @@ body {
 	width: 900px;
 }
 .form-style-login {
-	margin-top: 4%;
+	margin-top: 3%;
 	background-color: #fff;
 	padding: 1em;
 	border-radius: 5px;
@@ -492,4 +492,14 @@ select:focus {
 	width: 120px;
 	background-color: #fe9800 !important;
 	border: #fe9800;
+}
+.password-container{
+	display: flex;
+	justify-content: space-between;
+}
+.password-reset{
+	align: right;
+	color:#83b735;
+	font-size: 10px; 
+	margin-top:0px;
 }

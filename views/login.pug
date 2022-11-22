@@ -39,7 +39,7 @@ html(lang='en')
           hr
           .form-field
             label(for='uniquenumber')
-              | Unique Number:
+              | Username:
               small  *
             input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
             small#uniquenumbererr
@@ -48,8 +48,10 @@ html(lang='en')
               | Password:
               small  *
             input#password(type='password' name='password' autocomplete='off')
-            small#passworderr
-            small.m-0(style='font-size: 10px; margin:0') forgot Password
+            .password-container
+              small#passworderr
+              .password-reset
+                small forgot Password
           .site-login-btn
             button.rounded-pill.button-color(type='submit') Login
           .account-signup

@@ -21,21 +21,20 @@ block content
         .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
             .ml-4
                 h4 List of your Uploaded Produce
-            .mr-4
+            .new-btn
                 a(href='/uploadproduce')
-                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit') Add Produce
-            .mr-4
-                a(href='#')
-                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit') View Produce Archives
+                    button.mb-3(type='submit') New Produce
+
         .container
-            .card.mt-5(style='width: 100%')
+            .card.mt-3(style='width: 100%')
                 .card-body
-                    h5.card-title Uploaded Produce List
+                    h5.card-title 
                     table.table.table-hover
                         thead
                             tr
+                                th No.
                                 th Image
-                                th Produce Name
+                                th Produce
                                 th Quantity
                                 th Unity Price
                                 th Mode of Payment
@@ -47,8 +46,9 @@ block content
 
                         tbody
                             if products.length
-                                each product in products
-                                    tr
+                                each product, index in products
+                                    tr  
+                                        td(scope='row')= index + 1
                                         td 
                                             img.produce-list-img(src="/"+product.imageupload, alt="Image" width='150px' height="150px")
                                         td #{product.producename}
@@ -67,11 +67,11 @@ block content
                                         else
                                             td.pending #{product.status}
                                         td
-                                            a.ml-4.bi.bi-pencil-fill.icon-style(href='/produce/update/'+product._id)
+                                            a.bi.bi-pencil-fill.icon-style.edit-icon(href='/produce/update/'+product._id)
                                         td
-                                            form.btn-delete-style(method="post" action='/produce/delete')
+                                            form(method="post" action='/produce/delete')
                                                 input(type="hidden" placeholder="" name="id", value=product._id)
-                                                button.ml-4.bi.bi-trash3-fill.icon-style(type='submit')
+                                                button.btn-delete-style.bi.bi-trash3-fill.icon-style(type='submit')
                                         //- td
                                         //-     a.ml-4.bi.bi-trash3-fill.icon-style(href='/produce/delete/'+product._id)
 

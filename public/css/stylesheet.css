@@ -5,6 +5,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	box-sizing: border-box;
+	min-height: 100vh;
 	/* font-family: "Verdana";
     font-size: 16px; */
 }
@@ -61,20 +62,34 @@ aside a:hover {
 	margin: auto;
 	border-color: #83b735 !important ;
 }
-.login-btn {
-	width: 180px;
+.new-btn{
 	text-align: center;
 }
-.big-btn-color {
-	background-color: #18a15c !important ;
+.new-btn button{
+	/* width: 180px; */
+	padding: 9px 18px;
+	border-radius: 5px !important;
+	background-color: #18a15c;
+	color: white;
 	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center !important;
 }
-
+.new-btn a{
+	text-decoration: none;
+}
 .form-clear-btn {
 	width: 120px;
 	background-color: #fe9800 !important;
 	border: #fe9800;
 	margin-left: 15px;
+	border-radius: 5px !important;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	
 }
 .action-btn {
 	width: 75px;
@@ -150,10 +165,12 @@ ul.sidebar-list li {
 	font-size: 109%;
 }
 .footer {
+	position: fixed;
+	bottom: 0;
 	display: flex;
-	margin-top: 40px;
-	width: 100%;
-	height: 60px;
+	margin-top: auto;
+	width: 80%;
+	height: 50px;
 	background-color: #f1f1f1;
 	justify-content: space-between;
 }
@@ -353,12 +370,17 @@ select:focus {
 	text-decoration: none;
 	text-align: center !important;
 }
-/* .form-add-btn {
+
+.form-add-btn {
 	width: 120px;
+	border-radius: 5px !important;
 	background-color: #18a15c !important;
 	border: #18a15c;
-	border: none !important;
-} */
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+}
 .coordinate-container {
 	flex-grow: 1 !important;
 }
@@ -380,6 +402,15 @@ select:focus {
 }
 .asterisk {
 	color: red;
+}
+.btn-delete-style{
+	border: none !important;
+	background-color: transparent;
+	margin-left: 6px !important;
+}
+.edit-icon{
+	align-self: center !important;
+	margin-left: 20px !important;
 }
 
 /* MEDIA QUERIES */
@@ -410,9 +441,9 @@ select:focus {
 	font-size: 17px;
 	color: #fe9800;
 }
-a :hover {
+/* a :hover {
 	color: #bac34e !important;
-}
+} */
 
 .approve-btn {
 	width: 85px;
