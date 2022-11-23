@@ -21,19 +21,19 @@ block content
         .container-fluid.d-flex.flex-row.flex-wrap.justify-content-between.mt-4
             .ml-4
                 h3 Urban Farmer
-            .mr-4
+            .new-btn
                 a(href='/registerUF')
-                    button.btn.btn-primary.mb-3.login-btn.big-btn-color.mr-auto(type='submit')
+                    button.mb-3.login-btn.big-btn-color.mr-auto(type='submit')
                         | Add
                         | Urban Farmer
         .container
-            .card.mt-5(style='width: 100%;')
+            .card.mt-3(style='width: 100%;')
                 .card-body
                     h5.card-title Current Urban Farmers
                     table.table.table-hover
                         thead
                             tr
-                                //- th(scope='col') #
+                                th(scope='col') No.
                                 th(scope='col') Name
                                 th(scope='col') Unique Number
                                 th(scope='col') Ward
@@ -44,9 +44,9 @@ block content
                                 th(scope='col') Change Status
                             tbody
                                 if urbanFarmers.length 
-                                    each user in urbanFarmers
+                                    each user, index in urbanFarmers
                                         tr
-                                            //- td #{user.unitprice}
+                                            th(scope='row')= index + 1
                                             td #{user.lastname+ " "+user.firstname}
                                             td #{user.uniquenumber}
                                             td #{user.ward}
@@ -59,8 +59,10 @@ block content
                                             else 
                                                 td.text-danger #{user.status}
                                             td
-                                                a.ml-4.bi.bi-pencil-fill.icon-style(href='/farmerone/update/'+user._id)
+                                                a.ml-4.bi.bi-pencil-fill.icon-style(href='/urbanfarmer/update/'+user._id)
                                             td
                                                 a.btn.btn-primary.mb-3.approve-btn.rounded-pill(href='/urbanfarmer/status/'+user._id) Change
-        .footer
+        //- .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
         script(src='bootstrap-js/js/bootstrap.bundle.js')

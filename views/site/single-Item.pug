@@ -61,10 +61,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                 li.nav-item
                     a.nav-link.active.menu-item(href='#') Contact Us
         .app-entry
-            .btn.login-btn
-                button.btn.rounded-pill(type='submit') Login
-            .btn.login-btn
-                button.btn.rounded-pill(type='submit') Signup
+                a(href="/login") Login
+                a(href="/signup") Signup
 .container-fluid.single-produce
     div.mt-4(style='margin-left:50px')
         .card.mt-5(style='width: 23rem; height: 25rem')
@@ -109,18 +107,19 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
             h6 #{singleItem.modeofdelivery}
         hr(style="margin-top:25px")
         .order-btn
-            a.btn.rounded-pill(href="#order-area") Order Now
+            a.rounded-pill(href="#order-area") Order Now
 
-    .additional-details.mt-4(style='margin-right:30px;margin-left:15px')
+    .additional-details.mt-4
         .card.mt-5(style='width: 15rem; height: 30rem')
             .card-body
                 .detailed-card.d-flex 
                     .detail-icon
-                        i.bi.bi-star.icon-style
+                        i.bi.bi-cart-check-fill.icon-style
                     .detailed-header
                         h5 Free Fast Delivery
                 .detailed-content 
-                    p Online Only Exclusions Apply
+                    p Produce delivered at your door
+                    h4 Advertise Here
 .container-fluid.checkout-area#order-area
     h3.checkout-header Checkout
     h5.order-text Complete your order Please !!!!
@@ -256,29 +255,54 @@ nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
                                     input#farmername(type='hidden' name='farmername' autocomplete='off' value= singleItem.farmername)
                                     
                         .user-btn-container
-                            button.btn.rounded-pill.checkout-order-btn(type='submit') Checkout
-                            p
+                            button.rounded-pill.checkout-order-btn(type='submit') Checkout
+                            //- p
                                 a(href='/login' style='font-size:17px; color: #fe9800') Login
                                 |  to submit your order
 .container-fluid.footer
-    .container.top-spacings
-        .row
-            .col
-                h5 About Us
-                p
-                    | A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic
-                    | country, in which roasted parts of sentences fly into your mouth.
-            .col(style='padding-left: 100px')
-                h5(style='margin-left: 30px; padding-bottom: 25px') Navigation
-                ul
-                    li About
-                    li Team
-                    li Products
-                    li Contact Us
-            .col
-                h5 Subscribe Newsletter
-                .mb-3.mt-4
-                    input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
-                a.btn.btn-primary(href='#') Go somewhere
-        script(src='bootstrap-js/js/bootstrap.bundle.js')
-        script(src='js/login_form_validation.js')
+        .top-spacings
+            .row
+                .col 
+
+                    img.footer-logo(src='../images/s-wlogo2.png' alt='Ufarm Logo')
+                    p.mt-5 Our Apps
+                    .ufarm-apps.d-flex 
+                        img(src='../images/appstore.svg' alt='Ufarm Logo')
+                        img.app-img(src='../images/google.svg' alt='Ufarm Logo')
+                    .social 
+                    .ufarm-apps.d-flex.mt-5 
+                        img(src='../images/twitter-sign.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/facebook.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/youtube.png' alt='Ufarm Logo')
+                        img.social-img(src='../images/instagram.png' alt='Ufarm Logo')
+                .col
+                    h5 About Us
+                    p
+                        | Ufarm Is an online platform that helps Farmers from 
+                        | Majjasa Division reach their Market
+                        | 
+                    h6 Support
+                    p
+                        | ufarm@support.com
+                        br
+                        br
+                        | +256 704535543
+                .col(style='padding-left: 100px;')
+                    h5(style='margin-left:30px ; padding-bottom:25px ;') Navigation
+                    ul
+                        li Home
+                        li Blog
+                        li About Us
+                        li Contact Us
+                .col
+                    h5 Subscribe News letter
+                    .mb-3.mt-4
+                        input#news-letter.form-control.form-input(type='email' placeholder='Enter Email')
+                    a.btn.btn-primary.form-clear-btn(href='#') Subscribe
+            hr(style='margin-top: 85px;')
+            .row
+                .col 
+                    small.mt-4.ml-5 &copy; 2022 Ufarm. Refactory Cohort 12. All rights Reserved 
+                .col 
+                    small.mt-4.ml-5 PRIVACY POLICY &nbsp; &nbsp;&nbsp; TERMS AND CONDITIONS
+script(src='bootstrap-js/js/bootstrap.bundle.js')

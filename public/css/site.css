@@ -26,6 +26,10 @@ body {
 	height: auto;
 	width: 150px;
 }
+.footer-logo {
+	height: auto;
+	width: 50%;
+}
 .search-style {
 	width: 100px;
 	border-radius: 25px;
@@ -65,24 +69,33 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-
-	/* position: absolute; */
+	align-items: center;
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	/* align-items: center; */
 }
 .category-card {
-	margin-top: 5%;
+	/* margin-top: 5%; */
 	margin-bottom: 5%;
 	border-radius: 0%;
 	width: 100% !important;
-	height: 180px !important;
-	border-left-color: #83b735;
-	border-top-color: #83b735;
-	border-bottom-color: #83b735;
+	height: 195px !important;
+	border: 1px solid #83b735;
+	box-shadow: 0.5px 1.5px 3px rgba(0, 0, 0, 0.3);
 }
-
+.card-content {
+	position: relative;
+	text-align: center;
+}
+.category-txt {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.cat-card-text {
+	align-self: center;
+}
 .category-card h5 {
 	/* margin: auto !important; */
 }
@@ -100,14 +113,11 @@ body {
 .produce-container {
 	display: flex;
 	flex-direction: row;
-	/* justify-content: space-between; */
 	flex-wrap: wrap;
 	margin-top: 3%;
-	align-content: flex-start;
-	/* margin-right: 3%; */
 }
 .produce-card {
-	margin-right: 25px;
+	margin-left: 25px;
 	margin-bottom: 25px;
 	height: 450px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -121,49 +131,34 @@ body {
 
 .shop-btn {
 	padding: 1%;
-	margin-top: 4%;
+	margin-top: 10%;
 	text-align: center;
+	
 }
 .shop-btn a {
-	width: 60%;
-	padding: 4% 5%;
+	/* width: 60%; */
+	padding: 4% 10%;
 	border-radius: 30px !important;
 	background-color: #18a15c;
 	color: white;
 	border: none;
 	font-size: 16px;
-}
-.shop-btn a:hover {
-	/* background-color: #18a15c !important; */
 	text-decoration: none;
-	/* color: white !important; */
 }
-.shop-btn a:active,
-:focus {
-	/* background-color: #18a15c !important; */
-	text-decoration: none;
-	/* color: white !important; */
+.order-btn {
+	padding: 1%;
+	margin-top: 7%;
 }
-.order-btn a{
-	width: 25%;
-	margin-top: 15px;
-	padding: 15px;
+.order-btn a {
+
+	margin-top: 25px;
+	padding: 2.5% 8%;
 	border-radius: 30px !important;
 	background-color: #18a15c;
 	color: white;
 	border: none;
 	font-size: 16px;
-}
-.order-btn a:hover {
-	/* background-color: #18a15c !important; */
 	text-decoration: none;
-	/* color: white !important; */
-}
-.order-btn a:active,
-:focus {
-	/* background-color: #18a15c !important; */
-	text-decoration: none;
-	/* color: white !important; */
 }
 .item-name {
 	display: flex;
@@ -192,6 +187,7 @@ body {
 }
 .load-more {
 	margin-top: 5%;
+	margin: auto;
 }
 .load-more button {
 	width: 20% !important;
@@ -209,7 +205,7 @@ body {
 	margin-top: 20%;
 	background-color: #0b472e;
 	color: whitesmoke;
-	height: 400px;
+	height: 450px;
 }
 .footer h5 {
 	color: #f1f1f1;
@@ -226,6 +222,8 @@ body {
 	margin-right: 20px;
 	border-radius: 30px !important;
 	padding: 9px;
+	text-decoration: none;
+	text-align: center;
 }
 .app-entry a:hover {
 	/* background-color: #18a15c !important; */
@@ -248,7 +246,7 @@ body {
 	width: 900px;
 }
 .form-style-login {
-	margin-top: 4%;
+	margin-top: 3%;
 	background-color: #fff;
 	padding: 1em;
 	border-radius: 5px;
@@ -299,6 +297,7 @@ select:focus {
 .site-signup-btn button {
 	width: 35%;
 	margin-top: 25px;
+	padding: 0.8%;
 	margin-bottom: 10px;
 	border-radius: 10px !important;
 	background-color: #18a15c;
@@ -306,25 +305,16 @@ select:focus {
 	border: none;
 	font-size: 17px;
 }
-.site-signup-btn button:hover {
-	/* background-color: #18a15c !important; */
-  	text-decoration: none;
-	/* color: white !important; */
-}
-.site-signup-btn button:active,:focus {
-	/* background-color: #18a15c !important; */
-  	text-decoration: none;
-	/* color: white !important; */
-}
+
 .site-login-btn {
 	text-align: center;
 }
-.button-color{
+.button-color {
 	background-color: #18a15c;
 }
 .site-login-btn button {
 	width: 60%;
-	margin-top: 25px;
+	margin-top: 10px;
 	padding: 2%;
 	margin-bottom: 10px;
 	border-radius: 10px !important;
@@ -401,8 +391,14 @@ select:focus {
 .single-produce {
 	display: flex;
 	margin-bottom: 10%;
-	/* margin-left: 40px;
-	margin-right: 40px; */
+	justify-content: space-around
+	
+}
+.single-produce .additional-details{
+	margin-right:30px;
+	margin-left:15px;
+	align-self: flex-end;
+	
 }
 .checkout-area {
 	background-color: #fffafa;
@@ -411,7 +407,7 @@ select:focus {
 .align-details {
 	display: flex;
 	/* justify-content: center; */
-	margin-left:25px;
+	margin-left: 25px;
 }
 .farmer-text {
 	font-style: normal;
@@ -436,8 +432,8 @@ select:focus {
 	font-size: 17px;
 	font-size: 18px;
 }
-.user-btn-container{
-text-align: center;
+.user-btn-container {
+	text-align: center;
 }
 .checkout-order-btn {
 	width: 35%;
@@ -450,13 +446,20 @@ text-align: center;
 	border: none;
 	font-size: 17px;
 	font-size: 18px;
-	
 }
 .text-align-right {
 	margin-left: 65%;
 }
 .top-spacings {
 	padding-top: 5%;
+	padding-left: 3.5%;
+	padding-right: 3.5%;
+}
+.app-img {
+	padding-left: 3%;
+}
+.social-img {
+	padding-left: 10%;
 }
 .produce-details {
 	margin-top: 6%;
@@ -484,4 +487,19 @@ text-align: center;
 }
 .account-signup {
 	text-align: center;
+}
+.form-clear-btn {
+	width: 120px;
+	background-color: #fe9800 !important;
+	border: #fe9800;
+}
+.password-container{
+	display: flex;
+	justify-content: space-between;
+}
+.password-reset{
+	align: right;
+	color:#83b735;
+	font-size: 10px; 
+	margin-top:0px;
 }

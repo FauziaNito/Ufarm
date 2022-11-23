@@ -22,7 +22,7 @@ var modeOfPayment = document.getElementById("modeofpayment");
 var imageUplaod = document.getElementById("imageupload");
 var produceDetails = document.getElementById("prodesc");
 // var produceType = document.registerproduce.producetype;
-var producttype = document.registerproduce.producttype;
+var produceType = document.registerproduce.producttype;
 
 var produceCategoryError = document.getElementById("producecategoryerr");
 var produceNameError = document.getElementById("producenameerr");
@@ -36,7 +36,7 @@ var imageUplaodError = document.getElementById("imageuploaderr");
 var produceDetailsError = document.getElementById("prodescerr");
 // var produceTypeError = document.getElementById("producttypeerr");
 var radioError = document.getElementById("producetyperadioerr");
-let error = 0;
+
 
 let totalPriceValue = () => {
 	totalPrice.value = produceQuantity.value * unitPrice.value;
@@ -46,6 +46,7 @@ let totalPriceValue = () => {
 unitPrice.addEventListener("change", totalPriceValue);
 
 const ProduceForm = (event) => {
+	let error = 0;
 	//Produce Category input validation
 	if (produceCategory.value == "selectcategory") {
 		produceCategory.style.border = "1px solid red";
@@ -149,7 +150,7 @@ const ProduceForm = (event) => {
 	}
 
 	//Mode of Payment input validation
-	if (modeOfPayment.value === "modeofpayments") {
+	if (modeOfPayment.value == "modeofpayments") {
 		modeOfPayment.style.border = "1px solid red";
 		modeOfPaymentError.textContent = "Please Select Mode of payment";
 		modeOfPaymentError.style = "color:red; font-size:12px; font-family:Arial, Helvetica, Sans-serif";
@@ -160,8 +161,20 @@ const ProduceForm = (event) => {
 		modeOfPaymentError.textContent = "";
 	}
 
+	//Image Upload input validation
+	if (imageUplaod.value == "") {
+		imageUplaod.style.border = "1px solid red";
+		imageUplaodError.textContent = "Please Select Product Image";
+		imageUplaodError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+		// return false;
+		error++;
+	}
+	else {
+		imageUplaod.style.border = "1px solid green";
+		imageUplaodError.textContent = "";
+	}
+
 	//Produce Description input validation
-	let alphaNumRegex = /^[0-9a-zA-Z]+$/;
 	if (produceDetails.value == "") {
 		produceDetails.style.border = "1px solid red";
 		produceDetailsError.textContent = "Please Enter Product Description";
@@ -169,27 +182,19 @@ const ProduceForm = (event) => {
 		// return false;
 		error++;
 	}
-	// else if (!produceDetails.value.match(alphaNumRegex)) {
-	// 	produceDetails.style.border = "1px solid red";
-	// 	produceDetailsError.textContent = "Please Enter a valid description";
-	// 	produceDetailsError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
-	// 	// return false;
-	// 	error++;
-	// }
 	else {
 		produceDetails.style.border = "1px solid green";
 		produceDetailsError.textContent = "";
 	}
 	
 	//Produce Type input validation
-	if (producttype[0].checked == false && producttype[1].checked == false) {
-		// gender.style.border = "1px solid red";
+	if (produceType[0].checked == false && produceType[1].checked == false) {
 		radioError.textContent = "Please Check Produce Type";
 		radioError.style = "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
 		// return false;
 		error++;
 	} else {
-		producttype.style.border = "1px solid green";
+		// producttype.style.border = "1px solid green";
 		radioError.textContent = "";
 	}
 

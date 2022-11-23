@@ -3,10 +3,11 @@ head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet' href='bootstrap-css/css/bootstrap.css')
+    link(rel='stylesheet' href='/bootstrap-css/css/bootstrap.css')
     link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css')
-    link(rel='stylesheet' href='css/site.css')
-body
+    link(rel='stylesheet' href='/css/site.css')
+    title Cart
+body 
     nav.navbar.navbar-expand-lg.shadow.p-0.mb-3.bg-white.bottom-shadow
         .container-fluid
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
@@ -18,23 +19,23 @@ body
                             | Need Help? Call Us: 
                             strong(style='color: #83b735; margin-right:20px') +256 704535543
                     .vline.mt-2.mr-5
-                    li.nav-item.dropdown(style='margin-left:auto ;')
+                    li.nav-item.dropdown(style='margin-left: auto')
                         a.nav-link.dropdown-toggle.text-secondary.mr-3(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
                             | Language
                         ul.dropdown-menu
                             li
-                                a.dropdown-item(href='#') Profile
+                                a.dropdown-item(href='#') English
                             li
                                 a.dropdown-item(href='#')
                             li
-                                a.dropdown-item(href='#') Signout
+                                a.dropdown-item(href='#') Luganda
     .container-fluid.mb-5
         .row
             .col.pl-5
                 img.img-logo(src='../images/b-blogo4.png' alt='')
             .col
                 form.form-inline.my-2.my-lg-0
-                    input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width:350px ;' placeholder='Search Here' aria-label='Search')
+                    input.form-control.mr-sm-2.mt-3.search-style(type='search' style='width: 350px' placeholder='Search Here' aria-label='Search')
             .col
                 div
                     img(src='' alt='')
@@ -45,9 +46,9 @@ body
                     p.mt-1 My Chart
     nav.navbar.navbar-expand-lg.navbar-dark.text-white.menu-bar
         .container-fluid
-            div
-                form.form-inline.my-2.my-lg-0
-                    input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
+            .cart-header
+                a.active.menu-item(href='/') Home 
+                span.cart-header-span  / #{produceCategory.producecategory} Produce
             button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
                 span.navbar-toggler-icon
             #navbarNav.collapse.navbar-collapse
@@ -55,57 +56,18 @@ body
                     li.nav-item
                         a.nav-link.active.ml-5.menu-item(aria-current='page' href='/') Home
                     li.nav-item
-                        a.nav-link.active.menu-item(href='#') Blog
+                        a.nav-link.active.menu-item(href='#') Special Deals
                     li.nav-item
-                        a.nav-link.active.menu-item(href='#') About Us
+                        a.nav-link.active.menu-item(href='#') Blog
                     li.nav-item
                         a.nav-link.active.menu-item(href='#') Contact Us
             .app-entry
                 a(href="/login") Login
                 a(href="/signup") Signup
-    #carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
-        .carousel-inner
-            .carousel-item.active
-                img.d-block.w-100.img-resize(src='images/img1.jpg' alt='...')
-            .carousel-item
-                img.d-block.w-100.img-resize(src='images/img2.jpg' alt='...')
-            .carousel-item
-                img.d-block.w-100.img-resize(src='images/img3.jpg' alt='...')
-            .carousel-item
-                img.d-block.w-100.img-resize(src='images/img5.jpg' alt='...')
-    .container-fluid.category-container
-        .card.category-card
-            .card-body.card-content
-                a(href="/produce/Horticulture")
-                    img(src='../images/harvest.png')
-                    .category-txt
-                        h5.card-title.text-muted.cat-card-text Horticulture
-        .card.category-card
-            .card-body.card-content
-                a(href="/produce/Poultry")
-                    img(src='../images/poultry.png')
-                    .category-txt
-                        h5.card-title.text-muted.cat-card-text Poultry
-        .card.category-card
-            .card-body.card-content
-                a(href="/produce/Dairy Products")
-                    img(src='../images/milk-product.png')
-                    .category-txt
-                        h5.card-title.text-muted.cat-card-text Dairy Products
-    .container
-        .daily-header
-            h1 Daily Groceries
-        .groceries-items
-            div
-                h4 Top Selling
-            div
-                h4 Dairy Products
-            div
-                h4 New Arrivals
-    .container-fluid
+    .container-fluid(style="margin: auto;")
         .produce-container
-            if products.length
-                each product in products
+            if produceCategory.length
+                each product in produceCategory
                     if product.availability == "N/A"
                         .card.produce-card
                             .card-body
@@ -127,9 +89,9 @@ body
                                         h6 Shs  #{product.unitprice} 
                                     .original-price
                                         h6.text-muted
-                                            s discount 
+                                            s Shs 1500 
                                     .discount
-                                        h6 %
+                                        h6 45%
                                 .shop-btn
                                     a.rounded-pill(href='/singleitem/'+product._id) Shop Now
                     else 
@@ -151,13 +113,11 @@ body
                                         h6 Shs  #{product.unitprice} 
                                     .original-price
                                         h6.text-muted
-                                            s discount 
+                                            s Shs 1500 
                                     .discount
-                                        h6 0%
+                                        h6 45%
                                 .shop-btn
                                     a.rounded-pill(href='/singleitem/'+product._id) Shop Now
-    .container.load-more
-        button(type='submit') Load More
     .container-fluid.footer
         .top-spacings
             .row

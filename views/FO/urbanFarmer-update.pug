@@ -1,0 +1,124 @@
+extends layout 
+block content
+    main.content
+        nav.navbar.navbar-expand-lg.shadow.p-2.mb-3.bg-white.bottom-shadow
+            .container-fluid
+                a.navbar-brand.text-dark(href='#' style= 'margin-right:50%') Update FarmerOne
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0.ml-auto
+                        li.nav-item.dropdown(style='margin-left: auto')
+                            a.nav-link.dropdown-toggle.text-secondary(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') #{loggedUser.firstname +" "+loggedUser.lastname}
+                            
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='#') Profile
+                                li
+                                    a.dropdown-item(href='#')
+                                li
+                                    form(method="POST" action='/logout')
+                                        button.btn(type= 'submit' width='100px') Signout
+        .container-fluid.form-style
+            .logo-div
+                img.user-logo.mb-2(src='/images/logo.png' alt='Ufarm logo')
+            form#registerFO.form(action='/urbanfarmer/update?id='+urbanFarmer._id name='updateurbanfarmer' method='POST')
+                h5.text-muted.text-center Upadate #{urbanFarmer.firstname +" "+urbanFarmer.lastname}'s Details
+                hr
+                .row
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='firstname')
+                                | First Name:
+                                small.asterisk  *
+                            input#firstname(type='text' name='firstname' autocomplete='off' value=urbanFarmer.firstname)
+                            //- small#firstnameerr
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='lastname')
+                                | Last Name:
+                                small.asterisk  *
+                            input#lastname(type='text' name='lastname' autocomplete='off' value=urbanFarmer.lastname)
+                            //- small#lastnameerr
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='uniquenumber')
+                                | Unique Number:
+                                small.asterisk  *
+                            input#uniquenumber(type='text' name='uniquenumber' autocomplete='off' value=urbanFarmer.uniquenumber)
+                            //- small#uniquenumbererr
+                .row
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='ninnumber')
+                                | NIN Number:
+                                small.asterisk  *
+                            input#ninnumber(type='text' name='ninnumber' autocomplete='off' value=urbanFarmer.ninnumber)
+                            //- small#ninNumberError 
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='phonenumber')
+                                | Phone Number:
+                                small.asterisk  *
+                            input#phonenumber(type='text' name='phonenumber' value=urbanFarmer.phonenumber)
+                            //- small#phonenumbererr
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='birthdate')
+                                | Date of Bith #{moment(urbanFarmer.birthdate,"YYYY-MM-DD").format("DD-MM-YYYY")}
+                                small.asterisk  *
+                            input#birthdate(type='date' name='birthdate' autocomplete='off'  value=urbanFarmer.birthdate)
+                            //- small#birthdateerr
+                .row
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='gender') Gender:
+                            .radio#gender
+                                input#gender1(type='radio' name='gender' autocomplete='off' value= 'Female' checked = urbanFarmer.gender === 'Female')
+                                span Female
+                                input#gender2(type='radio' name='gender' autocomplete='off' value= 'Male' checked = urbanFarmer.gender === 'Male')
+                                span Male
+                                input#gender3(type='radio' name='gender' autocomplete='off' value= 'Others' checked = urbanFarmer.gender === 'Others')
+                                span Others
+                            //- small#genderradioerr
+                    .col-lg-6.col-md-12.col-sm-12
+                        .form-field
+                            label Activities:
+                            .activity
+                                input#activity1.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Horticulture' checked = urbanFarmer.activity === 'Horticulture')
+                                span.checkbox-text Horticulture
+                                input#activity2.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Poultry' checked = urbanFarmer.activity === 'Poultry')
+                                span.checkbox-text Poultry
+                                input#activity3.checkbox-size1(type='checkbox' name='activity' autocomplete='off' value='Dairy products' checked = urbanFarmer.activity === 'Dairy products')
+                                span.checkbox-text Dairy Products
+                hr.mt-1
+                p.text-muted Edit Urban Farmer&apos;s Direction
+                .row
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='streetname')
+                                | Street Name:
+                                small.asterisk  *
+                            input#streetname(type='text' name='streetname' autocomplete='off' value=urbanFarmer.streetname)
+                            //- small#streetnameerr
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='housenumber')
+                                | House Number:
+                                small.asterisk  *
+                            input#housenumber(type='text' name='housenumber' autocomplete='off' value=urbanFarmer.housenumber )
+                            //- small#housenumbererr
+                    .col-lg-4.col-md-12.col-sm-12
+                        .form-field
+                            label(for='email')
+                                | Email:
+                                small  *
+                            input#email(type='text' name='email' autocomplete='off' value=urbanFarmer.email)
+                            //- small#emailerr
+                .container.FO-form-btn
+                    .button1
+                        input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')
+        .footer
+            small.mt-4.ml-5 &copy; Refactory Cohort 12
+            small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
+    script(src='/bootstrap-js/js/bootstrap.bundle.min.js')

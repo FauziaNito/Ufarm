@@ -38,6 +38,17 @@ router.get("/singleitem/:id",connectEnsureLogin.ensureLoggedIn(), async (req, re
 	
 });
 
+// Produce By Category get Route
+router.get("/produce/:category", async (req, res) => {
+	try {
+			const productCategory = await Produce.find({ producecategory: req.params.category });
+			res.render("site/producecategory", { loggedUser: req.session.user, produceCategory: productCategory });
+	} catch (error) {
+		res.status(400).send("Unable to get produce category");
+	}
+
+});
+
 // Order Form Post route
 router.post("/order", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	req.session.user = req.user;

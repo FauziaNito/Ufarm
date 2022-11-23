@@ -13,7 +13,7 @@ html(lang='en')
       .container-fluid
         div
           img.menu-logo(src='../images/b-wlogo3.png' alt='')
-        div
+        //- div
           form.form-inline.my-2.my-lg-0
             input.form-control.mr-sm-2.mt-0.menu-search.text-white(type='search' style='width:350px;' placeholder='Search by type' aria-label='Search')
         button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
@@ -21,7 +21,7 @@ html(lang='en')
         #navbarNav.collapse.navbar-collapse
           ul.navbar-nav
             li.nav-item
-              a.nav-link.active.ml-5.menu-item(aria-current='page' href='#') Home
+              a.nav-link.active.ml-5.menu-item(aria-current='page' href='/') Home
             li.nav-item
               a.nav-link.active.menu-item(href='#') Special Deals
             li.nav-item
@@ -29,7 +29,7 @@ html(lang='en')
             li.nav-item
               a.nav-link.active.menu-item(href='#') Contact Us
         .app-entry
-          a.btn(href="/signup") Signup
+          a(href="/signup") Signup
     .container-fluid.form-style-login
       .form-container
         .logo-div
@@ -39,7 +39,7 @@ html(lang='en')
           hr
           .form-field
             label(for='uniquenumber')
-              | Unique Number:
+              | Username:
               small  *
             input#uniquenumber(type='text' name='uniquenumber' autocomplete='off')
             small#uniquenumbererr
@@ -48,9 +48,12 @@ html(lang='en')
               | Password:
               small  *
             input#password(type='password' name='password' autocomplete='off')
-            small#passworderr
+            .password-container
+              small#passworderr
+              .password-reset
+                small forgot Password
           .site-login-btn
-            button.btn.rounded-pill.button-color(type='submit') Login
+            button.rounded-pill.button-color(type='submit') Login
           .account-signup
             small(style='padding-right:5px') Don't have an Account
               a(href='/signup' style='font-size:13px; color: #fe9800; margin-left:5px') SignUp

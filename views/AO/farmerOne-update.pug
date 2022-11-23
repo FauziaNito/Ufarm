@@ -25,20 +25,20 @@ block content
                 h5.text-muted.text-center Upadate FarmerOne's Details
                 hr
                 .row
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='firstname') First Name:
                                 small.asterisk  *
                             input#firstname(type='text' name='firstname' autocomplete='off'  value=farmerOne.firstname)
                             //- small#firstnameerr
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='lastname')
                                 | Last Name:
                                 small.asterisk  *
                             input#lastname(type='text' name='lastname' autocomplete='off'  value=farmerOne.lastname)
                             //- small#lastnameerr    
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='uniquenumber')
                                 | Unique Number:
@@ -46,21 +46,21 @@ block content
                             input#uniquenumber.text-muted(type='text' name='uniquenumber' autocomplete='off' placeholder='forexample FOW1-001' value=farmerOne.uniquenumber)
                             //- small#uniquenumbererr
                 .row
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='ninnumber')
                                 | NIN Number:
                                 small.asterisk  *
                             input#ninnumber(type='text' name='ninnumber' autocomplete='off' value=farmerOne.ninnumber)
                             //- small#ninNumberError 
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='phonenumber')
                                 | Phone Number:
                                 small.asterisk  *
                             input#phonenumber(type='text' name='phonenumber' value=farmerOne.phonenumber)
                             //- small#phonenumbererr 
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='residenttype') Resident Type:
                             select#residenttype(name='residenttype')
@@ -69,21 +69,21 @@ block content
                                 option(value='Temporary' selected = farmerOne.residenttype === 'Temporary') Temporary
                             //- small#residenttypeerr 
                 .row
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='periodofstay')
                                 | Period of Stay:
                                 small.asterisk  *
                             input#periodofstay(type='number' name='periodofstay' autocomplete='off' value=farmerOne.periodofstay)
                             //- small#periodofstayerr 
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='birthdate') 
                                 | Date of Bith #{moment(farmerOne.birthdate,"YYYY-MM-DD").format("DD-MM-YYYY")}
                                 small.asterisk  *
                             input#birthdate(type='date' name='birthdate' autocomplete='off' value=farmerOne.birthdate)
                             //- small#birthdateerr 
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='gender') Gender:
                             .radio#gender
@@ -97,7 +97,7 @@ block content
                 hr.mt-1
                 p.text-muted Add FarmerOne&apos;s Direction Coordinates
                 .row
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='ward') Ward:
                             select#ward(name='ward')
@@ -107,14 +107,14 @@ block content
                                 option(value='Ward 3' selected = farmerOne.ward === 'Ward 3') Ward 3
                                 option(value='Ward 4' selected = farmerOne.ward === 'Ward 4') Ward 4
                             //- small#warderr 
-                    .col.column-stretch-left
+                    .col-lg-4.col-md-12.col-sm-12.column-stretch-left
                         .form-field
                             label(for='streetname')
                                 | Street Name:
                                 small.asterisk  *
                             input#streetname(type='text' name='streetname' autocomplete='off' value=farmerOne.streetname)
                             //- small#streetnameerr 
-                    .col
+                    .col-lg-4.col-md-12.col-sm-12
                         .form-field
                             label(for='housenumber')
                                 | House Number:
@@ -124,7 +124,7 @@ block content
                 .container.FO-form-btn
                     .button1
                         input.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit' value='Update')
-        .footer
+        //- .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12
             small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
     script(src='/bootstrap-js/js/bootstrap.bundle.min.js')

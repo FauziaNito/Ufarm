@@ -108,7 +108,7 @@ router.get("/farmerone/update/:id", async (req, res) => {
 		const updateFarmerOne = await Registration.findOne({ _id: req.params.id });
 		res.render("AO/farmerOne-update", { loggedUser: req.session.user, farmerOne: updateFarmerOne });
 	} catch (error) {
-		res.status(400).send("Unable to update produce");
+		res.status(400).send("Unable to get this FarmerOne");
 	}
 });
 

@@ -26,7 +26,7 @@ block content
                 h5.text-muted.text-center Add Your Produce Details Here
                 hr
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='producecategory') Produce Category:
                             select#producecategory(name='producecategory')
@@ -37,7 +37,7 @@ block content
                                 //- option(value= `${loggedUser.activity[0]}`)
                                 //- option(value= loggedUser._id) #{loggedUser.activity[2]}
                             small#producecategoryerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label Procude Name:
                             select#producename(name='producename')
@@ -59,7 +59,7 @@ block content
                                 option(value="Turkey") Turkey
                                 option(value="Beef") Beef
                             small#producenameerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='units') Units of Measurement:
                             select#units(name='units')
@@ -70,36 +70,36 @@ block content
                                 option(value='Bunch') Bunch
                                 option(value='Piece') Piece
                                 option(value='Sack') Sack
-                                option(value='Sack') Tray
+                                option(value='Tray') Tray
                             small#unitserr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='regdate')
                                 | Date of Registration:
                                 small.asterisk  *
                             input#regdate(type='date' name='regdate' autocomplete='off')
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='quantity')
                                 | Quantity
                                 small.asterisk  *
                             input#quantity(type='number' name='quantity' autocomplete='off' placeholder='Enter Unit Quantity')
                             small#quantityerr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='currency')
                                 | Currency:
                                 small.asterisk  *
                             input#currency(name='currency' autocomplete='off' value='UGX' readonly='true')
-                    .col 
+                    .col-lg-3.col-md-6.col-sm-12 
                         .form-field
                             label(for='price')
                                 | Unit Price:
                                 small.asterisk  *
                             input#unitprice.ml-2.flex-fill(type='number' name='unitprice' placeholder='Enter Unit Price' autocomplete='off' onchange='totalPriceValue()')
                             small#unitpriceerr
-                    .col 
+                    .col-lg-3.col-md-6.col-sm-12 
                         .form-field
                             label(for='totalprice')
                                 | Total Price:
@@ -107,7 +107,7 @@ block content
                             input#totalprice.ml-2.flex-fill(type='number' name='totalprice' placeholder='Enter Price' autocomplete='off')
                             small#totalpriceerr
                 .row
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='mod') Mode of Delivery:
                             select#modeofdelivery(name='modeofdelivery')
@@ -115,7 +115,7 @@ block content
                                 option(value='Pick Up') Pick Up
                                 option(value='Home Delivery') Home Delivery
                             small#modeofdelivererr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='mod') Mode of Payment:
                             select#modeofpayment(name='modeofpayment')
@@ -123,14 +123,14 @@ block content
                                 option(value='Cash') Cash
                                 option(value='Mobile Money') Mobile Money
                             small#modeofpaymenterr
-                    .col 
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='imageupload')
                                 | Upload Produce Image Here:
                                 small.asterisk  *
                             input#imageupload.ml-2.form-control(type='file' name='imageupload' autocomplete='off')
                             small#imageuploaderr
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label Produce Type:
                             .radio#producttype
@@ -140,15 +140,8 @@ block content
                                 span NoneOrganic
                             small#producetyperadioerr
                 .row 
-                    .col
-                        .form-field
-                            label(for='farmername')
-                                | Farmer's Name:
-                                small.asterisk  *
-                            select#farmername(name='farmername')
-                                if loggedUser
-                                    option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
-                    .col
+
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='email')
                                 | Email:
@@ -156,7 +149,7 @@ block content
                             select#email(name='email')
                                 if loggedUser
                                     option(value = loggedUser.email) #{loggedUser.email}
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='phonenumber')
                                 | Phone Number:
@@ -165,7 +158,7 @@ block content
                                 if loggedUser
                                     option(value = loggedUser.phonenumber) #{loggedUser.phonenumber} 
                             small#phonenumbererr
-                    .col
+                    .col-lg-6.col-md-12.col-sm-12
                         .form-field
                             label(for='desc')
                                 | Produce Description:
@@ -175,16 +168,19 @@ block content
                 hr.mt-1
                 p.text-muted Farmer's Details and Home Direction
                 .row
-                    .col
+                    .form-field
+                        if loggedUser
+                            input( name='farmerid' type='hidden' value = loggedUser._id) 
+                    small#farmeridrerr
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
-                            label(for='farmerid')
-                                | Farmer's Id:
-                                small.asterisk  * 
-                            select#farmerid(name='farmerid')
+                            label(for='farmername')
+                                | Farmer's Name:
+                                small.asterisk  *
+                            select#farmername(name='farmername')
                                 if loggedUser
-                                    option(value = loggedUser._id) #{loggedUser._id} 
-                            small#farmeridrerr
-                    .col
+                                    option(value = loggedUser.firstname+ " "+loggedUser.lastname) #{loggedUser.firstname +" "+loggedUser.lastname} 
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='ward')
                                 | Farmer's Ward:
@@ -192,7 +188,7 @@ block content
                             select(name='ward')
                                 if loggedUser
                                     option(value = loggedUser.ward) #{loggedUser.ward}
-                    .col.column-stretch-left
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='streetname')
                                 | Street Name:
@@ -201,7 +197,7 @@ block content
                                 if loggedUser
                                     option(value = loggedUser.streetname) #{loggedUser.streetname} 
                             small#streetnameerr 
-                    .col
+                    .col-lg-3.col-md-6.col-sm-12
                         .form-field
                             label(for='housenumber')
                                 | House Number:
@@ -212,15 +208,12 @@ block content
                             small#housenumbererr
 
                 .row
-                    .col 
-                        .container.produce-farmer-details
-                            .produce-farmer-details.me-auto
-                            .button1
-                                button.btn.btn-primary.mt-1.form-add-btn.mr-auto(type='submit')
+                    .col
+                        .container.FO-form-btn
+                                button.mt-1.form-add-btn.mr-auto(type='submit')
                                     | Add
                                     |
-                            .button1
-                                button.btn.btn-primary.mt-1.ml-4.form-clear-btn.mr-auto(type='reset' style='width:120px ;')
+                                button.mt-1.ml-4.form-clear-btn.mr-auto(type='reset' style='width:120px ;')
                                     | Clear
         .footer
             small.mt-4.ml-5 &copy; Refactory Cohort 12

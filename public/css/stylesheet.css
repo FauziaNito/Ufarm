@@ -5,6 +5,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	box-sizing: border-box;
+	min-height: 100vh;
 	/* font-family: "Verdana";
     font-size: 16px; */
 }
@@ -13,11 +14,11 @@ body {
 	/* height: 100%; */
 	display: flex;
 }
-.dashboard-icon{
+.dashboard-icon {
 	margin-left: 14px;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
@@ -61,24 +62,34 @@ aside a:hover {
 	margin: auto;
 	border-color: #83b735 !important ;
 }
-.login-btn {
-	width: 180px;
+.new-btn{
 	text-align: center;
 }
-.big-btn-color {
-	background-color: #18a15c !important ;
+.new-btn button{
+	/* width: 180px; */
+	padding: 9px 18px;
+	border-radius: 5px !important;
+	background-color: #18a15c;
+	color: white;
 	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center !important;
 }
-.form-add-btn {
-	width: 120px;
-	background-color: #18a15c !important;
-	border: #18a15c;
-	border: none !important;
+.new-btn a{
+	text-decoration: none;
 }
 .form-clear-btn {
 	width: 120px;
 	background-color: #fe9800 !important;
 	border: #fe9800;
+	margin-left: 15px;
+	border-radius: 5px !important;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	
 }
 .action-btn {
 	width: 75px;
@@ -142,13 +153,24 @@ ul.sidebar-list li {
 	flex-wrap: wrap;
 	margin-bottom: 2%;
 	margin-left: 15px;
+	/* flex-grow: 1; */
 	/* width: 10rem; */
 }
+.card-font {
+	font-size: 115.5%;
+	margin-right: 5%;
+}
+.card-total-font {
+	font-weight: bold;
+	font-size: 109%;
+}
 .footer {
+	/* position: fixed;
+	bottom: 0; */
 	display: flex;
-	margin-top: 40px;
+	margin-top: 10px;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	background-color: #f1f1f1;
 	justify-content: space-between;
 }
@@ -189,18 +211,16 @@ ul.sidebar-list li {
 	background-color: #0a682b;
 	background-image: conic-gradient(#dc143b 70deg, #77cc6d 70deg 150deg, #3fe0d0 150deg 250deg, #fda500 45deg 40deg);
 }
-.month-container{
+.month-container {
 	display: flex;
 	text-align: center;
 	justify-content: center;
-
 }
 .box {
 	width: 9px;
 	height: 9px;
 	margin-right: 2px;
 	margin-top: 4px;
-	
 }
 
 /* Urban Farmer styles */
@@ -268,8 +288,7 @@ select {
 select:focus {
 	outline: none;
 }
-.form-field textarea
-{
+.form-field textarea {
 	border: solid 3px #f0f0f0;
 	border-radius: 3px;
 	padding: 0px;
@@ -278,7 +297,7 @@ select:focus {
 	display: block;
 	width: 100%;
 }
-.form-field textarea:focus{
+.form-field textarea:focus {
 	outline: none;
 }
 .checkbox-size {
@@ -339,6 +358,29 @@ select:focus {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 }
+.FO-form-btn button {
+	/* padding-top: 10px; */
+	width: 120px;
+	height: 36px;
+	border-radius: 5px !important;
+	background-color: #18a15c;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center !important;
+}
+
+.form-add-btn {
+	width: 120px;
+	border-radius: 5px !important;
+	background-color: #18a15c !important;
+	border: #18a15c;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-decoration: none;
+}
 .coordinate-container {
 	flex-grow: 1 !important;
 }
@@ -361,9 +403,18 @@ select:focus {
 .asterisk {
 	color: red;
 }
+.btn-delete-style{
+	border: none !important;
+	background-color: transparent;
+	margin-left: 6px !important;
+}
+.edit-icon{
+	align-self: center !important;
+	margin-left: 20px !important;
+}
 
 /* MEDIA QUERIES */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
 	.sidebar {
 		display: none;
 	}
@@ -390,9 +441,9 @@ select:focus {
 	font-size: 17px;
 	color: #fe9800;
 }
-a :hover {
+/* a :hover {
 	color: #bac34e !important;
-}
+} */
 
 .approve-btn {
 	width: 85px;

@@ -37,17 +37,23 @@ block content
           table.table.table-hover
             thead
               tr
-                th Ward
+                //- th Ward
                 th Produce Total
                 th Projected Sales (UGX)
             tbody
               if wards
-                each ward in wards
-                  tr
-                    td #{ward.ward}
+                //- each ward in wards
+                tr
+                  //- td #{ward.ward}
+                  if (totalC.totalQuantity == '')
+                    td 0
+                  else
                     td #{new Intl.NumberFormat().format(totalC.totalQuantity)}
+                  if (totalC.totalCost == '')
+                    td 0
+                  else
                     td #{new Intl.NumberFormat().format(totalC.totalCost)}
-    .footer
+    //- .footer
       small.mt-4.ml-5 &copy; Refactory Cohort 12
       small.mt-4.mr-5 &copy; Designed By Fauzia | fauzianaava@gmail.com | 0704545576
   script(src='bootstrap-js/js/bootstrap.bundle.js')

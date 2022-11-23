@@ -37,11 +37,11 @@ block content
               h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{totalD.totalQuantity}
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
-            if (totalD == undefined)
+            if (totalP == undefined)
               p 0
             else
               h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalP.totalQuantity}
-          div.d-flex
+          //- div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Total: 
             h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{totalProduce}
       .card.bottom-shadow.border-color.ml-4.dashboard-card
@@ -50,13 +50,22 @@ block content
           img.card-logo.mb-2(src='../images/money-bagg.png' alt='Ufarm logo')
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Hortculture:
-            h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalH.totalCost)} UGX
+            if (totalH == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalH.totalCost)} UGX
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Dairy Products:
-            h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
+            if (totalD == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1.pl-4(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalD.totalCost)} UGX
           div.d-flex
             p.card-text.text-muted.mb-0(style='font-size:18px; margin-right:5px') Poultry:
-            //- h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalP.totalCost)} UGX
+            if (totalP == undefined)
+              p 0
+            else
+              h5.card-title.text-muted.text-center.mt-0.pt-1(style='font-weight: bold;font-size:17px;') #{new Intl.NumberFormat().format(totalP.totalCost)} UGX
       .card.bottom-shadow.border-color.ml-4.dashboard-card
         .card-body.m-1.p-2.pt-1.text-center
           p.card-text.p-0.m-2.text-muted(style='font-size:20px;font-weight: bold;') Total User Count
@@ -152,9 +161,9 @@ block content
                   th(scope='col') Phone Number
               tbody
                 if newFarmers.length 
-                  each farmer in newFarmers
+                  each farmer, index in newFarmers
                     tr
-                      th(scope='row') 1
+                      td(scope='row')= index + 1
                       td #{farmer.lastname+ " "+farmer.firstname}
                       td #{farmer.ward}
                       td 0#{farmer.phonenumber}
@@ -172,14 +181,14 @@ block content
                   th(scope='col') Phone Number
               tbody
                 if inactiveFarmers.length 
-                  each suspendedFarmer in inactiveFarmers
+                  each suspendedFarmer, index in inactiveFarmers
                     tr
-                      th(scope='row') 1
+                      th(scope='row')= index + 1
                       td #{suspendedFarmer.lastname+ " "+suspendedFarmer.firstname}
                       td #{suspendedFarmer.ward}
                       td #{suspendedFarmer.role}
                       td 0#{suspendedFarmer.phonenumber}
-    .container
+    //- .container
       .card.mt-5(style='width: 100%;')
         .card-body
           h5.card-title Recent FO Activities
